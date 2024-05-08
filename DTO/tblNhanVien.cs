@@ -28,10 +28,7 @@ namespace DTO
         public string DiaChi { get; set; }
         public string SDT { get; set; }
         public string Email { get; set; }
-        public Nullable<System.DateTime> NgayVao { get; set; }
-        public string NganHang { get; set; }
-        public string SoTaiKhoan { get; set; }
-        public string CapQuyen { get; set; }
+        public Nullable<int> CapQuyen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblHoaDonBan> tblHoaDonBans { get; set; }

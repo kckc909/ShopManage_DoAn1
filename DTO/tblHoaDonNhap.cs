@@ -24,6 +24,7 @@ namespace DTO
         public Nullable<System.DateTime> NgayNhap { get; set; }
         public string MaNV { get; set; }
         public string MaNCC { get; set; }
+        public Nullable<int> TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblChiTietHDN> tblChiTietHDNs { get; set; }

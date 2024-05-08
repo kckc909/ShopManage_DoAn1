@@ -24,7 +24,7 @@ namespace DTO
         public string MaMH { get; set; }
         public string TenMH { get; set; }
         public string Mota { get; set; }
-        public Nullable<int> GiaNhap { get; set; }
+        public string LinkHinhAnh { get; set; }
         public Nullable<int> GiaBan { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public string DonViTinh { get; set; }

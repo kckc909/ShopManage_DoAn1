@@ -56,10 +56,10 @@
             this.cbHienThiMatKhau.AutoSize = true;
             this.cbHienThiMatKhau.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.cbHienThiMatKhau.Location = new System.Drawing.Point(9, 244);
-            this.cbHienThiMatKhau.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbHienThiMatKhau.Margin = new System.Windows.Forms.Padding(2);
             this.cbHienThiMatKhau.Name = "cbHienThiMatKhau";
             this.cbHienThiMatKhau.Size = new System.Drawing.Size(118, 17);
-            this.cbHienThiMatKhau.TabIndex = 10;
+            this.cbHienThiMatKhau.TabIndex = 2;
             this.cbHienThiMatKhau.Text = "Hiển thị mật khẩu";
             this.cbHienThiMatKhau.UseVisualStyleBackColor = true;
             this.cbHienThiMatKhau.CheckedChanged += new System.EventHandler(this.cbHienThiMatKhau_CheckedChanged);
@@ -69,9 +69,9 @@
             this.groupBox5.Controls.Add(this.txtTenTaiKhoan);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.groupBox5.Location = new System.Drawing.Point(9, 134);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(195, 43);
             this.groupBox5.TabIndex = 20;
             this.groupBox5.TabStop = false;
@@ -86,7 +86,7 @@
             this.txtTenTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTenTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtTenTaiKhoan.Location = new System.Drawing.Point(5, 18);
-            this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(2);
             this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
             this.txtTenTaiKhoan.Size = new System.Drawing.Size(184, 22);
             this.txtTenTaiKhoan.TabIndex = 0;
@@ -96,9 +96,9 @@
             this.groupBox1.Controls.Add(this.txtMatKhau);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.groupBox1.Location = new System.Drawing.Point(9, 182);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(195, 43);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
@@ -113,11 +113,11 @@
             this.txtMatKhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMatKhau.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtMatKhau.Location = new System.Drawing.Point(5, 18);
-            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(2);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(184, 22);
-            this.txtMatKhau.TabIndex = 0;
+            this.txtMatKhau.TabIndex = 1;
             // 
             // btnDangNhap
             // 
@@ -130,10 +130,10 @@
             this.btnDangNhap.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDangNhap.ForeColor = System.Drawing.Color.White;
             this.btnDangNhap.Location = new System.Drawing.Point(9, 319);
-            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(2);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(195, 37);
-            this.btnDangNhap.TabIndex = 22;
+            this.btnDangNhap.TabIndex = 3;
             this.btnDangNhap.Text = "ĐĂNG NHẬP";
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
@@ -144,11 +144,12 @@
             this.lbQMK.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbQMK.Name = "lbQMK";
             this.lbQMK.Size = new System.Drawing.Size(80, 13);
-            this.lbQMK.TabIndex = 23;
+            this.lbQMK.TabIndex = 2;
             this.lbQMK.Text = "Quên mật khẩu";
             // 
             // F_DangNhap
             // 
+            this.AcceptButton = this.btnDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -161,9 +162,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbHienThiMatKhau);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "F_DangNhap";
             this.Text = "F_DangNhap";
+            this.Load += new System.EventHandler(this.F_DangNhap_Load);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);

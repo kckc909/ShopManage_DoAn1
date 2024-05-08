@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,10 +36,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
@@ -52,6 +62,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C_MatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_MatHang.Designer.cs">
+      <DependentUpon>C_MatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="C_Voucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="C_Voucher.Designer.cs">
+      <DependentUpon>C_Voucher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_HoaDon_HoaDonNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_HoaDon_HoaDonNhap.Designer.cs">
+      <DependentUpon>F_HoaDon_HoaDonNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_HoaDon_KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_HoaDon_KhachHang.Designer.cs">
+      <DependentUpon>F_HoaDon_KhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_MatHang_ThemMatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_MatHang_ThemMatHang.Designer.cs">
+      <DependentUpon>F_MatHang_ThemMatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyEventArgs\EventArgsMatHang.cs" />
     <Compile Include="F_DangKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +117,23 @@
     <Compile Include="F_DangNhap.Designer.cs">
       <DependentUpon>F_DangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_HoaDon_MatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_HoaDon_MatHang.Designer.cs">
+      <DependentUpon>F_HoaDon_MatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_HoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F_HoaDon.Designer.cs">
       <DependentUpon>F_HoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_HoaDon_HoaDonBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_HoaDon_HoaDonBan.Designer.cs">
+      <DependentUpon>F_HoaDon_HoaDonBan.cs</DependentUpon>
     </Compile>
     <Compile Include="F_KhachHang.cs">
       <SubType>Form</SubType>
@@ -144,6 +197,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="C_MatHang.resx">
+      <DependentUpon>C_MatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C_Voucher.resx">
+      <DependentUpon>C_Voucher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_BaoCaoThongKe.resx">
+      <DependentUpon>F_BaoCaoThongKe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_DangKy.resx">
       <DependentUpon>F_DangKy.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,8 +215,50 @@
     <EmbeddedResource Include="F_DangNhap.resx">
       <DependentUpon>F_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_HoaDon.resx">
+      <DependentUpon>F_HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_HoaDon_HoaDonNhap.resx">
+      <DependentUpon>F_HoaDon_HoaDonNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_HoaDon_MatHang.resx">
+      <DependentUpon>F_HoaDon_MatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_HoaDon_HoaDonBan.resx">
+      <DependentUpon>F_HoaDon_HoaDonBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_KhachHang.resx">
+      <DependentUpon>F_KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_KhuyenMai.resx">
+      <DependentUpon>F_KhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_LoaiHang.resx">
+      <DependentUpon>F_LoaiHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_MainParent.resx">
       <DependentUpon>F_MainParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_MatHang.resx">
+      <DependentUpon>F_MatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_MatHang_ThemMatHang.resx">
+      <DependentUpon>F_MatHang_ThemMatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_NhaCungCap.resx">
+      <DependentUpon>F_NhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_NhanVien.resx">
+      <DependentUpon>F_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_TaiKhoan.resx">
+      <DependentUpon>F_TaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_TrangChu.resx">
+      <DependentUpon>F_TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_Voucher.resx">
+      <DependentUpon>F_Voucher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -164,6 +268,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -189,5 +294,73 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-avatar-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-bill-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-customer-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-supplier-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-image-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-sale-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-loyalty-card-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-employee-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-report-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-account-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-trash-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-restore-50.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

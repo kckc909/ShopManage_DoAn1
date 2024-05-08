@@ -12,13 +12,25 @@ namespace GUI
 {
     public partial class F_DangKyDangNhap : Form
     {
-        public F_DangKyDangNhap()
+        private static F_DangKyDangNhap instance;
+
+        private F_DangKyDangNhap()
         {
             InitializeComponent();
         }
 
+        public static F_DangKyDangNhap Instance()
+        {
+            if (instance == null)
+            {
+                instance = new F_DangKyDangNhap();
+            }
+            return instance;
+        }
+
         F_DangKy f_DangKy = new F_DangKy() { TopLevel = false };
         F_DangNhap f_DangNhap = new F_DangNhap() { TopLevel = false };
+
         private void lbDangKyDangNhap_MouseEnter(object sender, EventArgs e)
         {
             lbDangKyDangNhap.Font = new Font(lbDangKyDangNhap.Font, FontStyle.Underline);
@@ -34,14 +46,14 @@ namespace GUI
             if (lbDangKyDangNhap.Text == "Đăng ký")
             {
                 f_DangKy.Show();
-                f_DangNhap.Hide();
+                f_DangKy.BringToFront();
 
                 lbDangKyDangNhap.Text = "Đăng nhập";
             }
             else
             {
                 f_DangNhap.Show();
-                f_DangKy.Hide();
+                f_DangNhap.BringToFront();
 
                 lbDangKyDangNhap.Text = "Đăng ký";
             }
@@ -54,7 +66,13 @@ namespace GUI
 
             f_DangNhap.Show();
             lbDangKyDangNhap.Text = "Đăng ký";
+
+            f_DangNhap.DangNhapThanhCong += AnFormDangNhapDangKy;
         }
 
+        void AnFormDangNhapDangKy(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

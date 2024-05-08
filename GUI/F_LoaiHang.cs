@@ -16,5 +16,15 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void F_LoaiHang_SizeChanged(object sender, EventArgs e)
+        {
+            pnTT.Width = pnTT.Width == 400 ? 550 : 400;
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,5 +16,10 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void F_KhachHang_SizeChanged(object sender, EventArgs e)
+        {
+            pnLeft.Width = pnLeft.Width == 400 ? 550 : 400;
+        }
     }
 }

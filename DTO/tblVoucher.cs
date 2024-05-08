@@ -17,21 +17,22 @@ namespace DTO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblVoucher()
         {
+            this.tblApDungVouchers = new HashSet<tblApDungVoucher>();
             this.tblSoHuuVouchers = new HashSet<tblSoHuuVoucher>();
-            this.tblHoaDonBans = new HashSet<tblHoaDonBan>();
         }
     
         public string MaV { get; set; }
         public string TenV { get; set; }
+        public string MoTa { get; set; }
         public Nullable<int> GiaTri { get; set; }
         public string DonVi { get; set; }
         public Nullable<int> GTToiThieu { get; set; }
         public Nullable<int> GTToiDa { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblApDungVoucher> tblApDungVouchers { get; set; }
         public virtual tblDonVi tblDonVi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblSoHuuVoucher> tblSoHuuVouchers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblHoaDonBan> tblHoaDonBans { get; set; }
     }
 }

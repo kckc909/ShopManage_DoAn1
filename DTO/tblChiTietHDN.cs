@@ -17,6 +17,7 @@ namespace DTO
         public string MaHDN { get; set; }
         public string MaMH { get; set; }
         public int SoLg { get; set; }
+        public Nullable<int> GiaNhap { get; set; }
     
         public virtual tblHoaDonNhap tblHoaDonNhap { get; set; }
         public virtual tblMatHang tblMatHang { get; set; }

@@ -20,7 +20,7 @@ namespace DTO
             this.tblNhanViens = new HashSet<tblNhanVien>();
         }
     
-        public string CapQuyen { get; set; }
+        public int CapQuyen { get; set; }
         public string Ten { get; set; }
         public string MoTa { get; set; }
     

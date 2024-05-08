@@ -23,6 +23,7 @@ namespace DTO
     
         public string MaKM { get; set; }
         public string TenKM { get; set; }
+        public string MoTa { get; set; }
         public Nullable<int> PhamTramGiam { get; set; }
         public Nullable<System.DateTime> NgayBatDau { get; set; }
         public Nullable<System.DateTime> NgayKetThuc { get; set; }
