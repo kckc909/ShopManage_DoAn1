@@ -39,7 +39,8 @@ create table tblQuyen(
 )
 create table tblLoaiHang(
 	MaLoai char(10) primary key,
-	TenLoai nvarchar(50) not null
+	TenLoai nvarchar(50) not null,
+	MoTa nvarchar(max)
 )
 create table tblNCC(
 	MaNCC char(10) primary key,
@@ -76,13 +77,12 @@ create table tblKhachHang(
 create table tblNhanVien(
 	MaNV char(10) primary key,
 	TenNV nvarchar(50) not null,
+	GioiTinh int,
 	NgaySinh date,
 	DiaChi nvarchar(50),
 	SDT char(10),
 	Email char(50),
-	--NgayVao date,
-	--NganHang nvarchar(50),
-	--SoTaiKhoan char(20),
+	Avatar nvarchar(max),
 	CapQuyen int references tblQuyen(CapQuyen) on update cascade on delete cascade
 )
 create table tblHoaDonBan(
@@ -147,3 +147,8 @@ create table tblGhiChu(
 )
 
 
+--alter table tblNhanVien
+--add GioiTinh int
+
+--alter table tblNhanVien
+--add Avatar nvarchar(max)

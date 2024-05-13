@@ -10,12 +10,20 @@ namespace BUS
 {
     public class BUS_KhuyenMai
     {
-        DAL_KhuyenMai DAL_KhuyenMai = new DAL_KhuyenMai();
+        DAL_KhuyenMai dal = new DAL_KhuyenMai();
         public tblKhuyenMai LayKhuyenMai(string MaKM)
         {
-            return DAL_KhuyenMai.DanhSachKhuyenMai().Find(x => x.MaKM.Trim() == MaKM.Trim());
+            return dal.DanhSachKhuyenMai().Find(x => Equals(x.MaKM.Trim(), MaKM));
         }
-        public List<tblKhuyenMai> DanhSach() => DAL_KhuyenMai.DanhSachKhuyenMai();
-
+        public void Them(tblKhuyenMai KM) => dal.Them(KM);
+        public void Sua(tblKhuyenMai _old, tblKhuyenMai _new) => dal.Sua(_old, _new);
+        public void Xoa(tblKhuyenMai km) => dal.Xoa(km);
+        public List<tblKhuyenMai> DanhSach() => dal.DanhSachKhuyenMai();
+        public List<tblKhuyenMai> DanhSach(string str) => dal.DanhSachKhuyenMai().Where(x=> 
+            x.MaKM.Contains(str)||
+            x.TenKM.Contains(str)||
+            (x.MoTa != null && x.MoTa.Contains(str)) ||
+            x.PhamTramGiam.Value.ToString().Contains(str)
+            ).ToList();
     }
 }

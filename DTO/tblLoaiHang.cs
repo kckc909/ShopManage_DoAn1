@@ -22,6 +22,7 @@ namespace DTO
     
         public string MaLoai { get; set; }
         public string TenLoai { get; set; }
+        public string MoTa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblMatHang> tblMatHangs { get; set; }

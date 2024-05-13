@@ -9,88 +9,43 @@ namespace DAL
 {
     public class DAL_NhanVien
     {
+        ShopDatabaseEntities db = new ShopDatabaseEntities();
         public void Them(tblNhanVien NhanVien)
         {
-            try
+            if (NhanVien is null || db.tblNhanViens.ToList().Exists(x => Equals(x.MaNV, NhanVien.MaNV)))
             {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    db.tblNhanViens.Add(NhanVien);
-                    db.SaveChanges();
-                }
+                return;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            db.tblNhanViens.Add(NhanVien);
+            db.SaveChanges();
         }
         public void Sua(tblNhanVien OldNhanVien, tblNhanVien NewNhanVien)
         {
-            try
+            tblNhanVien NhanVien = db.tblNhanViens.ToList().Find(x => Equals(x.MaNV, OldNhanVien.MaNV));
+            if (NhanVien is null)
             {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    tblNhanVien NhanVien = db.tblNhanViens.ToList().Find(x => Equals(x.MaNV, OldNhanVien.MaNV));
-
-                    NhanVien.TenNV = NewNhanVien.TenNV;
-                    NhanVien.NgaySinh = NewNhanVien.NgaySinh;
-                    NhanVien.DiaChi = NewNhanVien.DiaChi;
-                    NhanVien.SDT = NewNhanVien.SDT;
-                    NhanVien.Email = NewNhanVien.Email;
-                    NhanVien.CapQuyen = NewNhanVien.CapQuyen;
-
-                    db.SaveChanges();
-                }
+                return;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            NhanVien.TenNV = NewNhanVien.TenNV;
+            NhanVien.NgaySinh = NewNhanVien.NgaySinh;
+            NhanVien.Avatar = NewNhanVien.Avatar;
+            NhanVien.GioiTinh = NewNhanVien.GioiTinh;
+            NhanVien.DiaChi = NewNhanVien.DiaChi;
+            NhanVien.SDT = NewNhanVien.SDT;
+            NhanVien.Email = NewNhanVien.Email;
+            NhanVien.CapQuyen = NewNhanVien.CapQuyen;
+            db.SaveChanges();
         }
         public void Xoa(tblNhanVien NhanVien)
         {
-            try
+            if (NhanVien is null || 
+                db.tblNhanViens.ToList().Exists(x => Equals(x.MaNV, NhanVien.MaNV)))
             {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    db.tblNhanViens.Remove(NhanVien);
-                    db.SaveChanges();
-                }
+                return;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            db.tblNhanViens.Remove(NhanVien);
+            db.SaveChanges();
         }
-        public List<tblNhanVien> DanhSachNhanVien()
-        {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    return db.tblNhanViens.ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return new List<tblNhanVien>();
-            }
-        }
-        public tblNhanVien LayNhanVienTheoMaNV(string MaNV)
-        {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    return db.tblNhanViens.FirstOrDefault(x => Equals(x.MaNV.Trim(), MaNV));
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return new tblNhanVien();
-            }
-        }
+        public List<tblNhanVien> DanhSachNhanVien() => db.tblNhanViens.ToList();
     }
 }

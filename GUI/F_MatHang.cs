@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +20,10 @@ namespace GUI
         BUS_MatHang BUS_MatHang = new BUS_MatHang();
         BUS_LoaiHang BUS_LoaiHang = new BUS_LoaiHang();
         BUS_KhuyenMai BUS_KhuyenMai = new BUS_KhuyenMai();
-        DateTime MaxDate = Convert.ToDateTime("30-12-9000");
+
         tblMatHang Current = new tblMatHang();
+        OpenFileDialog FileDialog_PickImage = new OpenFileDialog();
+        bool ImageChange = false;
 
         public F_MatHang()
         {
@@ -29,24 +32,18 @@ namespace GUI
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            dateHanSuDung.Value = MaxDate;
+            dateHanSuDung.Value = MyDefault.MaxDate;
         }
 
         private void F_MatHang_SizeChanged(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                pnLeft.Width = 550;
-            }
-            else
-            {
-                pnLeft.Width = 400;
-            }
+            pnLeft.Width = pnLeft.Width == 400 ? 550 : 400;
+            LoadDanhSachMatHang(BUS_MatHang.DanhSachMatHang());
         }
 
         private void F_MatHang_Load(object sender, EventArgs e)
         {
-            LoadDanhSachMatHang();
+            LoadDanhSachMatHang(BUS_MatHang.DanhSachMatHang());
             LoadDanhSachLoaiHang();
             LoadDanhSachKhuyenMai();
         }
@@ -65,15 +62,17 @@ namespace GUI
             cbLoaiHang.DisplayMember = "TenLoai";
         }
 
-        void LoadDanhSachMatHang()
+        void LoadDanhSachMatHang(List<tblMatHang> DSMH)
         {
+            pnDSMH.Controls.Clear();
+
             int ItemWidth = 180;
             int MaxCol = pnDSMH.Width / ItemWidth;
             int ItemPadding = 15;
             int Col = 0;
             int Row = 0;
 
-            foreach (tblMatHang MatHang in BUS_MatHang.DanhSachMatHang())
+            foreach (tblMatHang MatHang in DSMH)
             {
                 var C_MH = new C_MatHang(MatHang);
                 C_MH.SuKienChonMatHang += Bat_SuKienChonMatHang;
@@ -103,7 +102,7 @@ namespace GUI
             txtDonVi.Text = MatHang.DonViTinh;
             if (MatHang.HanSuDung is null)
             {
-                dateHanSuDung.Value = MaxDate;
+                dateHanSuDung.Value = MyDefault. MaxDate;
             }
             else
             {
@@ -116,6 +115,14 @@ namespace GUI
             if (MatHang.MaKM != null)
             {
                 cbKhuyenMai.SelectedValue = MatHang.MaKM;
+            }
+            try
+            {
+                pic.Image = Image.FromFile(BUS_MatHang.LayDuongDanHinhAnh(MatHang.LinkHinhAnh));
+            }
+            catch
+            {
+                pic.Image = null;
             }
         }
 
@@ -133,7 +140,7 @@ namespace GUI
                 if (ques == DialogResult.Yes)
                 {
                     XoaMatHang(txtMaMH.Text);
-                    XoaMatHangTrenManHinh(txtMaMH.Text);
+                    btnRefresh_Click(sender, e);
                 }
             }
             else
@@ -147,18 +154,6 @@ namespace GUI
             BUS_MatHang.Xoa(MaMH);
         }
 
-        void XoaMatHangTrenManHinh(string MaMH)
-        {
-            foreach (C_MatHang C_MH in pnDSMH.Controls)
-            {
-                if (Equals(C_MH.MaMH, MaMH))
-                {
-                    pnDSMH.Controls.Remove(C_MH);
-                    return;
-                }
-            }
-        }
-
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             pnDSMH.Controls.Clear();
@@ -166,6 +161,7 @@ namespace GUI
             cbKhuyenMai.Controls.Clear();
             Current = new tblMatHang();
 
+            pic.Image = null;
             txtMaMH.Clear();
             txtMoTa.Clear();
             txtTenMH.Clear();
@@ -173,7 +169,7 @@ namespace GUI
             txtDonVi.Clear();
             txtSolg.Clear();
 
-            LoadDanhSachMatHang();
+            LoadDanhSachMatHang(BUS_MatHang.DanhSachMatHang());
             LoadDanhSachLoaiHang();
             LoadDanhSachKhuyenMai();
         }
@@ -181,8 +177,8 @@ namespace GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             F_MatHang_ThemMatHang F_ThemMatHang = new F_MatHang_ThemMatHang();
+            F_ThemMatHang.ReloadSauKhiThemMatHang += btnRefresh_Click;
             F_ThemMatHang.Show();
-
         }
 
         private void btnDatLai_Click(object sender, EventArgs e)
@@ -192,30 +188,78 @@ namespace GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn lưu thông tin mặt hàng không?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (Equals(txtMaMH.Text.Trim(), ""))
             {
-                tblMatHang Clone = new tblMatHang();
-                Clone = Current;
-
-                Clone.TenMH = txtTenMH.Text;
-                Clone.Mota = txtMoTa.Text;
-                Clone.MaLoai = cbLoaiHang.SelectedValue.ToString();
-                Clone.MaKM = cbKhuyenMai.SelectedValue.ToString();
-                Clone.SoLuong = Convert.ToInt16(txtSolg.Text);
-                Clone.GiaBan = Convert.ToInt16(txtGiaBan.Text);
-                Clone.DonViTinh = txtDonVi.Text;
-                Clone.HanSuDung = dateHanSuDung.Value;
-
-                if (!BUS_MatHang.Sua(Current, Clone))
-                {
-                    MessageBox.Show("Cập nhật không thành công!");
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật thành công!");
-                }
-                btnRefresh_Click(sender, e);
+                MessageBox.Show("Bạn chưa chọn mặt hàng nào!");
+                return;
             }
+            if (!(MessageBox.Show("Bạn có muốn lưu thông tin mặt hàng không?", "", MessageBoxButtons.YesNo) == DialogResult.Yes))
+            {
+                return;
+            }
+
+            tblMatHang Clone = new tblMatHang();
+            Clone = Current;
+            Clone.TenMH = txtTenMH.Text;
+            Clone.Mota = txtMoTa.Text;
+            Clone.MaLoai = cbLoaiHang.SelectedValue.ToString();
+            Clone.MaKM = cbKhuyenMai.SelectedValue.ToString();
+            Clone.SoLuong = Convert.ToInt16(txtSolg.Text);
+            Clone.GiaBan = Convert.ToInt32(txtGiaBan.Text);
+            Clone.DonViTinh = txtDonVi.Text;
+            Clone.HanSuDung = dateHanSuDung.Value;
+
+            if (ImageChange)
+            {
+                string ImageName = BUS_MatHang.XuLyTenHinh(FileDialog_PickImage.FileName, txtMaMH.Text);
+                BUS_MatHang.TaoDuongDanHinhanh(FileDialog_PickImage.FileName, ImageName);
+                Clone.LinkHinhAnh = BUS_MatHang.LayTenTuDuongDang(ImageName);
+                ImageChange = false;
+            }
+
+            if (!BUS_MatHang.Sua(Current, Clone))
+            {
+                MessageBox.Show("Cập nhật không thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thành công!");
+            }
+            btnRefresh_Click(sender, e);
+        }
+
+        private void pic_Click(object sender, EventArgs e)
+        {
+            FileDialog_PickImage.Filter = "Tệp tin hình ảnh|*.png;*.jpg;*.jpeg;*.gif";
+            if (FileDialog_PickImage.ShowDialog() == DialogResult.OK)
+            {
+                ImageChange = true;
+                pic.Image = Image.FromFile(FileDialog_PickImage.FileName);
+            }
+        }
+
+        private void txtGiaBan_TextChanged(object sender, EventArgs e)
+        {
+            int GiaBan;
+            if (int.TryParse(txtGiaBan.Text, out GiaBan))
+            {
+                return;
+            }
+            txtGiaBan.Text = GiaBan.ToString("#.###");
+        }
+
+        private void txtGiaBan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Ngăn ký tự không phải là chữ được nhập vào
+            }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var dsTK = BUS_MatHang.TimKiem(txtTimKiem.Text);
+            LoadDanhSachMatHang(dsTK);
         }
     }
 }
