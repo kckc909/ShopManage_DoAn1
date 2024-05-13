@@ -33,7 +33,7 @@ namespace GUI
 
         private void F_HoaDon_SizeChanged(object sender, EventArgs e)
         {
-            pnChiTietThongTin.Width = pnChiTietThongTin.Width == 400 ? 550 : 400;
+            pnLeft.Width = pnLeft.Width == 400 ? 550 : 400;
         }
     }
 }

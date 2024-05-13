@@ -16,5 +16,40 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDatLai_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void F_Voucher_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

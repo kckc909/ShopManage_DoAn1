@@ -382,6 +382,10 @@
   <ItemGroup>
     <None Include="Resources\icons8-restore-50.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo\MiniShopLogo.png" />
+    <None Include="Resources\MiniShopLogo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -97,6 +97,7 @@ create table tblChiTietHDB(
 	MaMH char(10) references tblMatHang(MaMH) on update cascade on delete cascade,
 	SoLg int not null,
 	MaKM char(10) references tblKhuyenMai(MaKM),
+	GiaBan int,
 	primary key (MaHDB, MaMH)
 )
 create table tblHoaDonNhap(
@@ -152,3 +153,8 @@ create table tblGhiChu(
 
 --alter table tblNhanVien
 --add Avatar nvarchar(max)
+
+--alter table tblChiTietHDB
+--add GiaBan int
+
+
