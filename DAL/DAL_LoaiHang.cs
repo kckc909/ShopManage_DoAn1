@@ -9,69 +9,32 @@ namespace DAL
 {
     public class DAL_LoaiHang
     {
-
+        ShopDatabaseEntities db = new ShopDatabaseEntities();
         public void Them(tblLoaiHang LoaiHang)
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    db.tblLoaiHangs.Add(LoaiHang);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+
+            db.tblLoaiHangs.Add(LoaiHang);
+            db.SaveChanges();
+
         }
         public void Sua(tblLoaiHang OldLoaiHang, tblLoaiHang NewLoaiHang)
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    tblLoaiHang LoaiHang = db.tblLoaiHangs.ToList().Find(x => Equals(x.MaLoai, OldLoaiHang.MaLoai));
 
-                    LoaiHang.TenLoai = NewLoaiHang.TenLoai;
+            tblLoaiHang LoaiHang = db.tblLoaiHangs.ToList().Find(x => Equals(x.MaLoai, OldLoaiHang.MaLoai));
 
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            LoaiHang.TenLoai = NewLoaiHang.TenLoai;
+
+            db.SaveChanges();
+
         }
         public void Xoa(tblLoaiHang LoaiHang)
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    db.tblLoaiHangs.Remove(LoaiHang);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            db.tblLoaiHangs.Remove(LoaiHang);
+            db.SaveChanges();
         }
         public List<tblLoaiHang> DanhSach()
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    return db.tblLoaiHangs.ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return new List<tblLoaiHang>();
-            }
+            return db.tblLoaiHangs.ToList();
         }
     }
 }

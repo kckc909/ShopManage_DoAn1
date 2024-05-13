@@ -383,6 +383,7 @@
             this.Controls.Add(this.pnLeft);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "F_MainParent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainParentForm";
             this.MaximumSizeChanged += new System.EventHandler(this.F_MainParent_MaximumSizeChanged);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.F_MainParent_FormClosed);

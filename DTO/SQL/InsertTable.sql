@@ -51,3 +51,4 @@ insert into tblMatHang(MaMH, TenMH, LinkHinhAnh,MaKM)
 values ('MH005', N'MatHangTest2', 'C:\Users\admin\Pictures\Icon\icons8-image-50.png', 'KM01')
 insert into tblMatHang(MaMH, TenMH, LinkHinhAnh,MaKM, GiaBan)
 values ('MH006', N'MatHangTest2', 'C:\Users\admin\Pictures\Icon\icons8-image-50.png', 'KM01', '100000')
+

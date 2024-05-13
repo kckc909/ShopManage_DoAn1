@@ -10,56 +10,40 @@ namespace DAL
 {
     public class DAL_ApDungVoucher
     {
-        public void Them(tblApDungVoucher ApDungVoucher)
+        ShopDatabaseEntities db = new ShopDatabaseEntities();
+        public void Them(tblApDungVoucher adv)
         {
-            try
+            if (db.tblApDungVouchers.ToList().Exists(x => Equals(x.MaV, adv.MaV) && Equals(x.MaHDB, adv.MaHDB)))
             {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities()) 
-                {
-                    db.tblApDungVouchers.Add(ApDungVoucher);
-                    db.SaveChanges();
-                }
+                return;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);  
-            }
+            db.tblApDungVouchers.Add(adv);
+            db.SaveChanges();
         }
-        
-        //public void Sua(tblApDungVoucher _old, tblApDungVoucher _new)
-
-        public void Xoa(string MaV, string MaHDB)
+        public void Sua(tblApDungVoucher _old, tblApDungVoucher _new)
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    var del = DanhSachApDungVoucher().Find(x => Equals(x.MaV, MaV) && Equals(x.MaHDB, MaHDB));
-                    db.tblApDungVouchers.Remove(del);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            if (_new is null)
+            { return; }
+            Xoa(_old);
+            Them(_new);
+            db.SaveChanges();
         }
-
-        public List<tblApDungVoucher> DanhSachApDungVoucher()
+        public void Sua_GhiChu(tblApDungVoucher adv, string GhiChu)
         {
-            try
+            var v = db.tblApDungVouchers.ToList().Find(x => Equals(x.MaV, adv.MaV) && Equals(x.MaHDB, adv.MaHDB));
+            if (v is null)
             {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    return db.tblApDungVouchers.ToList();
-                }
+                return;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return null;
-            }
+            v.GhiChu = GhiChu;
         }
-
+        public void Xoa(tblApDungVoucher adv)
+        {
+            var del = DanhSachApDungVoucher().Find(x => Equals(x.MaV, adv.MaV) && Equals(x.MaHDB, adv.MaHDB));
+            if (del is null) { return; }
+            db.tblApDungVouchers.Remove(del);
+            db.SaveChanges();
+        }
+        public List<tblApDungVoucher> DanhSachApDungVoucher() => db.tblApDungVouchers.ToList();
     }
 }

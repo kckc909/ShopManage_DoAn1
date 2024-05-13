@@ -1,6 +1,7 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,6 @@ namespace DAL
 {
     public class DAL_MatHang
     {
-
         public void Them(tblMatHang MatHang)
         {
             using (ShopDatabaseEntities db = new ShopDatabaseEntities())
@@ -18,6 +18,7 @@ namespace DAL
                 db.SaveChanges();
             }
         }
+        
         public void Sua(tblMatHang OldMatHang, tblMatHang NewMatHang)
         {
             using (ShopDatabaseEntities db = new ShopDatabaseEntities())
@@ -37,6 +38,7 @@ namespace DAL
                 db.SaveChanges();
             }
         }
+        
         public void Xoa(tblMatHang MatHang)
         {
             using (ShopDatabaseEntities db = new ShopDatabaseEntities())
@@ -45,6 +47,7 @@ namespace DAL
                 db.SaveChanges();
             }
         }
+        
         public List<tblMatHang> DanhSachMatHang()
         {
             using (ShopDatabaseEntities db = new ShopDatabaseEntities())
@@ -52,12 +55,15 @@ namespace DAL
                 return db.tblMatHangs.ToList();
             }
         }
-        public tblMatHang LayMatHangTheoMaMH(string MaMH)
+
+        public void TaoHinhAnh(string SourceImagePath,string ImageName)
         {
-            using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-            {
-                return db.tblMatHangs.Find(MaMH);
-            }
+            File.Copy(SourceImagePath, ImageName, false);
+        }
+
+        public string LayPathHinhAnh(string ImageName)
+        {
+            return Path.Combine(MyDefault.Path_AnhMatHang, ImageName);
         }
     }
 }

@@ -50,7 +50,7 @@ namespace GUI
         F_Voucher _Voucher = new F_Voucher()            { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
         F_NhanVien _NhanVien = new F_NhanVien()         { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
         F_TaiKhoan _TaiKhoan = new F_TaiKhoan()         { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_BaoCaoThongKe _BaoCaoThongKe = new F_BaoCaoThongKe() { TopLevel = false , Dock = DockStyle.Fill};
+        F_BaoCaoThongKe _BaoCaoThongKe = new F_BaoCaoThongKe() { TopLevel = false , Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
 
         private void F_MainParent_Load(object sender, EventArgs e)
         {

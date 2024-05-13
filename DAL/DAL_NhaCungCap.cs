@@ -9,71 +9,31 @@ namespace DAL
 {
     public class DAL_NhaCungCap
     {
+        ShopDatabaseEntities db = new ShopDatabaseEntities();
         public void Them(tblNCC NCC)
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    db.tblNCCs.Add(NCC);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-}
+            db.tblNCCs.Add(NCC);
+            db.SaveChanges();
+        }
         public void Sua(tblNCC OldNCC, tblNCC NewNCC)
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    tblNCC NCC = db.tblNCCs.ToList().Find(x => Equals(x.MaNCC, OldNCC.MaNCC));
+            tblNCC NCC = db.tblNCCs.ToList().Find(x => Equals(x.MaNCC, OldNCC.MaNCC));
 
-                    NCC.TenNCC = NewNCC.TenNCC;
-                    NCC.DiaChi = NewNCC.DiaChi;
-                    NCC.SDT = NewNCC.SDT;
-                    NCC.Email = NewNCC.Email;
+            NCC.TenNCC = NewNCC.TenNCC;
+            NCC.DiaChi = NewNCC.DiaChi;
+            NCC.SDT = NewNCC.SDT;
+            NCC.Email = NewNCC.Email;
 
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            db.SaveChanges();
         }
         public void Xoa(tblNCC NCC)
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    db.tblNCCs.Remove(NCC);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            db.tblNCCs.Remove(NCC);
+            db.SaveChanges();
         }
         public List<tblNCC> DanhSachNCC()
         {
-            try 
-            { 
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    return db.tblNCCs.ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return new List<tblNCC>();
-            }
+            return db.tblNCCs.ToList();
         }
     }
 }
