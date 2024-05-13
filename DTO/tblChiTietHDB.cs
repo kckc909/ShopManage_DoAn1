@@ -18,6 +18,7 @@ namespace DTO
         public string MaMH { get; set; }
         public int SoLg { get; set; }
         public string MaKM { get; set; }
+        public Nullable<int> GiaBan { get; set; }
     
         public virtual tblHoaDonBan tblHoaDonBan { get; set; }
         public virtual tblKhuyenMai tblKhuyenMai { get; set; }
