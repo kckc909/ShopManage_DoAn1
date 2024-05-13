@@ -30,6 +30,7 @@
         {
             this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.btnNguoiDung = new Guna.UI2.WinForms.Guna2Button();
+            this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.picLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnTrangChu = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnTKMK = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -42,7 +43,6 @@
             this.btnHoadon = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnMatHang = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnLoaiHang = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.pnLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
@@ -66,9 +66,9 @@
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnLeft.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             this.pnLeft.Location = new System.Drawing.Point(0, 0);
-            this.pnLeft.Margin = new System.Windows.Forms.Padding(2);
+            this.pnLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(150, 761);
+            this.pnLeft.Size = new System.Drawing.Size(150, 690);
             this.pnLeft.TabIndex = 0;
             // 
             // btnNguoiDung
@@ -79,22 +79,34 @@
             this.btnNguoiDung.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnNguoiDung.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnNguoiDung.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.btnNguoiDung.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNguoiDung.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnNguoiDung.ForeColor = System.Drawing.Color.White;
-            this.btnNguoiDung.Location = new System.Drawing.Point(0, 716);
+            this.btnNguoiDung.Location = new System.Drawing.Point(0, 645);
             this.btnNguoiDung.Name = "btnNguoiDung";
             this.btnNguoiDung.Size = new System.Drawing.Size(150, 45);
             this.btnNguoiDung.TabIndex = 15;
-            this.btnNguoiDung.Text = "Người dùng";
+            this.btnNguoiDung.Text = "User";
+            // 
+            // pnMain
+            // 
+            this.pnMain.BackColor = System.Drawing.SystemColors.Control;
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Location = new System.Drawing.Point(150, 0);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(1034, 690);
+            this.pnMain.TabIndex = 1;
             // 
             // picLogo
             // 
             this.picLogo.BackColor = System.Drawing.Color.Transparent;
             this.picLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.picLogo.Image = global::GUI.Properties.Resources.MiniShopLogo1;
             this.picLogo.ImageRotate = 0F;
             this.picLogo.Location = new System.Drawing.Point(0, 0);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(150, 80);
+            this.picLogo.Size = new System.Drawing.Size(150, 110);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 14;
             this.picLogo.TabStop = false;
             // 
@@ -363,28 +375,19 @@
             this.btnLoaiHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnLoaiHang.Click += new System.EventHandler(this.btnLoaiHang_Click);
             // 
-            // pnMain
-            // 
-            this.pnMain.BackColor = System.Drawing.SystemColors.Control;
-            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMain.Location = new System.Drawing.Point(150, 0);
-            this.pnMain.Margin = new System.Windows.Forms.Padding(2);
-            this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1034, 761);
-            this.pnMain.TabIndex = 1;
-            // 
             // F_MainParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.ClientSize = new System.Drawing.Size(1184, 690);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.pnLeft);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "F_MainParent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainParentForm";
+            this.Text = "Hệ thống quản lý bán hàng - Cửa hàng MiniShop";
+            this.TopMost = true;
             this.MaximumSizeChanged += new System.EventHandler(this.F_MainParent_MaximumSizeChanged);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.F_MainParent_FormClosed);
             this.Load += new System.EventHandler(this.F_MainParent_Load);

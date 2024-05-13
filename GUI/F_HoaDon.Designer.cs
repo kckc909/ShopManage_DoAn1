@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pnChiTietThongTin = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.lbTTHD = new System.Windows.Forms.Label();
             this.pnNoiDung = new Guna.UI2.WinForms.Guna2Panel();
             this.TabControl = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpHoaDonBan = new System.Windows.Forms.TabPage();
+            this.tpHoaDonNhap = new System.Windows.Forms.TabPage();
             this.tpMatHang = new System.Windows.Forms.TabPage();
             this.tpKhachHang = new System.Windows.Forms.TabPage();
             this.lbQLHD = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.tpHoaDonNhap = new System.Windows.Forms.TabPage();
-            this.pnChiTietThongTin.SuspendLayout();
+            this.pnLeft.SuspendLayout();
             this.pnNoiDung.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnChiTietThongTin
+            // pnLeft
             // 
-            this.pnChiTietThongTin.Controls.Add(this.lbTTHD);
-            this.pnChiTietThongTin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnChiTietThongTin.Location = new System.Drawing.Point(634, 0);
-            this.pnChiTietThongTin.Name = "pnChiTietThongTin";
-            this.pnChiTietThongTin.Size = new System.Drawing.Size(400, 761);
-            this.pnChiTietThongTin.TabIndex = 2;
+            this.pnLeft.Controls.Add(this.lbTTHD);
+            this.pnLeft.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnLeft.Location = new System.Drawing.Point(634, 0);
+            this.pnLeft.Name = "pnLeft";
+            this.pnLeft.Size = new System.Drawing.Size(400, 761);
+            this.pnLeft.TabIndex = 2;
             // 
             // lbTTHD
             // 
@@ -117,6 +117,15 @@
             this.tpHoaDonBan.Text = "Hóa đơn bán";
             this.tpHoaDonBan.UseVisualStyleBackColor = true;
             // 
+            // tpHoaDonNhap
+            // 
+            this.tpHoaDonNhap.Location = new System.Drawing.Point(4, 44);
+            this.tpHoaDonNhap.Name = "tpHoaDonNhap";
+            this.tpHoaDonNhap.Size = new System.Drawing.Size(626, 633);
+            this.tpHoaDonNhap.TabIndex = 3;
+            this.tpHoaDonNhap.Text = "Hóa đơn nhập";
+            this.tpHoaDonNhap.UseVisualStyleBackColor = true;
+            // 
             // tpMatHang
             // 
             this.tpMatHang.Location = new System.Drawing.Point(4, 44);
@@ -157,27 +166,18 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // tpHoaDonNhap
-            // 
-            this.tpHoaDonNhap.Location = new System.Drawing.Point(4, 44);
-            this.tpHoaDonNhap.Name = "tpHoaDonNhap";
-            this.tpHoaDonNhap.Size = new System.Drawing.Size(626, 633);
-            this.tpHoaDonNhap.TabIndex = 3;
-            this.tpHoaDonNhap.Text = "Hóa đơn nhập";
-            this.tpHoaDonNhap.UseVisualStyleBackColor = true;
-            // 
             // F_HoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 761);
             this.Controls.Add(this.pnNoiDung);
-            this.Controls.Add(this.pnChiTietThongTin);
+            this.Controls.Add(this.pnLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_HoaDon";
             this.Text = "F_HoaDon";
             this.SizeChanged += new System.EventHandler(this.F_HoaDon_SizeChanged);
-            this.pnChiTietThongTin.ResumeLayout(false);
+            this.pnLeft.ResumeLayout(false);
             this.pnNoiDung.ResumeLayout(false);
             this.TabControl.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -185,7 +185,7 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Panel pnChiTietThongTin;
+        private Guna.UI2.WinForms.Guna2Panel pnLeft;
         private System.Windows.Forms.Label lbTTHD;
         private Guna.UI2.WinForms.Guna2Panel pnNoiDung;
         private System.Windows.Forms.Label lbQLHD;
