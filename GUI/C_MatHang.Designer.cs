@@ -111,16 +111,13 @@
             this.picHinhAnh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.picHinhAnh.AutoRoundedCorners = true;
-            this.picHinhAnh.BackgroundImage = global::GUI.Properties.Resources.icons8_image_50;
-            this.picHinhAnh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picHinhAnh.BorderRadius = 57;
-            this.picHinhAnh.ErrorImage = null;
+            this.picHinhAnh.ErrorImage = global::GUI.Properties.Resources.icons8_image_50;
             this.picHinhAnh.FillColor = System.Drawing.Color.Transparent;
             this.picHinhAnh.ImageRotate = 0F;
             this.picHinhAnh.Location = new System.Drawing.Point(9, 11);
             this.picHinhAnh.Name = "picHinhAnh";
             this.picHinhAnh.Size = new System.Drawing.Size(162, 117);
+            this.picHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHinhAnh.TabIndex = 3;
             this.picHinhAnh.TabStop = false;
             this.picHinhAnh.Click += new System.EventHandler(this.lbTenMatHang_Click);
@@ -134,7 +131,7 @@
             this.ClientSize = new System.Drawing.Size(180, 180);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(180, 180);
+            this.MaximumSize = new System.Drawing.Size(250, 250);
             this.MinimumSize = new System.Drawing.Size(180, 180);
             this.Name = "C_MatHang";
             this.Text = "C_MatHang";

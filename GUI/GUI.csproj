@@ -86,11 +86,29 @@
     <Compile Include="F_HoaDon_KhachHang.Designer.cs">
       <DependentUpon>F_HoaDon_KhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_LoaiHang_ThemLoaiHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_LoaiHang_ThemLoaiHang.Designer.cs">
+      <DependentUpon>F_LoaiHang_ThemLoaiHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_MatHang_ThemMatHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F_MatHang_ThemMatHang.Designer.cs">
       <DependentUpon>F_MatHang_ThemMatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_NhaCungCap_ThemNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_NhaCungCap_ThemNCC.Designer.cs">
+      <DependentUpon>F_NhaCungCap_ThemNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_NhanVien_ThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_NhanVien_ThemNhanVien.Designer.cs">
+      <DependentUpon>F_NhanVien_ThemNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="MyEventArgs\EventArgsMatHang.cs" />
     <Compile Include="F_DangKy.cs">
@@ -236,6 +254,9 @@
     <EmbeddedResource Include="F_LoaiHang.resx">
       <DependentUpon>F_LoaiHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_LoaiHang_ThemLoaiHang.resx">
+      <DependentUpon>F_LoaiHang_ThemLoaiHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_MainParent.resx">
       <DependentUpon>F_MainParent.cs</DependentUpon>
     </EmbeddedResource>
@@ -248,8 +269,14 @@
     <EmbeddedResource Include="F_NhaCungCap.resx">
       <DependentUpon>F_NhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_NhaCungCap_ThemNCC.resx">
+      <DependentUpon>F_NhaCungCap_ThemNCC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_NhanVien.resx">
       <DependentUpon>F_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_NhanVien_ThemNhanVien.resx">
+      <DependentUpon>F_NhanVien_ThemNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_TaiKhoan.resx">
       <DependentUpon>F_TaiKhoan.cs</DependentUpon>
@@ -346,6 +373,7 @@
     <None Include="Resources\icons8-trash-50.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Avatars\" />
     <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>

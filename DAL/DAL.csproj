@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_Quyen.cs" />
     <Compile Include="DAL_HoaDon.cs" />
     <Compile Include="DAL_SoHuuVoucher.cs" />
     <Compile Include="DAL_TaiKhoanMatKhau.cs" />

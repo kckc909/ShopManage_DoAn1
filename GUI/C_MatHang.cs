@@ -16,6 +16,7 @@ namespace GUI
     public partial class C_MatHang : Form
     {
         BUS_KhuyenMai BUS_KhuyenMai = new BUS_KhuyenMai();
+        BUS_MatHang BUS_MatHang = new BUS_MatHang();
 
         public event EventHandler<EventArgsMatHang> SuKienChonMatHang;
 
@@ -36,13 +37,21 @@ namespace GUI
 
         void LoadThongTinMatHang()
         {
-            picHinhAnh.Image = Image.FromFile(_tblMatHang.LinkHinhAnh);
+            try
+            {
+                picHinhAnh.Image = Image.FromFile(BUS_MatHang.LayDuongDanHinhAnh(_tblMatHang.LinkHinhAnh));
+            }
+            catch 
+            { 
+                picHinhAnh.Image = picHinhAnh.ErrorImage;
+            }
+
             lbTenMatHang.Text = _tblMatHang.TenMH;
             lbGiaMatHang.Text = _tblMatHang.GiaBan.ToString();
 
             lbKhuyenMai.Hide();
-             _tblKhuyenMai = BUS_KhuyenMai.LayKhuyenMai(_tblMatHang.MaKM);
-            if (_tblKhuyenMai is default(tblKhuyenMai))
+            _tblKhuyenMai = BUS_KhuyenMai.LayKhuyenMai(_tblMatHang.MaKM);
+            if (!(_tblKhuyenMai is default(tblKhuyenMai)))
             {
                 if (_tblKhuyenMai.PhamTramGiam > 0)
                 {
@@ -64,7 +73,7 @@ namespace GUI
         private void AllControl_MouseEnter(object sender, EventArgs e)
         {
             // đổi màu viền
-            panel.BorderColor = Color.Silver;
+            panel.BorderColor = Color.Orange;
         }
 
         private void AllControl_MouseLeave(object sender, EventArgs e)
