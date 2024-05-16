@@ -30,5 +30,6 @@ namespace BUS
             }
             return $"V{i}";
         }
+        public tblVoucher LayTheoMa(string MaV) => DSVoucher().Find(x => x.MaV.Equals(MaV));
     }
 }
