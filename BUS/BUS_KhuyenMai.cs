@@ -13,7 +13,7 @@ namespace BUS
         DAL_KhuyenMai dal = new DAL_KhuyenMai();
         public tblKhuyenMai LayKhuyenMai(string MaKM)
         {
-            return dal.DanhSachKhuyenMai().Find(x => Equals(x.MaKM.Trim(), MaKM));
+            return dal.DanhSachKhuyenMai().Find(x => Equals(x.MaKM, MaKM));
         }
         public void Them(tblKhuyenMai KM) => dal.Them(KM);
         public void Sua(tblKhuyenMai _old, tblKhuyenMai _new) => dal.Sua(_old, _new);
@@ -25,5 +25,15 @@ namespace BUS
             (x.MoTa != null && x.MoTa.Contains(str)) ||
             x.PhamTramGiam.Value.ToString().Contains(str)
             ).ToList();
+        public string MaTuDong()
+        {
+            int i = dal.DanhSachKhuyenMai().Count;
+            while (DanhSach().Exists(x => x.MaKM.Equals($"KM{i}")))
+            {
+                i ++;
+            }
+            return $"KM{i}";
+        }
+        
     }
 }
