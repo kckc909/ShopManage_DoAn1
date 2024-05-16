@@ -40,12 +40,12 @@ namespace GUI
             DataGridViewCheckBoxColumn dtgCheckColumn = new DataGridViewCheckBoxColumn()
             {
                 Name = "Check",
-                HeaderText = "Áp dụng"
+                HeaderText = "Áp dụng",
             };
             DataGridViewImageColumn dtgImgColumn = new DataGridViewImageColumn()
             {
                 Name = "Img",
-                HeaderText = "Ảnh"
+                HeaderText = "Ảnh",
             };
             dtg.Columns.Add(dtgCheckColumn);
             dtg.Columns.Add(dtgImgColumn);
@@ -57,33 +57,16 @@ namespace GUI
 
         void LoadData(List<tblMatHang> DSMH)
         {
-            dtg.DataSource = DSMH;
-            dtg.Columns["MaMH"].DataPropertyName = "MaMH";
-            dtg.Columns["TenMH"].DataPropertyName = "TenMH";
-            dtg.Columns["MoTa"].DataPropertyName = "MoTa";
-
-            foreach (DataGridViewRow row in dtg.Rows)
+            int ir = 0;
+            foreach (tblMatHang mh in DSMH)
             {
-                var mamh = row.Cells["MaMH"].Value;
-                if (mamh != null)
-                {
-                    var mh = DSMH.Find(x => x.MaMH.Equals(mamh.ToString()));
-                    if (mh != null)
-                    {
-                        if (mh.LinkHinhAnh != null)
-                        {
-                            row.Cells["Img"].Value = Image.FromFile(BUS_MatHang.LayDuongDanHinhAnh(mh.LinkHinhAnh));
-                        }
-                        if (mh.MaLoai != null)
-                        {
-                            row.Cells["TenLoai"].Value = mh.tblLoaiHang.TenLoai;
-                        }
-                    }
-                    if (mh.MaKM.Equals(KhuyenMai.MaKM))
-                    {
-                        row.Cells["Check"].Value = true;
-                    }
-                }
+                dtg.Rows[ir].Cells["Check"].Value = mh.MaKM.Equals(KhuyenMai.MaKM);
+                dtg.Rows[ir].Cells["Img"].Value = Image.FromFile(BUS_MatHang.LayDuongDanHinhAnh(mh.LinkHinhAnh));
+                dtg.Rows[ir].Cells["MaMH"].Value = mh.MaMH;
+                dtg.Rows[ir].Cells["TenMH"].Value = mh.TenMH;
+                dtg.Rows[ir].Cells["MoTa"].Value = mh.Mota;
+                dtg.Rows[ir].Cells["TenLoai"].Value = mh.tblLoaiHang.TenLoai;
+                ir++;
             }
             dtg.Refresh();
         }
