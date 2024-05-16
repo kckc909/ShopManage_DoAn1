@@ -158,3 +158,5 @@ create table tblGhiChu(
 --add GiaBan int
 
 
+alter table tblVoucher
+alter column TenV nvarchar (max)
