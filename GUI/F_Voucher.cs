@@ -137,7 +137,14 @@ namespace GUI
         }
         private void dtg_SelectionChanged(object sender, EventArgs e)
         {
-            Load_Info_Voucher();
+            if (dtg.SelectedRows.Count > 0)
+            {
+                if (dtg.SelectedRows[0].Cells[0].Value != null)
+                {
+                    Current = BUS_Voucher.LayTheoMa(dtg.SelectedRows[0].Cells[0].Value.ToString());
+                    Load_Info_Voucher();
+                }
+            }
         }
 
         void Add_Col_DSVoucher()
