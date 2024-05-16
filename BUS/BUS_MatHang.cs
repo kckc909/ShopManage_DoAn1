@@ -42,20 +42,17 @@ namespace BUS
 
         public bool Sua(tblMatHang _old, tblMatHang _new)
         {
-            if (Equals(_old.MaMH, _new.MaMH))
+            if (DanhSachMatHang().Exists(x => Equals(x.MaMH, _old.MaMH)))
             {
-                if (DanhSachMatHang().Exists(x => Equals(x.MaMH, _old.MaMH)))
-                {
-                    DAL_MatHang.Sua(_old, _new);
-                    return true;
-                }
+                DAL_MatHang.Sua(_old, _new);
+                return true;
             }
             return false;
         }
 
         public string LayDuongDanHinhAnh(string imageName)
         {
-            return DAL_MatHang.LayPathHinhAnh(imageName);
+            return Path.Combine(MyDefault.Path_AnhMatHang, imageName);
         }
 
         public void TaoDuongDanHinhanh(string SourceImage, string ImageName)
@@ -72,7 +69,7 @@ namespace BUS
         public string LayTenTuDuongDang(string path)
         {
             string[] p = path.Split('\\');
-            return p[p.Length -1] ;
+            return p[p.Length - 1];
         }
 
         public string MaMatHangTuDong()
@@ -91,10 +88,12 @@ namespace BUS
             }
             return false;
         }
-        
-        public List<tblMatHang> TimKiem(string str) => DanhSachMatHang(). FindAll(x =>
+
+        public List<tblMatHang> TimKiem(string str) => DanhSachMatHang().FindAll(x =>
                                                         x.TenMH.Contains(str) ||
                                                         x.Mota.Contains(str) ||
                                                         x.MaMH.Contains(str));
+
+        public tblMatHang LayTheoMa(string MaMH) => DanhSachMatHang().Find(x => x.MaMH.Trim().Equals(MaMH.Trim()));
     }
 }

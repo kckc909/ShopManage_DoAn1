@@ -30,7 +30,6 @@
         {
             this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.btnNguoiDung = new Guna.UI2.WinForms.Guna2Button();
-            this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.picLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnTrangChu = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnTKMK = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -43,6 +42,7 @@
             this.btnHoadon = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnMatHang = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnLoaiHang = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.pnLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +66,7 @@
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnLeft.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             this.pnLeft.Location = new System.Drawing.Point(0, 0);
-            this.pnLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnLeft.Margin = new System.Windows.Forms.Padding(2);
             this.pnLeft.Name = "pnLeft";
             this.pnLeft.Size = new System.Drawing.Size(150, 690);
             this.pnLeft.TabIndex = 0;
@@ -87,16 +87,6 @@
             this.btnNguoiDung.TabIndex = 15;
             this.btnNguoiDung.Text = "User";
             // 
-            // pnMain
-            // 
-            this.pnMain.BackColor = System.Drawing.SystemColors.Control;
-            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMain.Location = new System.Drawing.Point(150, 0);
-            this.pnMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1034, 690);
-            this.pnMain.TabIndex = 1;
-            // 
             // picLogo
             // 
             this.picLogo.BackColor = System.Drawing.Color.Transparent;
@@ -105,7 +95,7 @@
             this.picLogo.ImageRotate = 0F;
             this.picLogo.Location = new System.Drawing.Point(0, 0);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(150, 110);
+            this.picLogo.Size = new System.Drawing.Size(150, 80);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 14;
             this.picLogo.TabStop = false;
@@ -126,7 +116,7 @@
             this.btnTrangChu.Image = global::GUI.Properties.Resources.icons8_home_50;
             this.btnTrangChu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTrangChu.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnTrangChu.Location = new System.Drawing.Point(0, 116);
+            this.btnTrangChu.Location = new System.Drawing.Point(0, 86);
             this.btnTrangChu.Name = "btnTrangChu";
             this.btnTrangChu.Size = new System.Drawing.Size(150, 45);
             this.btnTrangChu.TabIndex = 13;
@@ -150,7 +140,7 @@
             this.btnTKMK.Image = global::GUI.Properties.Resources.icons8_account_32;
             this.btnTKMK.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTKMK.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnTKMK.Location = new System.Drawing.Point(0, 626);
+            this.btnTKMK.Location = new System.Drawing.Point(0, 596);
             this.btnTKMK.Name = "btnTKMK";
             this.btnTKMK.Size = new System.Drawing.Size(150, 45);
             this.btnTKMK.TabIndex = 9;
@@ -174,7 +164,7 @@
             this.btnBCTK.Image = global::GUI.Properties.Resources.icons8_report_50;
             this.btnBCTK.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnBCTK.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnBCTK.Location = new System.Drawing.Point(0, 575);
+            this.btnBCTK.Location = new System.Drawing.Point(0, 545);
             this.btnBCTK.Name = "btnBCTK";
             this.btnBCTK.Size = new System.Drawing.Size(150, 45);
             this.btnBCTK.TabIndex = 8;
@@ -198,7 +188,7 @@
             this.btnVoucher.Image = global::GUI.Properties.Resources.icons8_loyalty_card_50;
             this.btnVoucher.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnVoucher.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnVoucher.Location = new System.Drawing.Point(0, 473);
+            this.btnVoucher.Location = new System.Drawing.Point(0, 443);
             this.btnVoucher.Name = "btnVoucher";
             this.btnVoucher.Size = new System.Drawing.Size(150, 45);
             this.btnVoucher.TabIndex = 7;
@@ -222,7 +212,7 @@
             this.btnKhuyenMai.Image = global::GUI.Properties.Resources.icons8_sale_50;
             this.btnKhuyenMai.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKhuyenMai.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnKhuyenMai.Location = new System.Drawing.Point(0, 422);
+            this.btnKhuyenMai.Location = new System.Drawing.Point(0, 392);
             this.btnKhuyenMai.Name = "btnKhuyenMai";
             this.btnKhuyenMai.Size = new System.Drawing.Size(150, 45);
             this.btnKhuyenMai.TabIndex = 6;
@@ -246,7 +236,7 @@
             this.btnNhaCungCap.Image = global::GUI.Properties.Resources.icons8_supplier_50;
             this.btnNhaCungCap.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnNhaCungCap.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnNhaCungCap.Location = new System.Drawing.Point(0, 320);
+            this.btnNhaCungCap.Location = new System.Drawing.Point(0, 290);
             this.btnNhaCungCap.Name = "btnNhaCungCap";
             this.btnNhaCungCap.Size = new System.Drawing.Size(150, 45);
             this.btnNhaCungCap.TabIndex = 5;
@@ -271,7 +261,7 @@
             this.btnKhachHang.Image = global::GUI.Properties.Resources.icons8_customer_50;
             this.btnKhachHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnKhachHang.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnKhachHang.Location = new System.Drawing.Point(0, 269);
+            this.btnKhachHang.Location = new System.Drawing.Point(0, 239);
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.Size = new System.Drawing.Size(150, 45);
             this.btnKhachHang.TabIndex = 4;
@@ -295,7 +285,7 @@
             this.btnNhanVien.Image = global::GUI.Properties.Resources.icons8_employee_80;
             this.btnNhanVien.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnNhanVien.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnNhanVien.Location = new System.Drawing.Point(0, 524);
+            this.btnNhanVien.Location = new System.Drawing.Point(0, 494);
             this.btnNhanVien.Name = "btnNhanVien";
             this.btnNhanVien.Size = new System.Drawing.Size(150, 45);
             this.btnNhanVien.TabIndex = 3;
@@ -319,7 +309,7 @@
             this.btnHoadon.Image = global::GUI.Properties.Resources.icons8_bill_50;
             this.btnHoadon.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnHoadon.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnHoadon.Location = new System.Drawing.Point(0, 218);
+            this.btnHoadon.Location = new System.Drawing.Point(0, 188);
             this.btnHoadon.Name = "btnHoadon";
             this.btnHoadon.Size = new System.Drawing.Size(150, 45);
             this.btnHoadon.TabIndex = 2;
@@ -343,7 +333,7 @@
             this.btnMatHang.Image = global::GUI.Properties.Resources.product_50;
             this.btnMatHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnMatHang.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnMatHang.Location = new System.Drawing.Point(0, 167);
+            this.btnMatHang.Location = new System.Drawing.Point(0, 137);
             this.btnMatHang.Name = "btnMatHang";
             this.btnMatHang.Size = new System.Drawing.Size(150, 45);
             this.btnMatHang.TabIndex = 1;
@@ -367,13 +357,23 @@
             this.btnLoaiHang.Image = global::GUI.Properties.Resources.icons8_image_50;
             this.btnLoaiHang.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLoaiHang.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnLoaiHang.Location = new System.Drawing.Point(0, 371);
+            this.btnLoaiHang.Location = new System.Drawing.Point(0, 341);
             this.btnLoaiHang.Name = "btnLoaiHang";
             this.btnLoaiHang.Size = new System.Drawing.Size(150, 45);
             this.btnLoaiHang.TabIndex = 0;
             this.btnLoaiHang.Text = "LOẠI HÀNG";
             this.btnLoaiHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnLoaiHang.Click += new System.EventHandler(this.btnLoaiHang_Click);
+            // 
+            // pnMain
+            // 
+            this.pnMain.BackColor = System.Drawing.SystemColors.Control;
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Location = new System.Drawing.Point(150, 0);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(2);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(1034, 690);
+            this.pnMain.TabIndex = 1;
             // 
             // F_MainParent
             // 
@@ -383,11 +383,10 @@
             this.ClientSize = new System.Drawing.Size(1184, 690);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.pnLeft);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "F_MainParent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hệ thống quản lý bán hàng - Cửa hàng MiniShop";
-            this.TopMost = true;
             this.MaximumSizeChanged += new System.EventHandler(this.F_MainParent_MaximumSizeChanged);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.F_MainParent_FormClosed);
             this.Load += new System.EventHandler(this.F_MainParent_Load);

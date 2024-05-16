@@ -55,6 +55,7 @@
     <Compile Include="BUS_BaoCaoThongKe.cs" />
     <Compile Include="BUS_DangKy.cs" />
     <Compile Include="BUS_DangNhap.cs" />
+    <Compile Include="BUS_DonVi.cs" />
     <Compile Include="BUS_HoaDon.cs" />
     <Compile Include="BUS_KhachHang.cs" />
     <Compile Include="BUS_KhuyenMai.cs" />
