@@ -17,5 +17,7 @@ namespace DTO
         public static DateTime MaxDate = Convert.ToDateTime("30-12-9000");
         public static string MaKM = "KM00      ";
         public static string MaLoai = "LH00      ";
+        public static int Status_On = 0;
+        public static int Status_Off = 1;
     }
 }

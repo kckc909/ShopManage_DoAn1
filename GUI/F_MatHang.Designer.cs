@@ -78,7 +78,7 @@
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnLeft.Location = new System.Drawing.Point(634, 0);
             this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(400, 761);
+            this.pnLeft.Size = new System.Drawing.Size(400, 690);
             this.pnLeft.TabIndex = 0;
             // 
             // pnContentRight
@@ -112,7 +112,7 @@
             this.pnContentRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.pnContentRight.Location = new System.Drawing.Point(0, 80);
             this.pnContentRight.Name = "pnContentRight";
-            this.pnContentRight.Size = new System.Drawing.Size(400, 618);
+            this.pnContentRight.Size = new System.Drawing.Size(400, 537);
             this.pnContentRight.TabIndex = 22;
             // 
             // label12
@@ -485,7 +485,7 @@
             this.btnDatLai.Image = global::GUI.Properties.Resources.icons8_restore_50;
             this.btnDatLai.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDatLai.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnDatLai.Location = new System.Drawing.Point(226, 703);
+            this.btnDatLai.Location = new System.Drawing.Point(226, 632);
             this.btnDatLai.Name = "btnDatLai";
             this.btnDatLai.Size = new System.Drawing.Size(115, 52);
             this.btnDatLai.TabIndex = 21;
@@ -508,7 +508,7 @@
             this.btnLuu.Image = global::GUI.Properties.Resources.icons8_save_50;
             this.btnLuu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLuu.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnLuu.Location = new System.Drawing.Point(83, 704);
+            this.btnLuu.Location = new System.Drawing.Point(83, 633);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(96, 51);
             this.btnLuu.TabIndex = 20;
@@ -540,7 +540,7 @@
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 0);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(634, 761);
+            this.pnMain.Size = new System.Drawing.Size(634, 690);
             this.pnMain.TabIndex = 1;
             // 
             // btnRefresh
@@ -557,7 +557,7 @@
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnRefresh.Location = new System.Drawing.Point(12, 703);
+            this.btnRefresh.Location = new System.Drawing.Point(12, 632);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(102, 45);
             this.btnRefresh.TabIndex = 21;
@@ -572,7 +572,7 @@
             this.pnDSMH.AutoScroll = true;
             this.pnDSMH.Location = new System.Drawing.Point(12, 171);
             this.pnDSMH.Name = "pnDSMH";
-            this.pnDSMH.Size = new System.Drawing.Size(612, 517);
+            this.pnDSMH.Size = new System.Drawing.Size(612, 446);
             this.pnDSMH.TabIndex = 17;
             // 
             // btnXoa
@@ -589,7 +589,7 @@
             this.btnXoa.Image = global::GUI.Properties.Resources.icons8_trash_50;
             this.btnXoa.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXoa.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnXoa.Location = new System.Drawing.Point(530, 703);
+            this.btnXoa.Location = new System.Drawing.Point(530, 632);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(94, 52);
             this.btnXoa.TabIndex = 16;
@@ -685,7 +685,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 761);
+            this.ClientSize = new System.Drawing.Size(1034, 690);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.pnLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

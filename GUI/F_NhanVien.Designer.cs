@@ -97,7 +97,7 @@
             this.btnDatLai.ForeColor = System.Drawing.Color.White;
             this.btnDatLai.Image = global::GUI.Properties.Resources.icons8_restore_50;
             this.btnDatLai.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnDatLai.Location = new System.Drawing.Point(219, 696);
+            this.btnDatLai.Location = new System.Drawing.Point(219, 625);
             this.btnDatLai.Name = "btnDatLai";
             this.btnDatLai.Size = new System.Drawing.Size(114, 59);
             this.btnDatLai.TabIndex = 14;
@@ -128,7 +128,7 @@
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 0);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(634, 761);
+            this.pnMain.Size = new System.Drawing.Size(634, 690);
             this.pnMain.TabIndex = 3;
             // 
             // dtg
@@ -170,7 +170,7 @@
             this.dtg.RowHeadersVisible = false;
             this.dtg.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtg.RowTemplate.ReadOnly = true;
-            this.dtg.Size = new System.Drawing.Size(601, 523);
+            this.dtg.Size = new System.Drawing.Size(601, 452);
             this.dtg.TabIndex = 3;
             this.dtg.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtg.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -207,7 +207,7 @@
             this.btnLamMoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLamMoi.ForeColor = System.Drawing.Color.White;
-            this.btnLamMoi.Location = new System.Drawing.Point(12, 696);
+            this.btnLamMoi.Location = new System.Drawing.Point(12, 625);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(103, 53);
             this.btnLamMoi.TabIndex = 4;
@@ -229,7 +229,7 @@
             this.btnXoa.Image = global::GUI.Properties.Resources.icons8_trash_50;
             this.btnXoa.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXoa.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnXoa.Location = new System.Drawing.Point(529, 696);
+            this.btnXoa.Location = new System.Drawing.Point(529, 625);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(95, 59);
             this.btnXoa.TabIndex = 5;
@@ -318,7 +318,7 @@
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnLeft.Location = new System.Drawing.Point(634, 0);
             this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(400, 761);
+            this.pnLeft.Size = new System.Drawing.Size(400, 690);
             this.pnLeft.TabIndex = 2;
             // 
             // pnTTNV
@@ -347,7 +347,7 @@
             this.pnTTNV.Controls.Add(this.txtMaNV);
             this.pnTTNV.Location = new System.Drawing.Point(0, 80);
             this.pnTTNV.Name = "pnTTNV";
-            this.pnTTNV.Size = new System.Drawing.Size(400, 604);
+            this.pnTTNV.Size = new System.Drawing.Size(400, 533);
             this.pnTTNV.TabIndex = 24;
             // 
             // label10
@@ -664,7 +664,7 @@
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Image = global::GUI.Properties.Resources.icons8_save_50;
             this.btnLuu.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnLuu.Location = new System.Drawing.Point(62, 696);
+            this.btnLuu.Location = new System.Drawing.Point(62, 625);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(109, 59);
             this.btnLuu.TabIndex = 13;
@@ -675,7 +675,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 761);
+            this.ClientSize = new System.Drawing.Size(1034, 690);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.pnLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
