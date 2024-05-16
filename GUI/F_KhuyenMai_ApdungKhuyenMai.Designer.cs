@@ -117,7 +117,7 @@
             this.dtg.Location = new System.Drawing.Point(25, 94);
             this.dtg.Name = "dtg";
             this.dtg.ReadOnly = true;
-            this.dtg.RowTemplate.Height = 40;
+            this.dtg.RowTemplate.Height = 50;
             this.dtg.RowTemplate.ReadOnly = true;
             this.dtg.Size = new System.Drawing.Size(596, 501);
             this.dtg.TabIndex = 18;
@@ -139,7 +139,7 @@
             this.dtg.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtg.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtg.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtg.ThemeStyle.RowsStyle.Height = 40;
+            this.dtg.ThemeStyle.RowsStyle.Height = 50;
             this.dtg.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_CellClick);

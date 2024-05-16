@@ -60,7 +60,7 @@ namespace GUI
             int ir = 0;
             foreach (tblMatHang mh in DSMH)
             {
-                dtg.Rows[ir].Cells["Check"].Value = mh.MaKM.Equals(KhuyenMai.MaKM);
+                dtg.Rows.Add(mh.MaKM.Equals(KhuyenMai.MaKM));
                 dtg.Rows[ir].Cells["Img"].Value = Image.FromFile(BUS_MatHang.LayDuongDanHinhAnh(mh.LinkHinhAnh));
                 dtg.Rows[ir].Cells["MaMH"].Value = mh.MaMH;
                 dtg.Rows[ir].Cells["TenMH"].Value = mh.TenMH;
@@ -109,11 +109,10 @@ namespace GUI
                         mh = BUS_MatHang.LayTheoMa(r.Cells["MaMH"].Value.ToString());
                         mh.MaKM = KhuyenMai.MaKM;
                         BUS_MatHang.Sua(mh, mh);
-                        ADKM_ApDung.Invoke(this, e);
                     }
                 }
-            }    
-                
+            }
+            ADKM_ApDung.Invoke(this, e);
         }
 
         private void dtg_CellClick(object sender, DataGridViewCellEventArgs e)
