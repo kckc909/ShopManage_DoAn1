@@ -119,6 +119,7 @@ namespace GUI
                     txtGTToiThieu.Focus();
                     return;
                 }
+                vc.Loai = cboLoai.SelectedIndex;
                 BUS_Voucher.Sua(_old: Current, _new: vc);
             }
         }
@@ -198,6 +199,10 @@ namespace GUI
                 else
                 {
                     txtGTToiDa.Clear();
+                }
+                if (Current.Loai != null)
+                {
+                    cboLoai.SelectedIndex = (int)Current.Loai;
                 }
             }
         }

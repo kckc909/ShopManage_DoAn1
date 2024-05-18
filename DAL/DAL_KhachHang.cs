@@ -1,6 +1,7 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,70 +10,33 @@ namespace DAL
 {
     public class DAL_KhachHang
     {
-
+        ShopDatabaseEntities db = new ShopDatabaseEntities();
         public void Them(tblKhachHang KhachHang)
         {
-            try
+            if (!DanhSachKhachHang().Exists(x => x.MaKH.Trim().Equals(KhachHang.MaKH)))
             {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    db.tblKhachHangs.Add(KhachHang);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                db.tblKhachHangs.Add(KhachHang);
+                db.SaveChanges();
             }
         }
         public void Sua(tblKhachHang OldKhachHang, tblKhachHang NewKhachHang)
         {
-            try
+            if (NewKhachHang != null)
             {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    tblKhachHang KhachHang = db.tblKhachHangs.ToList().Find(x => Equals(x.MaKH, OldKhachHang.MaKH));
-
-                    KhachHang.TenKH = NewKhachHang.TenKH;
-                    KhachHang.SDT = NewKhachHang.SDT;
-
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                tblKhachHang KhachHang = db.tblKhachHangs.ToList().Find(x => Equals(x.MaKH, OldKhachHang.MaKH));
+                KhachHang.TenKH = NewKhachHang.TenKH;
+                KhachHang.SDT = NewKhachHang.SDT;
+                db.SaveChanges();
             }
         }
         public void Xoa(tblKhachHang KhachHang)
         {
-            try
+            if (KhachHang != null)
             {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    db.tblKhachHangs.Remove(KhachHang);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                db.tblKhachHangs.Remove(KhachHang);
+                db.SaveChanges();
             }
         }
-        public List<tblKhachHang> DanhSachKhachHang()
-        {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    return db.tblKhachHangs.ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return new List<tblKhachHang>();
-            }
-        }
+        public List<tblKhachHang> DanhSachKhachHang() => db.tblKhachHangs.ToList();
     }
 }

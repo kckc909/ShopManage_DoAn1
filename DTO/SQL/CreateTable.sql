@@ -129,12 +129,12 @@ create table tblVoucher(
 	GTToiDa int default 0, -- Mức tối đa có thể trừ
 )
 create table tblSoHuuVoucher(
+	MaSHVc nvarchar(10) primary key,
 	MaV char(10) references tblVoucher(MaV)on update cascade on delete cascade,
 	MaKH char(10) references tblKhachHang(MaKH) on update cascade on delete cascade,
 	TinhTrang int, -- 0 : Khả dụng -- 1 : Không khả dụng
 	NgayBatDau date,
 	NgayKetThuc date,
-	primary key (MaV, MaKH)
 )
 create table tblApDungVoucher(
 	MaHDB char(10) references tblHoaDonBan(MaHDB) on update cascade on delete cascade,
@@ -160,3 +160,11 @@ create table tblGhiChu(
 
 alter table tblVoucher
 alter column TenV nvarchar (max)
+
+alter table tblsohuuVoucher
+drop Constraint PK__tblSoHuu__35E527539231D7B2
+
+exec sp_help tblsohuuvoucher
+
+alter table tblVoucher
+add Loai int

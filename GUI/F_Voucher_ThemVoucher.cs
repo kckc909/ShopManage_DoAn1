@@ -85,6 +85,7 @@ namespace GUI
                 txtGTToiDa.Focus();
                 return;
             }    
+            vc.Loai = cboLoai.SelectedIndex;
             BUS_Voucher.Them(vc);
             VoucherAdded.Invoke(this, EventArgs.Empty);
         }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BUS
 {
@@ -16,7 +17,7 @@ namespace BUS
         public void Xoa(string MaV) => dal.Xoa(DSVoucher().Find(x => x.MaV.Equals(MaV)));
         public List<tblVoucher> DSVoucher() => dal.DanhSachVoucher();
         public List<tblVoucher> DSVoucher(string str) => dal.DanhSachVoucher().Where(
-            x => x.MaV.Contains(str) || 
+            x => x.MaV.Contains(str) ||
             x.TenV.Contains(str) ||
             x.GiaTri.Value.ToString().Contains(str) ||
             x.DonVi.Contains(str)
@@ -26,10 +27,44 @@ namespace BUS
             int i = DSVoucher().Count;
             while (DSVoucher().Exists(x => x.MaV.Trim().Equals($"V{i}")))
             {
-                i++ ;
+                i++;
             }
             return $"V{i}";
         }
         public tblVoucher LayTheoMa(string MaV) => DSVoucher().Find(x => x.MaV.Equals(MaV));
+        public void Filter_None(DataGridView dtg)
+        {
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(x => x.Visible = true);
+        }
+        public void Filter_CoTheTang(DataGridView dtg, tblKhachHang KH)
+        {
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
+            {
+                r.Visible = false;
+                if (r.Cells[1].Value != null)
+                {
+                    var vc = LayTheoMa(r.Cells[1].Value.ToString());
+                    if (vc.Loai == 1 || !vc.tblSoHuuVouchers.ToList().Any(x => x.MaKH.Equals(KH.MaKH)))
+                    {
+                        r.Visible = true;
+                    }
+                }
+            });
+        }
+        public void Filter_KhongTheTang(DataGridView dtg, tblKhachHang KH)
+        {
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
+            {
+                r.Visible = false;
+                if (r.Cells[1].Value != null)
+                {
+                    var vc = LayTheoMa(r.Cells[1].Value.ToString());
+                    if (vc.Loai == 0 && vc.tblSoHuuVouchers.ToList().Any(x => x.MaKH.Equals(KH.MaKH)))
+                    {
+                        r.Visible = true;
+                    }
+                }
+            });
+        }
     }
 }

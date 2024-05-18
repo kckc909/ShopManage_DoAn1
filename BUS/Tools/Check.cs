@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web.UI;
 
 namespace GUI.Tools
 {
     public static class Check
     {
+        /// <summary>
+        /// Nếu đúng định dạng thì true
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public static bool IsValidEmail(string email)
         {
             if (!email.Trim().Equals(""))
@@ -20,6 +24,11 @@ namespace GUI.Tools
             return false;
         }
 
+        /// <summary>
+        /// Nếu đúng định dạng thì trả về true
+        /// </summary>
+        /// <param name="pn"></param>
+        /// <returns></returns>
         public static bool IsValidPhoneNumber(string pn)
         {
             if (pn.Length < 10 || pn.Length > 11)

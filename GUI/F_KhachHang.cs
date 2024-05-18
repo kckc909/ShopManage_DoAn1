@@ -21,32 +21,28 @@ namespace GUI
             InitializeComponent();
         }
 
+        void Catch_ThemKhachHang(object sender, EventArgs e)
+        {
+            ((Form)sender).Close();
+            MessageBox.Show("Thêm khách hàng thành công!");
+        }
         void ModifyDtg()
         {
             dtgDSKH.AutoGenerateColumns = false;
-            dtgDSVcSH.AutoGenerateColumns = false;
         }
 
         void AddColumnDtg()
         {
-            dtgDSKH.Columns.AddRange(new DataGridViewColumn[]
-            {
-                new DataGridViewColumn() {Name = "MaKH", DataPropertyName = "MaKH", HeaderText = "Mã khách hàng"},
-                new DataGridViewColumn() {Name = "TenKH", DataPropertyName = "TenKH", HeaderText = "Tên khách hàng"},
-                new DataGridViewColumn() {Name = "SDT", DataPropertyName = "SDT", HeaderText = "Số điện thoại"}
-            });
-            dtgDSVcSH.Columns.AddRange(new DataGridViewColumn[]
-            {
-                new DataGridViewColumn() {Name = "MaV", DataPropertyName = "MaV", HeaderText = "Mã giảm giá"},
-                new DataGridViewColumn() {Name = "GiaTri", DataPropertyName = "GiaTri", HeaderText = "Trị giá"},
-                new DataGridViewColumn() {Name = "DonVi", DataPropertyName = "DonVi", HeaderText = "Đơn vị"},
-                new DataGridViewColumn() {Name = "GTToiDa", DataPropertyName = "GTToiDa", HeaderText = "Hạn mức"},
-                new DataGridViewColumn() {Name = "GTToiThieu", DataPropertyName = "GTToiThieu", HeaderText = "Mức tối thiểu"}
-            });
+            dtgDSKH.Columns.Add("MaKH", "Mã khách hàng");
+            dtgDSKH.Columns.Add("TenKH", "Tên khách hàng");
+            dtgDSKH.Columns.Add("SDT", "Số điện thoại");
         }
         void LoadDataDtgDSKH(List<tblKhachHang> DSKH)
         {
             dtgDSKH.DataSource = DSKH;
+            dtgDSKH.Columns["MaKH"].DataPropertyName = "MaKH";
+            dtgDSKH.Columns["TenKH"].DataPropertyName = "TenKH";
+            dtgDSKH.Columns["SDT"].DataPropertyName = "SDT";
         }
 
         void LoadDataKhachHang()
@@ -56,22 +52,13 @@ namespace GUI
                 txtMaKH.Clear();
                 txtTenKH.Clear();
                 txtSDT.Clear();
-                dtgDSVcSH.Rows.Clear();
             }
             else
             {
                 txtMaKH.Text = Current.MaKH;
                 txtTenKH.Text = Current.TenKH;
                 txtSDT.Text = Current.SDT;
-                dtgDSVcSH.Rows.Clear();
-                foreach (tblSoHuuVoucher shvc in Current.tblSoHuuVouchers)
-                {
-                    if (shvc.TinhTrang == MyDefault.Status_On)
-                    {
-                        tblVoucher vc = shvc.tblVoucher;
-                        dtgDSVcSH.Rows.Add(vc.MaV, vc.GiaTri, vc.DonVi, vc.GTToiDa, vc.GTToiThieu);
-                    }
-                }
+                lbSHVcNums.Text = Current.tblSoHuuVouchers.Count.ToString();
             }
         }
 
@@ -88,11 +75,6 @@ namespace GUI
             LoadDataKhachHang();
         }
 
-        private void btnTangVoucher_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (Current != null)
@@ -100,6 +82,7 @@ namespace GUI
                 if (MessageBox.Show("Bạn có muốn xóa khách hàng không?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     BUS_KhachHang.Xoa(Current);
+                    LoadDataDtgDSKH(BUS_KhachHang.DSKH());
                 }
             }
             else
@@ -110,7 +93,31 @@ namespace GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
+            if (Current != null)
+            {
+                if (!txtTenKH.Text.Trim().Equals(""))
+                {
+                    if (!txtSDT.Text.Trim().Equals(""))
+                    {
+                        tblKhachHang kh = new tblKhachHang()
+                        {
+                            MaKH = txtMaKH.Text,
+                            TenKH = txtTenKH.Text,
+                            SDT = txtSDT.Text
+                        };
+                        BUS_KhachHang.Sua(Current, kh);
+                        MessageBox.Show("Đã thay đổi thông tin khách hàng!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng không xóa trống số điện thoại khách hàng!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng không xóa trông tên khách hàng!");
+                }
+            }
         }
 
         private void btnDatLai_Click(object sender, EventArgs e)
@@ -120,17 +127,28 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            F_KhachHang_ThemKhachHang f = new F_KhachHang_ThemKhachHang();
+            f.ThemKhachHang += Catch_ThemKhachHang;
+            f.Show();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void chkVoucherUsed_CheckedChanged(object sender, EventArgs e)
-        {
-
+            foreach (DataGridViewRow row in dtgDSKH.Rows)
+            {
+                if (row.Cells[0].Value != null)
+                {
+                    row.Visible = false;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value.ToString().Contains(txtTimKiem.Text))
+                        {
+                            row.Visible |= true;
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         private void dtgDSKH_SelectionChanged(object sender, EventArgs e)
@@ -150,6 +168,18 @@ namespace GUI
             ModifyDtg();
             AddColumnDtg();
             LoadDataDtgDSKH(BUS_KhachHang.DSKH());
+        }
+
+        private void btnQLSHVc_Click(object sender, EventArgs e)
+        {
+            if (Current != null)
+            {
+                
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn khách hàng trước!");
+            }
         }
     }
 }

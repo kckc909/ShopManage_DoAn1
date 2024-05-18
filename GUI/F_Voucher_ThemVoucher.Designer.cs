@@ -44,6 +44,8 @@
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtMoTa = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboLoai = new Guna.UI2.WinForms.Guna2ComboBox();
             this.SuspendLayout();
             // 
             // label9
@@ -51,7 +53,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(349, 461);
+            this.label9.Location = new System.Drawing.Point(444, 461);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(44, 20);
             this.label9.TabIndex = 44;
@@ -62,7 +64,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(349, 398);
+            this.label8.Location = new System.Drawing.Point(444, 398);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 20);
             this.label8.TabIndex = 43;
@@ -89,7 +91,7 @@
             this.txtGTToiDa.PasswordChar = '\0';
             this.txtGTToiDa.PlaceholderText = "";
             this.txtGTToiDa.SelectedText = "";
-            this.txtGTToiDa.Size = new System.Drawing.Size(181, 36);
+            this.txtGTToiDa.Size = new System.Drawing.Size(276, 36);
             this.txtGTToiDa.TabIndex = 6;
             this.txtGTToiDa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGTToiDa_KeyPress);
             // 
@@ -114,7 +116,7 @@
             this.txtGTToiThieu.PasswordChar = '\0';
             this.txtGTToiThieu.PlaceholderText = "";
             this.txtGTToiThieu.SelectedText = "";
-            this.txtGTToiThieu.Size = new System.Drawing.Size(181, 36);
+            this.txtGTToiThieu.Size = new System.Drawing.Size(276, 36);
             this.txtGTToiThieu.TabIndex = 5;
             this.txtGTToiThieu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGTToiDa_KeyPress);
             // 
@@ -151,7 +153,7 @@
             this.cboDonVi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cboDonVi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboDonVi.ItemHeight = 30;
-            this.cboDonVi.Location = new System.Drawing.Point(295, 327);
+            this.cboDonVi.Location = new System.Drawing.Point(390, 327);
             this.cboDonVi.Name = "cboDonVi";
             this.cboDonVi.Size = new System.Drawing.Size(98, 36);
             this.cboDonVi.TabIndex = 4;
@@ -197,7 +199,7 @@
             this.txtGiaTri.PasswordChar = '\0';
             this.txtGiaTri.PlaceholderText = "";
             this.txtGiaTri.SelectedText = "";
-            this.txtGiaTri.Size = new System.Drawing.Size(129, 36);
+            this.txtGiaTri.Size = new System.Drawing.Size(224, 36);
             this.txtGiaTri.TabIndex = 3;
             this.txtGiaTri.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGTToiDa_KeyPress);
             // 
@@ -222,7 +224,7 @@
             this.txtTenV.PasswordChar = '\0';
             this.txtTenV.PlaceholderText = "";
             this.txtTenV.SelectedText = "";
-            this.txtTenV.Size = new System.Drawing.Size(234, 36);
+            this.txtTenV.Size = new System.Drawing.Size(224, 36);
             this.txtTenV.TabIndex = 1;
             // 
             // label2
@@ -232,7 +234,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(417, 80);
+            this.label2.Size = new System.Drawing.Size(512, 80);
             this.label2.TabIndex = 45;
             this.label2.Text = "THÔNG TIN VOUCHER";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -251,7 +253,7 @@
             this.btnHuy.ForeColor = System.Drawing.Color.White;
             this.btnHuy.Image = global::GUI.Properties.Resources.icons8_restore_50;
             this.btnHuy.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnHuy.Location = new System.Drawing.Point(228, 514);
+            this.btnHuy.Location = new System.Drawing.Point(276, 515);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(119, 57);
             this.btnHuy.TabIndex = 8;
@@ -272,7 +274,7 @@
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Image = global::GUI.Properties.Resources.icons8_save_50;
             this.btnLuu.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnLuu.Location = new System.Drawing.Point(63, 514);
+            this.btnLuu.Location = new System.Drawing.Point(111, 515);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(114, 57);
             this.btnLuu.TabIndex = 7;
@@ -311,15 +313,47 @@
             this.txtMoTa.PlaceholderText = "";
             this.txtMoTa.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMoTa.SelectedText = "";
-            this.txtMoTa.Size = new System.Drawing.Size(234, 129);
+            this.txtMoTa.Size = new System.Drawing.Size(329, 129);
             this.txtMoTa.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(386, 126);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 20);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Loại";
+            // 
+            // cboLoai
+            // 
+            this.cboLoai.AutoRoundedCorners = true;
+            this.cboLoai.BackColor = System.Drawing.Color.Transparent;
+            this.cboLoai.BorderRadius = 17;
+            this.cboLoai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLoai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboLoai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboLoai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cboLoai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cboLoai.ItemHeight = 30;
+            this.cboLoai.Items.AddRange(new object[] {
+            "1",
+            "n"});
+            this.cboLoai.Location = new System.Drawing.Point(431, 110);
+            this.cboLoai.Name = "cboLoai";
+            this.cboLoai.Size = new System.Drawing.Size(57, 36);
+            this.cboLoai.TabIndex = 51;
             // 
             // F_Voucher_ThemVoucher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(417, 583);
+            this.ClientSize = new System.Drawing.Size(512, 584);
+            this.Controls.Add(this.cboLoai);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtMoTa);
             this.Controls.Add(this.btnHuy);
@@ -365,5 +399,7 @@
         private Guna.UI2.WinForms.Guna2Button btnLuu;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox txtMoTa;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ComboBox cboLoai;
     }
 }

@@ -59,6 +59,8 @@
             this.btnDatLai = new Guna.UI2.WinForms.Guna2Button();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.txtTenV = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cboLoai = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
             this.pnLeft.SuspendLayout();
@@ -142,7 +144,7 @@
             this.txtMaV.PlaceholderText = "";
             this.txtMaV.ReadOnly = true;
             this.txtMaV.SelectedText = "";
-            this.txtMaV.Size = new System.Drawing.Size(234, 36);
+            this.txtMaV.Size = new System.Drawing.Size(122, 36);
             this.txtMaV.TabIndex = 2;
             // 
             // pnMain
@@ -363,6 +365,8 @@
             // 
             // pnLeft
             // 
+            this.pnLeft.Controls.Add(this.cboLoai);
+            this.pnLeft.Controls.Add(this.label11);
             this.pnLeft.Controls.Add(this.label10);
             this.pnLeft.Controls.Add(this.txtMoTa);
             this.pnLeft.Controls.Add(this.label9);
@@ -596,6 +600,36 @@
             this.txtTenV.Size = new System.Drawing.Size(234, 36);
             this.txtTenV.TabIndex = 2;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label11.Location = new System.Drawing.Point(276, 116);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(39, 20);
+            this.label11.TabIndex = 52;
+            this.label11.Text = "Loại";
+            // 
+            // cboLoai
+            // 
+            this.cboLoai.AutoRoundedCorners = true;
+            this.cboLoai.BackColor = System.Drawing.Color.Transparent;
+            this.cboLoai.BorderRadius = 17;
+            this.cboLoai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLoai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboLoai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboLoai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cboLoai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cboLoai.ItemHeight = 30;
+            this.cboLoai.Items.AddRange(new object[] {
+            "1",
+            "n"});
+            this.cboLoai.Location = new System.Drawing.Point(321, 107);
+            this.cboLoai.Name = "cboLoai";
+            this.cboLoai.Size = new System.Drawing.Size(57, 36);
+            this.cboLoai.TabIndex = 53;
+            // 
             // F_Voucher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -644,5 +678,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView dtg;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox txtMoTa;
+        private Guna.UI2.WinForms.Guna2ComboBox cboLoai;
+        private System.Windows.Forms.Label label11;
     }
 }
