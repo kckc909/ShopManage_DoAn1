@@ -102,13 +102,23 @@ namespace GUI
             tblMatHang mh;
             foreach (DataGridViewRow r in dtg.Rows)
             {
-                if (r.Cells["Check"].Value is true)
+                // Kiểm tra nếu mặt hàng được tích thì đổi thành makm đó, nếu không thì kiểm tra xem mã hiện tại là gì, 
+                // nếu là mã km này thì thay đổi thành km mặc định
+                if (r.Cells["MaMH"].Value != null)
                 {
-                    if (r.Cells["MaMH"].Value != null)
+                    mh = BUS_MatHang.LayTheoMa(r.Cells["MaMH"].Value.ToString());
+                    if (r.Cells["Check"].Value is true)
                     {
-                        mh = BUS_MatHang.LayTheoMa(r.Cells["MaMH"].Value.ToString());
                         mh.MaKM = KhuyenMai.MaKM;
                         BUS_MatHang.Sua(mh, mh);
+                    }
+                    else
+                    {
+                        if (mh.MaKM == KhuyenMai.MaKM)
+                        {
+                            mh.MaKM = MyDefault.MaKM;
+                            BUS_MatHang.Sua(mh,mh);
+                        }
                     }
                 }
             }
