@@ -56,5 +56,11 @@ namespace GUI
         {
             AddSuccess.Invoke(this, EventArgs.Empty);
         }
+
+        private void F_NhaCungCap_ThemNCC_Load(object sender, EventArgs e)
+        {
+            MinimumSize = this.Size;
+            MaximumSize = this.Size;
+        }
     }
 }

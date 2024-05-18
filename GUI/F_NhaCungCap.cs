@@ -81,7 +81,7 @@ namespace GUI
         {
             F_NhaCungCap_ThemNCC f_NhaCungCap_ThemNCC = new F_NhaCungCap_ThemNCC();
             f_NhaCungCap_ThemNCC.AddSuccess += Catch_AddSuccess;
-            f_NhaCungCap_ThemNCC.Show();
+            f_NhaCungCap_ThemNCC.ShowDialog();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)

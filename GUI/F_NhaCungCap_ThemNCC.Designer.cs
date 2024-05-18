@@ -235,6 +235,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(438, 412);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnDatLai);
@@ -250,6 +251,7 @@
             this.Name = "F_NhaCungCap_ThemNCC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "F_NhaCungCap_ThemNCC";
+            this.Load += new System.EventHandler(this.F_NhaCungCap_ThemNCC_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
