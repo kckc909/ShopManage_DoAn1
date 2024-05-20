@@ -237,7 +237,7 @@ namespace GUI
             Load_Row_DSNV(BUS_NhanVien.DSNV());
             dtg.Rows[0].Cells[-1].Selected = true;
         }
-        
+
         void Catch_ThemThanhCong(object sender, EventArgs e)
         {
             ((Form)sender).Close();
@@ -248,6 +248,16 @@ namespace GUI
         private void F_NhanVien_SizeChanged(object sender, EventArgs e)
         {
             pnLeft.Width = pnLeft.Width == 400 ? 550 : 400;
+            if (pnLeft.Width > pnMain.Width)
+            {
+                pnLeft.Width = 400;
+            }    
+        }
+
+        private void btnTaiKhoanNhanVien_Click(object sender, EventArgs e)
+        {
+            F_NhanVien_TaiKhoan f = new F_NhanVien_TaiKhoan(Current);
+            f.ShowDialog();
         }
     }
 }

@@ -16,7 +16,18 @@ namespace DTO
         public static string Path_Avatar = Path.Combine(basePath, "..", "..", "Avatars");
         public static DateTime MaxDate = Convert.ToDateTime("30-12-9000");
         public static string MaKM = "KM00      ";
+        public static tblKhachHang KH = new tblKhachHang()
+        {
+            MaKH = "KH0       ",
+            TenKH = "Khách hàng vãng lai",
+            SDT = ""
+        };
         public static string MaLoai = "LH00      ";
+        public static tblNhanVien NV0 = new tblNhanVien()
+        {
+            MaNV = "NV0",
+            TenNV = "Admin"
+        };
         public static int Status_On = 0;
         public static int Status_Off = 1;
     }

@@ -119,7 +119,7 @@
             this.btnApDungKM.Name = "btnApDungKM";
             this.btnApDungKM.Size = new System.Drawing.Size(187, 59);
             this.btnApDungKM.TabIndex = 27;
-            this.btnApDungKM.Text = "Áp dụng voucher";
+            this.btnApDungKM.Text = "Áp dụng khuyến mãi";
             this.btnApDungKM.Click += new System.EventHandler(this.btnApDungKM_Click);
             // 
             // dtg
@@ -211,7 +211,7 @@
             // 
             // btbLamMoi
             // 
-            this.btbLamMoi.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btbLamMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btbLamMoi.AutoRoundedCorners = true;
             this.btbLamMoi.BorderRadius = 28;
             this.btbLamMoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -601,6 +601,7 @@
             this.Name = "F_KhuyenMai";
             this.Text = "F_KhuyenMai";
             this.Load += new System.EventHandler(this.F_KhuyenMai_Load);
+            this.SizeChanged += new System.EventHandler(this.F_KhuyenMai_SizeChanged);
             this.pnMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();
             this.pnLeft.ResumeLayout(false);

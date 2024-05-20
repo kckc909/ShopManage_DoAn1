@@ -112,7 +112,7 @@
             this.pnContentRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.pnContentRight.Location = new System.Drawing.Point(0, 80);
             this.pnContentRight.Name = "pnContentRight";
-            this.pnContentRight.Size = new System.Drawing.Size(400, 537);
+            this.pnContentRight.Size = new System.Drawing.Size(400, 526);
             this.pnContentRight.TabIndex = 22;
             // 
             // label12
@@ -474,7 +474,7 @@
             // 
             this.btnDatLai.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnDatLai.AutoRoundedCorners = true;
-            this.btnDatLai.BorderRadius = 25;
+            this.btnDatLai.BorderRadius = 29;
             this.btnDatLai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDatLai.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDatLai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -485,9 +485,9 @@
             this.btnDatLai.Image = global::GUI.Properties.Resources.icons8_restore_50;
             this.btnDatLai.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDatLai.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnDatLai.Location = new System.Drawing.Point(226, 632);
+            this.btnDatLai.Location = new System.Drawing.Point(224, 623);
             this.btnDatLai.Name = "btnDatLai";
-            this.btnDatLai.Size = new System.Drawing.Size(115, 52);
+            this.btnDatLai.Size = new System.Drawing.Size(117, 61);
             this.btnDatLai.TabIndex = 21;
             this.btnDatLai.Text = "Đặt lại";
             this.btnDatLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -497,7 +497,7 @@
             // 
             this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLuu.AutoRoundedCorners = true;
-            this.btnLuu.BorderRadius = 24;
+            this.btnLuu.BorderRadius = 29;
             this.btnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLuu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -508,9 +508,9 @@
             this.btnLuu.Image = global::GUI.Properties.Resources.icons8_save_50;
             this.btnLuu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnLuu.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnLuu.Location = new System.Drawing.Point(83, 633);
+            this.btnLuu.Location = new System.Drawing.Point(73, 624);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(96, 51);
+            this.btnLuu.Size = new System.Drawing.Size(106, 60);
             this.btnLuu.TabIndex = 20;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -572,13 +572,14 @@
             this.pnDSMH.AutoScroll = true;
             this.pnDSMH.Location = new System.Drawing.Point(12, 171);
             this.pnDSMH.Name = "pnDSMH";
-            this.pnDSMH.Size = new System.Drawing.Size(612, 446);
+            this.pnDSMH.Size = new System.Drawing.Size(612, 435);
             this.pnDSMH.TabIndex = 17;
             // 
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.BorderRadius = 23;
+            this.btnXoa.AutoRoundedCorners = true;
+            this.btnXoa.BorderRadius = 29;
             this.btnXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -589,9 +590,9 @@
             this.btnXoa.Image = global::GUI.Properties.Resources.icons8_trash_50;
             this.btnXoa.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXoa.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnXoa.Location = new System.Drawing.Point(530, 632);
+            this.btnXoa.Location = new System.Drawing.Point(517, 624);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(94, 52);
+            this.btnXoa.Size = new System.Drawing.Size(107, 60);
             this.btnXoa.TabIndex = 16;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

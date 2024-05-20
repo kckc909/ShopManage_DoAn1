@@ -100,6 +100,7 @@ namespace GUI
                 _new.DiaChi = txtDiaChi.Text;
 
                 BUS_NhaCungCap.Sua(Current, _new);
+                btnLamMoi_Click(sender, e);
             }
         }
 
@@ -139,6 +140,18 @@ namespace GUI
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             Load_SupplierList(BUS_NhaCungCap.DanhSachNCC(txtTimKiem.Text));
+        }
+
+        private void F_NhaCungCap_SizeChanged(object sender, EventArgs e)
+        {
+            if (pnLeft.Width > pnMain.Width && pnLeft.Width == 550)
+            {
+                pnLeft.Width = 400;
+            }
+            else
+            {
+                pnLeft.Width = 550 ;
+            }
         }
     }
 }

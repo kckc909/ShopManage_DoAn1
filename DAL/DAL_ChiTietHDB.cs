@@ -12,7 +12,7 @@ namespace DAL
         ShopDatabaseEntities db = new ShopDatabaseEntities();
         public void Them(tblChiTietHDB ctHDB)
         {
-            if (!ChiTietHoaDonNhap().Exists(x => Equals(x.MaHDB, ctHDB.MaHDB)) && ctHDB != null)
+            if (!DS_CTHDB().Exists(x => Equals(x.MaHDB, ctHDB.MaHDB)) && ctHDB != null)
             {
                 db.tblChiTietHDBs.Add(ctHDB);
                 db.SaveChanges();
@@ -36,18 +36,22 @@ namespace DAL
                 }
             }
         }
+        public void Sua_SoLuong(tblChiTietHDB CTHDB, int SoLuongMoi)
+        {
+            CTHDB.SoLg = SoLuongMoi;
+            db.SaveChanges();
+        }
         public void Xoa(tblChiTietHDB chiTietHDB)
         {
-            tblChiTietHDB ct = db.tblChiTietHDBs.ToList().Find(x => Equals(x.MaHDB, chiTietHDB.MaHDB) && Equals(x.MaMH, chiTietHDB.MaMH));
-            if (ct != null)
+            if (chiTietHDB != null)
             {
-                db.tblChiTietHDBs.Remove(ct);
+                db.tblChiTietHDBs.Remove(chiTietHDB);
                 db.SaveChanges();
             }
         }
-        public List<tblChiTietHDB> ChiTietHoaDonNhap() => db.tblChiTietHDBs.ToList();
-        public List<tblChiTietHDB> ChiTietHoaDonNhap(string MaHDB)
-            => ChiTietHoaDonNhap().Where(x => Equals(x.MaHDB.Trim(), MaHDB.Trim())).ToList();
+        public List<tblChiTietHDB> DS_CTHDB() => db.tblChiTietHDBs.ToList();
+        public List<tblChiTietHDB> DS_CTHDB(string MaHDB)
+            => DS_CTHDB().Where(x => Equals(x.MaHDB.Trim(), MaHDB.Trim())).ToList();
 
     }
 }

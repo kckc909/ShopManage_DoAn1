@@ -200,5 +200,17 @@ namespace GUI
                 }
             }
         }
+
+        private void F_KhuyenMai_SizeChanged(object sender, EventArgs e)
+        {
+            if (pnLeft.Width > pnMain.Width && pnLeft.Width == 550)
+            {
+                pnLeft.Width = 400;
+            }
+            else
+            {
+                pnLeft.Width = 550;
+            }
+        }
     }
 }

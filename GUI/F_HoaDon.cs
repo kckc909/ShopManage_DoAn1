@@ -16,6 +16,7 @@ namespace GUI
         F_HoaDon_MatHang MatHang = new F_HoaDon_MatHang();
         F_HoaDon_KhachHang KhachHang = new F_HoaDon_KhachHang();
         F_HoaDon_HoaDonNhap HoaDonNhap = new F_HoaDon_HoaDonNhap();
+
         public F_HoaDon()
         {
             InitializeComponent();
@@ -33,7 +34,11 @@ namespace GUI
 
         private void F_HoaDon_SizeChanged(object sender, EventArgs e)
         {
-            pnLeft.Width = pnLeft.Width == 400 ? 550 : 400;
+            pnRight.Width = pnRight.Width == 400 ? 550 : 400;
+            if (pnRight.Width > pnNoiDung.Width)
+            {
+                pnRight.Width = 400;
+            }
         }
     }
 }

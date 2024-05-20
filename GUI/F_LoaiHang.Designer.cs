@@ -127,6 +127,7 @@
             this.dtgDSMH.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
             this.dtgDSMH.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dtgDSMH.RowTemplate.Height = 40;
             this.dtgDSMH.Size = new System.Drawing.Size(371, 294);
             this.dtgDSMH.TabIndex = 13;
             this.dtgDSMH.TabStop = false;
@@ -148,7 +149,7 @@
             this.dtgDSMH.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtgDSMH.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtgDSMH.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgDSMH.ThemeStyle.RowsStyle.Height = 22;
+            this.dtgDSMH.ThemeStyle.RowsStyle.Height = 40;
             this.dtgDSMH.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgDSMH.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
@@ -491,6 +492,7 @@
             this.dtgDSLH.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightGray;
             this.dtgDSLH.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dtgDSLH.RowTemplate.Height = 40;
             this.dtgDSLH.Size = new System.Drawing.Size(616, 513);
             this.dtgDSLH.TabIndex = 3;
             this.dtgDSLH.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -509,9 +511,9 @@
             this.dtgDSLH.ThemeStyle.ReadOnly = true;
             this.dtgDSLH.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgDSLH.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtgDSLH.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dtgDSLH.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtgDSLH.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgDSLH.ThemeStyle.RowsStyle.Height = 22;
+            this.dtgDSLH.ThemeStyle.RowsStyle.Height = 40;
             this.dtgDSLH.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgDSLH.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgDSLH.SelectionChanged += new System.EventHandler(this.dtgDSLH_SelectionChanged);

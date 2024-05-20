@@ -26,6 +26,11 @@ namespace DAL
 
             db.SaveChanges();
         }
+        public void Sua_TinhTrang(tblHoaDonNhap hdn, int TinhTrang)
+        {
+            hdn.TinhTrang = TinhTrang;
+            db.SaveChanges();
+        }
         public void Xoa(tblHoaDonNhap HoaDonNhap)
         {
             db.tblHoaDonNhaps.Remove(HoaDonNhap);

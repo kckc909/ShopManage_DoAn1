@@ -44,6 +44,7 @@
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.pnTTNV = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnTaiKhoanNhanVien = new Guna.UI2.WinForms.Guna2Button();
             this.label10 = new System.Windows.Forms.Label();
             this.rbtnNu = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbtnNam = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -139,10 +140,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -169,8 +170,9 @@
             this.dtg.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg.RowHeadersVisible = false;
             this.dtg.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dtg.RowTemplate.Height = 40;
             this.dtg.RowTemplate.ReadOnly = true;
-            this.dtg.Size = new System.Drawing.Size(601, 452);
+            this.dtg.Size = new System.Drawing.Size(601, 447);
             this.dtg.TabIndex = 3;
             this.dtg.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtg.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -190,7 +192,7 @@
             this.dtg.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtg.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtg.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtg.ThemeStyle.RowsStyle.Height = 22;
+            this.dtg.ThemeStyle.RowsStyle.Height = 40;
             this.dtg.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtg.SelectionChanged += new System.EventHandler(this.dtg_SelectionChanged);
@@ -326,6 +328,7 @@
             this.pnTTNV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnTTNV.AutoScroll = true;
+            this.pnTTNV.Controls.Add(this.btnTaiKhoanNhanVien);
             this.pnTTNV.Controls.Add(this.label10);
             this.pnTTNV.Controls.Add(this.rbtnNu);
             this.pnTTNV.Controls.Add(this.rbtnNam);
@@ -347,8 +350,26 @@
             this.pnTTNV.Controls.Add(this.txtMaNV);
             this.pnTTNV.Location = new System.Drawing.Point(0, 80);
             this.pnTTNV.Name = "pnTTNV";
-            this.pnTTNV.Size = new System.Drawing.Size(400, 533);
+            this.pnTTNV.Size = new System.Drawing.Size(400, 528);
             this.pnTTNV.TabIndex = 24;
+            // 
+            // btnTaiKhoanNhanVien
+            // 
+            this.btnTaiKhoanNhanVien.AutoRoundedCorners = true;
+            this.btnTaiKhoanNhanVien.BorderRadius = 21;
+            this.btnTaiKhoanNhanVien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTaiKhoanNhanVien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTaiKhoanNhanVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTaiKhoanNhanVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTaiKhoanNhanVien.FillColor = System.Drawing.Color.Gray;
+            this.btnTaiKhoanNhanVien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTaiKhoanNhanVien.ForeColor = System.Drawing.Color.White;
+            this.btnTaiKhoanNhanVien.Location = new System.Drawing.Point(187, 759);
+            this.btnTaiKhoanNhanVien.Name = "btnTaiKhoanNhanVien";
+            this.btnTaiKhoanNhanVien.Size = new System.Drawing.Size(180, 45);
+            this.btnTaiKhoanNhanVien.TabIndex = 49;
+            this.btnTaiKhoanNhanVien.Text = "Tài khoản đăng nhập";
+            this.btnTaiKhoanNhanVien.Click += new System.EventHandler(this.btnTaiKhoanNhanVien_Click);
             // 
             // label10
             // 
@@ -727,5 +748,6 @@
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2RadioButton rbtnNu;
         private Guna.UI2.WinForms.Guna2RadioButton rbtnNam;
+        private Guna.UI2.WinForms.Guna2Button btnTaiKhoanNhanVien;
     }
 }

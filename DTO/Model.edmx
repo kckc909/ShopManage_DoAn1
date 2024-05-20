@@ -20,19 +20,19 @@
             <PropertyRef Name="MaHDB" />
             <PropertyRef Name="MaV" />
           </Key>
-          <Property Name="MaHDB" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="MaV" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="GhiChu" Type="char" MaxLength="1" />
+          <Property Name="MaHDB" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="MaV" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="GhiChu" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="tblChiTietHDB">
           <Key>
             <PropertyRef Name="MaHDB" />
             <PropertyRef Name="MaMH" />
           </Key>
-          <Property Name="MaHDB" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="MaMH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaHDB" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="MaMH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="SoLg" Type="int" Nullable="false" />
-          <Property Name="MaKM" Type="char" MaxLength="10" />
+          <Property Name="MaKM" Type="varchar" MaxLength="10" />
           <Property Name="GiaBan" Type="int" />
         </EntityType>
         <EntityType Name="tblChiTietHDN">
@@ -40,8 +40,8 @@
             <PropertyRef Name="MaHDN" />
             <PropertyRef Name="MaMH" />
           </Key>
-          <Property Name="MaHDN" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="MaMH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaHDN" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="MaMH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="SoLg" Type="int" Nullable="false" />
           <Property Name="GiaNhap" Type="int" />
         </EntityType>
@@ -55,42 +55,42 @@
           <Key>
             <PropertyRef Name="MaHD" />
           </Key>
-          <Property Name="MaHD" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaHD" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="NoiDung" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tblHoaDonBan">
           <Key>
             <PropertyRef Name="MaHDB" />
           </Key>
-          <Property Name="MaHDB" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaHDB" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="NgayBan" Type="date" />
-          <Property Name="MaNV" Type="char" MaxLength="10" />
-          <Property Name="MaKH" Type="char" MaxLength="10" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" />
+          <Property Name="MaKH" Type="varchar" MaxLength="10" />
           <Property Name="TinhTrang" Type="int" />
         </EntityType>
         <EntityType Name="tblHoaDonNhap">
           <Key>
             <PropertyRef Name="MaHDN" />
           </Key>
-          <Property Name="MaHDN" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaHDN" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="NgayNhap" Type="date" />
-          <Property Name="MaNV" Type="char" MaxLength="10" />
-          <Property Name="MaNCC" Type="char" MaxLength="10" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" />
+          <Property Name="MaNCC" Type="varchar" MaxLength="10" />
           <Property Name="TinhTrang" Type="int" />
         </EntityType>
         <EntityType Name="tblKhachHang">
           <Key>
             <PropertyRef Name="MaKH" />
           </Key>
-          <Property Name="MaKH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaKH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenKH" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SDT" Type="char" MaxLength="10" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="tblKhuyenMai">
           <Key>
             <PropertyRef Name="MaKM" />
           </Key>
-          <Property Name="MaKM" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaKM" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenKM" Type="nvarchar" MaxLength="30" />
           <Property Name="MoTa" Type="nvarchar(max)" />
           <Property Name="PhamTramGiam" Type="int" />
@@ -101,7 +101,7 @@
           <Key>
             <PropertyRef Name="MaLoai" />
           </Key>
-          <Property Name="MaLoai" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaLoai" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenLoai" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MoTa" Type="nvarchar(max)" />
         </EntityType>
@@ -109,40 +109,40 @@
           <Key>
             <PropertyRef Name="MaMH" />
           </Key>
-          <Property Name="MaMH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaMH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenMH" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Mota" Type="nvarchar" MaxLength="500" />
-          <Property Name="LinkHinhAnh" Type="char" MaxLength="100" />
+          <Property Name="LinkHinhAnh" Type="varchar" MaxLength="100" />
           <Property Name="GiaBan" Type="int" />
           <Property Name="SoLuong" Type="int" />
           <Property Name="DonViTinh" Type="nvarchar" MaxLength="10" />
           <Property Name="HanSuDung" Type="date" />
-          <Property Name="MaLoai" Type="char" MaxLength="10" />
-          <Property Name="MaKM" Type="char" MaxLength="10" />
+          <Property Name="MaLoai" Type="varchar" MaxLength="10" />
+          <Property Name="MaKM" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="tblNCC">
           <Key>
             <PropertyRef Name="MaNCC" />
           </Key>
-          <Property Name="MaNCC" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="TenNCC" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaNCC" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenNCC" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
-          <Property Name="SDT" Type="char" MaxLength="10" />
-          <Property Name="Email" Type="char" MaxLength="50" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblNhanVien">
           <Key>
             <PropertyRef Name="MaNV" />
           </Key>
-          <Property Name="MaNV" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenNV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GioiTinh" Type="int" />
           <Property Name="NgaySinh" Type="date" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
-          <Property Name="SDT" Type="char" MaxLength="10" />
-          <Property Name="Email" Type="char" MaxLength="50" />
-          <Property Name="CapQuyen" Type="int" />
-          <Property Name="GioiTinh" Type="int" />
+          <Property Name="SDT" Type="varchar" MaxLength="10" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="Avatar" Type="nvarchar(max)" />
+          <Property Name="CapQuyen" Type="int" />
         </EntityType>
         <EntityType Name="tblQuyen">
           <Key>
@@ -156,27 +156,27 @@
           <Key>
             <PropertyRef Name="MaSHVc" />
           </Key>
-          <Property Name="MaV" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="MaKH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MaSHVc" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaV" Type="varchar" MaxLength="10" />
+          <Property Name="MaKH" Type="varchar" MaxLength="10" />
           <Property Name="TinhTrang" Type="int" />
           <Property Name="NgayBatDau" Type="date" />
           <Property Name="NgayKetThuc" Type="date" />
-          <Property Name="MaSHVc" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="tblTaiKhoanMatKhau">
           <Key>
             <PropertyRef Name="TaiKhoan" />
           </Key>
-          <Property Name="TaiKhoan" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="MatKhau" Type="char" MaxLength="50" />
-          <Property Name="MaNV" Type="char" MaxLength="10" />
+          <Property Name="TaiKhoan" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="50" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="tblVoucher">
           <Key>
             <PropertyRef Name="MaV" />
           </Key>
-          <Property Name="MaV" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="TenV" Type="nvarchar(max)" />
+          <Property Name="MaV" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TenV" Type="nvarchar" MaxLength="50" />
           <Property Name="MoTa" Type="nvarchar(max)" />
           <Property Name="GiaTri" Type="int" />
           <Property Name="DonVi" Type="nchar" MaxLength="10" />
@@ -184,7 +184,7 @@
           <Property Name="GTToiDa" Type="int" />
           <Property Name="Loai" Type="int" />
         </EntityType>
-        <Association Name="FK__tblApDung__MaHDB__2EC5E7B8">
+        <Association Name="FK__tblApDung__MaHDB__475C8B58">
           <End Role="tblHoaDonBan" Type="Self.tblHoaDonBan" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -198,7 +198,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblApDungVo__MaV__2FBA0BF1">
+        <Association Name="FK__tblApDungVo__MaV__4850AF91">
           <End Role="tblVoucher" Type="Self.tblVoucher" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -212,7 +212,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblChiTie__MaHDB__1411F17C">
+        <Association Name="FK__tblChiTie__MaHDB__2CA8951C">
           <End Role="tblHoaDonBan" Type="Self.tblHoaDonBan" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -226,7 +226,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblChiTie__MaHDN__1D9B5BB6">
+        <Association Name="FK__tblChiTie__MaHDN__3631FF56">
           <End Role="tblHoaDonNhap" Type="Self.tblHoaDonNhap" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -240,7 +240,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblChiTiet__MaKM__15FA39EE">
+        <Association Name="FK__tblChiTiet__MaKM__2E90DD8E">
           <End Role="tblKhuyenMai" Type="Self.tblKhuyenMai" Multiplicity="0..1" />
           <End Role="tblChiTietHDB" Type="Self.tblChiTietHDB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -252,7 +252,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblChiTiet__MaMH__150615B5">
+        <Association Name="FK__tblChiTiet__MaMH__2D9CB955">
           <End Role="tblMatHang" Type="Self.tblMatHang" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -266,7 +266,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblChiTiet__MaMH__1E8F7FEF">
+        <Association Name="FK__tblChiTiet__MaMH__3726238F">
           <End Role="tblMatHang" Type="Self.tblMatHang" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -280,7 +280,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblHoaDon__MaNCC__19CACAD2">
+        <Association Name="FK__tblHoaDon__MaNCC__32616E72">
           <End Role="tblNCC" Type="Self.tblNCC" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -294,7 +294,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblHoaDonB__MaKH__10416098">
+        <Association Name="FK__tblHoaDonB__MaKH__28D80438">
           <End Role="tblKhachHang" Type="Self.tblKhachHang" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -308,7 +308,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblHoaDonB__MaNV__0F4D3C5F">
+        <Association Name="FK__tblHoaDonB__MaNV__27E3DFFF">
           <End Role="tblNhanVien" Type="Self.tblNhanVien" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -322,7 +322,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblHoaDonN__MaNV__18D6A699">
+        <Association Name="FK__tblHoaDonN__MaNV__316D4A39">
           <End Role="tblNhanVien" Type="Self.tblNhanVien" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -336,7 +336,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblMatHan__MaLoa__06B7F65E">
+        <Association Name="FK__tblMatHan__MaLoa__1F4E99FE">
           <End Role="tblLoaiHang" Type="Self.tblLoaiHang" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -350,7 +350,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblMatHang__MaKM__07AC1A97">
+        <Association Name="FK__tblMatHang__MaKM__2042BE37">
           <End Role="tblKhuyenMai" Type="Self.tblKhuyenMai" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -364,7 +364,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblNhanVi__CapQu__0C70CFB4">
+        <Association Name="FK__tblNhanVi__CapQu__25077354">
           <End Role="tblQuyen" Type="Self.tblQuyen" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -378,8 +378,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblSoHuuVo__MaKH__2BE97B0D">
-          <End Role="tblKhachHang" Type="Self.tblKhachHang" Multiplicity="1">
+        <Association Name="FK__tblSoHuuVo__MaKH__44801EAD">
+          <End Role="tblKhachHang" Type="Self.tblKhachHang" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="tblSoHuuVoucher" Type="Self.tblSoHuuVoucher" Multiplicity="*" />
@@ -392,8 +392,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblSoHuuVou__MaV__2AF556D4">
-          <End Role="tblVoucher" Type="Self.tblVoucher" Multiplicity="1">
+        <Association Name="FK__tblSoHuuVou__MaV__438BFA74">
+          <End Role="tblVoucher" Type="Self.tblVoucher" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="tblSoHuuVoucher" Type="Self.tblSoHuuVoucher" Multiplicity="*" />
@@ -406,7 +406,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblTaiKhoa__MaNV__226010D3">
+        <Association Name="FK__tblTaiKhoa__MaNV__3AF6B473">
           <End Role="tblNhanVien" Type="Self.tblNhanVien" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -420,7 +420,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblVouche__DonVi__2630A1B7">
+        <Association Name="FK__tblVouche__DonVi__3EC74557">
           <End Role="tblDonVi" Type="Self.tblDonVi" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -434,37 +434,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="ShopDatabaseModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblApDungVoucher" EntityType="Self.tblApDungVoucher" Schema="dbo" store:Type="Tables" />
@@ -484,75 +453,75 @@
           <EntitySet Name="tblSoHuuVoucher" EntityType="Self.tblSoHuuVoucher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTaiKhoanMatKhau" EntityType="Self.tblTaiKhoanMatKhau" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblVoucher" EntityType="Self.tblVoucher" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__tblApDung__MaHDB__2EC5E7B8" Association="Self.FK__tblApDung__MaHDB__2EC5E7B8">
+          <AssociationSet Name="FK__tblApDung__MaHDB__475C8B58" Association="Self.FK__tblApDung__MaHDB__475C8B58">
             <End Role="tblHoaDonBan" EntitySet="tblHoaDonBan" />
             <End Role="tblApDungVoucher" EntitySet="tblApDungVoucher" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblApDungVo__MaV__2FBA0BF1" Association="Self.FK__tblApDungVo__MaV__2FBA0BF1">
+          <AssociationSet Name="FK__tblApDungVo__MaV__4850AF91" Association="Self.FK__tblApDungVo__MaV__4850AF91">
             <End Role="tblVoucher" EntitySet="tblVoucher" />
             <End Role="tblApDungVoucher" EntitySet="tblApDungVoucher" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblChiTie__MaHDB__1411F17C" Association="Self.FK__tblChiTie__MaHDB__1411F17C">
+          <AssociationSet Name="FK__tblChiTie__MaHDB__2CA8951C" Association="Self.FK__tblChiTie__MaHDB__2CA8951C">
             <End Role="tblHoaDonBan" EntitySet="tblHoaDonBan" />
             <End Role="tblChiTietHDB" EntitySet="tblChiTietHDB" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblChiTie__MaHDN__1D9B5BB6" Association="Self.FK__tblChiTie__MaHDN__1D9B5BB6">
+          <AssociationSet Name="FK__tblChiTie__MaHDN__3631FF56" Association="Self.FK__tblChiTie__MaHDN__3631FF56">
             <End Role="tblHoaDonNhap" EntitySet="tblHoaDonNhap" />
             <End Role="tblChiTietHDN" EntitySet="tblChiTietHDN" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblChiTiet__MaKM__15FA39EE" Association="Self.FK__tblChiTiet__MaKM__15FA39EE">
+          <AssociationSet Name="FK__tblChiTiet__MaKM__2E90DD8E" Association="Self.FK__tblChiTiet__MaKM__2E90DD8E">
             <End Role="tblKhuyenMai" EntitySet="tblKhuyenMai" />
             <End Role="tblChiTietHDB" EntitySet="tblChiTietHDB" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblChiTiet__MaMH__150615B5" Association="Self.FK__tblChiTiet__MaMH__150615B5">
+          <AssociationSet Name="FK__tblChiTiet__MaMH__2D9CB955" Association="Self.FK__tblChiTiet__MaMH__2D9CB955">
             <End Role="tblMatHang" EntitySet="tblMatHang" />
             <End Role="tblChiTietHDB" EntitySet="tblChiTietHDB" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblChiTiet__MaMH__1E8F7FEF" Association="Self.FK__tblChiTiet__MaMH__1E8F7FEF">
+          <AssociationSet Name="FK__tblChiTiet__MaMH__3726238F" Association="Self.FK__tblChiTiet__MaMH__3726238F">
             <End Role="tblMatHang" EntitySet="tblMatHang" />
             <End Role="tblChiTietHDN" EntitySet="tblChiTietHDN" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblHoaDon__MaNCC__19CACAD2" Association="Self.FK__tblHoaDon__MaNCC__19CACAD2">
+          <AssociationSet Name="FK__tblHoaDon__MaNCC__32616E72" Association="Self.FK__tblHoaDon__MaNCC__32616E72">
             <End Role="tblNCC" EntitySet="tblNCC" />
             <End Role="tblHoaDonNhap" EntitySet="tblHoaDonNhap" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblHoaDonB__MaKH__10416098" Association="Self.FK__tblHoaDonB__MaKH__10416098">
+          <AssociationSet Name="FK__tblHoaDonB__MaKH__28D80438" Association="Self.FK__tblHoaDonB__MaKH__28D80438">
             <End Role="tblKhachHang" EntitySet="tblKhachHang" />
             <End Role="tblHoaDonBan" EntitySet="tblHoaDonBan" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblHoaDonB__MaNV__0F4D3C5F" Association="Self.FK__tblHoaDonB__MaNV__0F4D3C5F">
+          <AssociationSet Name="FK__tblHoaDonB__MaNV__27E3DFFF" Association="Self.FK__tblHoaDonB__MaNV__27E3DFFF">
             <End Role="tblNhanVien" EntitySet="tblNhanVien" />
             <End Role="tblHoaDonBan" EntitySet="tblHoaDonBan" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblHoaDonN__MaNV__18D6A699" Association="Self.FK__tblHoaDonN__MaNV__18D6A699">
+          <AssociationSet Name="FK__tblHoaDonN__MaNV__316D4A39" Association="Self.FK__tblHoaDonN__MaNV__316D4A39">
             <End Role="tblNhanVien" EntitySet="tblNhanVien" />
             <End Role="tblHoaDonNhap" EntitySet="tblHoaDonNhap" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblMatHan__MaLoa__06B7F65E" Association="Self.FK__tblMatHan__MaLoa__06B7F65E">
+          <AssociationSet Name="FK__tblMatHan__MaLoa__1F4E99FE" Association="Self.FK__tblMatHan__MaLoa__1F4E99FE">
             <End Role="tblLoaiHang" EntitySet="tblLoaiHang" />
             <End Role="tblMatHang" EntitySet="tblMatHang" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblMatHang__MaKM__07AC1A97" Association="Self.FK__tblMatHang__MaKM__07AC1A97">
+          <AssociationSet Name="FK__tblMatHang__MaKM__2042BE37" Association="Self.FK__tblMatHang__MaKM__2042BE37">
             <End Role="tblKhuyenMai" EntitySet="tblKhuyenMai" />
             <End Role="tblMatHang" EntitySet="tblMatHang" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblNhanVi__CapQu__0C70CFB4" Association="Self.FK__tblNhanVi__CapQu__0C70CFB4">
+          <AssociationSet Name="FK__tblNhanVi__CapQu__25077354" Association="Self.FK__tblNhanVi__CapQu__25077354">
             <End Role="tblQuyen" EntitySet="tblQuyen" />
             <End Role="tblNhanVien" EntitySet="tblNhanVien" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblSoHuuVo__MaKH__2BE97B0D" Association="Self.FK__tblSoHuuVo__MaKH__2BE97B0D">
+          <AssociationSet Name="FK__tblSoHuuVo__MaKH__44801EAD" Association="Self.FK__tblSoHuuVo__MaKH__44801EAD">
             <End Role="tblKhachHang" EntitySet="tblKhachHang" />
             <End Role="tblSoHuuVoucher" EntitySet="tblSoHuuVoucher" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblSoHuuVou__MaV__2AF556D4" Association="Self.FK__tblSoHuuVou__MaV__2AF556D4">
+          <AssociationSet Name="FK__tblSoHuuVou__MaV__438BFA74" Association="Self.FK__tblSoHuuVou__MaV__438BFA74">
             <End Role="tblVoucher" EntitySet="tblVoucher" />
             <End Role="tblSoHuuVoucher" EntitySet="tblSoHuuVoucher" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblTaiKhoa__MaNV__226010D3" Association="Self.FK__tblTaiKhoa__MaNV__226010D3">
+          <AssociationSet Name="FK__tblTaiKhoa__MaNV__3AF6B473" Association="Self.FK__tblTaiKhoa__MaNV__3AF6B473">
             <End Role="tblNhanVien" EntitySet="tblNhanVien" />
             <End Role="tblTaiKhoanMatKhau" EntitySet="tblTaiKhoanMatKhau" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblVouche__DonVi__2630A1B7" Association="Self.FK__tblVouche__DonVi__2630A1B7">
+          <AssociationSet Name="FK__tblVouche__DonVi__3EC74557" Association="Self.FK__tblVouche__DonVi__3EC74557">
             <End Role="tblDonVi" EntitySet="tblDonVi" />
             <End Role="tblVoucher" EntitySet="tblVoucher" />
           </AssociationSet>
@@ -577,158 +546,158 @@
             <PropertyRef Name="MaHDB" />
             <PropertyRef Name="MaV" />
           </Key>
-          <Property Name="MaHDB" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="GhiChu" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="tblHoaDonBan" Relationship="Self.FK__tblApDung__MaHDB__2EC5E7B8" FromRole="tblApDungVoucher" ToRole="tblHoaDonBan" />
-          <NavigationProperty Name="tblVoucher" Relationship="Self.FK__tblApDungVo__MaV__2FBA0BF1" FromRole="tblApDungVoucher" ToRole="tblVoucher" />
+          <Property Name="MaHDB" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblHoaDonBan" Relationship="Self.FK__tblApDung__MaHDB__475C8B58" FromRole="tblApDungVoucher" ToRole="tblHoaDonBan" />
+          <NavigationProperty Name="tblVoucher" Relationship="Self.FK__tblApDungVo__MaV__4850AF91" FromRole="tblApDungVoucher" ToRole="tblVoucher" />
         </EntityType>
         <EntityType Name="tblChiTietHDB">
           <Key>
             <PropertyRef Name="MaHDB" />
             <PropertyRef Name="MaMH" />
           </Key>
-          <Property Name="MaHDB" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaMH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaHDB" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SoLg" Type="Int32" Nullable="false" />
-          <Property Name="MaKM" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaKM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="GiaBan" Type="Int32" />
-          <NavigationProperty Name="tblHoaDonBan" Relationship="Self.FK__tblChiTie__MaHDB__1411F17C" FromRole="tblChiTietHDB" ToRole="tblHoaDonBan" />
-          <NavigationProperty Name="tblKhuyenMai" Relationship="Self.FK__tblChiTiet__MaKM__15FA39EE" FromRole="tblChiTietHDB" ToRole="tblKhuyenMai" />
-          <NavigationProperty Name="tblMatHang" Relationship="Self.FK__tblChiTiet__MaMH__150615B5" FromRole="tblChiTietHDB" ToRole="tblMatHang" />
+          <NavigationProperty Name="tblHoaDonBan" Relationship="Self.FK__tblChiTie__MaHDB__2CA8951C" FromRole="tblChiTietHDB" ToRole="tblHoaDonBan" />
+          <NavigationProperty Name="tblKhuyenMai" Relationship="Self.FK__tblChiTiet__MaKM__2E90DD8E" FromRole="tblChiTietHDB" ToRole="tblKhuyenMai" />
+          <NavigationProperty Name="tblMatHang" Relationship="Self.FK__tblChiTiet__MaMH__2D9CB955" FromRole="tblChiTietHDB" ToRole="tblMatHang" />
         </EntityType>
         <EntityType Name="tblChiTietHDN">
           <Key>
             <PropertyRef Name="MaHDN" />
             <PropertyRef Name="MaMH" />
           </Key>
-          <Property Name="MaHDN" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaMH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaHDN" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SoLg" Type="Int32" Nullable="false" />
           <Property Name="GiaNhap" Type="Int32" />
-          <NavigationProperty Name="tblHoaDonNhap" Relationship="Self.FK__tblChiTie__MaHDN__1D9B5BB6" FromRole="tblChiTietHDN" ToRole="tblHoaDonNhap" />
-          <NavigationProperty Name="tblMatHang" Relationship="Self.FK__tblChiTiet__MaMH__1E8F7FEF" FromRole="tblChiTietHDN" ToRole="tblMatHang" />
+          <NavigationProperty Name="tblHoaDonNhap" Relationship="Self.FK__tblChiTie__MaHDN__3631FF56" FromRole="tblChiTietHDN" ToRole="tblHoaDonNhap" />
+          <NavigationProperty Name="tblMatHang" Relationship="Self.FK__tblChiTiet__MaMH__3726238F" FromRole="tblChiTietHDN" ToRole="tblMatHang" />
         </EntityType>
         <EntityType Name="tblDonVi">
           <Key>
             <PropertyRef Name="DonVi" />
           </Key>
           <Property Name="DonVi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="tblVouchers" Relationship="Self.FK__tblVouche__DonVi__2630A1B7" FromRole="tblDonVi" ToRole="tblVoucher" />
+          <NavigationProperty Name="tblVouchers" Relationship="Self.FK__tblVouche__DonVi__3EC74557" FromRole="tblDonVi" ToRole="tblVoucher" />
         </EntityType>
         <EntityType Name="tblGhiChu">
           <Key>
             <PropertyRef Name="MaHD" />
           </Key>
-          <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblHoaDonBan">
           <Key>
             <PropertyRef Name="MaHDB" />
           </Key>
-          <Property Name="MaHDB" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaHDB" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NgayBan" Type="DateTime" Precision="0" />
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TinhTrang" Type="Int32" />
-          <NavigationProperty Name="tblApDungVouchers" Relationship="Self.FK__tblApDung__MaHDB__2EC5E7B8" FromRole="tblHoaDonBan" ToRole="tblApDungVoucher" />
-          <NavigationProperty Name="tblChiTietHDBs" Relationship="Self.FK__tblChiTie__MaHDB__1411F17C" FromRole="tblHoaDonBan" ToRole="tblChiTietHDB" />
-          <NavigationProperty Name="tblKhachHang" Relationship="Self.FK__tblHoaDonB__MaKH__10416098" FromRole="tblHoaDonBan" ToRole="tblKhachHang" />
-          <NavigationProperty Name="tblNhanVien" Relationship="Self.FK__tblHoaDonB__MaNV__0F4D3C5F" FromRole="tblHoaDonBan" ToRole="tblNhanVien" />
+          <NavigationProperty Name="tblApDungVouchers" Relationship="Self.FK__tblApDung__MaHDB__475C8B58" FromRole="tblHoaDonBan" ToRole="tblApDungVoucher" />
+          <NavigationProperty Name="tblChiTietHDBs" Relationship="Self.FK__tblChiTie__MaHDB__2CA8951C" FromRole="tblHoaDonBan" ToRole="tblChiTietHDB" />
+          <NavigationProperty Name="tblKhachHang" Relationship="Self.FK__tblHoaDonB__MaKH__28D80438" FromRole="tblHoaDonBan" ToRole="tblKhachHang" />
+          <NavigationProperty Name="tblNhanVien" Relationship="Self.FK__tblHoaDonB__MaNV__27E3DFFF" FromRole="tblHoaDonBan" ToRole="tblNhanVien" />
         </EntityType>
         <EntityType Name="tblHoaDonNhap">
           <Key>
             <PropertyRef Name="MaHDN" />
           </Key>
-          <Property Name="MaHDN" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaHDN" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NgayNhap" Type="DateTime" Precision="0" />
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TinhTrang" Type="Int32" />
-          <NavigationProperty Name="tblChiTietHDNs" Relationship="Self.FK__tblChiTie__MaHDN__1D9B5BB6" FromRole="tblHoaDonNhap" ToRole="tblChiTietHDN" />
-          <NavigationProperty Name="tblNCC" Relationship="Self.FK__tblHoaDon__MaNCC__19CACAD2" FromRole="tblHoaDonNhap" ToRole="tblNCC" />
-          <NavigationProperty Name="tblNhanVien" Relationship="Self.FK__tblHoaDonN__MaNV__18D6A699" FromRole="tblHoaDonNhap" ToRole="tblNhanVien" />
+          <NavigationProperty Name="tblChiTietHDNs" Relationship="Self.FK__tblChiTie__MaHDN__3631FF56" FromRole="tblHoaDonNhap" ToRole="tblChiTietHDN" />
+          <NavigationProperty Name="tblNCC" Relationship="Self.FK__tblHoaDon__MaNCC__32616E72" FromRole="tblHoaDonNhap" ToRole="tblNCC" />
+          <NavigationProperty Name="tblNhanVien" Relationship="Self.FK__tblHoaDonN__MaNV__316D4A39" FromRole="tblHoaDonNhap" ToRole="tblNhanVien" />
         </EntityType>
         <EntityType Name="tblKhachHang">
           <Key>
             <PropertyRef Name="MaKH" />
           </Key>
-          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="tblHoaDonBans" Relationship="Self.FK__tblHoaDonB__MaKH__10416098" FromRole="tblKhachHang" ToRole="tblHoaDonBan" />
-          <NavigationProperty Name="tblSoHuuVouchers" Relationship="Self.FK__tblSoHuuVo__MaKH__2BE97B0D" FromRole="tblKhachHang" ToRole="tblSoHuuVoucher" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblHoaDonBans" Relationship="Self.FK__tblHoaDonB__MaKH__28D80438" FromRole="tblKhachHang" ToRole="tblHoaDonBan" />
+          <NavigationProperty Name="tblSoHuuVouchers" Relationship="Self.FK__tblSoHuuVo__MaKH__44801EAD" FromRole="tblKhachHang" ToRole="tblSoHuuVoucher" />
         </EntityType>
         <EntityType Name="tblKhuyenMai">
           <Key>
             <PropertyRef Name="MaKM" />
           </Key>
-          <Property Name="MaKM" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaKM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenKM" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PhamTramGiam" Type="Int32" />
           <Property Name="NgayBatDau" Type="DateTime" Precision="0" />
           <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="tblChiTietHDBs" Relationship="Self.FK__tblChiTiet__MaKM__15FA39EE" FromRole="tblKhuyenMai" ToRole="tblChiTietHDB" />
-          <NavigationProperty Name="tblMatHangs" Relationship="Self.FK__tblMatHang__MaKM__07AC1A97" FromRole="tblKhuyenMai" ToRole="tblMatHang" />
+          <NavigationProperty Name="tblChiTietHDBs" Relationship="Self.FK__tblChiTiet__MaKM__2E90DD8E" FromRole="tblKhuyenMai" ToRole="tblChiTietHDB" />
+          <NavigationProperty Name="tblMatHangs" Relationship="Self.FK__tblMatHang__MaKM__2042BE37" FromRole="tblKhuyenMai" ToRole="tblMatHang" />
         </EntityType>
         <EntityType Name="tblLoaiHang">
           <Key>
             <PropertyRef Name="MaLoai" />
           </Key>
-          <Property Name="MaLoai" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblMatHangs" Relationship="Self.FK__tblMatHan__MaLoa__06B7F65E" FromRole="tblLoaiHang" ToRole="tblMatHang" />
+          <NavigationProperty Name="tblMatHangs" Relationship="Self.FK__tblMatHan__MaLoa__1F4E99FE" FromRole="tblLoaiHang" ToRole="tblMatHang" />
         </EntityType>
         <EntityType Name="tblMatHang">
           <Key>
             <PropertyRef Name="MaMH" />
           </Key>
-          <Property Name="MaMH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Mota" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="LinkHinhAnh" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="LinkHinhAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="GiaBan" Type="Int32" />
           <Property Name="SoLuong" Type="Int32" />
           <Property Name="DonViTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="HanSuDung" Type="DateTime" Precision="0" />
-          <Property Name="MaLoai" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="MaKM" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="tblChiTietHDBs" Relationship="Self.FK__tblChiTiet__MaMH__150615B5" FromRole="tblMatHang" ToRole="tblChiTietHDB" />
-          <NavigationProperty Name="tblChiTietHDNs" Relationship="Self.FK__tblChiTiet__MaMH__1E8F7FEF" FromRole="tblMatHang" ToRole="tblChiTietHDN" />
-          <NavigationProperty Name="tblKhuyenMai" Relationship="Self.FK__tblMatHang__MaKM__07AC1A97" FromRole="tblMatHang" ToRole="tblKhuyenMai" />
-          <NavigationProperty Name="tblLoaiHang" Relationship="Self.FK__tblMatHan__MaLoa__06B7F65E" FromRole="tblMatHang" ToRole="tblLoaiHang" />
+          <Property Name="MaLoai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaKM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblChiTietHDBs" Relationship="Self.FK__tblChiTiet__MaMH__2D9CB955" FromRole="tblMatHang" ToRole="tblChiTietHDB" />
+          <NavigationProperty Name="tblChiTietHDNs" Relationship="Self.FK__tblChiTiet__MaMH__3726238F" FromRole="tblMatHang" ToRole="tblChiTietHDN" />
+          <NavigationProperty Name="tblKhuyenMai" Relationship="Self.FK__tblMatHang__MaKM__2042BE37" FromRole="tblMatHang" ToRole="tblKhuyenMai" />
+          <NavigationProperty Name="tblLoaiHang" Relationship="Self.FK__tblMatHan__MaLoa__1F4E99FE" FromRole="tblMatHang" ToRole="tblLoaiHang" />
         </EntityType>
         <EntityType Name="tblNCC">
           <Key>
             <PropertyRef Name="MaNCC" />
           </Key>
-          <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="TenNCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenNCC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="tblHoaDonNhaps" Relationship="Self.FK__tblHoaDon__MaNCC__19CACAD2" FromRole="tblNCC" ToRole="tblHoaDonNhap" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblHoaDonNhaps" Relationship="Self.FK__tblHoaDon__MaNCC__32616E72" FromRole="tblNCC" ToRole="tblHoaDonNhap" />
         </EntityType>
         <EntityType Name="tblNhanVien">
           <Key>
             <PropertyRef Name="MaNV" />
           </Key>
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GioiTinh" Type="Int32" />
           <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="CapQuyen" Type="Int32" />
-          <Property Name="GioiTinh" Type="Int32" />
+          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblHoaDonBans" Relationship="Self.FK__tblHoaDonB__MaNV__0F4D3C5F" FromRole="tblNhanVien" ToRole="tblHoaDonBan" />
-          <NavigationProperty Name="tblHoaDonNhaps" Relationship="Self.FK__tblHoaDonN__MaNV__18D6A699" FromRole="tblNhanVien" ToRole="tblHoaDonNhap" />
-          <NavigationProperty Name="tblQuyen" Relationship="Self.FK__tblNhanVi__CapQu__0C70CFB4" FromRole="tblNhanVien" ToRole="tblQuyen" />
-          <NavigationProperty Name="tblTaiKhoanMatKhaus" Relationship="Self.FK__tblTaiKhoa__MaNV__226010D3" FromRole="tblNhanVien" ToRole="tblTaiKhoanMatKhau" />
+          <Property Name="CapQuyen" Type="Int32" />
+          <NavigationProperty Name="tblHoaDonBans" Relationship="Self.FK__tblHoaDonB__MaNV__27E3DFFF" FromRole="tblNhanVien" ToRole="tblHoaDonBan" />
+          <NavigationProperty Name="tblHoaDonNhaps" Relationship="Self.FK__tblHoaDonN__MaNV__316D4A39" FromRole="tblNhanVien" ToRole="tblHoaDonNhap" />
+          <NavigationProperty Name="tblQuyen" Relationship="Self.FK__tblNhanVi__CapQu__25077354" FromRole="tblNhanVien" ToRole="tblQuyen" />
+          <NavigationProperty Name="tblTaiKhoanMatKhaus" Relationship="Self.FK__tblTaiKhoa__MaNV__3AF6B473" FromRole="tblNhanVien" ToRole="tblTaiKhoanMatKhau" />
         </EntityType>
         <EntityType Name="tblQuyen">
           <Key>
@@ -737,47 +706,47 @@
           <Property Name="CapQuyen" Type="Int32" Nullable="false" />
           <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblNhanViens" Relationship="Self.FK__tblNhanVi__CapQu__0C70CFB4" FromRole="tblQuyen" ToRole="tblNhanVien" />
+          <NavigationProperty Name="tblNhanViens" Relationship="Self.FK__tblNhanVi__CapQu__25077354" FromRole="tblQuyen" ToRole="tblNhanVien" />
         </EntityType>
         <EntityType Name="tblSoHuuVoucher">
           <Key>
             <PropertyRef Name="MaSHVc" />
           </Key>
-          <Property Name="MaV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaSHVc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TinhTrang" Type="Int32" />
           <Property Name="NgayBatDau" Type="DateTime" Precision="0" />
           <Property Name="NgayKetThuc" Type="DateTime" Precision="0" />
-          <Property Name="MaSHVc" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="tblKhachHang" Relationship="Self.FK__tblSoHuuVo__MaKH__2BE97B0D" FromRole="tblSoHuuVoucher" ToRole="tblKhachHang" />
-          <NavigationProperty Name="tblVoucher" Relationship="Self.FK__tblSoHuuVou__MaV__2AF556D4" FromRole="tblSoHuuVoucher" ToRole="tblVoucher" />
+          <NavigationProperty Name="tblKhachHang" Relationship="Self.FK__tblSoHuuVo__MaKH__44801EAD" FromRole="tblSoHuuVoucher" ToRole="tblKhachHang" />
+          <NavigationProperty Name="tblVoucher" Relationship="Self.FK__tblSoHuuVou__MaV__438BFA74" FromRole="tblSoHuuVoucher" ToRole="tblVoucher" />
         </EntityType>
         <EntityType Name="tblTaiKhoanMatKhau">
           <Key>
             <PropertyRef Name="TaiKhoan" />
           </Key>
-          <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="tblNhanVien" Relationship="Self.FK__tblTaiKhoa__MaNV__226010D3" FromRole="tblTaiKhoanMatKhau" ToRole="tblNhanVien" />
+          <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblNhanVien" Relationship="Self.FK__tblTaiKhoa__MaNV__3AF6B473" FromRole="tblTaiKhoanMatKhau" ToRole="tblNhanVien" />
         </EntityType>
         <EntityType Name="tblVoucher">
           <Key>
             <PropertyRef Name="MaV" />
           </Key>
-          <Property Name="MaV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="TenV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="GiaTri" Type="Int32" />
           <Property Name="DonVi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="GTToiThieu" Type="Int32" />
           <Property Name="GTToiDa" Type="Int32" />
           <Property Name="Loai" Type="Int32" />
-          <NavigationProperty Name="tblApDungVouchers" Relationship="Self.FK__tblApDungVo__MaV__2FBA0BF1" FromRole="tblVoucher" ToRole="tblApDungVoucher" />
-          <NavigationProperty Name="tblDonVi" Relationship="Self.FK__tblVouche__DonVi__2630A1B7" FromRole="tblVoucher" ToRole="tblDonVi" />
-          <NavigationProperty Name="tblSoHuuVouchers" Relationship="Self.FK__tblSoHuuVou__MaV__2AF556D4" FromRole="tblVoucher" ToRole="tblSoHuuVoucher" />
+          <NavigationProperty Name="tblApDungVouchers" Relationship="Self.FK__tblApDungVo__MaV__4850AF91" FromRole="tblVoucher" ToRole="tblApDungVoucher" />
+          <NavigationProperty Name="tblDonVi" Relationship="Self.FK__tblVouche__DonVi__3EC74557" FromRole="tblVoucher" ToRole="tblDonVi" />
+          <NavigationProperty Name="tblSoHuuVouchers" Relationship="Self.FK__tblSoHuuVou__MaV__438BFA74" FromRole="tblVoucher" ToRole="tblSoHuuVoucher" />
         </EntityType>
-        <Association Name="FK__tblApDung__MaHDB__2EC5E7B8">
+        <Association Name="FK__tblApDung__MaHDB__475C8B58">
           <End Role="tblHoaDonBan" Type="Self.tblHoaDonBan" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -791,7 +760,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblApDungVo__MaV__2FBA0BF1">
+        <Association Name="FK__tblApDungVo__MaV__4850AF91">
           <End Role="tblVoucher" Type="Self.tblVoucher" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -805,7 +774,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblChiTie__MaHDB__1411F17C">
+        <Association Name="FK__tblChiTie__MaHDB__2CA8951C">
           <End Role="tblHoaDonBan" Type="Self.tblHoaDonBan" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -819,7 +788,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblChiTiet__MaKM__15FA39EE">
+        <Association Name="FK__tblChiTiet__MaKM__2E90DD8E">
           <End Role="tblKhuyenMai" Type="Self.tblKhuyenMai" Multiplicity="0..1" />
           <End Role="tblChiTietHDB" Type="Self.tblChiTietHDB" Multiplicity="*" />
           <ReferentialConstraint>
@@ -831,7 +800,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblChiTiet__MaMH__150615B5">
+        <Association Name="FK__tblChiTiet__MaMH__2D9CB955">
           <End Role="tblMatHang" Type="Self.tblMatHang" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -845,7 +814,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblChiTie__MaHDN__1D9B5BB6">
+        <Association Name="FK__tblChiTie__MaHDN__3631FF56">
           <End Role="tblHoaDonNhap" Type="Self.tblHoaDonNhap" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -859,7 +828,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblChiTiet__MaMH__1E8F7FEF">
+        <Association Name="FK__tblChiTiet__MaMH__3726238F">
           <End Role="tblMatHang" Type="Self.tblMatHang" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -873,7 +842,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblVouche__DonVi__2630A1B7">
+        <Association Name="FK__tblVouche__DonVi__3EC74557">
           <End Role="tblDonVi" Type="Self.tblDonVi" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -887,7 +856,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblHoaDonB__MaKH__10416098">
+        <Association Name="FK__tblHoaDonB__MaKH__28D80438">
           <End Role="tblKhachHang" Type="Self.tblKhachHang" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -901,7 +870,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblHoaDonB__MaNV__0F4D3C5F">
+        <Association Name="FK__tblHoaDonB__MaNV__27E3DFFF">
           <End Role="tblNhanVien" Type="Self.tblNhanVien" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -915,7 +884,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblHoaDon__MaNCC__19CACAD2">
+        <Association Name="FK__tblHoaDon__MaNCC__32616E72">
           <End Role="tblNCC" Type="Self.tblNCC" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -929,7 +898,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblHoaDonN__MaNV__18D6A699">
+        <Association Name="FK__tblHoaDonN__MaNV__316D4A39">
           <End Role="tblNhanVien" Type="Self.tblNhanVien" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -943,8 +912,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblSoHuuVo__MaKH__2BE97B0D">
-          <End Role="tblKhachHang" Type="Self.tblKhachHang" Multiplicity="1">
+        <Association Name="FK__tblSoHuuVo__MaKH__44801EAD">
+          <End Role="tblKhachHang" Type="Self.tblKhachHang" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="tblSoHuuVoucher" Type="Self.tblSoHuuVoucher" Multiplicity="*" />
@@ -957,7 +926,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblMatHang__MaKM__07AC1A97">
+        <Association Name="FK__tblMatHang__MaKM__2042BE37">
           <End Role="tblKhuyenMai" Type="Self.tblKhuyenMai" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -971,7 +940,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblMatHan__MaLoa__06B7F65E">
+        <Association Name="FK__tblMatHan__MaLoa__1F4E99FE">
           <End Role="tblLoaiHang" Type="Self.tblLoaiHang" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -985,7 +954,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblNhanVi__CapQu__0C70CFB4">
+        <Association Name="FK__tblNhanVi__CapQu__25077354">
           <End Role="tblQuyen" Type="Self.tblQuyen" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -999,7 +968,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblTaiKhoa__MaNV__226010D3">
+        <Association Name="FK__tblTaiKhoa__MaNV__3AF6B473">
           <End Role="tblNhanVien" Type="Self.tblNhanVien" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -1013,8 +982,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblSoHuuVou__MaV__2AF556D4">
-          <End Role="tblVoucher" Type="Self.tblVoucher" Multiplicity="1">
+        <Association Name="FK__tblSoHuuVou__MaV__438BFA74">
+          <End Role="tblVoucher" Type="Self.tblVoucher" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="tblSoHuuVoucher" Type="Self.tblSoHuuVoucher" Multiplicity="*" />
@@ -1046,120 +1015,79 @@
           <EntitySet Name="tblSoHuuVouchers" EntityType="Self.tblSoHuuVoucher" />
           <EntitySet Name="tblTaiKhoanMatKhaus" EntityType="Self.tblTaiKhoanMatKhau" />
           <EntitySet Name="tblVouchers" EntityType="Self.tblVoucher" />
-          <AssociationSet Name="FK__tblApDung__MaHDB__2EC5E7B8" Association="Self.FK__tblApDung__MaHDB__2EC5E7B8">
+          <AssociationSet Name="FK__tblApDung__MaHDB__475C8B58" Association="Self.FK__tblApDung__MaHDB__475C8B58">
             <End Role="tblHoaDonBan" EntitySet="tblHoaDonBans" />
             <End Role="tblApDungVoucher" EntitySet="tblApDungVouchers" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblApDungVo__MaV__2FBA0BF1" Association="Self.FK__tblApDungVo__MaV__2FBA0BF1">
+          <AssociationSet Name="FK__tblApDungVo__MaV__4850AF91" Association="Self.FK__tblApDungVo__MaV__4850AF91">
             <End Role="tblVoucher" EntitySet="tblVouchers" />
             <End Role="tblApDungVoucher" EntitySet="tblApDungVouchers" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblChiTie__MaHDB__1411F17C" Association="Self.FK__tblChiTie__MaHDB__1411F17C">
+          <AssociationSet Name="FK__tblChiTie__MaHDB__2CA8951C" Association="Self.FK__tblChiTie__MaHDB__2CA8951C">
             <End Role="tblHoaDonBan" EntitySet="tblHoaDonBans" />
             <End Role="tblChiTietHDB" EntitySet="tblChiTietHDBs" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblChiTiet__MaKM__15FA39EE" Association="Self.FK__tblChiTiet__MaKM__15FA39EE">
+          <AssociationSet Name="FK__tblChiTiet__MaKM__2E90DD8E" Association="Self.FK__tblChiTiet__MaKM__2E90DD8E">
             <End Role="tblKhuyenMai" EntitySet="tblKhuyenMais" />
             <End Role="tblChiTietHDB" EntitySet="tblChiTietHDBs" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblChiTiet__MaMH__150615B5" Association="Self.FK__tblChiTiet__MaMH__150615B5">
+          <AssociationSet Name="FK__tblChiTiet__MaMH__2D9CB955" Association="Self.FK__tblChiTiet__MaMH__2D9CB955">
             <End Role="tblMatHang" EntitySet="tblMatHangs" />
             <End Role="tblChiTietHDB" EntitySet="tblChiTietHDBs" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblChiTie__MaHDN__1D9B5BB6" Association="Self.FK__tblChiTie__MaHDN__1D9B5BB6">
+          <AssociationSet Name="FK__tblChiTie__MaHDN__3631FF56" Association="Self.FK__tblChiTie__MaHDN__3631FF56">
             <End Role="tblHoaDonNhap" EntitySet="tblHoaDonNhaps" />
             <End Role="tblChiTietHDN" EntitySet="tblChiTietHDNs" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblChiTiet__MaMH__1E8F7FEF" Association="Self.FK__tblChiTiet__MaMH__1E8F7FEF">
+          <AssociationSet Name="FK__tblChiTiet__MaMH__3726238F" Association="Self.FK__tblChiTiet__MaMH__3726238F">
             <End Role="tblMatHang" EntitySet="tblMatHangs" />
             <End Role="tblChiTietHDN" EntitySet="tblChiTietHDNs" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblVouche__DonVi__2630A1B7" Association="Self.FK__tblVouche__DonVi__2630A1B7">
+          <AssociationSet Name="FK__tblVouche__DonVi__3EC74557" Association="Self.FK__tblVouche__DonVi__3EC74557">
             <End Role="tblDonVi" EntitySet="tblDonVis" />
             <End Role="tblVoucher" EntitySet="tblVouchers" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblHoaDonB__MaKH__10416098" Association="Self.FK__tblHoaDonB__MaKH__10416098">
+          <AssociationSet Name="FK__tblHoaDonB__MaKH__28D80438" Association="Self.FK__tblHoaDonB__MaKH__28D80438">
             <End Role="tblKhachHang" EntitySet="tblKhachHangs" />
             <End Role="tblHoaDonBan" EntitySet="tblHoaDonBans" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblHoaDonB__MaNV__0F4D3C5F" Association="Self.FK__tblHoaDonB__MaNV__0F4D3C5F">
+          <AssociationSet Name="FK__tblHoaDonB__MaNV__27E3DFFF" Association="Self.FK__tblHoaDonB__MaNV__27E3DFFF">
             <End Role="tblNhanVien" EntitySet="tblNhanViens" />
             <End Role="tblHoaDonBan" EntitySet="tblHoaDonBans" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblHoaDon__MaNCC__19CACAD2" Association="Self.FK__tblHoaDon__MaNCC__19CACAD2">
+          <AssociationSet Name="FK__tblHoaDon__MaNCC__32616E72" Association="Self.FK__tblHoaDon__MaNCC__32616E72">
             <End Role="tblNCC" EntitySet="tblNCCs" />
             <End Role="tblHoaDonNhap" EntitySet="tblHoaDonNhaps" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblHoaDonN__MaNV__18D6A699" Association="Self.FK__tblHoaDonN__MaNV__18D6A699">
+          <AssociationSet Name="FK__tblHoaDonN__MaNV__316D4A39" Association="Self.FK__tblHoaDonN__MaNV__316D4A39">
             <End Role="tblNhanVien" EntitySet="tblNhanViens" />
             <End Role="tblHoaDonNhap" EntitySet="tblHoaDonNhaps" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblSoHuuVo__MaKH__2BE97B0D" Association="Self.FK__tblSoHuuVo__MaKH__2BE97B0D">
+          <AssociationSet Name="FK__tblSoHuuVo__MaKH__44801EAD" Association="Self.FK__tblSoHuuVo__MaKH__44801EAD">
             <End Role="tblKhachHang" EntitySet="tblKhachHangs" />
             <End Role="tblSoHuuVoucher" EntitySet="tblSoHuuVouchers" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblMatHang__MaKM__07AC1A97" Association="Self.FK__tblMatHang__MaKM__07AC1A97">
+          <AssociationSet Name="FK__tblMatHang__MaKM__2042BE37" Association="Self.FK__tblMatHang__MaKM__2042BE37">
             <End Role="tblKhuyenMai" EntitySet="tblKhuyenMais" />
             <End Role="tblMatHang" EntitySet="tblMatHangs" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblMatHan__MaLoa__06B7F65E" Association="Self.FK__tblMatHan__MaLoa__06B7F65E">
+          <AssociationSet Name="FK__tblMatHan__MaLoa__1F4E99FE" Association="Self.FK__tblMatHan__MaLoa__1F4E99FE">
             <End Role="tblLoaiHang" EntitySet="tblLoaiHangs" />
             <End Role="tblMatHang" EntitySet="tblMatHangs" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblNhanVi__CapQu__0C70CFB4" Association="Self.FK__tblNhanVi__CapQu__0C70CFB4">
+          <AssociationSet Name="FK__tblNhanVi__CapQu__25077354" Association="Self.FK__tblNhanVi__CapQu__25077354">
             <End Role="tblQuyen" EntitySet="tblQuyens" />
             <End Role="tblNhanVien" EntitySet="tblNhanViens" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblTaiKhoa__MaNV__226010D3" Association="Self.FK__tblTaiKhoa__MaNV__226010D3">
+          <AssociationSet Name="FK__tblTaiKhoa__MaNV__3AF6B473" Association="Self.FK__tblTaiKhoa__MaNV__3AF6B473">
             <End Role="tblNhanVien" EntitySet="tblNhanViens" />
             <End Role="tblTaiKhoanMatKhau" EntitySet="tblTaiKhoanMatKhaus" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblSoHuuVou__MaV__2AF556D4" Association="Self.FK__tblSoHuuVou__MaV__2AF556D4">
+          <AssociationSet Name="FK__tblSoHuuVou__MaV__438BFA74" Association="Self.FK__tblSoHuuVou__MaV__438BFA74">
             <End Role="tblVoucher" EntitySet="tblVouchers" />
             <End Role="tblSoHuuVoucher" EntitySet="tblSoHuuVouchers" />
           </AssociationSet>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ShopDatabaseModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ShopDatabaseModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1306,13 +1234,13 @@
               <MappingFragment StoreEntitySet="tblNhanVien">
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
                 <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="CapQuyen" ColumnName="CapQuyen" />
-                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="CapQuyen" ColumnName="CapQuyen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1328,12 +1256,12 @@
           <EntitySetMapping Name="tblSoHuuVouchers">
             <EntityTypeMapping TypeName="ShopDatabaseModel.tblSoHuuVoucher">
               <MappingFragment StoreEntitySet="tblSoHuuVoucher">
+                <ScalarProperty Name="MaSHVc" ColumnName="MaSHVc" />
                 <ScalarProperty Name="MaV" ColumnName="MaV" />
                 <ScalarProperty Name="MaKH" ColumnName="MaKH" />
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
                 <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
                 <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
-                <ScalarProperty Name="MaSHVc" ColumnName="MaSHVc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1360,30 +1288,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ShopDatabaseModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ShopDatabaseModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ShopDatabaseModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ShopDatabaseModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ShopDatabaseModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ShopDatabaseModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ShopDatabaseModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ShopDatabaseModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ShopDatabaseModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

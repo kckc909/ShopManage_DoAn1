@@ -12,7 +12,7 @@ namespace DAL
         private ShopDatabaseEntities _db = new ShopDatabaseEntities();
         public void Them(tblHoaDonBan HDB)
         {
-            if (_db.tblHoaDonBans.ToList().Exists(x => Equals(x.MaHDB, HDB.MaHDB)))
+            if (_db.tblHoaDonBans.ToList().Any(x => Equals(x.MaHDB, HDB.MaHDB)))
             {
                 throw new Exception("Exist MaHDB");
             }
@@ -34,13 +34,14 @@ namespace DAL
 
             _db.SaveChanges();
         }
-        public void Xoa(string MaHDB)
+        public void Sua_TinhTrang(string MaHDB, int TinhTrang)
         {
-            var HDB = DanhSachHoaDonBan().Find(x => x.MaHDB.Trim() == MaHDB.Trim());
-            if (HDB is null)
-            {
-                throw new Exception("HDB was not found");
-            }
+            DanhSachHoaDonBan().Find(x => x.MaHDB.Trim().Equals(MaHDB.Trim())).TinhTrang = TinhTrang;
+            _db.SaveChanges();
+        }
+        public void Xoa(tblHoaDonBan HDB)
+        {
+            if (HDB is null) return;
             _db.tblHoaDonBans.Remove(HDB);
             _db.SaveChanges();
         }

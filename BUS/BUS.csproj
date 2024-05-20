@@ -55,10 +55,10 @@
   <ItemGroup>
     <Compile Include="BUS_ApDungVoucher.cs" />
     <Compile Include="BUS_BaoCaoThongKe.cs" />
-    <Compile Include="BUS_DangKy.cs" />
-    <Compile Include="BUS_DangNhap.cs" />
+    <Compile Include="BUS_ChiTietHDB.cs" />
     <Compile Include="BUS_DonVi.cs" />
-    <Compile Include="BUS_HoaDon.cs" />
+    <Compile Include="BUS_HoaDonBan.cs" />
+    <Compile Include="BUS_HoaDonNhap.cs" />
     <Compile Include="BUS_KhachHang.cs" />
     <Compile Include="BUS_KhuyenMai.cs" />
     <Compile Include="BUS_LoaiHang.cs" />
@@ -67,6 +67,7 @@
     <Compile Include="BUS_NhanVien.cs" />
     <Compile Include="BUS_Quyen.cs" />
     <Compile Include="BUS_SoHuuVoucher.cs" />
+    <Compile Include="BUS_TaiKhoan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BUS_Voucher.cs" />
     <Compile Include="Tools\Check.cs" />

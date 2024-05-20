@@ -42,6 +42,7 @@
             // 
             // label2
             // 
+            this.label2.BackColor = System.Drawing.Color.LightGray;
             this.label2.Font = new System.Drawing.Font("Cambria Math", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(9, 7);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -54,6 +55,7 @@
             // cbHienThiMatKhau
             // 
             this.cbHienThiMatKhau.AutoSize = true;
+            this.cbHienThiMatKhau.BackColor = System.Drawing.Color.LightGray;
             this.cbHienThiMatKhau.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.cbHienThiMatKhau.Location = new System.Drawing.Point(9, 244);
             this.cbHienThiMatKhau.Margin = new System.Windows.Forms.Padding(2);
@@ -61,11 +63,12 @@
             this.cbHienThiMatKhau.Size = new System.Drawing.Size(118, 17);
             this.cbHienThiMatKhau.TabIndex = 2;
             this.cbHienThiMatKhau.Text = "Hiển thị mật khẩu";
-            this.cbHienThiMatKhau.UseVisualStyleBackColor = true;
+            this.cbHienThiMatKhau.UseVisualStyleBackColor = false;
             this.cbHienThiMatKhau.CheckedChanged += new System.EventHandler(this.cbHienThiMatKhau_CheckedChanged);
             // 
             // groupBox5
             // 
+            this.groupBox5.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox5.Controls.Add(this.txtTenTaiKhoan);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.groupBox5.Location = new System.Drawing.Point(9, 134);
@@ -82,7 +85,7 @@
             this.txtTenTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(232)))), ((int)(((byte)(223)))));
+            this.txtTenTaiKhoan.BackColor = System.Drawing.Color.Gainsboro;
             this.txtTenTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTenTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtTenTaiKhoan.Location = new System.Drawing.Point(5, 18);
@@ -93,6 +96,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
             this.groupBox1.Controls.Add(this.txtMatKhau);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.groupBox1.Location = new System.Drawing.Point(9, 182);
@@ -109,7 +113,7 @@
             this.txtMatKhau.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMatKhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(232)))), ((int)(((byte)(223)))));
+            this.txtMatKhau.BackColor = System.Drawing.Color.Gainsboro;
             this.txtMatKhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMatKhau.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtMatKhau.Location = new System.Drawing.Point(5, 18);
@@ -122,11 +126,13 @@
             // btnDangNhap
             // 
             this.btnDangNhap.AutoRoundedCorners = true;
+            this.btnDangNhap.BackColor = System.Drawing.Color.Gainsboro;
             this.btnDangNhap.BorderRadius = 17;
             this.btnDangNhap.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDangNhap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnDangNhap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnDangNhap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangNhap.FillColor = System.Drawing.Color.Gray;
             this.btnDangNhap.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDangNhap.ForeColor = System.Drawing.Color.White;
             this.btnDangNhap.Location = new System.Drawing.Point(9, 319);
@@ -140,6 +146,7 @@
             // lbQMK
             // 
             this.lbQMK.AutoSize = true;
+            this.lbQMK.BackColor = System.Drawing.Color.LightGray;
             this.lbQMK.Location = new System.Drawing.Point(132, 245);
             this.lbQMK.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbQMK.Name = "lbQMK";
@@ -153,7 +160,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(232)))), ((int)(((byte)(223)))));
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(213, 366);
             this.Controls.Add(this.lbQMK);
             this.Controls.Add(this.btnDangNhap);

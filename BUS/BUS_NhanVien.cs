@@ -57,5 +57,13 @@ namespace BUS
 
             }
         }
+        public tblNhanVien NhanVienTheoEmail(string Email)
+        {
+            return DSNV().Find(x => x.Email.Equals(Email));
+        }
+        public bool KiemTraTonTai(string MaNV)
+        {
+            return DSNV().Any(x => x.MaNV.Trim().Equals(MaNV.Trim()));
+        }
     }
 }

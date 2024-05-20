@@ -137,7 +137,17 @@ namespace GUI
             var DsMaVc = dtg.Rows.Cast<DataGridViewRow>().ToList()
                 .Where(r => (bool)r.Cells["Check"].Value)
                 .Select(r => r.Cells["MaV"].Value.ToString()).ToList();
-            BUS_SoHuuVoucher.TangVoucher(BUS_SoHuuVoucher.DsSoHuuVoucher().Where(vc => DsMaVc.Contains(vc.MaV)).ToList(), KH);
+            List<tblSoHuuVoucher> DsShVc = DsMaVc.Select(mav => new tblSoHuuVoucher()
+            {
+                MaSHVc =BUS_SoHuuVoucher.MaTuDong(),
+                MaV  = mav,
+                MaKH = KH.MaKH,
+                NgayBatDau = DateTime.Now,
+                NgayKetThuc = DateTime.Now.AddDays(Convert.ToInt32(txtHanSuDung.Text)),
+                TinhTrang = 0
+            }).ToList();
+
+            BUS_SoHuuVoucher.TangVoucher(DsShVc, KH);
             ThemThanhCong?.Invoke(sender, e);
         }
 

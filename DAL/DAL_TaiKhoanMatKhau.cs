@@ -9,71 +9,55 @@ namespace DAL
 {
     public class DAL_TaiKhoanMatKhau
     {
-
+        ShopDatabaseEntities db = new ShopDatabaseEntities();
         public void Them(tblTaiKhoanMatKhau TaiKhoan)
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    db.tblTaiKhoanMatKhaus.Add(TaiKhoan);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            db.tblTaiKhoanMatKhaus.Add(TaiKhoan);
+            db.SaveChanges();
         }
         public void Sua(tblTaiKhoanMatKhau OldTaiKhoanMatKhau, tblTaiKhoanMatKhau NewTaiKhoanMatKhau)
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    tblTaiKhoanMatKhau TaiKhoan = db.tblTaiKhoanMatKhaus.ToList().Find(x => Equals(x.TaiKhoan, OldTaiKhoanMatKhau.TaiKhoan));
+            tblTaiKhoanMatKhau TaiKhoan = db.tblTaiKhoanMatKhaus.ToList().Find(x => Equals(x.TaiKhoan, OldTaiKhoanMatKhau.TaiKhoan));
 
-                    TaiKhoan.MatKhau = NewTaiKhoanMatKhau.MatKhau;
-                    TaiKhoan.MaNV = NewTaiKhoanMatKhau.MaNV;
+            TaiKhoan.MatKhau = NewTaiKhoanMatKhau.MatKhau;
+            TaiKhoan.MaNV = NewTaiKhoanMatKhau.MaNV;
 
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
+            db.SaveChanges();
+        }
+        public void Sua(string TenTK, string TenTKMoi ,string MKMoi)
+        {
+            tblTaiKhoanMatKhau tk = db.tblTaiKhoanMatKhaus.Find(TenTK);
+            if (tk != null)
             {
-                Console.WriteLine(ex.Message);
+                tk.TaiKhoan = TenTKMoi;
+                tk.MatKhau = MKMoi;
+                db.SaveChanges();
             }
         }
         public void Xoa(string TenTaiKhoan)
         {
-            try
-            {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
-                {
-                    var del_TKMK = DanhSachTaiKhoanMatKhau().Find(x => x.TaiKhoan == TenTaiKhoan);
-                    db.tblTaiKhoanMatKhaus.Remove(del_TKMK);
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            var del_TKMK = DanhSachTaiKhoanMatKhau().Find(x => x.TaiKhoan == TenTaiKhoan);
+            if (del_TKMK is null) { return; }
+            db.tblTaiKhoanMatKhaus.Remove(del_TKMK);
+            db.SaveChanges();
         }
         public List<tblTaiKhoanMatKhau> DanhSachTaiKhoanMatKhau()
         {
-            try
+            List<tblTaiKhoanMatKhau> result = db.tblTaiKhoanMatKhaus.ToList();
+            if (result.Count == 0)
             {
-                using (ShopDatabaseEntities db = new ShopDatabaseEntities())
+                var a = new tblTaiKhoanMatKhau()
                 {
-                    return db.tblTaiKhoanMatKhaus.ToList();
-                }
+                    TaiKhoan = "admin"
+                    ,
+                    MatKhau = "admin"
+                    ,
+                    MaNV = MyDefault.NV0.MaNV
+                };
+                result.Add(a);
+                Them(a);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return new List<tblTaiKhoanMatKhau>();
-            }
+            return result;
         }
     }
 }

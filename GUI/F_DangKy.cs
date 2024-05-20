@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,17 +17,28 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BUS.BUS_DangKy BUS_DangKy = new BUS.BUS_DangKy();   
-
+        BUS_NhanVien BUS_NhanVien = new BUS_NhanVien();
+        BUS_TaiKhoan BUS_TaiKhoan = new BUS_TaiKhoan();
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            if (BUS_DangKy.KiemTraTenTaiKhoan(txtTenTaiKhoan.Text))
+            if (!BUS_TaiKhoan.Check_TrungTenTaiKhoan(txtTenTaiKhoan.Text))
             {
-                if (BUS_DangKy.KiemTraTrungMatKhau(txtMatKhau.Text, txtNhapLaiMatKhau.Text))
+                if (BUS_TaiKhoan.Check_NhapLaiMatKhau(txtMatKhau.Text, txtNhapLaiMatKhau.Text))
                 {
-                    if (BUS_DangKy.KiemTraEmail(txtEmail.Text))
+                    var nv = BUS_NhanVien.NhanVienTheoEmail(txtEmail.Text);
+                    if (nv != null)
                     {
-                        BUS_DangKy.TaoTaiKhoan(txtTenTaiKhoan.Text, txtMatKhau.Text, txtEmail.Text);
+                        if (BUS_TaiKhoan.Check_NhanVienCoTaiKhoan(nv.MaNV))
+                        {
+                            MessageBox.Show("Nhân viên này đã có tài khoản!");
+                            return;
+                        }
+                        BUS_TaiKhoan.Them(new DTO.tblTaiKhoanMatKhau()
+                        {
+                            TaiKhoan = txtTenTaiKhoan.Text, 
+                            MatKhau = txtMatKhau.Text,
+                            MaNV = nv.MaNV
+                        });
                         MessageBox.Show("Người dùng tạo tài khoản thành công!", "Thông báo", MessageBoxButtons.OK);
                         Hide();
                     }

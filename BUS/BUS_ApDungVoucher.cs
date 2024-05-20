@@ -14,7 +14,5 @@ namespace BUS
         public void Them(tblApDungVoucher apDungVoucher) => dal.Them(apDungVoucher);
         public void Sua(tblApDungVoucher _old, tblApDungVoucher _new) => dal.Sua(_old, _new);
         public void Xoa(tblApDungVoucher adv) => dal.Xoa(adv);
-        public List<tblApDungVoucher> DanhSach() => dal.DanhSachApDungVoucher();
-        public List<tblApDungVoucher> DanhSachTheoMaHDB(string MaHDB) => DanhSach().FindAll(x => Equals(x.MaHDB, MaHDB));
     }
 }

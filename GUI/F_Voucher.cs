@@ -56,11 +56,12 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (txtMaV.Text.Trim().Equals(""))
+            if (!txtMaV.Text.Trim().Equals(""))
             {
                 if (MessageBox.Show("Bạn có muốn xóa voucher này không ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     BUS_Voucher.Xoa(txtMaV.Text);
+                    btnLamMoi_Click(sender, e);
                 }
             }
             else
@@ -121,6 +122,7 @@ namespace GUI
                 }
                 vc.Loai = cboLoai.SelectedIndex;
                 BUS_Voucher.Sua(_old: Current, _new: vc);
+                btnLamMoi_Click(sender, e);
             }
         }
 

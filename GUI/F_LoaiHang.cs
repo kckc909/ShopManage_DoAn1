@@ -25,8 +25,11 @@ namespace GUI
 
         private void F_LoaiHang_SizeChanged(object sender, EventArgs e)
         {
-            pnTT.Width = pnTT.Width == 400 ? 550 : 400;
-
+            pnTT.Width = 550;
+            if (pnDS.Width < pnTT.Width)
+            {
+                pnTT.Width = 400;
+            }
         }
 
         private void F_LoaiHang_Load(object sender, EventArgs e)

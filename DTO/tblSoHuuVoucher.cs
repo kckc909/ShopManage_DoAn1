@@ -14,12 +14,12 @@ namespace DTO
     
     public partial class tblSoHuuVoucher
     {
+        public string MaSHVc { get; set; }
         public string MaV { get; set; }
         public string MaKH { get; set; }
         public Nullable<int> TinhTrang { get; set; }
         public Nullable<System.DateTime> NgayBatDau { get; set; }
         public Nullable<System.DateTime> NgayKetThuc { get; set; }
-        public string MaSHVc { get; set; }
     
         public virtual tblKhachHang tblKhachHang { get; set; }
         public virtual tblVoucher tblVoucher { get; set; }

@@ -39,6 +39,11 @@ namespace GUI
         }
         void LoadDataDtgDSKH(List<tblKhachHang> DSKH)
         {
+            if (DSKH.Count == 0)
+            {
+                DSKH.Add(MyDefault.KH);
+                BUS_KhachHang.Them(MyDefault.KH);
+            }
             dtgDSKH.DataSource = DSKH;
             dtgDSKH.Columns["MaKH"].DataPropertyName = "MaKH";
             dtgDSKH.Columns["TenKH"].DataPropertyName = "TenKH";
@@ -64,7 +69,15 @@ namespace GUI
 
         private void F_KhachHang_SizeChanged(object sender, EventArgs e)
         {
-            pnLeft.Width = pnLeft.Width == 400 ? 550 : 400;
+
+            if (pnLeft.Width > pnMain.Width && pnLeft.Width == 550)
+            {
+                pnLeft.Width = 400;
+            }
+            else
+            {
+                pnLeft.Width = 550;
+            }
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)

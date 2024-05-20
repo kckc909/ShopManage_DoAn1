@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,8 @@ namespace GUI
 
         public event EventHandler DangNhapThanhCong;
 
-        BUS.BUS_DangNhap BUS_DangNhap = new BUS.BUS_DangNhap();
+        BUS_NhanVien BUS_NhanVien = new BUS_NhanVien();
+        BUS_TaiKhoan BUS_TaiKhoan = new BUS_TaiKhoan();
 
         private void cbHienThiMatKhau_CheckedChanged(object sender, EventArgs e)
         {
@@ -42,12 +44,10 @@ namespace GUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if (BUS_DangNhap.KiemTraRong(txtTenTaiKhoan.Text, txtMatKhau.Text))
+            if (txtTenTaiKhoan.Text!="" && txtMatKhau.Text!= "")
             {
-                if (BUS_DangNhap.KiemTraTaiKhoanMatKhau(txtTenTaiKhoan.Text, txtMatKhau.Text))
+                if (BUS_TaiKhoan.Check_DangNhap(txtTenTaiKhoan.Text, txtMatKhau.Text))
                 {
-                    //MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK);
-
                     F_MainParent.NguoiDung = BatSuKien_DangNhapThanhCong();
                     F_MainParent.Instance().Show();
                     txtTenTaiKhoan.Clear();
@@ -67,8 +67,7 @@ namespace GUI
         tblNhanVien BatSuKien_DangNhapThanhCong()
         {
             DangNhapThanhCong?.Invoke(this, EventArgs.Empty);
-            
-            return BUS_DangNhap.LayNhanVien(txtTenTaiKhoan.Text);
+            return BUS_NhanVien.NhanVienTheoMa(BUS_TaiKhoan.TheoTenTaiKhoan(txtTenTaiKhoan.Text).MaNV);
         }
     }
 }

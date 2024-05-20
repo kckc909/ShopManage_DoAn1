@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
-            this.lbTTHD = new System.Windows.Forms.Label();
             this.pnNoiDung = new Guna.UI2.WinForms.Guna2Panel();
             this.TabControl = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpHoaDonBan = new System.Windows.Forms.TabPage();
@@ -39,31 +37,10 @@
             this.tpKhachHang = new System.Windows.Forms.TabPage();
             this.lbQLHD = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.pnLeft.SuspendLayout();
+            this.pnRight = new Guna.UI2.WinForms.Guna2Panel();
             this.pnNoiDung.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnLeft
-            // 
-            this.pnLeft.Controls.Add(this.lbTTHD);
-            this.pnLeft.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnLeft.Location = new System.Drawing.Point(634, 0);
-            this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(400, 761);
-            this.pnLeft.TabIndex = 2;
-            // 
-            // lbTTHD
-            // 
-            this.lbTTHD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbTTHD.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbTTHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbTTHD.Location = new System.Drawing.Point(0, 0);
-            this.lbTTHD.Name = "lbTTHD";
-            this.lbTTHD.Size = new System.Drawing.Size(400, 80);
-            this.lbTTHD.TabIndex = 2;
-            this.lbTTHD.Text = "THÔNG TIN HÓA ĐƠN";
-            this.lbTTHD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnNoiDung
             // 
@@ -166,18 +143,26 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
+            // pnRight
+            // 
+            this.pnRight.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnRight.Location = new System.Drawing.Point(634, 0);
+            this.pnRight.Name = "pnRight";
+            this.pnRight.Size = new System.Drawing.Size(400, 761);
+            this.pnRight.TabIndex = 2;
+            // 
             // F_HoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 761);
             this.Controls.Add(this.pnNoiDung);
-            this.Controls.Add(this.pnLeft);
+            this.Controls.Add(this.pnRight);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_HoaDon";
             this.Text = "F_HoaDon";
             this.SizeChanged += new System.EventHandler(this.F_HoaDon_SizeChanged);
-            this.pnLeft.ResumeLayout(false);
             this.pnNoiDung.ResumeLayout(false);
             this.TabControl.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -185,8 +170,6 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Panel pnLeft;
-        private System.Windows.Forms.Label lbTTHD;
         private Guna.UI2.WinForms.Guna2Panel pnNoiDung;
         private System.Windows.Forms.Label lbQLHD;
         private Guna.UI2.WinForms.Guna2TabControl TabControl;
@@ -195,5 +178,6 @@
         private System.Windows.Forms.TabPage tpKhachHang;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.TabPage tpHoaDonNhap;
+        private Guna.UI2.WinForms.Guna2Panel pnRight;
     }
 }

@@ -24,6 +24,12 @@ namespace GUI
             KH = kH;
         }
 
+        void Catch_ThemThanhCong(object sender, EventArgs e)
+        {
+            ((Form)sender).Close();
+            MessageBox.Show("Đã thêm voucher cho khách hàng!");
+        }
+
         void dtg_AddColumn()
         {
             dtg.Columns.Add("MaSHVc", "Mã số");
@@ -142,7 +148,9 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            F_KhachHang_TangVoucher f = new F_KhachHang_TangVoucher(KH);
+            f.ThemThanhCong += Catch_ThemThanhCong;
+            f.ShowDialog();
         }
     }
 }
