@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using BUS;
 using DTO;
 using GUI.MyEventArgs;
+using Microsoft.SqlServer.Server;
 
 namespace GUI
 {
@@ -47,6 +48,8 @@ namespace GUI
         private void F_MatHang_Load(object sender, EventArgs e)
         {
             dtg.AutoGenerateColumns = false;
+            dtg_AddColumns();
+            dtg_Modify();
             LoadDanhSachMatHang(BUS_MatHang.DanhSachMatHang());
             LoadDanhSachLoaiHang();
             LoadDanhSachKhuyenMai();
@@ -65,21 +68,57 @@ namespace GUI
             cbLoaiHang.ValueMember = "MaLoai";
             cbLoaiHang.DisplayMember = "TenLoai";
         }
-
-        void LoadDanhSachMatHang(List<tblMatHang> DSMH)
+        
+        void dtg_AddColumns()
         {
             dtg.Columns.Clear();
             dtg.Columns.Add("MaMH", "Mã mặt hàng");
             dtg.Columns.Add("TenMH", "Tên mặt hàng");
-            dtg.Columns.Add("TenMH", "Tên mặt hàng");
-            DSMH.ForEach(mh =>
-            {
+            dtg.Columns.Add("MoTa", "Mô tả");
+            dtg.Columns.Add("SoLg", "Số lượng tồn");      
+            dtg.Columns.Add("DonViTinh", "Đơn vị");
+            dtg.Columns.Add("GiaBan", "Giá bán");
+            dtg.Columns.Add("MaLoai", "Mã loại");
+        }
 
-            });
+        void dtg_Modify()
+        {
+            dtg.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dtg.Columns["MaLoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dtg.Columns["DonViTinh"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dtg.Columns["SoLg"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtg.Columns["GiaBan"].DefaultCellStyle.Format = "C";
+        }
+
+        void LoadDanhSachMatHang(List<tblMatHang> DSMH)
+        {
+            dtg.DataSource = DSMH;
+            dtg.Columns["MaMH"].DataPropertyName = "MaMH";
+            dtg.Columns["TenMH"].DataPropertyName = "TenMH";
+            dtg.Columns["MoTa"].DataPropertyName = "MoTa";
+            dtg.Columns["SoLg"].DataPropertyName = "SoLuong";
+            dtg.Columns["DonViTinh"].DataPropertyName = "DonViTinh";
+            dtg.Columns["GiaBan"].DataPropertyName = "GiaBan";
+            dtg.Columns["MaLoai"].DataPropertyName = "MaLoai";
         }
 
         void LoadThongTinMatHang(tblMatHang MatHang)
         {
+            Current = MatHang;
+            if (Current is null)
+            {
+                pic.Image = null;
+                txtMaMH.Clear();
+                txtMoTa.Clear();
+                txtTenMH.Clear();
+                txtGiaBan.Clear();
+                txtDonVi.Clear();
+                txtSolg.Clear();
+                cbKhuyenMai.SelectedIndex = 0;
+                cbLoaiHang.SelectedIndex = 0;
+                return;
+            }
+
             txtMaMH.Text = MatHang.MaMH;
             txtTenMH.Text = MatHang.TenMH;
             txtMoTa.Text = MatHang.Mota;
@@ -98,9 +137,17 @@ namespace GUI
             {
                 cbLoaiHang.SelectedValue = MatHang.MaLoai;
             }
+            else
+            {
+                cbLoaiHang.SelectedIndex = 0;
+            }
             if (MatHang.MaKM != null)
             {
                 cbKhuyenMai.SelectedValue = MatHang.MaKM;
+            }
+            else
+            {
+                cbKhuyenMai.SelectedIndex = 0;
             }
             try
             {
@@ -136,22 +183,15 @@ namespace GUI
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            dtg.Rows.Clear();
             cbLoaiHang.Controls.Clear();
             cbKhuyenMai.Controls.Clear();
-            Current = new tblMatHang();
-
-            pic.Image = null;
-            txtMaMH.Clear();
-            txtMoTa.Clear();
-            txtTenMH.Clear();
-            txtGiaBan.Clear();
-            txtDonVi.Clear();
-            txtSolg.Clear();
+            Current = null;
 
             LoadDanhSachMatHang(BUS_MatHang.DanhSachMatHang());
             LoadDanhSachLoaiHang();
             LoadDanhSachKhuyenMai();
+
+            LoadThongTinMatHang(Current);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -242,9 +282,16 @@ namespace GUI
             LoadDanhSachMatHang(dsTK);
         }
 
-        private void dtg_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtg_SelectionChanged(object sender, EventArgs e)
         {
-
+            if (dtg.SelectedRows.Count > 0)
+            {
+                var cell = dtg.SelectedRows[0].Cells[0].Value;
+                if (cell != null)
+                {
+                    LoadThongTinMatHang(BUS_MatHang.LayTheoMa(cell.ToString()));
+                }
+            }
         }
     }
 }
