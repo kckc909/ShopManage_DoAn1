@@ -37,12 +37,16 @@ namespace GUI
 
         private void F_MatHang_SizeChanged(object sender, EventArgs e)
         {
-            pnLeft.Width = pnLeft.Width == 400 ? 550 : 400;
-            LoadDanhSachMatHang(BUS_MatHang.DanhSachMatHang());
+            pnLeft.Width = 550;
+            if (pnLeft.Width > pnMain.Width)
+            {
+                pnLeft.Width = 400;
+            }
         }
 
         private void F_MatHang_Load(object sender, EventArgs e)
         {
+            dtg.AutoGenerateColumns = false;
             LoadDanhSachMatHang(BUS_MatHang.DanhSachMatHang());
             LoadDanhSachLoaiHang();
             LoadDanhSachKhuyenMai();
@@ -64,32 +68,14 @@ namespace GUI
 
         void LoadDanhSachMatHang(List<tblMatHang> DSMH)
         {
-            pnDSMH.Controls.Clear();
-
-            int ItemWidth = 180;
-            int MaxCol = pnDSMH.Width / ItemWidth;
-            int ItemPadding = 15;
-            int Col = 0;
-            int Row = 0;
-
-            foreach (tblMatHang MatHang in DSMH)
+            dtg.Columns.Clear();
+            dtg.Columns.Add("MaMH", "Mã mặt hàng");
+            dtg.Columns.Add("TenMH", "Tên mặt hàng");
+            dtg.Columns.Add("TenMH", "Tên mặt hàng");
+            DSMH.ForEach(mh =>
             {
-                var C_MH = new C_MatHang(MatHang);
-                C_MH.SuKienChonMatHang += Bat_SuKienChonMatHang;
-                pnDSMH.Controls.Add(C_MH);
-                C_MH.Show();
-                C_MH.Location = new Point(Col * (ItemWidth + ItemPadding), Row * (ItemWidth + ItemPadding));
 
-                if (Col < MaxCol - 1)
-                {
-                    Col++;
-                }
-                else
-                {
-                    Col = 0;
-                    Row++;
-                }
-            }
+            });
         }
 
         void LoadThongTinMatHang(tblMatHang MatHang)
@@ -126,12 +112,6 @@ namespace GUI
             }
         }
 
-        private void Bat_SuKienChonMatHang(object sender, EventArgsMatHang e)
-        {
-            Current = e.MatHang;
-            LoadThongTinMatHang(e.MatHang);
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (txtMaMH.Text != "" && txtMaMH.Text != null)
@@ -156,7 +136,7 @@ namespace GUI
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            pnDSMH.Controls.Clear();
+            dtg.Rows.Clear();
             cbLoaiHang.Controls.Clear();
             cbKhuyenMai.Controls.Clear();
             Current = new tblMatHang();
@@ -260,6 +240,11 @@ namespace GUI
         {
             var dsTK = BUS_MatHang.TimKiem(txtTimKiem.Text);
             LoadDanhSachMatHang(dsTK);
+        }
+
+        private void dtg_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

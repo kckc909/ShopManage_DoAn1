@@ -14,6 +14,7 @@ namespace GUI
 {
     public partial class F_NhanVien_TaiKhoan : Form
     {
+        public event EventHandler FormClose;
         BUS_TaiKhoan BUS_TaiKhoan = new BUS_TaiKhoan();
         tblTaiKhoanMatKhau TK;
         public F_NhanVien_TaiKhoan(tblNhanVien NV)
@@ -50,6 +51,7 @@ namespace GUI
                         if (MessageBox.Show("Bạn có muốn thay đổi thông tin tài khoản ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             BUS_TaiKhoan.Sua(TK.TaiKhoan, txtTenTaiKhoan.Text, txtMatKhau.Text);
+                            FormClose? .Invoke(this, e);
                             Close();
                         }
                     }

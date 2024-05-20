@@ -81,11 +81,15 @@
             this.btnNguoiDung.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btnNguoiDung.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnNguoiDung.ForeColor = System.Drawing.Color.White;
+            this.btnNguoiDung.Image = global::GUI.Properties.Resources.icons8_settings_32;
+            this.btnNguoiDung.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNguoiDung.ImageSize = new System.Drawing.Size(30, 30);
             this.btnNguoiDung.Location = new System.Drawing.Point(0, 645);
             this.btnNguoiDung.Name = "btnNguoiDung";
             this.btnNguoiDung.Size = new System.Drawing.Size(150, 45);
             this.btnNguoiDung.TabIndex = 15;
             this.btnNguoiDung.Text = "User";
+            this.btnNguoiDung.Click += new System.EventHandler(this.btnNguoiDung_Click);
             // 
             // picLogo
             // 

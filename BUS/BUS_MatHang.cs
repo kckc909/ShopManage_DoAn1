@@ -52,7 +52,12 @@ namespace BUS
 
         public string LayDuongDanHinhAnh(string imageName)
         {
-            return Path.Combine(MyDefault.Path_AnhMatHang, imageName);
+            string path = Path.Combine(MyDefault.Path_AnhMatHang, imageName);
+            if (File.Exists(path))
+            {
+                return path;
+            }
+            return "";
         }
 
         public void TaoDuongDanHinhanh(string SourceImage, string ImageName)

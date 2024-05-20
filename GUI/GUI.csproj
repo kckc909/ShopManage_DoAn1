@@ -140,6 +140,12 @@
     <Compile Include="F_LoaiHang_ThemLoaiHang.Designer.cs">
       <DependentUpon>F_LoaiHang_ThemLoaiHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_MainParent_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_MainParent_User.Designer.cs">
+      <DependentUpon>F_MainParent_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_MatHang_ThemMatHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F_MainParent.resx">
       <DependentUpon>F_MainParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_MainParent_User.resx">
+      <DependentUpon>F_MainParent_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_MatHang.resx">
       <DependentUpon>F_MatHang.cs</DependentUpon>

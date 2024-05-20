@@ -235,7 +235,7 @@ namespace GUI
             dtpNgaySinh.Value = DateTime.Today;
             Add_Col_DSNV();
             Load_Row_DSNV(BUS_NhanVien.DSNV());
-            dtg.Rows[0].Cells[-1].Selected = true;
+            dtg.Rows[0].Selected = true;
         }
 
         void Catch_ThemThanhCong(object sender, EventArgs e)

@@ -18,6 +18,7 @@ namespace GUI
         public event EventHandler ADKM_ApDung;
         tblKhuyenMai KhuyenMai;
         BUS_MatHang BUS_MatHang = new BUS_MatHang();
+        BUS_LoaiHang BUS_LoaiHang = new BUS_LoaiHang();
 
         public F_KhuyenMai_ApdungKhuyenMai(tblKhuyenMai KhuyenMai)
         {
@@ -61,11 +62,27 @@ namespace GUI
             foreach (tblMatHang mh in DSMH)
             {
                 dtg.Rows.Add(mh.MaKM.Equals(KhuyenMai.MaKM));
-                dtg.Rows[ir].Cells["Img"].Value = Image.FromFile(BUS_MatHang.LayDuongDanHinhAnh(mh.LinkHinhAnh));
+                string path = BUS_MatHang.LayDuongDanHinhAnh(mh.LinkHinhAnh);
+                if (mh.LinkHinhAnh != null && !path.Equals(""))
+                {
+                    dtg.Rows[ir].Cells["Img"].Value = Image.FromFile(path);
+                }
+                else
+                {
+                    dtg.Rows[ir].Cells["Img"].Value = null;
+                }
                 dtg.Rows[ir].Cells["MaMH"].Value = mh.MaMH;
                 dtg.Rows[ir].Cells["TenMH"].Value = mh.TenMH;
                 dtg.Rows[ir].Cells["MoTa"].Value = mh.Mota;
-                dtg.Rows[ir].Cells["TenLoai"].Value = mh.tblLoaiHang.TenLoai;
+                if (mh.tblLoaiHang is null)
+                {
+                    dtg.Rows[ir].Cells["TenLoai"].Value = BUS_LoaiHang.LayLoaiHangTheoMaLoai(mh.MaLoai).TenLoai;
+
+                }
+                else
+                {
+                    dtg.Rows[ir].Cells["TenLoai"].Value = mh.tblLoaiHang.TenLoai;
+                }
                 ir++;
             }
             dtg.Refresh();
@@ -117,7 +134,7 @@ namespace GUI
                         if (mh.MaKM == KhuyenMai.MaKM)
                         {
                             mh.MaKM = MyDefault.MaKM;
-                            BUS_MatHang.Sua(mh,mh);
+                            BUS_MatHang.Sua(mh, mh);
                         }
                     }
                 }

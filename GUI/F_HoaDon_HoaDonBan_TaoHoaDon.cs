@@ -26,7 +26,10 @@ namespace GUI
 
         void Raise_TaoHoaDon(object sender, tblHoaDonBan HDB)
         {
-            MyEventArgs.EventArgsHoaDon e_ = new MyEventArgs.EventArgsHoaDon() { tblHoaDonBan = HDB };
+            EventArgsHoaDon e_ = new EventArgsHoaDon()
+            {
+                tblHoaDonBan = HDB,
+            };
             e_TaoHoaDon.Invoke(this, e_);
         }
 
@@ -55,6 +58,7 @@ namespace GUI
             hdb.MaNV = F_MainParent.NguoiDung.MaNV;
             hdb.NgayBan = dtp.Value;
             hdb.TinhTrang = 0;
+            hdb.tblKhachHang = BUS_KhachHang.LayTheoMa(MaKH: hdb.MaKH);
             Raise_TaoHoaDon(this, hdb);
         }
 
