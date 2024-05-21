@@ -75,6 +75,10 @@ namespace GUI
         {
             if (Current != null)
             {
+                if (!(MessageBox.Show("Bạn có muốn lưu thông tin không","",MessageBoxButtons.YesNo) == DialogResult.Yes))
+                {
+                    return;
+                }
                 var vc = new tblVoucher();
                 vc = Current;
                 if (txtTenV.Text.Trim().Equals(""))
@@ -124,6 +128,10 @@ namespace GUI
                 BUS_Voucher.Sua(_old: Current, _new: vc);
                 btnLamMoi_Click(sender, e);
             }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn voucher muốn sửa trước!");
+            }   
         }
 
         private void btnDatLai_Click(object sender, EventArgs e)

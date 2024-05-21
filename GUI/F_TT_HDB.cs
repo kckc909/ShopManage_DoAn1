@@ -52,7 +52,7 @@ namespace GUI
             }
         }
 
-        void Catch_ChonHoaDon(object sender, EventArgsHoaDon e)
+        void Catch_ChonHoaDon(object sender, EventArgsHoaDonBan e)
         {
 
         }

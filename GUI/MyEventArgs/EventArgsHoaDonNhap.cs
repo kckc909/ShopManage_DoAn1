@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace GUI.MyEventArgs
 {
-    public class EventArgsHoaDon : EventArgs
+    public class EventArgsHoaDonNhap
     {
-        public tblHoaDonBan tblHoaDonBan;
+        public tblHoaDonNhap HDN { get; set; }
     }
 }

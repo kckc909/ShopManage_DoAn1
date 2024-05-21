@@ -52,6 +52,10 @@ namespace BUS
 
         public string LayDuongDanHinhAnh(string imageName)
         {
+            if (imageName is null)
+            {
+                return "";
+            }
             string path = Path.Combine(MyDefault.Path_AnhMatHang, imageName);
             if (File.Exists(path))
             {

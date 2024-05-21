@@ -86,11 +86,11 @@
     <Compile Include="C_Voucher.Designer.cs">
       <DependentUpon>C_Voucher.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_HoaDon_HoaDonBan_TaoHoaDon.cs">
+    <Compile Include="F_HoaDon_HoaDon_TaoHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F_HoaDon_HoaDonBan_TaoHoaDon.Designer.cs">
-      <DependentUpon>F_HoaDon_HoaDonBan_TaoHoaDon.cs</DependentUpon>
+    <Compile Include="F_HoaDon_HoaDon_TaoHoaDon.Designer.cs">
+      <DependentUpon>F_HoaDon_HoaDon_TaoHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="F_HoaDon_HoaDonNhap.cs">
       <SubType>Form</SubType>
@@ -188,6 +188,7 @@
     <Compile Include="F_Voucher_ThemVoucher.Designer.cs">
       <DependentUpon>F_Voucher_ThemVoucher.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyEventArgs\EventArgsHoaDonNhap.cs" />
     <Compile Include="MyEventArgs\EventArgsKhachHang.cs" />
     <Compile Include="MyEventArgs\EventArgsMatHang.cs" />
     <Compile Include="F_DangKy.cs">
@@ -226,11 +227,11 @@
     <Compile Include="F_HoaDon.Designer.cs">
       <DependentUpon>F_HoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_HoaDon_HoaDonBan.cs">
+    <Compile Include="F_HoaDon_HoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F_HoaDon_HoaDonBan.Designer.cs">
-      <DependentUpon>F_HoaDon_HoaDonBan.cs</DependentUpon>
+    <Compile Include="F_HoaDon_HoaDon.Designer.cs">
+      <DependentUpon>F_HoaDon_HoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="F_KhachHang.cs">
       <SubType>Form</SubType>
@@ -292,7 +293,7 @@
     <Compile Include="F_MainParent.Designer.cs">
       <DependentUpon>F_MainParent.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyEventArgs\EventArgsHoaDon.cs" />
+    <Compile Include="MyEventArgs\EventArgsHoaDonBan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="C_CTHoaDonNhap.resx">
@@ -322,17 +323,20 @@
     <EmbeddedResource Include="F_HoaDon.resx">
       <DependentUpon>F_HoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F_HoaDon_HoaDonBan_TaoHoaDon.resx">
-      <DependentUpon>F_HoaDon_HoaDonBan_TaoHoaDon.cs</DependentUpon>
+    <EmbeddedResource Include="F_HoaDon_HoaDon_TaoHoaDon.resx">
+      <DependentUpon>F_HoaDon_HoaDon_TaoHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_HoaDon_HoaDonNhap.resx">
       <DependentUpon>F_HoaDon_HoaDonNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_HoaDon_KhachHang.resx">
+      <DependentUpon>F_HoaDon_KhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_HoaDon_MatHang.resx">
       <DependentUpon>F_HoaDon_MatHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F_HoaDon_HoaDonBan.resx">
-      <DependentUpon>F_HoaDon_HoaDonBan.cs</DependentUpon>
+    <EmbeddedResource Include="F_HoaDon_HoaDon.resx">
+      <DependentUpon>F_HoaDon_HoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_KhachHang.resx">
       <DependentUpon>F_KhachHang.cs</DependentUpon>

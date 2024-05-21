@@ -3,6 +3,7 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,6 +35,15 @@ namespace BUS
         public List<tblHoaDonNhap> DS_HDN()
         {
             return DAL_HoaDonNhap.DanhSachHoaDonNhap();
+        }
+        public string MaTuDong()
+        {
+            int i = DS_HDN().Count;
+            while (DS_HDN().Any(x => x.MaHDN.Equals($"HDN{i}")))
+            {
+                i++;
+            }
+            return $"HDN{i}";
         }
     }
 }

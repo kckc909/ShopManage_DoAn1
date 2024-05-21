@@ -15,14 +15,14 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class F_HoaDon_HoaDonBan : Form
+    public partial class F_HoaDon_HoaDon : Form
     {
-        public event EventHandler<EventArgsHoaDon> e_ChonHoaDon;
+        public event EventHandler<EventArgsHoaDonBan> e_ChonHoaDon;
         BUS_HoaDonBan BUS_HoaDonBan = new BUS_HoaDonBan();
         tblHoaDonBan Current = null;
         int TinhTrang = 0;
 
-        public F_HoaDon_HoaDonBan()
+        public F_HoaDon_HoaDon()
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
@@ -70,24 +70,24 @@ namespace GUI
             Current = null;
             txttimKiem.Clear();
             TinhTrang = 0;
-            Raise_ChonHoaDon(Current);
+
             dtg_AddColumns();
             dtg_LoadData();
         }
         
-        void Catch_TaoHoaDon(object sender, EventArgsHoaDon e)
+        void Catch_TaoHoaDonBan(object sender, EventArgsHoaDonBan e)
         {
             ((Form)sender).Close();
-            Current = e.tblHoaDonBan;
+            Current = e.HDB;
             BUS_HoaDonBan.Them(Current);
             dtg.Rows[dtg_AddRow(Current)].Selected = true;
-            Raise_ChonHoaDon(Current);
+            Raise_ChonHoaDonBan(Current);
         }
 
-        void Raise_ChonHoaDon(tblHoaDonBan hdb)
+        void Raise_ChonHoaDonBan(tblHoaDonBan hdb)
         {
-            EventArgsHoaDon e = new EventArgsHoaDon();
-            e.tblHoaDonBan = hdb;
+            EventArgsHoaDonBan e = new EventArgsHoaDonBan();
+            e.HDB = hdb;
             e_ChonHoaDon?.Invoke(this, e);
         }
 
@@ -112,8 +112,8 @@ namespace GUI
 
         private void btnTaoHoaDon_Click(object sender, EventArgs e)
         {
-            F_HoaDon_HoaDonBan_TaoHoaDon f = new F_HoaDon_HoaDonBan_TaoHoaDon();
-            f.e_TaoHoaDon += Catch_TaoHoaDon;
+            F_HoaDon_HoaDon_TaoHoaDon f = new F_HoaDon_HoaDon_TaoHoaDon();
+            f.Event_TaoHDB += Catch_TaoHoaDonBan;
             f.ShowDialog();
         }
 
@@ -141,7 +141,7 @@ namespace GUI
                 if (MaHDB != null)
                 {
                     Current = BUS_HoaDonBan.HDB_LayTheoMa(MaHDB.ToString());
-                    Raise_ChonHoaDon(Current);
+                    Raise_ChonHoaDonBan(Current);
                 }
             }
         }

@@ -12,7 +12,7 @@ namespace GUI
 {
     public partial class F_HoaDon : Form
     {
-        F_HoaDon_HoaDonBan HoaDonBan = new F_HoaDon_HoaDonBan();
+        F_HoaDon_HoaDon HoaDonBan = new F_HoaDon_HoaDon();
         F_HoaDon_MatHang MatHang = new F_HoaDon_MatHang();
         F_HoaDon_KhachHang KhachHang = new F_HoaDon_KhachHang();
         F_HoaDon_HoaDonNhap HoaDonNhap = new F_HoaDon_HoaDonNhap();

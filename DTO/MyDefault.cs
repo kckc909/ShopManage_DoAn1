@@ -15,7 +15,7 @@ namespace DTO
         public static string Path_AnhMatHang = Path.Combine(basePath, "..", "..", "Images");
         public static string Path_Avatar = Path.Combine(basePath, "..", "..", "Avatars");
         public static DateTime MaxDate = Convert.ToDateTime("30-12-9000");
-        public static string MaKM = "KM00      ";
+        public static string MaKM = "KM00";
         public static tblKhachHang KH = new tblKhachHang()
         {
             MaKH = "KH0       ",
@@ -27,6 +27,14 @@ namespace DTO
         {
             MaNV = "NV0",
             TenNV = "Admin"
+        };
+        public static tblNCC NCC = new tblNCC()
+        {
+            MaNCC = "NCC0",
+            TenNCC = "Mặc định",
+            DiaChi = "Mặc định",
+            SDT = "0000000000",
+            Email = "Mặc định"
         };
         public static int Status_On = 0;
         public static int Status_Off = 1;

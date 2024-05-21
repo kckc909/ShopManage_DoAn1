@@ -41,12 +41,13 @@ namespace GUI
             DataGridViewCheckBoxColumn dtgCheckColumn = new DataGridViewCheckBoxColumn()
             {
                 Name = "Check",
-                HeaderText = "Áp dụng",
+                HeaderText = "Áp dụng"
             };
             DataGridViewImageColumn dtgImgColumn = new DataGridViewImageColumn()
             {
                 Name = "Img",
                 HeaderText = "Ảnh",
+                ImageLayout = DataGridViewImageCellLayout.Zoom
             };
             dtg.Columns.Add(dtgCheckColumn);
             dtg.Columns.Add(dtgImgColumn);
@@ -62,15 +63,15 @@ namespace GUI
             foreach (tblMatHang mh in DSMH)
             {
                 dtg.Rows.Add(mh.MaKM.Equals(KhuyenMai.MaKM));
-                string path = BUS_MatHang.LayDuongDanHinhAnh(mh.LinkHinhAnh);
-                if (mh.LinkHinhAnh != null && !path.Equals(""))
+                try
                 {
-                    dtg.Rows[ir].Cells["Img"].Value = Image.FromFile(path);
+                    dtg.Rows[ir].Cells["Img"].Value = Image.FromFile(BUS_MatHang.LayDuongDanHinhAnh(mh.LinkHinhAnh));
                 }
-                else
+                catch
                 {
                     dtg.Rows[ir].Cells["Img"].Value = null;
                 }
+
                 dtg.Rows[ir].Cells["MaMH"].Value = mh.MaMH;
                 dtg.Rows[ir].Cells["TenMH"].Value = mh.TenMH;
                 dtg.Rows[ir].Cells["MoTa"].Value = mh.Mota;

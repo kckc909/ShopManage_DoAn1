@@ -33,7 +33,13 @@ namespace DAL
         }
         public List<tblNCC> DanhSachNCC()
         {
-            return db.tblNCCs.ToList();
+            var result = db.tblNCCs.ToList();
+            if (result.Count == 0)
+            {
+                Them(MyDefault.NCC);
+                result.Add(MyDefault.NCC);
+            }
+            return result;
         }
     }
 }
