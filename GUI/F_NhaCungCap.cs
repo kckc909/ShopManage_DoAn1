@@ -139,7 +139,7 @@ namespace GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            Load_SupplierList(BUS_NhaCungCap.DanhSachNCC(txtTimKiem.Text));
+            BUS_NhaCungCap.dtg_Filter(dtg,  txtTimKiem.Text);
         }
 
         private void F_NhaCungCap_SizeChanged(object sender, EventArgs e)

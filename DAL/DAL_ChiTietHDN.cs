@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,17 +36,26 @@ namespace DAL
                 }
             }
         }
+        public void Sua_SoLuong(string MaHDN, string MaMH, int SoLuongMoi)
+        {
+            var ct = db.tblChiTietHDNs.Find(MaHDN, MaMH);
+            if (ct == null)
+            {
+                return;
+            }
+            ct.SoLg = SoLuongMoi;
+            db.SaveChanges() ;
+        }
         public void Xoa(tblChiTietHDN chiTietHDN)
         {
-            tblChiTietHDN ct = db.tblChiTietHDNs.ToList().Find(x => Equals(x.MaHDN, chiTietHDN.MaHDN) && Equals(x.MaMH, chiTietHDN.MaMH));
-            if (ct != null)
+            if (chiTietHDN != null)
             {
-                db.tblChiTietHDNs.Remove(ct);
+                db.tblChiTietHDNs.Remove(chiTietHDN);
                 db.SaveChanges();
             }
         }
         public List<tblChiTietHDN> ChiTietHoaDonNhap() => db.tblChiTietHDNs.ToList();
         public List<tblChiTietHDN> ChiTietHoaDonNhap(string MaHDN)
-            => ChiTietHoaDonNhap().Where(x => Equals(x.MaHDN.Trim(), MaHDN.Trim())).ToList();
+            => db.tblChiTietHDNs.Where(x => x.MaHDN.Equals(MaHDN)).ToList();
     }
 }

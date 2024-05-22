@@ -36,9 +36,9 @@ namespace DAL
                 }
             }
         }
-        public void Sua_SoLuong(tblChiTietHDB CTHDB, int SoLuongMoi)
+        public void Sua_SoLuong(string MaHDB, string MaMH, int SoLuongMoi)
         {
-            CTHDB.SoLg = SoLuongMoi;
+            db.tblChiTietHDBs.Find(MaHDB, MaMH).SoLg = SoLuongMoi;
             db.SaveChanges();
         }
         public void Xoa(tblChiTietHDB chiTietHDB)

@@ -10,5 +10,6 @@ namespace GUI.MyEventArgs
     public class EventArgsHoaDonBan : EventArgs
     {
         public tblHoaDonBan HDB { get; set; }
+        public tblKhachHang KH {  get; set; }
     }
 }

@@ -16,14 +16,13 @@ namespace BUS
         {
             DAL_ChiTietHDB.Them(CTHDB);
         }
-        public void Sua_SoLuong(string MaHDB, string MaMH, int SoLuongMoi)
-        {
-            var CTHDB = DAL_ChiTietHDB.DS_CTHDB().Find(x => x.MaHDB.Equals(MaHDB) && x.MaMH.Equals(MaMH));
-            DAL_ChiTietHDB.Sua_SoLuong(CTHDB, SoLuongMoi);
-        }
         public void Sua(tblChiTietHDB _old, tblChiTietHDB _new)
         {
             DAL_ChiTietHDB.Sua(_old, _new);
+        }
+        public void Sua_SoLuong(string MaHDB, string MaMH, int SoLuongMoi)
+        {
+            DAL_ChiTietHDB.Sua_SoLuong(MaHDB, MaMH, SoLuongMoi);
         }
         public void Xoa(string MaHDB, string MH)
         {
@@ -35,7 +34,7 @@ namespace BUS
         }
         public double TongTien(List<tblChiTietHDB> DS_CTHDB)
         {
-            return DS_CTHDB.Sum(x => x.SoLg * x.GiaBan).Value;
+            return DS_CTHDB.Sum(x => x.SoLg * (x.GiaBan * (100 - x.tblKhuyenMai.PhamTramGiam) / 100 )).Value;
         }
     }
 }

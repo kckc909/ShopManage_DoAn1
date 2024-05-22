@@ -2,25 +2,20 @@
 using DTO;
 using GUI.MyEventArgs;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Caching;
 using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class F_HoaDon_HoaDon : Form
     {
-        public event EventHandler<EventArgsHoaDonBan> e_ChonHoaDon;
+        public event EventHandler<EventArgsHoaDonBan> Event_HDB;
+        public event EventHandler<EventArgsHoaDonNhap> Event_HDN;
         BUS_HoaDonBan BUS_HoaDonBan = new BUS_HoaDonBan();
-        tblHoaDonBan Current = null;
-        int TinhTrang = 0;
+        BUS_HoaDonNhap BUS_HoaDonNhap = new BUS_HoaDonNhap();
+        BUS_KhachHang BUS_KhachHang = new BUS_KhachHang();
+        BUS_NhaCungCap BUS_NhaCungCap = new BUS_NhaCungCap();
+        tblHoaDonBan Current_HDB = null;
+        tblHoaDonNhap Current_HDN = null;
 
         public F_HoaDon_HoaDon()
         {
@@ -38,57 +33,109 @@ namespace GUI
         {
             dtg.Columns.Clear();
             dtg.Columns.Add("MaHD", "Mã hóa đơn");
-            dtg.Columns.Add("MaKH", "Mã khách hàng");
-            dtg.Columns.Add("TenKH", "Tên khách hàng");
+            if (cboLoaiHoaDon.SelectedIndex == 0)
+            {
+                dtg.Columns.Add("MaKH", "Mã khách hàng");
+                dtg.Columns.Add("TenKH", "Tên khách hàng");
+            }
+            else if (cboLoaiHoaDon.SelectedIndex == 1)
+            {
+                dtg.Columns.Add("MaNCC", "Mã NCC");
+                dtg.Columns.Add("TenNCC", "Tên NCC");
+            }
             dtg.Columns.Add("SDT", "Số điện thoại");
             dtg.Columns.Add("TT", "Tình trạng");
             dtg.Columns["TT"].Visible = false;
         }
 
         void dtg_LoadData()
-        { 
+        {
             dtg.Rows.Clear();
-            BUS_HoaDonBan.DS_HDB().ForEach(x =>
+            if (cboLoaiHoaDon.SelectedIndex == 0)
             {
-                dtg_AddRow(x);
-            });
+                BUS_HoaDonBan.DS_HDB().ForEach(HDB =>
+                {
+                    if (HDB.TinhTrang == cboTrangThai.SelectedIndex)
+                    {
+                        dtg_AddRow_HDB(HDB);
+                    }
+                });
+            }
+            else if (cboLoaiHoaDon.SelectedIndex == 1)
+            {
+                BUS_HoaDonNhap.DS_HDN().ForEach(HDN =>
+                {
+                    if (HDN.TinhTrang == cboTrangThai.SelectedIndex)
+                    {
+                        dtg_AddRow_HDN(HDN);
+                    }
+                });
+            }
         }
 
-        int dtg_AddRow(tblHoaDonBan x)
+        int dtg_AddRow_HDB(tblHoaDonBan HDB)
         {
-            dtg.Rows.Add(x.MaHDB);
+            var Kh = BUS_KhachHang.LayTheoMa(HDB.MaKH);
             int i = dtg.Rows.Count - 1;
-            dtg.Rows[i].Cells[1].Value = x.MaKH;
-            dtg.Rows[i].Cells[2].Value = x.tblKhachHang.TenKH;
-            dtg.Rows[i].Cells[3].Value = x.tblKhachHang.SDT;
-            dtg.Rows[i].Cells["TT"].Value = x.TinhTrang;
+            dtg.Rows.Add(HDB.MaHDB, Kh.MaKH, Kh.TenKH, Kh.SDT, HDB.TinhTrang);
+            return i;
+        }
+
+        int dtg_AddRow_HDN(tblHoaDonNhap HDN)
+        {
+            var ncc = BUS_NhaCungCap.GetById(HDN.MaNCC);
+            int i = dtg.RowCount - 1;
+            dtg.Rows.Add(HDN.MaHDN, ncc.MaNCC, ncc.TenNCC, ncc.SDT, HDN.TinhTrang);
             return i;
         }
 
         void LamMoi()
         {
-            Current = null;
-            txttimKiem.Clear();
-            TinhTrang = 0;
+            Current_HDB = null;
+            Current_HDN = null;
 
             dtg_AddColumns();
             dtg_LoadData();
         }
-        
+
         void Catch_TaoHoaDonBan(object sender, EventArgsHoaDonBan e)
         {
+            cboLoaiHoaDon.SelectedIndex = 0;
+            cboTrangThai.SelectedIndex = 0;
+            Current_HDB = e.HDB;
+            BUS_HoaDonBan.Them(Current_HDB);
+            int i = dtg_AddRow_HDB(Current_HDB);
+            dtg.ClearSelection();
+            dtg.Rows[i].Selected = true;
             ((Form)sender).Close();
-            Current = e.HDB;
-            BUS_HoaDonBan.Them(Current);
-            dtg.Rows[dtg_AddRow(Current)].Selected = true;
-            Raise_ChonHoaDonBan(Current);
         }
 
-        void Raise_ChonHoaDonBan(tblHoaDonBan hdb)
+        void Catch_TaoHoaDonNhap(object sender, EventArgsHoaDonNhap e)
+        {
+            cboLoaiHoaDon.SelectedIndex = 1;
+            cboTrangThai.SelectedIndex = 0;
+            Current_HDN = e.HDN;
+            BUS_HoaDonNhap.Them(Current_HDN);
+            int i = dtg_AddRow_HDN(Current_HDN);
+            dtg.ClearSelection();
+            dtg.Rows[i].Selected = true;
+            ((Form)sender).Close();
+        }
+
+        void Raise_ChonHDB(tblHoaDonBan HDB)
         {
             EventArgsHoaDonBan e = new EventArgsHoaDonBan();
-            e.HDB = hdb;
-            e_ChonHoaDon?.Invoke(this, e);
+            e.HDB = HDB;
+            e.KH = BUS_KhachHang.LayTheoMa(e.HDB.MaKH);
+            Event_HDB?.Invoke(this, e);
+        }
+
+        void Raise_ChonHDN(tblHoaDonNhap HDN)
+        {
+            EventArgsHoaDonNhap e = new EventArgsHoaDonNhap();
+            e.HDN = HDN;
+            e.NCC = BUS_NhaCungCap.GetById(e.HDN.MaNCC);
+            Event_HDN?.Invoke(this, e);
         }
 
         private void F_HoaDon_QLHoaDon_Load(object sender, EventArgs e)
@@ -98,50 +145,61 @@ namespace GUI
             dtg_LoadData();
         }
 
-        private void btnHDChuaTT_Click(object sender, EventArgs e)
-        {
-            TinhTrang = 0;
-            BUS_HoaDonBan.Loc_HDChuaTT(dtg);
-        }
-
-        private void btnHDDaTT_Click(object sender, EventArgs e)
-        {
-            TinhTrang = 1;
-            BUS_HoaDonBan.Loc_HĐaTT(dtg);
-        }
-
         private void btnTaoHoaDon_Click(object sender, EventArgs e)
         {
             F_HoaDon_HoaDon_TaoHoaDon f = new F_HoaDon_HoaDon_TaoHoaDon();
             f.Event_TaoHDB += Catch_TaoHoaDonBan;
+            f.Event_TaoHDN += Catch_TaoHoaDonNhap;
             f.ShowDialog();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            BUS_HoaDonBan.Loc_TimKiem(dtg, txttimKiem.Text, TinhTrang);
+            if (cboLoaiHoaDon.SelectedIndex == 0)
+            {
+                BUS_HoaDonBan.Loc_TimKiem(dtg, txttimKiem.Text, cboTrangThai.SelectedIndex);
+            }
+            else if (cboLoaiHoaDon.SelectedIndex == 1)
+            {
+                BUS_HoaDonNhap.Loc_TimKiem(dtg, txttimKiem.Text, cboTrangThai.SelectedIndex);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (Current != null)
+            if (MessageBox.Show("Bạn có muốn xóa hóa đơn này không!", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Bạn có muốn xóa hóa đơn này không!", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (cboLoaiHoaDon.SelectedIndex == 0)
                 {
-                    BUS_HoaDonBan.Xoa(Current.MaHDB);
+                    BUS_HoaDonBan.Xoa(Current_HDB.MaHDB);
+                    Current_HDB = null;
                 }
+                else if (cboLoaiHoaDon.SelectedIndex == 1)
+                {
+                    BUS_HoaDonNhap.Xoa(Current_HDN.MaHDN);
+                    Current_HDN = null;
+                }
+                dtg_LoadData();
+                MessageBox.Show("Đã xóa hóa đơn!");
             }
         }
 
         private void dtg_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtg.SelectedRows.Count > 0)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                var MaHDB = dtg.SelectedRows[0].Cells[0].Value;
-                if (MaHDB != null)
+                if (dtg.SelectedRows[0].Cells[0].Value != null)
                 {
-                    Current = BUS_HoaDonBan.HDB_LayTheoMa(MaHDB.ToString());
-                    Raise_ChonHoaDonBan(Current);
+                    if (cboLoaiHoaDon.SelectedIndex == 0)
+                    {
+                        Current_HDB = BUS_HoaDonBan.HDB_LayTheoMa(dtg.SelectedRows[0].Cells[0].Value.ToString());
+                        Raise_ChonHDB(Current_HDB);
+                    }
+                    else if (cboLoaiHoaDon.SelectedIndex == 1)
+                    {
+                        Current_HDN = BUS_HoaDonNhap.HDN_LayTheoMa(dtg.SelectedRows[0].Cells[0].Value.ToString());
+                        Raise_ChonHDN(Current_HDN);
+                    }
                 }
             }
         }
@@ -149,6 +207,16 @@ namespace GUI
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             LamMoi();
+        }
+
+        private void cboLoaiHoaDon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dtg_LoadData();
+        }
+
+        private void cboTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dtg_LoadData();
         }
     }
 }

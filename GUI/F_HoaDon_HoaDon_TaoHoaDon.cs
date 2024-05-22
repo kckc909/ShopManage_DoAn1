@@ -51,7 +51,6 @@ namespace GUI
         void TaoHoaDonBan()
         {
             var hdb = new tblHoaDonBan();
-            hdb.MaHDB = BUS_HoaDonBan.MaTuDong();
             if (cboKhachHang.SelectedValue != null)
             {
                 hdb.MaKH = cboKhachHang.SelectedValue.ToString();
@@ -60,10 +59,10 @@ namespace GUI
             {
                 hdb.MaKH = MyDefault.KH.MaKH;
             }
+            hdb.MaHDB = BUS_HoaDonBan.MaTuDong();
             hdb.MaNV = F_MainParent.NguoiDung.MaNV;
             hdb.NgayBan = dtp.Value;
             hdb.TinhTrang = 0;
-            hdb.tblKhachHang = BUS_KhachHang.LayTheoMa(MaKH: hdb.MaKH);
             Raise_TaoHDB(this, hdb);
         }
 

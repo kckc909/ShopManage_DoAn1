@@ -36,14 +36,26 @@ namespace DAL
         }
         public void Sua_TinhTrang(string MaHDB, int TinhTrang)
         {
-            DanhSachHoaDonBan().Find(x => x.MaHDB.Trim().Equals(MaHDB.Trim())).TinhTrang = TinhTrang;
+            _db.tblHoaDonBans.Find(MaHDB).TinhTrang = TinhTrang;
             _db.SaveChanges();
+        }
+        public void Sua_MaNV(string MaHDB, string MaNV)
+        {
+            _db.tblHoaDonBans.Find(MaHDB).MaNV = MaNV;
+        }
+        public void Sua_MaKH(string MaHDB, string MakH)
+        {
+            _db.tblHoaDonBans.Find(MaHDB).MaKH = MakH;
         }
         public void Xoa(tblHoaDonBan HDB)
         {
             if (HDB is null) return;
             _db.tblHoaDonBans.Remove(HDB);
             _db.SaveChanges();
+        }
+        public tblHoaDonBan GetByID(string MaHDB)
+        {
+            return _db.tblHoaDonBans.Find(MaHDB);
         }
         public List<tblHoaDonBan> DanhSachHoaDonBan() => _db.tblHoaDonBans.ToList();
     }

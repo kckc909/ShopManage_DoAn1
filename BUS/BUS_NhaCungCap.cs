@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BUS
 {
@@ -16,13 +17,6 @@ namespace BUS
         public void Sua(tblNCC _old, tblNCC _new) => DAL_NhaCungCap.Sua(_old, _new);
         public void Xoa(tblNCC ncc) => DAL_NhaCungCap.Xoa(ncc);
         public List<tblNCC> DanhSachNCC() => DAL_NhaCungCap.DanhSachNCC();
-        public List<tblNCC> DanhSachNCC(string str) => DAL_NhaCungCap.DanhSachNCC().FindAll(x =>
-                x.MaNCC.Contains(str) ||
-                x.TenNCC.Contains(str) ||
-                (x.SDT != null && x.SDT.Contains(str)) ||
-                (x.DiaChi != null && x.DiaChi.Contains(str)) ||
-                (x.Email != null && x.Email.Contains(str))
-        );
         public string MaTuDong ()
         {
             int i = DanhSachNCC().Count;
@@ -33,6 +27,16 @@ namespace BUS
             return $"NCC{i}";
         }
         public tblNCC GetById(string MaNCC) => DanhSachNCC().Find(x => Equals(x.MaNCC, MaNCC));
-
+        public void dtg_Filter(DataGridView dtg, string str)
+        {
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
+            {
+                r.Visible = false;
+                if (r.Cells.Cast<DataGridViewCell>().ToList().Any(c => c.Value != null && c.Value.ToString().Contains(str)))
+                {
+                    r.Visible = true;
+                }
+            });
+        }
     }
 }

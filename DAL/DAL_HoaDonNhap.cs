@@ -36,6 +36,10 @@ namespace DAL
             db.tblHoaDonNhaps.Remove(HoaDonNhap);
             db.SaveChanges();
         }
+        public tblHoaDonNhap GetByID(string MaHDN)
+        {
+            return db.tblHoaDonNhaps.Find(MaHDN);
+        }
         public List<tblHoaDonNhap> DanhSachHoaDonNhap() => db.tblHoaDonNhaps.ToList();
     }
 }

@@ -17,16 +17,15 @@ namespace BUS
         {
             DAL_HoaDonBan.Them(hdb);
         }
-        public void Sua(tblHoaDonBan _old, tblHoaDonBan _new)
+        public tblHoaDonBan Sua_TinhTrang(tblHoaDonBan HDB, int TinhTrang)
         {
-            DAL_HoaDonBan.Sua(_old, _new);
+            HDB.TinhTrang = TinhTrang;
+            return HDB;
         }
-        public void Sua_TinhTrang(string MaHDB, int TinhTrang)
+        public tblHoaDonBan Sua_MaNV(tblHoaDonBan HDB, string MaNV)
         {
-            if (DS_HDB().Any(x => x.MaHDB.Equals(MaHDB)))
-            {
-                DAL_HoaDonBan.Sua_TinhTrang(MaHDB, TinhTrang);
-            }
+            HDB.MaNV = MaNV;
+            return HDB;
         }
         public void Xoa(string MaHDB)
         {
@@ -34,35 +33,11 @@ namespace BUS
         }
         public tblHoaDonBan HDB_LayTheoMa(string MaHDB)
         {
-            return DS_HDB().Find(x => x.MaHDB.Trim().Equals(MaHDB.Trim()));
+            return DAL_HoaDonBan.GetByID(MaHDB);
         }
         public List<tblHoaDonBan> DS_HDB()
         {
             return DAL_HoaDonBan.DanhSachHoaDonBan();
-        }
-        public void Loc_HDChuaTT(DataGridView dtg)
-        {
-            var ds = DS_HDB().ToList();
-            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
-            {
-                r.Visible = false;
-                if (r.Cells["TT"].Value.Equals(0))
-                {
-                    r.Visible |= true;
-                }
-            });
-        }
-        public void Loc_HĐaTT(DataGridView dtg)
-        {
-            var ds = DS_HDB().ToList();
-            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
-            {
-                r.Visible = false;
-                if (r.Cells["TT"].Value.Equals(1))
-                {
-                    r.Visible |= true;
-                }
-            });
         }
         public void Loc_TimKiem(DataGridView dtg, string s, int TinhTrang)
         {
@@ -83,13 +58,13 @@ namespace BUS
         {
             return DateTime.Now.ToString("ddMMyyyyHHmmssff");
         }
-        public double Tinh_TongTien(tblHoaDonBan HDB)
+        public int Tinh_TongTien(tblHoaDonBan HDB)
         {
             if (HDB.tblChiTietHDBs.Count == 0)
                 return 0;
-            return HDB.tblChiTietHDBs.Sum(x => x.SoLg * x.GiaBan).Value;
+            return HDB.tblChiTietHDBs.Sum(x => x.SoLg * (x.GiaBan * (100 - x.tblKhuyenMai.PhamTramGiam) / 100 )).Value;
         }
-        public double Tinh_TongGiamGia(tblHoaDonBan HDB, double TongTien = 0)
+        public int Tinh_GiamGiaVoucher(tblHoaDonBan HDB, int TongTien = 0)
         {
             if (TongTien == 0)
             {
@@ -101,8 +76,8 @@ namespace BUS
             }
             else
             {
-                double TongGiamGia = 0;
-                double temp;
+                int TongGiamGia = 0;
+                int temp;
                 HDB.tblApDungVouchers.ToList().ForEach(x =>
                 {
                     if (x.tblVoucher.DonVi.Equals("%"))
@@ -122,9 +97,10 @@ namespace BUS
                 return TongGiamGia;
             }
         }
-        public double Tinh_ThanhTien(double TongTien, double TongGiam)
+        public int Tinh_ThanhTien(int TongTien, int TongGiam)
         {
             return TongTien - TongGiam;
         }
+
     }
 }

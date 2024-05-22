@@ -78,7 +78,8 @@
             this.txtSolg.SelectedText = "";
             this.txtSolg.Size = new System.Drawing.Size(55, 40);
             this.txtSolg.TabIndex = 1;
-            this.txtSolg.TextChanged += new System.EventHandler(this.txtSolg_TextChanged);
+            this.txtSolg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSolg_KeyPress);
+            this.txtSolg.Leave += new System.EventHandler(this.txtSolg_TextChanged);
             // 
             // txtGiaBan
             // 
@@ -174,6 +175,8 @@
             this.Controls.Add(this.txtSolg);
             this.Controls.Add(this.txtTenMH);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(550, 100);
+            this.MinimumSize = new System.Drawing.Size(400, 100);
             this.Name = "C_CTHoaDonBan";
             this.Text = "C_MatHangHoaDon";
             this.Load += new System.EventHandler(this.C_CTHoaDon_Load);

@@ -1,33 +1,4 @@
-﻿--Create Database
-use master
-go
-drop database ShopDatabase
-go
-create database ShopDatabase
-go
-use ShopDatabase
-go
-
--- drop table 
-drop table tblTaiKhoanMatKhau
-drop table tblApDungVoucher
-drop table tblSoHuuVoucher
-drop table tblChiTietHDB
-drop table tblChiTietHDN
-drop table tblHoaDonNhap
-drop table tblHoaDonBan
-drop table tblKhachHang
-drop table tblMatHang
-drop table tblKhuyenMai
-drop table tblNhanVien
-drop table tblLoaiHang
-drop table tblVoucher
-drop table tblQuyen
-drop table tblDonVi
-drop table tblNCC
-drop table tblGhiChu
-go
-
+﻿
 -- Create table 
 create table tblDonVi(
 	DonVi nchar(10) primary key

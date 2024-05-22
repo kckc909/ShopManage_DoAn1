@@ -78,6 +78,7 @@ namespace GUI
             dtg.Columns.Add("SoLg", "Số lượng tồn");      
             dtg.Columns.Add("DonViTinh", "Đơn vị");
             dtg.Columns.Add("GiaBan", "Giá bán");
+            dtg.Columns.Add("GiaNhap", "Giá nhập");
             dtg.Columns.Add("MaLoai", "Mã loại");
         }
 
@@ -88,6 +89,7 @@ namespace GUI
             dtg.Columns["DonViTinh"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dtg.Columns["SoLg"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dtg.Columns["GiaBan"].DefaultCellStyle.Format = "C";
+            dtg.Columns["GiaNhap"].DefaultCellStyle.Format = "C";
         }
 
         void LoadDanhSachMatHang(List<tblMatHang> DSMH)
@@ -99,6 +101,7 @@ namespace GUI
             dtg.Columns["SoLg"].DataPropertyName = "SoLuong";
             dtg.Columns["DonViTinh"].DataPropertyName = "DonViTinh";
             dtg.Columns["GiaBan"].DataPropertyName = "GiaBan";
+            dtg.Columns["GiaNhap"].DataPropertyName = "GiaNhap";
             dtg.Columns["MaLoai"].DataPropertyName = "MaLoai";
         }
 
@@ -112,6 +115,7 @@ namespace GUI
                 txtMoTa.Clear();
                 txtTenMH.Clear();
                 txtGiaBan.Clear();
+                txtGiaNhap.Clear();
                 txtDonVi.Clear();
                 txtSolg.Clear();
                 cbKhuyenMai.SelectedIndex = 0;
@@ -123,6 +127,7 @@ namespace GUI
             txtTenMH.Text = MatHang.TenMH;
             txtMoTa.Text = MatHang.Mota;
             txtGiaBan.Text = MatHang.GiaBan.ToString();
+            txtGiaNhap.Text = MatHang.GiaNhap.ToString();
             txtSolg.Text = MatHang.SoLuong.ToString();
             txtDonVi.Text = MatHang.DonViTinh;
             if (MatHang.HanSuDung is null)
@@ -225,6 +230,7 @@ namespace GUI
             Clone.MaLoai = cbLoaiHang.SelectedValue.ToString();
             Clone.MaKM = cbKhuyenMai.SelectedValue.ToString();
             Clone.SoLuong = Convert.ToInt16(txtSolg.Text);
+            Clone.GiaNhap = Convert.ToInt32(txtGiaNhap.Text);
             Clone.GiaBan = Convert.ToInt32(txtGiaBan.Text);
             Clone.DonViTinh = txtDonVi.Text;
             Clone.HanSuDung = dateHanSuDung.Value;
@@ -278,8 +284,7 @@ namespace GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            var dsTK = BUS_MatHang.TimKiem(txtTimKiem.Text);
-            LoadDanhSachMatHang(dsTK);
+            BUS_MatHang.dtg_Filter(dtg, txtTimKiem.Text);
         }
 
         private void dtg_SelectionChanged(object sender, EventArgs e)
@@ -292,6 +297,16 @@ namespace GUI
                     LoadThongTinMatHang(BUS_MatHang.LayTheoMa(cell.ToString()));
                 }
             }
+        }
+
+        private void txtGiaNhap_TextChanged(object sender, EventArgs e)
+        {
+            int GiaNhap;
+            if (int.TryParse(txtGiaBan.Text, out GiaNhap))
+            {
+                return;
+            }
+            txtGiaNhap.Text = GiaNhap.ToString("#.###");
         }
     }
 }

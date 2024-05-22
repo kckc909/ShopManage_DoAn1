@@ -15,6 +15,25 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>C:\Users\admin\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://github.com/kckc909/ShopManage_DoAn1.git/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +53,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C73723F4953031E149DEAD53A903F88CD48F87A7</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GUI_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -92,11 +123,11 @@
     <Compile Include="F_HoaDon_HoaDon_TaoHoaDon.Designer.cs">
       <DependentUpon>F_HoaDon_HoaDon_TaoHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_HoaDon_HoaDonNhap.cs">
+    <Compile Include="F_HoaDon_NCC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F_HoaDon_HoaDonNhap.Designer.cs">
-      <DependentUpon>F_HoaDon_HoaDonNhap.cs</DependentUpon>
+    <Compile Include="F_HoaDon_NCC.Designer.cs">
+      <DependentUpon>F_HoaDon_NCC.cs</DependentUpon>
     </Compile>
     <Compile Include="F_HoaDon_KhachHang.cs">
       <SubType>Form</SubType>
@@ -176,11 +207,11 @@
     <Compile Include="F_TaiKhoan_ThemTaiKhoan.Designer.cs">
       <DependentUpon>F_TaiKhoan_ThemTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_TT_HDB.cs">
+    <Compile Include="F_HoaDon_TT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F_TT_HDB.Designer.cs">
-      <DependentUpon>F_TT_HDB.cs</DependentUpon>
+    <Compile Include="F_HoaDon_TT.Designer.cs">
+      <DependentUpon>F_HoaDon_TT.cs</DependentUpon>
     </Compile>
     <Compile Include="F_Voucher_ThemVoucher.cs">
       <SubType>Form</SubType>
@@ -188,6 +219,8 @@
     <Compile Include="F_Voucher_ThemVoucher.Designer.cs">
       <DependentUpon>F_Voucher_ThemVoucher.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyEventArgs\EventArgsChiTietHDB.cs" />
+    <Compile Include="MyEventArgs\EventArgsChiTietHDN.cs" />
     <Compile Include="MyEventArgs\EventArgsHoaDonNhap.cs" />
     <Compile Include="MyEventArgs\EventArgsKhachHang.cs" />
     <Compile Include="MyEventArgs\EventArgsMatHang.cs" />
@@ -294,6 +327,7 @@
       <DependentUpon>F_MainParent.cs</DependentUpon>
     </Compile>
     <Compile Include="MyEventArgs\EventArgsHoaDonBan.cs" />
+    <Compile Include="MyEventArgs\EventArgsNCC.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="C_CTHoaDonNhap.resx">
@@ -326,8 +360,8 @@
     <EmbeddedResource Include="F_HoaDon_HoaDon_TaoHoaDon.resx">
       <DependentUpon>F_HoaDon_HoaDon_TaoHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F_HoaDon_HoaDonNhap.resx">
-      <DependentUpon>F_HoaDon_HoaDonNhap.cs</DependentUpon>
+    <EmbeddedResource Include="F_HoaDon_NCC.resx">
+      <DependentUpon>F_HoaDon_NCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_HoaDon_KhachHang.resx">
       <DependentUpon>F_HoaDon_KhachHang.cs</DependentUpon>
@@ -401,8 +435,8 @@
     <EmbeddedResource Include="F_TrangChu.resx">
       <DependentUpon>F_TrangChu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F_TT_HDB.resx">
-      <DependentUpon>F_TT_HDB.cs</DependentUpon>
+    <EmbeddedResource Include="F_HoaDon_TT.resx">
+      <DependentUpon>F_HoaDon_TT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Voucher.resx">
       <DependentUpon>F_Voucher.cs</DependentUpon>
@@ -420,6 +454,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="GUI_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -508,6 +543,18 @@
   <ItemGroup>
     <Content Include="Logo\MiniShopLogo.png" />
     <None Include="Resources\MiniShopLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

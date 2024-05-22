@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.Infrastructure;
+using System.Windows.Forms;
 
 namespace BUS
 {
@@ -98,10 +99,17 @@ namespace BUS
             return false;
         }
 
-        public List<tblMatHang> TimKiem(string str) => DanhSachMatHang().FindAll(x =>
-                                                        x.TenMH.Contains(str) ||
-                                                        x.Mota.Contains(str) ||
-                                                        x.MaMH.Contains(str));
+        public void dtg_Filter(DataGridView dtg, string str)
+        {
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
+            {
+                r.Visible = false;
+                if (r.Cells.Cast<DataGridViewCell>().ToList().Any(c => c.Value != null && c.Value.ToString().Contains(str)))
+                {
+                    r.Visible = true;
+                }
+            });
+        }
 
         public tblMatHang LayTheoMa(string MaMH) => DanhSachMatHang().Find(x => x.MaMH.Trim().Equals(MaMH.Trim()));
     }

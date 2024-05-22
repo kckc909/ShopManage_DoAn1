@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ShopDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ShopDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -55,7 +55,7 @@
           <Key>
             <PropertyRef Name="MaHD" />
           </Key>
-          <Property Name="MaHD" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaHD" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="NoiDung" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tblHoaDonBan">
@@ -119,6 +119,7 @@
           <Property Name="HanSuDung" Type="date" />
           <Property Name="MaLoai" Type="varchar" MaxLength="10" />
           <Property Name="MaKM" Type="varchar" MaxLength="10" />
+          <Property Name="GiaNhap" Type="int" />
         </EntityType>
         <EntityType Name="tblNCC">
           <Key>
@@ -526,8 +527,7 @@
             <End Role="tblVoucher" EntitySet="tblVoucher" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ShopDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -589,7 +589,7 @@
           <Key>
             <PropertyRef Name="MaHD" />
           </Key>
-          <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaHD" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblHoaDonBan">
@@ -669,6 +669,7 @@
           <NavigationProperty Name="tblChiTietHDNs" Relationship="Self.FK__tblChiTiet__MaMH__3726238F" FromRole="tblMatHang" ToRole="tblChiTietHDN" />
           <NavigationProperty Name="tblKhuyenMai" Relationship="Self.FK__tblMatHang__MaKM__2042BE37" FromRole="tblMatHang" ToRole="tblKhuyenMai" />
           <NavigationProperty Name="tblLoaiHang" Relationship="Self.FK__tblMatHan__MaLoa__1F4E99FE" FromRole="tblMatHang" ToRole="tblLoaiHang" />
+          <Property Name="GiaNhap" Type="Int32" />
         </EntityType>
         <EntityType Name="tblNCC">
           <Key>
@@ -1205,6 +1206,7 @@
           <EntitySetMapping Name="tblMatHangs">
             <EntityTypeMapping TypeName="ShopDatabaseModel.tblMatHang">
               <MappingFragment StoreEntitySet="tblMatHang">
+                <ScalarProperty Name="GiaNhap" ColumnName="GiaNhap" />
                 <ScalarProperty Name="MaMH" ColumnName="MaMH" />
                 <ScalarProperty Name="TenMH" ColumnName="TenMH" />
                 <ScalarProperty Name="Mota" ColumnName="Mota" />

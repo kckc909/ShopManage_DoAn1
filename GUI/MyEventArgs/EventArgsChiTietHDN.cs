@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace GUI.MyEventArgs
 {
-    public class EventArgsMatHang : EventArgs
+    public class EventArgsChiTietHDN : EventArgs
     {
-        public tblMatHang MatHang { get; set; }
-        public tblKhuyenMai KhuyenMai { get; set; }
+        public tblChiTietHDN CTHDN { get; set; }
     }
 }
