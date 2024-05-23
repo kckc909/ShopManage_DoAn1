@@ -12,6 +12,14 @@ namespace DAL
         ShopDatabaseEntities db = new ShopDatabaseEntities();
         public void Them(tblHoaDonNhap HoaDonNhap)
         {
+            tblHoaDonNhap HDN = new tblHoaDonNhap()
+            {
+                MaHDN = HoaDonNhap.MaHDN,
+                MaNV = HoaDonNhap.MaNV,
+                MaNCC = HoaDonNhap.MaNCC,
+                NgayNhap  = HoaDonNhap.NgayNhap,
+                TinhTrang = HoaDonNhap.TinhTrang
+            };
             db.tblHoaDonNhaps.Add(HoaDonNhap);
             db.SaveChanges();
         }

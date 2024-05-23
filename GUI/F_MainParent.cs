@@ -35,22 +35,31 @@ namespace GUI
             {
                 instance = new F_MainParent();
             }
+            if (NguoiDung == null)
+            {
+                NguoiDung = new tblNhanVien()
+                {
+                    MaNV = "_",
+                    TenNV = "Admin",
+                    CapQuyen = 0
+                };
+            }
             return instance;
         }
 
-        static public tblNhanVien NguoiDung = new tblNhanVien() { CapQuyen = 0};
+        static public tblNhanVien NguoiDung = null;
 
-        F_TrangChu _TrangChu = new F_TrangChu()         { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_HoaDon _HoaDon = new F_HoaDon()               { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_MatHang _MatHang = new F_MatHang()            { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_KhachHang _KhachHang = new F_KhachHang()      { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_NhaCungCap _NhaCungCap = new F_NhaCungCap()   { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_LoaiHang _LoaiHang = new F_LoaiHang()         { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_KhuyenMai _KhuyenMai = new F_KhuyenMai()      { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };    
-        F_Voucher _Voucher = new F_Voucher()            { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_NhanVien _NhanVien = new F_NhanVien()         { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_TaiKhoan _TaiKhoan = new F_TaiKhoan()         { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_BaoCaoThongKe _BaoCaoThongKe = new F_BaoCaoThongKe() { TopLevel = false , Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_TrangChu _TrangChu = new F_TrangChu() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_HoaDon _HoaDon = new F_HoaDon() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_MatHang _MatHang = new F_MatHang() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_KhachHang _KhachHang = new F_KhachHang() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_NhaCungCap _NhaCungCap = new F_NhaCungCap() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_LoaiHang _LoaiHang = new F_LoaiHang() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_KhuyenMai _KhuyenMai = new F_KhuyenMai() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_Voucher _Voucher = new F_Voucher() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_NhanVien _NhanVien = new F_NhanVien() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_TaiKhoan _TaiKhoan = new F_TaiKhoan() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
+        F_BaoCaoThongKe _BaoCaoThongKe = new F_BaoCaoThongKe() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
 
         private void F_MainParent_Load(object sender, EventArgs e)
         {
@@ -173,7 +182,7 @@ namespace GUI
             foreach (var Button in pnLeft.Controls)
             {
                 if (Button.GetType() == typeof(Guna2Button))
-                ((Guna2Button)Button).ImageSize = new Size(30, 30);
+                    ((Guna2Button)Button).ImageSize = new Size(30, 30);
             }
         }
 
@@ -184,20 +193,20 @@ namespace GUI
             {
                 ((Form)OpeningForm).Hide();
             }
-            
+
             BtnCurrent = Button;
             BtnCurrent.FillColor2 = _Color2;
         }
 
         private void F_MainParent_FormClosed(object sender, FormClosedEventArgs e)
         {
-            F_DangKyDangNhap.Instance().Show();
+            F_DangKyDangNhap.Instance().Close();
         }
 
         private void btnNguoiDung_Click(object sender, EventArgs e)
         {
             F_MainParent_User F = new F_MainParent_User(NguoiDung);
-            F.Location = new Point(btnNguoiDung.PointToScreen(Point.Empty).X + btnNguoiDung.Width, btnNguoiDung.PointToScreen(Point.Empty).Y );
+            F.Location = new Point(btnNguoiDung.PointToScreen(Point.Empty).X + btnNguoiDung.Width, btnNguoiDung.PointToScreen(Point.Empty).Y);
             F.Show();
         }
     }

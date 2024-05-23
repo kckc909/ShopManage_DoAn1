@@ -63,6 +63,7 @@ namespace GUI
             hdb.MaNV = F_MainParent.NguoiDung.MaNV;
             hdb.NgayBan = dtp.Value;
             hdb.TinhTrang = 0;
+            hdb.tblNhanVien = F_MainParent.NguoiDung;
             Raise_TaoHDB(this, hdb);
         }
 
@@ -79,6 +80,7 @@ namespace GUI
                 MaNCC = cboNhaCungCap.SelectedValue.ToString(),
                 MaNV = F_MainParent.NguoiDung.MaNV,
                 NgayNhap = dtp.Value,
+                tblNhanVien = F_MainParent.NguoiDung,
                 TinhTrang = 0
             };
             Raise_TaoHDN(this, HDN);

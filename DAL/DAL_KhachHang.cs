@@ -13,7 +13,7 @@ namespace DAL
         ShopDatabaseEntities db = new ShopDatabaseEntities();
         public void Them(tblKhachHang KhachHang)
         {
-            if (!DanhSachKhachHang().Exists(x => x.MaKH.Trim().Equals(KhachHang.MaKH)))
+            if (!db.tblKhachHangs.Any(x => x.MaKH.Equals(KhachHang.MaKH)))
             {
                 db.tblKhachHangs.Add(KhachHang);
                 db.SaveChanges();
@@ -37,6 +37,19 @@ namespace DAL
                 db.SaveChanges();
             }
         }
-        public List<tblKhachHang> DanhSachKhachHang() => db.tblKhachHangs.ToList();
+        public List<tblKhachHang> DanhSachKhachHang()
+        {
+            var result = db.tblKhachHangs.ToList();
+            if (result.Count == 0)
+            {
+                result.Add(MyDefault.KH);
+                Them(MyDefault.KH);
+            }
+            return result;  
+        }
+        public tblKhachHang GetByID(string ID)
+        {
+            return db.tblKhachHangs.Find(ID);
+        }
     }
 }

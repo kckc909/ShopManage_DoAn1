@@ -65,7 +65,7 @@
             this.btnChonHinhAnh.Location = new System.Drawing.Point(85, 262);
             this.btnChonHinhAnh.Name = "btnChonHinhAnh";
             this.btnChonHinhAnh.Size = new System.Drawing.Size(132, 26);
-            this.btnChonHinhAnh.TabIndex = 8;
+            this.btnChonHinhAnh.TabIndex = 12;
             this.btnChonHinhAnh.TabStop = false;
             this.btnChonHinhAnh.Text = "Thay đổi hình ảnh";
             this.btnChonHinhAnh.Click += new System.EventHandler(this.btnChonHinhAnh_Click);
@@ -76,6 +76,7 @@
             this.pic.Location = new System.Drawing.Point(30, 26);
             this.pic.Name = "pic";
             this.pic.Size = new System.Drawing.Size(230, 230);
+            this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic.TabIndex = 60;
             this.pic.TabStop = false;
             // 
@@ -111,7 +112,7 @@
             this.rbtnNu.Location = new System.Drawing.Point(516, 83);
             this.rbtnNu.Name = "rbtnNu";
             this.rbtnNu.Size = new System.Drawing.Size(47, 24);
-            this.rbtnNu.TabIndex = 3;
+            this.rbtnNu.TabIndex = 4;
             this.rbtnNu.Text = "Nữ";
             this.rbtnNu.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rbtnNu.UncheckedState.BorderThickness = 2;
@@ -130,7 +131,7 @@
             this.rbtnNam.Location = new System.Drawing.Point(396, 83);
             this.rbtnNam.Name = "rbtnNam";
             this.rbtnNam.Size = new System.Drawing.Size(60, 24);
-            this.rbtnNam.TabIndex = 2;
+            this.rbtnNam.TabIndex = 3;
             this.rbtnNam.Text = "Nam";
             this.rbtnNam.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rbtnNam.UncheckedState.BorderThickness = 2;
@@ -150,7 +151,7 @@
             this.dtpNgaySinh.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(240, 36);
-            this.dtpNgaySinh.TabIndex = 3;
+            this.dtpNgaySinh.TabIndex = 5;
             this.dtpNgaySinh.Value = new System.DateTime(2024, 5, 12, 22, 3, 49, 90);
             // 
             // cboCapQuyen
@@ -168,7 +169,7 @@
             this.cboCapQuyen.Location = new System.Drawing.Point(396, 356);
             this.cboCapQuyen.Name = "cboCapQuyen";
             this.cboCapQuyen.Size = new System.Drawing.Size(240, 36);
-            this.cboCapQuyen.TabIndex = 7;
+            this.cboCapQuyen.TabIndex = 9;
             // 
             // label9
             // 
@@ -222,13 +223,13 @@
             this.txtEmail.PlaceholderText = "";
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(237, 36);
-            this.txtEmail.TabIndex = 6;
+            this.txtEmail.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(281, 251);
+            this.label5.Location = new System.Drawing.Point(283, 201);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 20);
             this.label5.TabIndex = 108;
@@ -257,7 +258,7 @@
             this.txtSDT.PlaceholderText = "";
             this.txtSDT.SelectedText = "";
             this.txtSDT.Size = new System.Drawing.Size(237, 36);
-            this.txtSDT.TabIndex = 5;
+            this.txtSDT.TabIndex = 6;
             // 
             // txtDiaChi
             // 
@@ -281,7 +282,7 @@
             this.txtDiaChi.PlaceholderText = "";
             this.txtDiaChi.SelectedText = "";
             this.txtDiaChi.Size = new System.Drawing.Size(237, 36);
-            this.txtDiaChi.TabIndex = 4;
+            this.txtDiaChi.TabIndex = 7;
             // 
             // label4
             // 
@@ -334,7 +335,7 @@
             this.btnDatLai.Location = new System.Drawing.Point(371, 434);
             this.btnDatLai.Name = "btnDatLai";
             this.btnDatLai.Size = new System.Drawing.Size(114, 59);
-            this.btnDatLai.TabIndex = 10;
+            this.btnDatLai.TabIndex = 11;
             this.btnDatLai.Text = "Hủy";
             this.btnDatLai.Click += new System.EventHandler(this.btnDatLai_Click);
             // 
@@ -355,7 +356,7 @@
             this.btnLuu.Location = new System.Drawing.Point(166, 434);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(109, 59);
-            this.btnLuu.TabIndex = 9;
+            this.btnLuu.TabIndex = 10;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 

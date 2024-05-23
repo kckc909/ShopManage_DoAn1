@@ -101,6 +101,5 @@ namespace BUS
         {
             return TongTien - TongGiam;
         }
-
     }
 }

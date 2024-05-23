@@ -25,7 +25,6 @@ namespace DTO
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tblApDungVoucher> tblApDungVouchers { get; set; }
         public virtual DbSet<tblChiTietHDB> tblChiTietHDBs { get; set; }
         public virtual DbSet<tblChiTietHDN> tblChiTietHDNs { get; set; }

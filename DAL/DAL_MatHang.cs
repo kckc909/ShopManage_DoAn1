@@ -44,7 +44,7 @@ namespace DAL
 
         public void TaoHinhAnh(string SourceImagePath,string ImageName)
         {
-            File.Copy(SourceImagePath, ImageName, false);
+            File.Copy(SourceImagePath, ImageName, true);
         }
     }
 }

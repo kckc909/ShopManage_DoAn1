@@ -477,6 +477,7 @@
             this.pic.Location = new System.Drawing.Point(103, 28);
             this.pic.Name = "pic";
             this.pic.Size = new System.Drawing.Size(230, 230);
+            this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic.TabIndex = 42;
             this.pic.TabStop = false;
             // 

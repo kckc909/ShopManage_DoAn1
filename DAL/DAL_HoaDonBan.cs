@@ -12,11 +12,13 @@ namespace DAL
         private ShopDatabaseEntities _db = new ShopDatabaseEntities();
         public void Them(tblHoaDonBan HDB)
         {
-            if (_db.tblHoaDonBans.ToList().Any(x => Equals(x.MaHDB, HDB.MaHDB)))
-            {
-                throw new Exception("Exist MaHDB");
-            }
-            _db.tblHoaDonBans.Add(HDB);
+            tblHoaDonBan HoaDonBan = new tblHoaDonBan();
+            HoaDonBan.MaHDB = HDB.MaHDB;
+            HoaDonBan.MaNV = HDB.MaNV;
+            HoaDonBan.MaKH = HDB.MaKH;
+            HoaDonBan.NgayBan = HDB.NgayBan;
+            HoaDonBan.TinhTrang = HDB.TinhTrang;
+            _db.tblHoaDonBans.Add(HoaDonBan);
             _db.SaveChanges();
         }
         public void Sua(tblHoaDonBan _old, tblHoaDonBan _new)

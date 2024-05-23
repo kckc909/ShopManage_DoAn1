@@ -20,6 +20,7 @@ namespace GUI
         BUS_Quyen BUS_Quyen = new BUS_Quyen();
         BUS_NhanVien BUS_NhanVien = new BUS_NhanVien();
         OpenFileDialog ofd = new OpenFileDialog();
+        bool changeImage = false;
 
         public F_NhanVien_ThemNhanVien()
         {
@@ -31,6 +32,7 @@ namespace GUI
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 pic.Image = Image.FromFile(ofd.FileName);
+                changeImage = true;
             }
         }
 
@@ -90,8 +92,11 @@ namespace GUI
                 MessageBox.Show("Vui lòng chọn quyền nhân viên!");
             }
             NhanVien.DiaChi = txtDiaChi.Text;
-            NhanVien.Avatar = BUS_NhanVien.TaoTenHinhAnh(Path.GetExtension(ofd.FileName));
-            BUS_NhanVien.CopyHinhAnh(ofd.FileName, NhanVien.Avatar);
+            if (changeImage)
+            {
+                NhanVien.Avatar = BUS_NhanVien.TaoTenHinhAnh(Path.GetExtension(ofd.FileName));
+                BUS_NhanVien.CopyHinhAnh(ofd.FileName, NhanVien.Avatar);
+            }
             BUS_NhanVien.Them(NhanVien);
 
             ThemThanhCong.Invoke(this, new EventArgs());
@@ -99,7 +104,6 @@ namespace GUI
 
         private void F_NhanVien_ThemNhanVien_Load(object sender, EventArgs e)
         {
-            
             cboCapQuyen.DataSource = BUS_Quyen.DanhSachQuyen();
             cboCapQuyen.ValueMember = "CapQuyen";
             cboCapQuyen.DisplayMember = "Ten";

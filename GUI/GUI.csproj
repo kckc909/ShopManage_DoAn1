@@ -135,6 +135,12 @@
     <Compile Include="F_HoaDon_KhachHang.Designer.cs">
       <DependentUpon>F_HoaDon_KhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_HoaDon_TT_Voucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_HoaDon_TT_Voucher.Designer.cs">
+      <DependentUpon>F_HoaDon_TT_Voucher.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_KhachHang_QLSHVc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -371,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F_HoaDon_HoaDon.resx">
       <DependentUpon>F_HoaDon_HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_HoaDon_TT_Voucher.resx">
+      <DependentUpon>F_HoaDon_TT_Voucher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_KhachHang.resx">
       <DependentUpon>F_KhachHang.cs</DependentUpon>

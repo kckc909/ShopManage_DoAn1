@@ -19,7 +19,7 @@ namespace BUS
         public List<tblKhachHang> DSKH(string str) =>
             DSKH().FindAll(x => x.MaKH.Contains(str) || x.TenKH.Contains(str) || x.SDT.Contains(str));
         public List<tblKhachHang> DSKH() => DAL_KhachHang.DanhSachKhachHang();
-        public tblKhachHang LayTheoMa(string MaKH) => DSKH().Find(x => x.MaKH.Equals(MaKH));
+        public tblKhachHang LayTheoMa(string MaKH) => DAL_KhachHang.GetByID(MaKH);
         public string MaTuDong()
         {
             int i = DSKH().Count;

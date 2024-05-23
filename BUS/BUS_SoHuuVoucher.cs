@@ -51,5 +51,9 @@ namespace BUS
                 }
             });
         }
+        public List<tblSoHuuVoucher> CoTheSuDung(List<tblSoHuuVoucher> DSSHVc, int TongTien)
+        {
+            return DSSHVc.Where(x => x.NgayKetThuc > DateTime.Now && x.TinhTrang == 0 && x.tblVoucher.GTToiThieu < TongTien).ToList();
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace GUI
         {
             InitializeComponent();
             this.CTHDB = CTHDB;
+            TopLevel = false;
         }
 
         void Raise_Event_ThayDoiSoLuong()

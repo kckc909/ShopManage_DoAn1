@@ -20,30 +20,29 @@ namespace DAL
             db.tblApDungVouchers.Add(adv);
             db.SaveChanges();
         }
-        public void Sua(tblApDungVoucher _old, tblApDungVoucher _new)
+        public void Xoa(string MaHDB, string MaV)
         {
-            if (_new is null)
-            { return; }
-            Xoa(_old);
-            Them(_new);
-            db.SaveChanges();
-        }
-        public void Sua_GhiChu(tblApDungVoucher adv, string GhiChu)
-        {
-            var v = db.tblApDungVouchers.ToList().Find(x => Equals(x.MaV, adv.MaV) && Equals(x.MaHDB, adv.MaHDB));
-            if (v is null)
+            db.tblApDungVouchers.Remove(new tblApDungVoucher()
             {
-                return;
-            }
-            v.GhiChu = GhiChu;
-        }
-        public void Xoa(tblApDungVoucher adv)
-        {
-            var del = DanhSachApDungVoucher().Find(x => Equals(x.MaV, adv.MaV) && Equals(x.MaHDB, adv.MaHDB));
-            if (del is null) { return; }
-            db.tblApDungVouchers.Remove(del);
+                MaHDB = MaHDB,
+                MaV = MaV
+            });
             db.SaveChanges();
         }
         public List<tblApDungVoucher> DanhSachApDungVoucher() => db.tblApDungVouchers.ToList();
+        public tblApDungVoucher GetById(string MaHDB, string MaV)
+        {
+            return db.tblApDungVouchers.Find(MaHDB, MaV);
+        }
+        public void AddRange(List<tblApDungVoucher> DSADVc)
+        {
+            db.tblApDungVouchers.AddRange(DSADVc);
+            db.SaveChanges() ;
+        }
+        public void DeleteRange(List<tblApDungVoucher> DSADVc)
+        {
+            db.tblApDungVouchers.RemoveRange(DSADVc);
+            db.SaveChanges();
+        }
     }
 }

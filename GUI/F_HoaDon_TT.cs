@@ -22,6 +22,9 @@ namespace GUI
 
         BUS_HoaDonBan BUS_HoaDonBan = new BUS_HoaDonBan();
         BUS_HoaDonNhap BUS_HoaDonNhap = new BUS_HoaDonNhap();
+        BUS_KhachHang BUS_KhachHang = new BUS_KhachHang();
+        BUS_NhanVien BUS_NhanVien = new BUS_NhanVien();
+        BUS_NhaCungCap BUS_NhaCungCap = new BUS_NhaCungCap();
 
         tblHoaDonBan HDB = null;
         tblHoaDonNhap HDN = null;
@@ -53,15 +56,17 @@ namespace GUI
             }
             else
             {
+                var NV = BUS_NhanVien.NhanVienTheoMa(HDB.MaNV);
+                var KH = BUS_KhachHang.LayTheoMa(HDB.MaKH);
                 if (HDB.NgayBan is null)
                 {
                     HDB.NgayBan = DateTime.Now;
                 }
                 dtpNgayHoanTat.Value = HDB.NgayBan.Value;
                 txtMaHD.Text = HDB.MaHDB;
-                txtMa_TenNv.Text = HDB.MaNV + " - " + HDB.tblNhanVien.TenNV;
-                txtTenKH_TenNCC.Text = HDB.tblKhachHang.TenKH;
-                txtSDT.Text = HDB.tblKhachHang.SDT;
+                txtMa_TenNv.Text = NV.MaNV + " - " + NV.TenNV;
+                txtTenKH_TenNCC.Text = KH.TenKH;
+                txtSDT.Text = KH.SDT;
             }
         }
         void HDB_Load_DS_CTHD()
@@ -112,6 +117,8 @@ namespace GUI
         }
         void HDN_Load_TTHD()
         {
+            var NV = BUS_NhanVien.NhanVienTheoMa(HDN.MaNV);
+            var NCC = BUS_NhaCungCap.GetById(HDN.MaNCC);
             if (HDN is null)
             {
                 txtMaHD.Clear();
@@ -123,9 +130,9 @@ namespace GUI
             else
             {
                 txtMaHD.Text = HDN.MaHDN;
-                txtMa_TenNv.Text = HDN.MaNV + " - " + HDN.tblNhanVien.TenNV;
-                txtTenKH_TenNCC.Text = HDN.tblNCC.TenNCC;
-                txtSDT.Text = HDN.tblNCC.SDT;
+                txtMa_TenNv.Text = HDN.MaNV + " - " + NV.TenNV;
+                txtTenKH_TenNCC.Text = NCC.TenNCC;
+                txtSDT.Text = NCC.SDT;
             }
         }
         void HDN_Load_DS_CTHD()
@@ -161,6 +168,7 @@ namespace GUI
 
         public void Catch_ChonHDB(object sender, EventArgsHoaDonBan e)
         {
+
             HDB = e.HDB;
             HDB_Modify();
             HDB_Load_TTHD();
@@ -235,8 +243,11 @@ namespace GUI
         {
             if (isHDB)
             {
-                HDB.MaKH = e.KhachHang.MaKH;
-                HDB.tblKhachHang = e.KhachHang;
+                if (HDB != null)
+                {
+                    HDB.MaKH = e.KhachHang.MaKH;
+                    HDB.tblKhachHang = e.KhachHang;
+                }
             }
             else
             {
@@ -248,8 +259,11 @@ namespace GUI
         {
             if (!isHDB)
             {
-                HDN.MaNCC = e.NCC.MaNCC;
-                HDN.tblNCC = e.NCC;
+                if (HDN != null)
+                {
+                    HDN.MaNCC = e.NCC.MaNCC;
+                    HDN.tblNCC = e.NCC;
+                }
             }
             else
             {
@@ -289,6 +303,11 @@ namespace GUI
         {
             // Hiển thị thông tin hóa đơn lên màn hình (coi như đã in)
             // Dùng framework của microsoft 
+        }
+
+        private void pnRight_SizeChanged(object sender, EventArgs e)
+        {
+            btnThanhToan.Width = pnChucNang.Width / 2;
         }
     }
 }

@@ -76,16 +76,16 @@ namespace GUI
         int dtg_AddRow_HDB(tblHoaDonBan HDB)
         {
             var Kh = BUS_KhachHang.LayTheoMa(HDB.MaKH);
-            int i = dtg.Rows.Count - 1;
             dtg.Rows.Add(HDB.MaHDB, Kh.MaKH, Kh.TenKH, Kh.SDT, HDB.TinhTrang);
+            int i = dtg.Rows.Count - 1;
             return i;
         }
 
         int dtg_AddRow_HDN(tblHoaDonNhap HDN)
         {
             var ncc = BUS_NhaCungCap.GetById(HDN.MaNCC);
-            int i = dtg.RowCount - 1;
             dtg.Rows.Add(HDN.MaHDN, ncc.MaNCC, ncc.TenNCC, ncc.SDT, HDN.TinhTrang);
+            int i = dtg.RowCount - 1;
             return i;
         }
 
@@ -150,7 +150,7 @@ namespace GUI
             F_HoaDon_HoaDon_TaoHoaDon f = new F_HoaDon_HoaDon_TaoHoaDon();
             f.Event_TaoHDB += Catch_TaoHoaDonBan;
             f.Event_TaoHDN += Catch_TaoHoaDonNhap;
-            f.ShowDialog();
+            f.Show();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)

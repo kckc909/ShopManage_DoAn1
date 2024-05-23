@@ -55,7 +55,6 @@ namespace DAL
                     MaNV = MyDefault.NV0.MaNV
                 };
                 result.Add(a);
-                Them(a);
             }
             return result;
         }
