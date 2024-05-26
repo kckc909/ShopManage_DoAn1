@@ -16,7 +16,7 @@ namespace GUI
 {
     public partial class F_KhachHang_TangVoucher : Form
     {
-        public event EventHandler ThemThanhCong;
+        public event EventHandler Event_ThemThanhCong;
         BUS_SoHuuVoucher BUS_SoHuuVoucher = new BUS_SoHuuVoucher();
         BUS_Voucher BUS_Voucher = new BUS_Voucher();
         tblKhachHang KH;
@@ -28,7 +28,7 @@ namespace GUI
 
         void dtg_Modify()
         {
-            dtg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dtg.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         void dtg_AddColumn()
@@ -78,6 +78,7 @@ namespace GUI
             cboFilter.Items.Add("Tất cả");
             cboFilter.Items.Add("Có thể tặng");
             cboFilter.Items.Add("Không thể tặng");
+            cboFilter.StartIndex = 1;
         }
 
         private void dtg_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -113,18 +114,7 @@ namespace GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dtg.Rows)
-            {
-                row.Visible = false;
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (cell.Value.ToString().Contains(txtTimKiem.Text))
-                    {
-                        row.Visible |= true;
-                        break;
-                    }
-                }
-            }
+            BUS_Voucher.Filter_TimKiem(dtg, txtTimKiem.Text);
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -134,29 +124,16 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            var DsMaVc = dtg.Rows.Cast<DataGridViewRow>().ToList()
-                .Where(r => (bool)r.Cells["Check"].Value)
-                .Select(r => r.Cells["MaV"].Value.ToString()).ToList();
-            List<tblSoHuuVoucher> DsShVc = DsMaVc.Select(mav => new tblSoHuuVoucher()
-            {
-                MaSHVc =BUS_SoHuuVoucher.MaTuDong(),
-                MaV  = mav,
-                MaKH = KH.MaKH,
-                NgayBatDau = DateTime.Now,
-                NgayKetThuc = DateTime.Now.AddDays(Convert.ToInt32(txtHanSuDung.Text)),
-                TinhTrang = 0
-            }).ToList();
-
-            BUS_SoHuuVoucher.TangVoucher(DsShVc, KH);
-            ThemThanhCong?.Invoke(sender, e);
+            BUS_SoHuuVoucher.TangVoucher(dtg, KH, Convert.ToInt16(txtHanSuDung.Text));
+            Event_ThemThanhCong?.Invoke(this, EventArgs.Empty);
         }
 
         private void F_KhachHang_TangVoucher_Load(object sender, EventArgs e)
         {
+            cbo_LoadData();
             dtg_Modify();
             dtg_AddColumn();
             dtg_LoadData(BUS_Voucher.DSVoucher());
-            cbo_LoadData();
         }
     }
 }

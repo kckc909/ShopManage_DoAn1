@@ -25,11 +25,11 @@ namespace DTO
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tblApDungVoucher> tblApDungVouchers { get; set; }
         public virtual DbSet<tblChiTietHDB> tblChiTietHDBs { get; set; }
         public virtual DbSet<tblChiTietHDN> tblChiTietHDNs { get; set; }
         public virtual DbSet<tblDonVi> tblDonVis { get; set; }
-        public virtual DbSet<tblGhiChu> tblGhiChus { get; set; }
         public virtual DbSet<tblHoaDonBan> tblHoaDonBans { get; set; }
         public virtual DbSet<tblHoaDonNhap> tblHoaDonNhaps { get; set; }
         public virtual DbSet<tblKhachHang> tblKhachHangs { get; set; }

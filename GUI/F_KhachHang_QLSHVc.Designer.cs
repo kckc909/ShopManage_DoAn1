@@ -31,15 +31,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_KhachHang_QLSHVc));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dtg = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnQuayLai = new Guna.UI2.WinForms.Guna2Button();
-            this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
             this.btnTimKiem = new Guna.UI2.WinForms.Guna2CircleButton();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
+            this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(634, 80);
+            this.label1.Size = new System.Drawing.Size(745, 80);
             this.label1.TabIndex = 1;
             this.label1.Text = "QUẢN LÝ VOUCHER CỦA KHÁCH HÀNG";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -59,12 +59,14 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -78,12 +80,20 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtg.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtg.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtg.Location = new System.Drawing.Point(12, 171);
+            this.dtg.Location = new System.Drawing.Point(12, 169);
             this.dtg.Name = "dtg";
             this.dtg.ReadOnly = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg.RowHeadersVisible = false;
             this.dtg.RowTemplate.Height = 40;
-            this.dtg.Size = new System.Drawing.Size(610, 422);
+            this.dtg.Size = new System.Drawing.Size(721, 422);
             this.dtg.TabIndex = 2;
             this.dtg.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtg.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -106,10 +116,11 @@
             this.dtg.ThemeStyle.RowsStyle.Height = 40;
             this.dtg.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtg.SelectionChanged += new System.EventHandler(this.dtg_SelectionChanged);
             // 
             // btnQuayLai
             // 
-            this.btnQuayLai.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnQuayLai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQuayLai.AutoRoundedCorners = true;
             this.btnQuayLai.BorderRadius = 31;
             this.btnQuayLai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -119,35 +130,13 @@
             this.btnQuayLai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btnQuayLai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnQuayLai.ForeColor = System.Drawing.Color.White;
-            this.btnQuayLai.Image = ((System.Drawing.Image)(resources.GetObject("btnQuayLai.Image")));
             this.btnQuayLai.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnQuayLai.Location = new System.Drawing.Point(456, 614);
+            this.btnQuayLai.Location = new System.Drawing.Point(553, 614);
             this.btnQuayLai.Name = "btnQuayLai";
             this.btnQuayLai.Size = new System.Drawing.Size(148, 64);
             this.btnQuayLai.TabIndex = 18;
             this.btnQuayLai.Text = "Quay lại";
             this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnXoa.AutoRoundedCorners = true;
-            this.btnXoa.BorderRadius = 31;
-            this.btnXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Image = global::GUI.Properties.Resources.icons8_trash_50;
-            this.btnXoa.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnXoa.Location = new System.Drawing.Point(246, 614);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(148, 64);
-            this.btnXoa.TabIndex = 17;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnTimKiem
             // 
@@ -161,16 +150,14 @@
             this.btnTimKiem.FillColor = System.Drawing.Color.Transparent;
             this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnTimKiem.ForeColor = System.Drawing.Color.Transparent;
-            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
             this.btnTimKiem.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnTimKiem.Location = new System.Drawing.Point(564, 103);
+            this.btnTimKiem.Location = new System.Drawing.Point(675, 103);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.PressedColor = System.Drawing.Color.Transparent;
             this.btnTimKiem.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnTimKiem.Size = new System.Drawing.Size(40, 40);
             this.btnTimKiem.TabIndex = 20;
             this.btnTimKiem.UseTransparentBackground = true;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtTimKiem
             // 
@@ -187,7 +174,6 @@
             this.txtTimKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKiem.IconRight = ((System.Drawing.Image)(resources.GetObject("txtTimKiem.IconRight")));
             this.txtTimKiem.IconRightOffset = new System.Drawing.Point(12, 0);
             this.txtTimKiem.IconRightSize = new System.Drawing.Size(40, 40);
             this.txtTimKiem.Location = new System.Drawing.Point(200, 93);
@@ -196,12 +182,15 @@
             this.txtTimKiem.PasswordChar = '\0';
             this.txtTimKiem.PlaceholderText = "Thông tin Voucher";
             this.txtTimKiem.SelectedText = "";
-            this.txtTimKiem.Size = new System.Drawing.Size(421, 60);
+            this.txtTimKiem.Size = new System.Drawing.Size(533, 60);
             this.txtTimKiem.TabIndex = 19;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // cbo
             // 
+            this.cbo.AutoRoundedCorners = true;
             this.cbo.BackColor = System.Drawing.Color.Transparent;
+            this.cbo.BorderRadius = 17;
             this.cbo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -209,14 +198,19 @@
             this.cbo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbo.ItemHeight = 30;
+            this.cbo.Items.AddRange(new object[] {
+            "Khả dụng",
+            "Đã hết hạn"});
             this.cbo.Location = new System.Drawing.Point(12, 107);
             this.cbo.Name = "cbo";
             this.cbo.Size = new System.Drawing.Size(181, 36);
+            this.cbo.StartIndex = 0;
             this.cbo.TabIndex = 21;
             this.cbo.SelectedIndexChanged += new System.EventHandler(this.cbo_SelectedIndexChanged);
             // 
             // btnThem
             // 
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnThem.AutoRoundedCorners = true;
             this.btnThem.BorderRadius = 29;
             this.btnThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -226,7 +220,7 @@
             this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.Image = global::GUI.Properties.Resources.icons8_add_50;
             this.btnThem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnThem.ImageSize = new System.Drawing.Size(40, 40);
             this.btnThem.Location = new System.Drawing.Point(21, 614);
@@ -237,21 +231,43 @@
             this.btnThem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // btnXoa
+            // 
+            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnXoa.AutoRoundedCorners = true;
+            this.btnXoa.BorderRadius = 31;
+            this.btnXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Image = global::GUI.Properties.Resources.icons8_trash_50;
+            this.btnXoa.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnXoa.Location = new System.Drawing.Point(291, 614);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(148, 64);
+            this.btnXoa.TabIndex = 17;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
             // F_KhachHang_QLSHVc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 690);
+            this.ClientSize = new System.Drawing.Size(745, 690);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.cbo);
             this.Controls.Add(this.btnTimKiem);
-            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.btnQuayLai);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.dtg);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtTimKiem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_KhachHang_QLSHVc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_KhachHang_QLSHVc";
             this.Load += new System.EventHandler(this.F_KhachHang_QLSHVc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();

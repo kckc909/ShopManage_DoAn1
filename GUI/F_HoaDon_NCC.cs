@@ -15,7 +15,7 @@ namespace GUI
 {
     public partial class F_HoaDon_NCC : Form
     {
-        public event EventHandler<EventArgsNCC> ChonNCC;
+        public event EventHandler<EventArgsNCC> Event_ChonNCC;
         BUS_NhaCungCap BUS_NhaCungCap = new BUS_NhaCungCap();
         public F_HoaDon_NCC()
         {
@@ -47,7 +47,7 @@ namespace GUI
 
         void Raise_ChonNCC(tblNCC NCC)
         {
-            ChonNCC?.Invoke(this, new EventArgsNCC()
+            Event_ChonNCC?.Invoke(this, new EventArgsNCC()
             {
                 NCC = NCC
             });

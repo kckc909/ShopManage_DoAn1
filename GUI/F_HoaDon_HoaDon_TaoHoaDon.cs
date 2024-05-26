@@ -50,7 +50,7 @@ namespace GUI
 
         void TaoHoaDonBan()
         {
-            var hdb = new tblHoaDonBan();
+            tblHoaDonBan hdb = new tblHoaDonBan();
             if (cboKhachHang.SelectedValue != null)
             {
                 hdb.MaKH = cboKhachHang.SelectedValue.ToString();
@@ -59,11 +59,10 @@ namespace GUI
             {
                 hdb.MaKH = MyDefault.KH.MaKH;
             }
-            hdb.MaHDB = BUS_HoaDonBan.MaTuDong();
+            hdb.MaHDB = BUS_HoaDonBan.AutomatiicID();
             hdb.MaNV = F_MainParent.NguoiDung.MaNV;
             hdb.NgayBan = dtp.Value;
             hdb.TinhTrang = 0;
-            hdb.tblNhanVien = F_MainParent.NguoiDung;
             Raise_TaoHDB(this, hdb);
         }
 
@@ -76,11 +75,10 @@ namespace GUI
             }
             tblHoaDonNhap HDN = new tblHoaDonNhap()
             {
-                MaHDN = BUS_HoaDonNhap.MaTuDong(),
+                MaHDN = BUS_HoaDonNhap.AutomatiicID(),
                 MaNCC = cboNhaCungCap.SelectedValue.ToString(),
                 MaNV = F_MainParent.NguoiDung.MaNV,
                 NgayNhap = dtp.Value,
-                tblNhanVien = F_MainParent.NguoiDung,
                 TinhTrang = 0
             };
             Raise_TaoHDN(this, HDN);
@@ -121,6 +119,20 @@ namespace GUI
         private void btnHuy_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void cboLoaiHoaDon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboLoaiHoaDon.SelectedIndex == 0)
+            {
+                cboKhachHang.Enabled = true;
+                cboNhaCungCap.Enabled = false;   
+            }
+            else if (cboLoaiHoaDon.SelectedIndex == 1)
+            {
+                cboKhachHang.Enabled = false;
+                cboNhaCungCap.Enabled = true;
+            }
         }
     }
 }

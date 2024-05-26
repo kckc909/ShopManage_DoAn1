@@ -16,7 +16,7 @@ namespace GUI
 {
     public partial class F_HoaDon_KhachHang : Form
     {
-        public event EventHandler<EventArgsKhachHang> ChonKhachHang;
+        public event EventHandler<EventArgsKhachHang> Event_ChonKhachHang;
         BUS_KhachHang BUS_KhachHang = new BUS_KhachHang();
 
         public F_HoaDon_KhachHang()
@@ -46,13 +46,14 @@ namespace GUI
         void Catch_ThemKhachHang(object sender, EventArgs e)
         {
             dtg_Load();
+            ((Form)sender).Close();
         }
 
         void Raise_ChonKhachHang(tblKhachHang KH)
         {
             if (KH != null)
             {
-                ChonKhachHang?.Invoke(this, new EventArgsKhachHang()
+                Event_ChonKhachHang?.Invoke(this, new EventArgsKhachHang()
                 {
                     KhachHang = KH
                 });

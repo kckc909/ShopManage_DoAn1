@@ -229,9 +229,9 @@ namespace GUI
             Clone.Mota = txtMoTa.Text;
             Clone.MaLoai = cbLoaiHang.SelectedValue.ToString();
             Clone.MaKM = cbKhuyenMai.SelectedValue.ToString();
-            Clone.SoLuong = Convert.ToInt16(txtSolg.Text);
-            Clone.GiaNhap = Convert.ToInt32(txtGiaNhap.Text);
-            Clone.GiaBan = Convert.ToInt32(txtGiaBan.Text);
+            Clone.SoLuong = Convert.ToInt16(txtSolg.Text ?? "0");
+            Clone.GiaNhap = Convert.ToInt32(txtGiaNhap.Text ?? "0");
+            Clone.GiaBan = Convert.ToInt32(txtGiaBan.Text ?? "0");
             Clone.DonViTinh = txtDonVi.Text;
             Clone.HanSuDung = dateHanSuDung.Value;
 

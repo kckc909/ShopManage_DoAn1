@@ -34,6 +34,17 @@ namespace BUS
             }
             return $"KM{i}";
         }
-        
+        public int PhamTramGiam(string MaKM)
+        {
+            int ptg = 0;
+            var km = DanhSach().Find(x => x.MaKM.Equals(MaKM)
+                && x.NgayBatDau <= DateTime.Now 
+                && x.NgayKetThuc >= DateTime.Now);
+            if (km != null)
+            {
+                ptg = km.PhamTramGiam.Value;
+            }
+            return ptg;
+        }
     }
 }

@@ -100,6 +100,7 @@
             this.txtTTNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtTTNV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTTNV.Location = new System.Drawing.Point(214, 151);
+            this.txtTTNV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTTNV.Name = "txtTTNV";
             this.txtTTNV.PasswordChar = '\0';
             this.txtTTNV.PlaceholderText = "";
@@ -174,7 +175,7 @@
             this.dtp.AutoRoundedCorners = true;
             this.dtp.BorderRadius = 17;
             this.dtp.Checked = true;
-            this.dtp.FillColor = System.Drawing.Color.Transparent;
+            this.dtp.FillColor = System.Drawing.Color.White;
             this.dtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp.Location = new System.Drawing.Point(214, 109);
@@ -211,6 +212,7 @@
             this.cboLoaiHoaDon.Name = "cboLoaiHoaDon";
             this.cboLoaiHoaDon.Size = new System.Drawing.Size(234, 36);
             this.cboLoaiHoaDon.TabIndex = 11;
+            this.cboLoaiHoaDon.SelectedIndexChanged += new System.EventHandler(this.cboLoaiHoaDon_SelectedIndexChanged);
             // 
             // cboNhaCungCap
             // 
@@ -261,7 +263,7 @@
             this.MaximumSize = new System.Drawing.Size(500, 444);
             this.MinimumSize = new System.Drawing.Size(500, 444);
             this.Name = "F_HoaDon_HoaDon_TaoHoaDon";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_HoaDon_HoaDonBan_TaoHoaDon";
             this.Load += new System.EventHandler(this.F_HoaDon_HoaDonBan_TaoHoaDon_Load);
             this.ResumeLayout(false);

@@ -40,9 +40,9 @@ namespace BUS
         {
             dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
             {
-                r.Visible = false;
                 if (r.Cells[1].Value != null)
                 {
+                    r.Visible = false;
                     var vc = LayTheoMa(r.Cells[1].Value.ToString());
                     if (vc.Loai == 1 || !vc.tblSoHuuVouchers.ToList().Any(x => x.MaKH.Equals(KH.MaKH)))
                     {
@@ -55,11 +55,25 @@ namespace BUS
         {
             dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
             {
-                r.Visible = false;
                 if (r.Cells[1].Value != null)
                 {
+                    r.Visible = false;
                     var vc = LayTheoMa(r.Cells[1].Value.ToString());
                     if (vc.Loai == 0 && vc.tblSoHuuVouchers.ToList().Any(x => x.MaKH.Equals(KH.MaKH)))
+                    {
+                        r.Visible = true;
+                    }
+                }
+            });
+        }
+        public void Filter_TimKiem(DataGridView dtg, string ss)
+        {
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
+            {
+                if (r.Cells[1].Value != null)
+                {
+                    r.Visible = false;
+                    if (r.Cells.Cast<DataGridViewCell>().ToList().Any(c => c.Value.ToString().Contains(ss)))
                     {
                         r.Visible = true;
                     }

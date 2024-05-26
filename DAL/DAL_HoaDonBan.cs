@@ -1,7 +1,9 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,56 +11,59 @@ namespace DAL
 {
     public class DAL_HoaDonBan
     {
-        private ShopDatabaseEntities _db = new ShopDatabaseEntities();
-        public void Them(tblHoaDonBan HDB)
+        ShopDatabaseEntities db = new ShopDatabaseEntities();
+        public void Add(tblHoaDonBan HDB)
         {
-            tblHoaDonBan HoaDonBan = new tblHoaDonBan();
-            HoaDonBan.MaHDB = HDB.MaHDB;
-            HoaDonBan.MaNV = HDB.MaNV;
-            HoaDonBan.MaKH = HDB.MaKH;
-            HoaDonBan.NgayBan = HDB.NgayBan;
-            HoaDonBan.TinhTrang = HDB.TinhTrang;
-            _db.tblHoaDonBans.Add(HoaDonBan);
-            _db.SaveChanges();
+            db.tblHoaDonBans.Add(HDB);
+            db.SaveChanges();
         }
-        public void Sua(tblHoaDonBan _old, tblHoaDonBan _new)
+        public void Change(tblHoaDonBan HDB)
         {
-            var HDB = DanhSachHoaDonBan().Find(x => x.MaHDB.Trim() == _old.MaHDB.Trim());
-            if (HDB is null)
+            var tblHoaDonBan = db.tblHoaDonBans.Find(HDB.MaHDB);
+            if (tblHoaDonBan is null)
             {
-                throw new Exception("HDB was not found");
+                return;
             }
+            db.tblHoaDonBans.Attach(tblHoaDonBan);
+            tblHoaDonBan.MaKH = HDB.MaKH;
+            tblHoaDonBan.MaNV = HDB.MaNV;
+            tblHoaDonBan.NgayBan = HDB.NgayBan;
+            tblHoaDonBan.TinhTrang = HDB.TinhTrang;
+            var saveFailed = false;
+            do
+            {
+                saveFailed = false;
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    saveFailed = true;
 
-            HDB.NgayBan = _new.NgayBan;
-            HDB.MaNV = _new.MaNV;
-            HDB.MaKH = _new.MaKH;
-            HDB.TinhTrang = _new.TinhTrang;
+                    // Update the values of the entity that failed to save from the store
+                    ex.Entries.Single().Reload();
+                }
 
-            _db.SaveChanges();
+            } while (saveFailed);
         }
-        public void Sua_TinhTrang(string MaHDB, int TinhTrang)
+        public void Change_Status_Off(tblHoaDonBan HDB)
         {
-            _db.tblHoaDonBans.Find(MaHDB).TinhTrang = TinhTrang;
-            _db.SaveChanges();
+            db.tblHoaDonBans.Find(HDB.MaHDB).TinhTrang = 1;
+            db.SaveChanges();
         }
-        public void Sua_MaNV(string MaHDB, string MaNV)
+        public void Delete(tblHoaDonBan HDB)
         {
-            _db.tblHoaDonBans.Find(MaHDB).MaNV = MaNV;
-        }
-        public void Sua_MaKH(string MaHDB, string MakH)
-        {
-            _db.tblHoaDonBans.Find(MaHDB).MaKH = MakH;
-        }
-        public void Xoa(tblHoaDonBan HDB)
-        {
-            if (HDB is null) return;
-            _db.tblHoaDonBans.Remove(HDB);
-            _db.SaveChanges();
+            db.tblHoaDonBans.Remove(HDB);
+            db.SaveChanges();
         }
         public tblHoaDonBan GetByID(string MaHDB)
         {
-            return _db.tblHoaDonBans.Find(MaHDB);
+            return db.tblHoaDonBans.Find(MaHDB);
         }
-        public List<tblHoaDonBan> DanhSachHoaDonBan() => _db.tblHoaDonBans.ToList();
+        public List<tblHoaDonBan> GetAll()
+        {
+            return db.tblHoaDonBans.ToList();
+        }
     }
 }

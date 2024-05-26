@@ -28,35 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtTenMH = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtSolg = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtGiaBan = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtThanhTien = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnGiam = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTang = new Guna.UI2.WinForms.Guna2Button();
+            this.lbGiaTriKM = new System.Windows.Forms.Label();
+            this.lbTenMH = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // txtTenMH
-            // 
-            this.txtTenMH.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTenMH.DefaultText = "";
-            this.txtTenMH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTenMH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTenMH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTenMH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTenMH.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtTenMH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenMH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTenMH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenMH.Location = new System.Drawing.Point(0, 0);
-            this.txtTenMH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtTenMH.Multiline = true;
-            this.txtTenMH.Name = "txtTenMH";
-            this.txtTenMH.PasswordChar = '\0';
-            this.txtTenMH.PlaceholderText = "";
-            this.txtTenMH.SelectedText = "";
-            this.txtTenMH.Size = new System.Drawing.Size(400, 60);
-            this.txtTenMH.TabIndex = 0;
             // 
             // txtSolg
             // 
@@ -70,7 +47,7 @@
             this.txtSolg.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSolg.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtSolg.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSolg.Location = new System.Drawing.Point(40, 60);
+            this.txtSolg.Location = new System.Drawing.Point(80, 60);
             this.txtSolg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSolg.Name = "txtSolg";
             this.txtSolg.PasswordChar = '\0';
@@ -102,6 +79,7 @@
             this.txtGiaBan.SelectedText = "";
             this.txtGiaBan.Size = new System.Drawing.Size(130, 40);
             this.txtGiaBan.TabIndex = 2;
+            this.txtGiaBan.TabStop = false;
             this.txtGiaBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtThanhTien
@@ -125,55 +103,41 @@
             this.txtThanhTien.SelectedText = "";
             this.txtThanhTien.Size = new System.Drawing.Size(135, 40);
             this.txtThanhTien.TabIndex = 3;
+            this.txtThanhTien.TabStop = false;
             this.txtThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // btnGiam
+            // lbGiaTriKM
             // 
-            this.btnGiam.BorderColor = System.Drawing.Color.Gray;
-            this.btnGiam.BorderThickness = 1;
-            this.btnGiam.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGiam.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGiam.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGiam.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGiam.FillColor = System.Drawing.Color.DarkGray;
-            this.btnGiam.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnGiam.ForeColor = System.Drawing.Color.White;
-            this.btnGiam.Location = new System.Drawing.Point(95, 80);
-            this.btnGiam.Name = "btnGiam";
-            this.btnGiam.Size = new System.Drawing.Size(40, 20);
-            this.btnGiam.TabIndex = 5;
-            this.btnGiam.Text = "v";
-            this.btnGiam.Click += new System.EventHandler(this.btnGiam_Click);
+            this.lbGiaTriKM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbGiaTriKM.AutoSize = true;
+            this.lbGiaTriKM.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbGiaTriKM.ForeColor = System.Drawing.Color.Red;
+            this.lbGiaTriKM.Location = new System.Drawing.Point(0, 69);
+            this.lbGiaTriKM.Name = "lbGiaTriKM";
+            this.lbGiaTriKM.Size = new System.Drawing.Size(88, 24);
+            this.lbGiaTriKM.TabIndex = 4;
+            this.lbGiaTriKM.Text = "GiaTriKM";
             // 
-            // btnTang
+            // lbTenMH
             // 
-            this.btnTang.BorderColor = System.Drawing.Color.Gray;
-            this.btnTang.BorderThickness = 1;
-            this.btnTang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTang.FillColor = System.Drawing.Color.DarkGray;
-            this.btnTang.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnTang.ForeColor = System.Drawing.Color.White;
-            this.btnTang.Location = new System.Drawing.Point(95, 60);
-            this.btnTang.Name = "btnTang";
-            this.btnTang.Size = new System.Drawing.Size(40, 20);
-            this.btnTang.TabIndex = 4;
-            this.btnTang.Text = "^";
-            this.btnTang.Click += new System.EventHandler(this.btnTang_Click);
+            this.lbTenMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbTenMH.Location = new System.Drawing.Point(0, 0);
+            this.lbTenMH.Name = "lbTenMH";
+            this.lbTenMH.Size = new System.Drawing.Size(400, 60);
+            this.lbTenMH.TabIndex = 5;
+            this.lbTenMH.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbTenMH.Click += new System.EventHandler(this.lbTenMH_Click);
             // 
             // C_CTHoaDonBan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 100);
-            this.Controls.Add(this.btnGiam);
-            this.Controls.Add(this.btnTang);
+            this.Controls.Add(this.lbTenMH);
+            this.Controls.Add(this.lbGiaTriKM);
             this.Controls.Add(this.txtThanhTien);
             this.Controls.Add(this.txtGiaBan);
             this.Controls.Add(this.txtSolg);
-            this.Controls.Add(this.txtTenMH);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(550, 100);
             this.MinimumSize = new System.Drawing.Size(400, 100);
@@ -181,16 +145,15 @@
             this.Text = "C_MatHangHoaDon";
             this.Load += new System.EventHandler(this.C_CTHoaDon_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2TextBox txtTenMH;
         private Guna.UI2.WinForms.Guna2TextBox txtSolg;
         private Guna.UI2.WinForms.Guna2TextBox txtGiaBan;
         private Guna.UI2.WinForms.Guna2TextBox txtThanhTien;
-        private Guna.UI2.WinForms.Guna2Button btnGiam;
-        private Guna.UI2.WinForms.Guna2Button btnTang;
+        private System.Windows.Forms.Label lbGiaTriKM;
+        private System.Windows.Forms.Label lbTenMH;
     }
 }

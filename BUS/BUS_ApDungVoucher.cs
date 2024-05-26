@@ -24,14 +24,14 @@ namespace BUS
                 }
             });
         }
-        public void dtg_ApDungVoucher(DataGridView dtg, string MaHDB)
+        public List<tblApDungVoucher> dtg_ApDungVoucher(DataGridView dtg, string MaHDB)
         {
             var DSADVc = dal.DanhSachApDungVoucher().FindAll(x => x.MaHDB.Equals(MaHDB));
             List<tblApDungVoucher> AddList = new List<tblApDungVoucher>();
             List<tblApDungVoucher> DelList = new List<tblApDungVoucher>();
             dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
             {
-                if (r.Cells[0].Value.Equals(true))
+                if (r.Cells[0].Value != null && r.Cells[0].Value.Equals(true))
                 {
                     if (DSADVc.Any(x => x.MaV.Equals(r.Cells[1].Value)))
                     {
@@ -66,6 +66,7 @@ namespace BUS
             });
             dal.AddRange(AddList);
             dal.DeleteRange(DelList);
+            return AddList;
         }
     }
 }

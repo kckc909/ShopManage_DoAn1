@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,7 +63,9 @@ namespace GUI
             int ir = 0;
             foreach (tblMatHang mh in DSMH)
             {
+                // đã áp dụng khuyến mãi này chưa
                 dtg.Rows.Add(mh.MaKM.Equals(KhuyenMai.MaKM));
+                // gán ảnh
                 try
                 {
                     dtg.Rows[ir].Cells["Img"].Value = Image.FromFile(BUS_MatHang.LayDuongDanHinhAnh(mh.LinkHinhAnh));
@@ -71,7 +74,7 @@ namespace GUI
                 {
                     dtg.Rows[ir].Cells["Img"].Value = null;
                 }
-
+                // các nội dung khác
                 dtg.Rows[ir].Cells["MaMH"].Value = mh.MaMH;
                 dtg.Rows[ir].Cells["TenMH"].Value = mh.TenMH;
                 dtg.Rows[ir].Cells["MoTa"].Value = mh.Mota;

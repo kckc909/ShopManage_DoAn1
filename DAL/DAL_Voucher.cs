@@ -50,5 +50,9 @@ namespace DAL
             }
         }
         public List<tblVoucher> DanhSachVoucher() => db.tblVouchers.ToList();
+        public tblVoucher GetById (string MaV)
+        {
+            return db.tblVouchers.Find(MaV);
+        }
     }
 }

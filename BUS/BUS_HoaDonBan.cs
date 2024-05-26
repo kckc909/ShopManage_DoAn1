@@ -12,94 +12,100 @@ namespace BUS
 {
     public class BUS_HoaDonBan
     {
-        DAL_HoaDonBan DAL_HoaDonBan = new DAL_HoaDonBan();
-        public void Them(tblHoaDonBan hdb)
+        DAL_HoaDonBan dal_HoaDonBan = new DAL_HoaDonBan();
+        DAL_ChiTietHDB dal_ChiTietHDB = new DAL_ChiTietHDB();
+        DAL_Voucher dal_Voucher = new DAL_Voucher();
+        DAL_ApDungVoucher dal_ApDungVoucher = new DAL_ApDungVoucher();
+
+        // HDB
+        public void HDB_Add(tblHoaDonBan HDB)
         {
-            DAL_HoaDonBan.Them(hdb);
+            dal_HoaDonBan.Add(HDB);
         }
-        public tblHoaDonBan Sua_TinhTrang(tblHoaDonBan HDB, int TinhTrang)
+        public void HDB_Change(tblHoaDonBan HDB)
         {
-            HDB.TinhTrang = TinhTrang;
-            return HDB;
+            dal_HoaDonBan.Change(HDB);
         }
-        public tblHoaDonBan Sua_MaNV(tblHoaDonBan HDB, string MaNV)
+        public void HDB_Change_Status_Off(tblHoaDonBan HDB)
         {
-            HDB.MaNV = MaNV;
-            return HDB;
+            dal_HoaDonBan.Change_Status_Off(HDB);
         }
-        public void Xoa(string MaHDB)
+        public void HDB_Delete(tblHoaDonBan HDB)
         {
-            DAL_HoaDonBan.Xoa(DS_HDB().Find(x => x.MaHDB.Trim().Equals(MaHDB.Trim())));
+            dal_HoaDonBan.Delete(HDB);
         }
-        public tblHoaDonBan HDB_LayTheoMa(string MaHDB)
+        public tblHoaDonBan HDB_GetById(string MaHDB)
         {
-            return DAL_HoaDonBan.GetByID(MaHDB);
+            return dal_HoaDonBan.GetByID(MaHDB);
         }
-        public List<tblHoaDonBan> DS_HDB()
+        public List<tblHoaDonBan> HDB_GetAll()
         {
-            return DAL_HoaDonBan.DanhSachHoaDonBan();
+            return dal_HoaDonBan.GetAll();
         }
-        public void Loc_TimKiem(DataGridView dtg, string s, int TinhTrang)
+        // CTHDB
+        public void CT_AddRange(List<tblChiTietHDB> DS_CTHDB)
         {
-            foreach (DataGridViewRow r in dtg.Rows)
-            {
-                r.Visible = false;
-                r.Cells["TT"].Value = TinhTrang;
-                foreach (DataGridViewCell c in r.Cells)
-                {
-                    if (c.Value.ToString().Contains(s))
-                    {
-                        r.Visible = true;
-                    }
-                }
-            }
+            dal_ChiTietHDB.AddRange(DS_CTHDB);
         }
-        public string MaTuDong()
+        public void CT_DeleteRange(List<tblChiTietHDB> DS_CTHDB)
+        {
+            dal_ChiTietHDB.DeleteRange(DS_CTHDB);
+        }
+        public List<tblChiTietHDB> CT_GetByID_HDB(string MaHDB)
+        {
+            return dal_ChiTietHDB.GetById_HDB(MaHDB);
+        }
+        // Logic
+        public string AutomatiicID()
         {
             return DateTime.Now.ToString("ddMMyyyyHHmmssff");
         }
-        public int Tinh_TongTien(tblHoaDonBan HDB)
+        public void HDB_dtg_Filter(DataGridView dtg, int TinhTrang)
         {
-            if (HDB.tblChiTietHDBs.Count == 0)
-                return 0;
-            return HDB.tblChiTietHDBs.Sum(x => x.SoLg * (x.GiaBan * (100 - x.tblKhuyenMai.PhamTramGiam) / 100 )).Value;
-        }
-        public int Tinh_GiamGiaVoucher(tblHoaDonBan HDB, int TongTien = 0)
-        {
-            if (TongTien == 0)
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
             {
-                TongTien = Tinh_TongTien(HDB);
-            }
-            if (HDB.tblApDungVouchers.Count == 0)
-            {
-                return 0;
-            }
-            else
-            {
-                int TongGiamGia = 0;
-                int temp;
-                HDB.tblApDungVouchers.ToList().ForEach(x =>
+                r.Visible = false;
+                if (r.Cells["TT"].Value.Equals(TinhTrang))
                 {
-                    if (x.tblVoucher.DonVi.Equals("%"))
-                    {
-                        temp = (x.tblVoucher.GiaTri * TongGiamGia / 100).Value;
-                        if (temp > x.tblVoucher.GTToiDa)
-                        {
-                            temp = x.tblVoucher.GTToiDa.Value;
-                        }
-                        TongGiamGia += temp;
-                    }
-                    else
-                    {
-                        TongGiamGia += x.tblVoucher.GiaTri.Value;
-                    }
-                });
-                return TongGiamGia;
-            }
+                    r.Visible = true;
+                }
+            });
         }
-        public int Tinh_ThanhTien(int TongTien, int TongGiam)
+        public void HDB_dtg_Search(DataGridView dtg, string ss)
         {
-            return TongTien - TongGiam;
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
+            {
+                r.Visible = false;
+                var cells = r.Cells.Cast<DataGridViewCell>().ToList();
+                if (cells.Any(x => x != null && x.Value.ToString().Contains(ss)))
+                {
+                    r.Visible = true;
+                }
+            });
+        }
+        public int[] HDB_TinhTien(string MaHDB)
+        {
+            tblHoaDonBan HDB = dal_HoaDonBan.GetByID(MaHDB);
+            int TongTien = 0;
+
+            foreach (tblChiTietHDB CTHDB in HDB.tblChiTietHDBs)
+            {
+                TongTien += (CTHDB.SoLg * CTHDB.GiaBan * (1 - CTHDB.tblKhuyenMai.PhamTramGiam / 100)).Value;
+            }
+
+            int TongGiam = 0;
+            foreach (tblApDungVoucher vc in HDB.tblApDungVouchers)
+            {
+                if (vc.tblVoucher.DonVi.Trim().Equals("%"))
+                {
+                    TongGiam += (TongTien * vc.tblVoucher.GiaTri / 100).Value;
+                }
+                else
+                {
+                    TongGiam += vc.tblVoucher.GiaTri.Value;
+                }
+            }
+            return new int[] { TongTien, TongGiam, TongTien - TongGiam };
         }
     }
 }

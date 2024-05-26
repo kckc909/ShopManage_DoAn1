@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DTO;
 namespace GUI
 {
     public partial class F_KhachHang_ThemKhachHang : Form
@@ -26,7 +26,7 @@ namespace GUI
             {
                 if (Tools.Check.IsValidPhoneNumber(txtSDT.Text))
                 {
-                    BUS_KhachHang.Them(new DTO.tblKhachHang()
+                    BUS_KhachHang.Them(new tblKhachHang()
                     {
                         MaKH = BUS_KhachHang.MaTuDong(),
                         TenKH = txtTenKH.Text,
@@ -52,7 +52,7 @@ namespace GUI
 
         private void txtTenKH_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetterOrDigit(e.KeyChar) && (char)Keys.Back != e.KeyChar)
+            if (!char.IsLetterOrDigit(e.KeyChar) && (char)Keys.Back != e.KeyChar && (char)Keys.Space != e.KeyChar)
             {
                 e.Handled = true;
             }

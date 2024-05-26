@@ -33,8 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
-            this.lbSHVcNums = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.btnQLSHVc = new Guna.UI2.WinForms.Guna2Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
@@ -60,8 +58,6 @@
             // 
             // pnLeft
             // 
-            this.pnLeft.Controls.Add(this.lbSHVcNums);
-            this.pnLeft.Controls.Add(this.label6);
             this.pnLeft.Controls.Add(this.btnQLSHVc);
             this.pnLeft.Controls.Add(this.label5);
             this.pnLeft.Controls.Add(this.txtSDT);
@@ -78,30 +74,6 @@
             this.pnLeft.Size = new System.Drawing.Size(400, 690);
             this.pnLeft.TabIndex = 0;
             // 
-            // lbSHVcNums
-            // 
-            this.lbSHVcNums.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbSHVcNums.AutoSize = true;
-            this.lbSHVcNums.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbSHVcNums.Location = new System.Drawing.Point(283, 294);
-            this.lbSHVcNums.Name = "lbSHVcNums";
-            this.lbSHVcNums.Size = new System.Drawing.Size(18, 20);
-            this.lbSHVcNums.TabIndex = 22;
-            this.lbSHVcNums.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(19, 294);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(258, 20);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Số voucher khách hàng đã sở hữu :";
-            // 
             // btnQLSHVc
             // 
             this.btnQLSHVc.AutoRoundedCorners = true;
@@ -113,7 +85,7 @@
             this.btnQLSHVc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.btnQLSHVc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnQLSHVc.ForeColor = System.Drawing.Color.White;
-            this.btnQLSHVc.Location = new System.Drawing.Point(90, 326);
+            this.btnQLSHVc.Location = new System.Drawing.Point(82, 308);
             this.btnQLSHVc.Name = "btnQLSHVc";
             this.btnQLSHVc.Size = new System.Drawing.Size(234, 45);
             this.btnQLSHVc.TabIndex = 20;
@@ -145,7 +117,7 @@
             this.txtSDT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSDT.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSDT.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSDT.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtSDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSDT.Location = new System.Drawing.Point(154, 222);
             this.txtSDT.Name = "txtSDT";
@@ -210,7 +182,7 @@
             this.txtTenKH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTenKH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTenKH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenKH.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTenKH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtTenKH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenKH.Location = new System.Drawing.Point(154, 165);
             this.txtTenKH.Name = "txtTenKH";
@@ -257,7 +229,7 @@
             this.txtMaKH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMaKH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMaKH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaKH.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtMaKH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtMaKH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaKH.Location = new System.Drawing.Point(154, 108);
             this.txtMaKH.Name = "txtMaKH";
@@ -518,7 +490,5 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMaKH;
         private Guna.UI2.WinForms.Guna2Button btnLamMoi;
         private Guna.UI2.WinForms.Guna2Button btnQLSHVc;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbSHVcNums;
     }
 }

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,51 +10,30 @@ namespace DAL
     public class DAL_ChiTietHDN
     {
         ShopDatabaseEntities db = new ShopDatabaseEntities();
-        public void Them(tblChiTietHDN cthdn)
+        public void AddRange(List<tblChiTietHDN> DS_CTHDN)
         {
-            if (!ChiTietHoaDonNhap().Exists(x => Equals(x.MaHDN, cthdn.MaHDN)) && cthdn != null)
+            DS_CTHDN.ForEach(x =>
             {
-                db.tblChiTietHDNs.Add(cthdn);
-                db.SaveChanges();
-            }
-        }
-        public void Sua(tblChiTietHDN _old, tblChiTietHDN _new)
-        {
-            if (_new != null)
-            {
-                tblChiTietHDN ct = db.tblChiTietHDNs.ToList().Find(x => Equals(x.MaHDN, _old.MaHDN) && Equals(x.MaMH, _old.MaMH));
-                if (ct != null)
+                var y = db.tblChiTietHDNs.Find(x.MaHDN, x.MaMH);
+                if (y != null)
                 {
-                    Them(_new);
+                    y.SoLg = x.SoLg;
                 }
                 else
                 {
-                    ct.SoLg = _new.SoLg;
-                    ct.GiaNhap = _new.GiaNhap;
-                    db.SaveChanges();
+                    db.tblChiTietHDNs.Add(x);
                 }
-            }
+            });
+            db.SaveChanges();
         }
-        public void Sua_SoLuong(string MaHDN, string MaMH, int SoLuongMoi)
+        public void DeleteRange(List<tblChiTietHDN> DS_CTHDN)
         {
-            var ct = db.tblChiTietHDNs.Find(MaHDN, MaMH);
-            if (ct == null)
-            {
-                return;
-            }
-            ct.SoLg = SoLuongMoi;
-            db.SaveChanges() ;
+            db.tblChiTietHDNs.RemoveRange(DS_CTHDN);    
+            db.SaveChanges();
         }
-        public void Xoa(tblChiTietHDN chiTietHDN)
+        public List<tblChiTietHDN> GetById_HDN(string MaHDN)
         {
-            if (chiTietHDN != null)
-            {
-                db.tblChiTietHDNs.Remove(chiTietHDN);
-                db.SaveChanges();
-            }
+            return db.tblChiTietHDNs.ToList().FindAll(x => x.MaHDN.Equals(MaHDN));
         }
-        public List<tblChiTietHDN> ChiTietHoaDonNhap() => db.tblChiTietHDNs.ToList();
-        public List<tblChiTietHDN> ChiTietHoaDonNhap(string MaHDN)
-            => db.tblChiTietHDNs.Where(x => x.MaHDN.Equals(MaHDN)).ToList();
     }
 }

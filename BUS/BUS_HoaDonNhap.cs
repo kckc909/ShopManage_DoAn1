@@ -12,55 +12,86 @@ namespace BUS
 {
     public class BUS_HoaDonNhap
     {
-        DAL_HoaDonNhap DAL_HoaDonNhap = new DAL_HoaDonNhap();
-        public void Them(tblHoaDonNhap HDN)
+        DAL_HoaDonNhap dal_HoaDonNhap = new DAL_HoaDonNhap();
+        DAL_ChiTietHDN dal_ChiTietHDN = new DAL_ChiTietHDN();
+        // HDN
+        public void HDN_Add(tblHoaDonNhap HDN)
         {
-            DAL_HoaDonNhap.Them(HDN);
+            dal_HoaDonNhap.Add(HDN);
         }
-        public void Sua(tblHoaDonNhap _old, tblHoaDonNhap _new)
+        public void HDN_Change(tblHoaDonNhap HDN)
         {
-            DAL_HoaDonNhap.Sua(_old, _new);
+            dal_HoaDonNhap.Change(HDN);
         }
-        public void Sua_TinhTrang(string MaHDN, int TinhTrang)
+        public void HDN_Change_Status_Off(tblHoaDonNhap HDN)
         {
-            DAL_HoaDonNhap.Sua_TinhTrang(HDN_LayTheoMa(MaHDN), TinhTrang);
+            dal_HoaDonNhap.Change_Status_Off(HDN);
         }
-        public void Xoa(string MaHDN)
+        public void HDN_Delete(tblHoaDonNhap HDN)
         {
-            DAL_HoaDonNhap.Xoa(DS_HDN().Find(x => x.MaHDN.Trim().Equals(MaHDN.Trim())));
+            dal_HoaDonNhap.Delete(HDN);
         }
-        public tblHoaDonNhap HDN_LayTheoMa(string MaHDN)
+        public tblHoaDonNhap HDN_GetById(string MaHDN)
         {
-            return DAL_HoaDonNhap.GetByID(MaHDN);
+            return dal_HoaDonNhap.GetByID(MaHDN);
         }
-        public List<tblHoaDonNhap> DS_HDN()
+        public List<tblHoaDonNhap> HDN_GetAll()
         {
-            return DAL_HoaDonNhap.DanhSachHoaDonNhap();
+            return dal_HoaDonNhap.GetAll();
         }
-        public string MaTuDong()
+        // CTHDN
+        public void CT_AddRange(List<tblChiTietHDN> DS_CTHDN)
+        {
+            dal_ChiTietHDN.AddRange(DS_CTHDN);
+        }
+        public void CT_DeleteRange(List<tblChiTietHDN> DS_CTHDN)
+        {
+            dal_ChiTietHDN.DeleteRange(DS_CTHDN);
+        }
+        public List<tblChiTietHDN> CT_GetByID_HDN(string MaHDN)
+        {
+            return dal_ChiTietHDN.GetById_HDN(MaHDN);
+        }
+        // Logic HDN
+        public string AutomatiicID()
         {
             return DateTime.Now.ToString("ddMMyyyyHHmmssff");
         }
-        public void Loc_TimKiem(DataGridView dtg, string s, int TinhTrang)
+        public void HDN_dtg_Filter(DataGridView dtg, int TinhTrang)
         {
-            foreach (DataGridViewRow r in dtg.Rows)
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
             {
                 r.Visible = false;
-                r.Cells["TT"].Value = TinhTrang;
-                foreach (DataGridViewCell c in r.Cells)
+                if (r.Cells["TT"].Value.Equals(TinhTrang))
                 {
-                    if (c.Value.ToString().Contains(s))
-                    {
-                        r.Visible = true;
-                    }
+                    r.Visible = true;
                 }
-            }
+            });
         }
-        public int Tinh_TongTien(tblHoaDonNhap HDN)
+        public void HDN_dtg_Search(DataGridView dtg, string ss)
         {
-            if (HDN.tblChiTietHDNs.Count == 0)
-                return 0;
-            return HDN.tblChiTietHDNs.Sum(x => x.SoLg * x.GiaNhap ).Value;
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
+            {
+                r.Visible = false;
+                var cells = r.Cells.Cast<DataGridViewCell>().ToList();
+                if (cells.Any(x => x != null && x.Value.ToString().Contains(ss)))
+                {
+                    r.Visible = true;
+                }
+            });
+            // Logic CTHDN
+        }
+        public int HDN_TinhTien(string MaHDN)
+        {
+            var HDN = dal_HoaDonNhap.GetByID(MaHDN);
+            int TongTien = 0;
+
+            foreach (var CTHDN in HDN.tblChiTietHDNs)
+            {
+                TongTien += (CTHDN.SoLg * CTHDN.GiaNhap).Value;
+            }
+
+            return TongTien;
         }
     }
 }

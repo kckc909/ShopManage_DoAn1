@@ -10,48 +10,30 @@ namespace DAL
     public class DAL_ChiTietHDB
     {
         ShopDatabaseEntities db = new ShopDatabaseEntities();
-        public void Them(tblChiTietHDB ctHDB)
+        public void AddRange(List<tblChiTietHDB> DS_CTHDB)
         {
-            if (!DS_CTHDB().Exists(x => Equals(x.MaHDB, ctHDB.MaHDB)) && ctHDB != null)
+            DS_CTHDB.ForEach(x =>
             {
-                db.tblChiTietHDBs.Add(ctHDB);
-                db.SaveChanges();
-            }
-        }
-        public void Sua(tblChiTietHDB _old, tblChiTietHDB _new)
-        {
-            if (_new != null)
-            {
-                tblChiTietHDB ct = db.tblChiTietHDBs.ToList().Find(x => Equals(x.MaHDB, _old.MaHDB) && Equals(x.MaMH, _old.MaMH));
-                if (ct != null)
+                var y = db.tblChiTietHDBs.Find(x.MaHDB,x.MaMH);
+                if (y != null)
                 {
-                    Them(_new);
+                    y.SoLg = x.SoLg;
                 }
                 else
                 {
-                    ct.SoLg = _new.SoLg;
-                    ct.MaKM = _new.MaKM;
-                    ct.GiaBan = _new.GiaBan;
-                    db.SaveChanges();
+                    db.tblChiTietHDBs.Add(x);
                 }
-            }
-        }
-        public void Sua_SoLuong(string MaHDB, string MaMH, int SoLuongMoi)
-        {
-            db.tblChiTietHDBs.Find(MaHDB, MaMH).SoLg = SoLuongMoi;
+            });
             db.SaveChanges();
         }
-        public void Xoa(tblChiTietHDB chiTietHDB)
+        public void DeleteRange(List<tblChiTietHDB> DS_CTHDB)
         {
-            if (chiTietHDB != null)
-            {
-                db.tblChiTietHDBs.Remove(chiTietHDB);
-                db.SaveChanges();
-            }
+            db.tblChiTietHDBs.AddRange(DS_CTHDB);
+            db.SaveChanges() ;
         }
-        public List<tblChiTietHDB> DS_CTHDB() => db.tblChiTietHDBs.ToList();
-        public List<tblChiTietHDB> DS_CTHDB(string MaHDB)
-            => DS_CTHDB().Where(x => Equals(x.MaHDB.Trim(), MaHDB.Trim())).ToList();
-
+        public List<tblChiTietHDB> GetById_HDB(string MaHDB)
+        {
+            return db.tblChiTietHDBs.ToList().FindAll(x => x.MaHDB.Equals(MaHDB));
+        }
     }
 }

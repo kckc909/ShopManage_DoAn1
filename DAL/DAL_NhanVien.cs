@@ -39,7 +39,7 @@ namespace DAL
         public void Xoa(tblNhanVien NhanVien)
         {
             if (NhanVien is null || 
-                db.tblNhanViens.ToList().Exists(x => Equals(x.MaNV, NhanVien.MaNV)))
+                !db.tblNhanViens.ToList().Any(x => Equals(x.MaNV, NhanVien.MaNV)))
             {
                 return;
             }

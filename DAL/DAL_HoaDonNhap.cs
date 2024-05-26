@@ -10,44 +10,43 @@ namespace DAL
     public class DAL_HoaDonNhap
     {
         ShopDatabaseEntities db = new ShopDatabaseEntities();
-        public void Them(tblHoaDonNhap HoaDonNhap)
+        public void Add(tblHoaDonNhap HDN)
         {
-            tblHoaDonNhap HDN = new tblHoaDonNhap()
+            db.tblHoaDonNhaps.Add(HDN);
+            db.SaveChanges();
+        }
+        public void Change(tblHoaDonNhap HDN)
+        {
+            var tblHoaDonNhap = db.tblHoaDonNhaps.Find(HDN.MaHDN);
+            if (tblHoaDonNhap is null)
             {
-                MaHDN = HoaDonNhap.MaHDN,
-                MaNV = HoaDonNhap.MaNV,
-                MaNCC = HoaDonNhap.MaNCC,
-                NgayNhap  = HoaDonNhap.NgayNhap,
-                TinhTrang = HoaDonNhap.TinhTrang
-            };
-            db.tblHoaDonNhaps.Add(HoaDonNhap);
+                Add(tblHoaDonNhap);
+                return;
+            }
+            db.tblHoaDonNhaps.Attach(tblHoaDonNhap);
+            tblHoaDonNhap.MaNCC = HDN.MaNCC;
+            tblHoaDonNhap.MaNV = HDN.MaNV;
+            tblHoaDonNhap.NgayNhap = HDN.NgayNhap;
+            tblHoaDonNhap.TinhTrang = HDN.TinhTrang;
             db.SaveChanges();
         }
-        public void Sua(tblHoaDonNhap OldHoaDonNhap, tblHoaDonNhap NewHoaDonNhap)
+        public void Change_Status_Off(tblHoaDonNhap HDN)
         {
-            tblHoaDonNhap HoaDonNhap = db.tblHoaDonNhaps.ToList().Find(x => Equals(x.MaHDN.Trim(), OldHoaDonNhap.MaHDN.Trim()));
-
-            HoaDonNhap.MaNV = NewHoaDonNhap.MaNV;
-            HoaDonNhap.MaNCC = NewHoaDonNhap.MaNCC;
-            HoaDonNhap.NgayNhap = NewHoaDonNhap.NgayNhap;
-            HoaDonNhap.TinhTrang = NewHoaDonNhap.TinhTrang;
-
+            db.tblHoaDonNhaps.Find(HDN.MaNCC).TinhTrang = 1 ;
             db.SaveChanges();
         }
-        public void Sua_TinhTrang(tblHoaDonNhap hdn, int TinhTrang)
+        public void Delete(tblHoaDonNhap HDN)
         {
-            hdn.TinhTrang = TinhTrang;
-            db.SaveChanges();
-        }
-        public void Xoa(tblHoaDonNhap HoaDonNhap)
-        {
-            db.tblHoaDonNhaps.Remove(HoaDonNhap);
+            db.tblHoaDonNhaps.Remove(HDN);
             db.SaveChanges();
         }
         public tblHoaDonNhap GetByID(string MaHDN)
         {
             return db.tblHoaDonNhaps.Find(MaHDN);
         }
-        public List<tblHoaDonNhap> DanhSachHoaDonNhap() => db.tblHoaDonNhaps.ToList();
+        public List<tblHoaDonNhap> GetAll()
+        {
+            return db.tblHoaDonNhaps.ToList();
+        }
     }
 }

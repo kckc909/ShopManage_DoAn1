@@ -15,7 +15,7 @@ namespace GUI
 {
     public partial class F_HoaDon_MatHang : Form
     {
-        public event EventHandler<EventArgsMatHang> ChonMatHang;
+        public event EventHandler<EventArgsMatHang> Event_ChonMatHang;
         BUS_MatHang BUS_MatHang = new BUS_MatHang();
         public F_HoaDon_MatHang()
         {
@@ -67,7 +67,7 @@ namespace GUI
         {
             if (MH != null)
             {
-                ChonMatHang?.Invoke(this, new EventArgsMatHang()
+                Event_ChonMatHang?.Invoke(this, new EventArgsMatHang()
                 {
                     MatHang = MH
                 });

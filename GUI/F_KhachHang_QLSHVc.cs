@@ -4,153 +4,122 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity.Core.Metadata.Edm;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class F_KhachHang_QLSHVc : Form
     {
+        public event EventHandler Event_Closed;
         BUS_SoHuuVoucher BUS_SoHuuVoucher = new BUS_SoHuuVoucher();
-        tblKhachHang KH;
-
-        public F_KhachHang_QLSHVc(tblKhachHang kH)
+        BUS_Voucher BUS_Voucher = new BUS_Voucher();
+        tblKhachHang KhachHang;
+        string MaSHVC_Current;
+        public F_KhachHang_QLSHVc(tblKhachHang khachHang)
         {
             InitializeComponent();
-            KH = kH;
+            KhachHang = khachHang;
         }
 
-        void Catch_ThemThanhCong(object sender, EventArgs e)
+        void dtg_Modify()
         {
-            ((Form)sender).Close();
-            MessageBox.Show("Đã thêm voucher cho khách hàng!");
+            dtg.AutoGenerateColumns = false;
         }
 
-        void dtg_AddColumn()
+        void dtg_AddColumns()
         {
-            dtg.Columns.Add("MaSHVc", "Mã số");
-            dtg.Columns.Add("TenV", "Tên Voucher");
-            dtg.Columns.Add("MoTa", "Mô tả");
+            dtg.Columns.Add("MaSHVc", "Mã sở hữu");
+            dtg.Columns.Add("MaV", "Mã vocuher");
             dtg.Columns.Add("GiaTri", "Giá trị");
-            dtg.Columns.Add("DonVi", "DonVi");
-            dtg.Columns.Add("TinhTrang", "Tình trạng");
-            dtg.Columns.Add("NgayKetThuc", "Ngày hết hạn");
+            dtg.Columns.Add("DonVi", "Đơn vị");
+            dtg.Columns.Add("NgayKetThuc", "Ngày kết thúc");
         }
 
-        void dtg_LoadData(List<tblSoHuuVoucher> DsSHVc)
+        void dtg_LoadData()
         {
             dtg.Rows.Clear();
-            int i = 0;
-            foreach (tblSoHuuVoucher shvc in DsSHVc)
+            var DSSHVc = BUS_SoHuuVoucher.DsSoHuuVoucher_TheoMaKH(KhachHang.MaKH);
+            foreach (var SHVc in DSSHVc)
             {
-                dtg.Rows.Add(shvc.MaSHVc);
-                dtg.Rows[i].Cells[1].Value = shvc.tblVoucher.TenV;
-                dtg.Rows[i].Cells[2].Value = shvc.tblVoucher.MoTa;
-                dtg.Rows[i].Cells[3].Value = shvc.tblVoucher.GiaTri;
-                dtg.Rows[i].Cells[4].Value = shvc.tblVoucher.DonVi;
-                if (shvc.TinhTrang == MyDefault.Status_On)
-                {
-                    dtg.Rows[i].Cells[5].Value = "Chưa sử dụng";
-                }
-                else
-                {
-                    dtg.Rows[i].Cells[5].Value = "Đã sử dụng";
-                }
-                dtg.Rows[i].Cells[6].Value = shvc.NgayKetThuc.Value.Date;
-                i++;
+                var Vc = BUS_Voucher.LayTheoMa(SHVc.MaV);
+                dtg.Rows.Add(SHVc.MaSHVc, Vc.MaV, Vc.GiaTri, Vc.DonVi, SHVc.NgayKetThuc);
             }
         }
 
-        void cbo_LoadData()
+        void Catch_Event_ThemThanhCong(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Name");
-            dataTable.Rows.Add(new[] { "1", "Tất cả" });
-            dataTable.Rows.Add(new[] { "2", "Đã sử dụng" });
-            dataTable.Rows.Add(new[] { "3", "Chưa sử dụng" });
-            dataTable.Rows.Add(new[] { "4", "Đã hết hạn" });
-            dataTable.Rows.Add(new[] { "5", "Có thể sử dụng" });
-            cbo.DataSource = dataTable;
-            cbo.ValueMember = "ID";
-            cbo.DisplayMember = "Name";
+            dtg_LoadData();
+            ((Form)sender).Close();
         }
 
-        private void F_KhachHang_QLSHVc_Load(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
-            cbo_LoadData();
-            dtg_AddColumn();
-            dtg_LoadData(KH.tblSoHuuVouchers.ToList());
+            F_KhachHang_TangVoucher F = new F_KhachHang_TangVoucher(KhachHang);
+            F.Event_ThemThanhCong += Catch_Event_ThemThanhCong;
+            F.Show();
         }
 
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow row in dtg.Rows)
-            {
-                row.Visible = false;
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (cell.Value is null)
-                    {
-                        continue;
-                    }
-                    if (cell.Value.ToString().Contains(txtTimKiem.Text))
-                    {
-                        row.Visible |= true;
-                        break;
-                    }
-                }
-            }
-        }
-
-        private void cbo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (cbo.SelectedValue)
-            {
-                case "1":
-                    dtg_LoadData(KH.tblSoHuuVouchers.ToList());
-                    break;
-                case "2":
-                    dtg_LoadData(KH.tblSoHuuVouchers.ToList().FindAll(x => x.TinhTrang == 1));
-                    break;
-                case "3":
-                    dtg_LoadData(KH.tblSoHuuVouchers.ToList().FindAll(x => x.TinhTrang == 0));
-                    break;
-                case "4":
-                    dtg_LoadData(KH.tblSoHuuVouchers.ToList().FindAll(x => x.NgayKetThuc.Value > DateTime.Now));
-                    break;
-                case "5":
-                    dtg_LoadData(KH.tblSoHuuVouchers.ToList().FindAll(x => x.TinhTrang == 0 && x.NgayKetThuc.Value > DateTime.Now));
-                    break;
-            }
+            Event_Closed?.Invoke(this, EventArgs.Empty);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (dtg.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("Bạn có muốn xóa voucher này khỏi danh sách voucher của khách hàng không?") == DialogResult.Yes)
+                var cv = dtg.SelectedRows[0].Cells[0].Value;
+                if (cv != null)
                 {
-                    BUS_SoHuuVoucher.Xoa(dtg.SelectedRows[0].Cells[0].Value.ToString());
-                    dtg.Rows.Remove(dtg.SelectedRows[0]);
+                    if (MessageBox.Show("Bạn có muốn xóa voucher này không !", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        BUS_SoHuuVoucher.Xoa(MaSHVC_Current);
+                        dtg_LoadData();
+                    }
                 }
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            F_KhachHang_TangVoucher f = new F_KhachHang_TangVoucher(KH);
-            f.ThemThanhCong += Catch_ThemThanhCong;
-            f.ShowDialog();
+            BUS_Voucher.Filter_TimKiem(dtg, txtTimKiem.Text);
+        }
+
+        private void dtg_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dtg.SelectedRows.Count > 0)
+            {
+                if (dtg.SelectedRows[0].Cells[0].Value != null)
+                {
+                    MaSHVC_Current = dtg.SelectedRows[0].Cells[0].Value.ToString();
+                }
+            }
+        }
+
+        private void F_KhachHang_QLSHVc_Load(object sender, EventArgs e)
+        {
+            dtg_Modify();
+            dtg_AddColumns();
+            dtg_LoadData();
+        }
+
+        private void cbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbo.SelectedIndex == 0)
+            {
+                BUS_SoHuuVoucher.dtg_Filter_KhaDung(dtg);
+            }
+            else
+            {
+                BUS_SoHuuVoucher.dtg_Filter_HetHan(dtg);
+            }
         }
     }
 }

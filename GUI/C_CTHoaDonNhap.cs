@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BUS;
+using DTO;
 using GUI.MyEventArgs;
 using System;
 using System.Windows.Forms;
@@ -8,11 +9,14 @@ namespace GUI
     public partial class C_CTHoaDonNhap : Form
     {
         public event EventHandler<EventArgsChiTietHDN> Event_ThayDoiSoLuong;
+        BUS_MatHang BUS_MatHang = new BUS_MatHang();
         public tblChiTietHDN CTHDN;
         public C_CTHoaDonNhap(tblChiTietHDN CTHDN)
         {
             InitializeComponent();
             this.CTHDN = CTHDN;
+            Dock = DockStyle.Top;
+            TopLevel = false;
         }
 
         void Raise_Event_ThayDoiSoLuong()
@@ -32,7 +36,7 @@ namespace GUI
 
         private void C_CTHoaDon_Load(object sender, EventArgs e)
         {
-            txtTenMH.Text = CTHDN.tblMatHang.TenMH;
+            lbTenMH.Text = BUS_MatHang.LayTheoMa(CTHDN.MaMH).TenMH;
             txtSolg.Text = CTHDN.SoLg.ToString();
             txtGiaNhap.Text = CTHDN.GiaNhap.ToString();
             txtThanhTien.Text = (CTHDN.GiaNhap * CTHDN.SoLg).ToString();
@@ -40,34 +44,14 @@ namespace GUI
 
         private void txtSolg_Leave(object sender, EventArgs e)
         {
-            if (txtSolg.Text.Equals(""))
+            if (CTHDN.SoLg <= 0)
             {
-                Close();
+                if (IsDisposed == false)
+                    Close();
             }
             else
             {
                 CTHDN.SoLg = Convert.ToInt32(txtSolg.Text);
-                Raise_Event_ThayDoiSoLuong() ;
-            }
-        }
-
-        private void btnTang_Click(object sender, EventArgs e)
-        {
-            CTHDN.SoLg++;
-            txtSolg.Text = CTHDN.SoLg.ToString();
-            Raise_Event_ThayDoiSoLuong();
-        }
-
-        private void btnGiam_Click(object sender, EventArgs e)
-        {
-            CTHDN.SoLg--;
-            if (CTHDN.SoLg == 0)
-            {
-                Close();
-            }
-            else
-            {
-                txtSolg.Text = CTHDN.SoLg.ToString();
                 Raise_Event_ThayDoiSoLuong();
             }
         }
@@ -78,6 +62,13 @@ namespace GUI
             {
                 e.Handled = true;
             }
+        }
+
+        private void lbTenMH_Click(object sender, EventArgs e)
+        {
+            CTHDN.SoLg--;
+            txtSolg.Text = CTHDN.SoLg.ToString();
+            txtSolg_Leave(sender, e);
         }
     }
 }

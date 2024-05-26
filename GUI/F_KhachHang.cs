@@ -16,6 +16,7 @@ namespace GUI
     {
         BUS_KhachHang BUS_KhachHang = new BUS_KhachHang();
         tblKhachHang Current;
+        bool isQLSHVcOpened = false;
         public F_KhachHang()
         {
             InitializeComponent();
@@ -63,8 +64,18 @@ namespace GUI
                 txtMaKH.Text = Current.MaKH;
                 txtTenKH.Text = Current.TenKH;
                 txtSDT.Text = Current.SDT;
-                lbSHVcNums.Text = Current.tblSoHuuVouchers.Count.ToString();
             }
+        }
+
+        void Catch_ThemThanhCong(object sender, EventArgs e)
+        {
+            ((Form)sender).Close();
+            MessageBox.Show("Đã thêm voucher cho khách hàng!");
+        }
+
+        void Catch_Event_Closed(object s, EventArgs e)
+        {
+            isQLSHVcOpened = false;
         }
 
         private void F_KhachHang_SizeChanged(object sender, EventArgs e)
@@ -135,14 +146,14 @@ namespace GUI
 
         private void btnDatLai_Click(object sender, EventArgs e)
         {
-            LoadDataKhachHang() ;
+            LoadDataKhachHang();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             F_KhachHang_ThemKhachHang f = new F_KhachHang_ThemKhachHang();
             f.ThemKhachHang += Catch_ThemKhachHang;
-            f.Show();
+            f.ShowDialog();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -187,7 +198,17 @@ namespace GUI
         {
             if (Current != null)
             {
-                
+                if (!isQLSHVcOpened)
+                {
+                    isQLSHVcOpened = true;
+                    F_KhachHang_QLSHVc F = new F_KhachHang_QLSHVc(Current);
+                    F.Dock = DockStyle.Fill;
+                    F.TopLevel = false;
+                    pnMain.Controls.Add(F);
+                    F.Event_Closed += Catch_Event_Closed;
+                    F.Show();
+                    F.BringToFront();
+                }
             }
             else
             {

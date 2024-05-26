@@ -144,8 +144,4 @@ create table tblApDungVoucher(
 	GhiChu varchar(1) default(null),
 	primary key (MaHDB, MaV)
 )
-create table tblGhiChu(
-	MaHD varchar(16) primary key,
-	NoiDung nvarchar (max)
-)
 

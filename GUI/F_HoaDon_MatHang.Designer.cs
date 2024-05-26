@@ -40,6 +40,8 @@
             // 
             // dtg
             // 
+            this.dtg.AllowUserToResizeColumns = false;
+            this.dtg.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -64,10 +66,12 @@
             this.dtg.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtg.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg.Location = new System.Drawing.Point(12, 90);
+            this.dtg.MultiSelect = false;
             this.dtg.Name = "dtg";
             this.dtg.ReadOnly = true;
             this.dtg.RowHeadersVisible = false;
             this.dtg.RowTemplate.Height = 50;
+            this.dtg.RowTemplate.ReadOnly = true;
             this.dtg.Size = new System.Drawing.Size(602, 566);
             this.dtg.TabIndex = 26;
             this.dtg.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;

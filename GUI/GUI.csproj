@@ -213,12 +213,6 @@
     <Compile Include="F_TaiKhoan_ThemTaiKhoan.Designer.cs">
       <DependentUpon>F_TaiKhoan_ThemTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_HoaDon_TT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="F_HoaDon_TT.Designer.cs">
-      <DependentUpon>F_HoaDon_TT.cs</DependentUpon>
-    </Compile>
     <Compile Include="F_Voucher_ThemVoucher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -444,9 +438,6 @@
     <EmbeddedResource Include="F_TrangChu.resx">
       <DependentUpon>F_TrangChu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F_HoaDon_TT.resx">
-      <DependentUpon>F_HoaDon_TT.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="F_Voucher.resx">
       <DependentUpon>F_Voucher.cs</DependentUpon>
     </EmbeddedResource>
@@ -463,6 +454,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.config" />
     <None Include="GUI_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -474,9 +466,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">

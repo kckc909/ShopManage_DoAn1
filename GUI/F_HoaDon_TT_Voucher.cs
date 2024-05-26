@@ -14,16 +14,19 @@ namespace GUI
 {
     public partial class F_HoaDon_TT_Voucher : Form
     {
+        public event EventHandler Event_VoucherChanged;
         BUS_SoHuuVoucher BUS_SoHuuVoucher = new BUS_SoHuuVoucher();
-        BUS_ApDungVoucher BUS_ApDungVoucher=new BUS_ApDungVoucher();
-        string MaHDB;
+        BUS_ApDungVoucher BUS_ApDungVoucher = new BUS_ApDungVoucher();
+        
         List<tblSoHuuVoucher> DSSHVc = null;
+        string MaHDB;
         int TongTien;
-        public F_HoaDon_TT_Voucher(string MHDB, List<tblSoHuuVoucher> dSSHVc, int TongTien)
+
+        public F_HoaDon_TT_Voucher(string MHDB, string MaKH, int TongTien)
         {
             InitializeComponent();
             MaHDB = MHDB;
-            DSSHVc = dSSHVc;
+            DSSHVc = BUS_SoHuuVoucher.DsSoHuuVoucher_TheoMaKH(MaKH);
             this.TongTien = TongTien;
         }
 
@@ -63,6 +66,12 @@ namespace GUI
             BUS_ApDungVoucher.dtg_Checked(dtg, MaHDB);
         }
 
+        void Raise_Event_VoucherChanged()
+        {
+            var dsadvc = BUS_ApDungVoucher.dtg_ApDungVoucher(dtg, MaHDB);
+            Event_VoucherChanged?.Invoke(this , EventArgs.Empty);
+        }
+
         private void F_HoaDon_TT_Voucher_Load(object sender, EventArgs e)
         {
             dtg_Modify();
@@ -77,7 +86,22 @@ namespace GUI
 
         private void btnApDung_Click(object sender, EventArgs e)
         {
-            BUS_ApDungVoucher.dtg_ApDungVoucher(dtg, MaHDB);
+            Raise_Event_VoucherChanged();
+        }
+
+        private void dtg_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtg.SelectedRows.Count > 0)
+            {
+                if (dtg.SelectedRows[0].Cells[0].Value != null)
+                {
+                    dtg.SelectedRows[0].Cells[0].Value = !(bool)dtg.SelectedRows[0].Cells[0].Value;
+                }
+                else
+                {
+                    dtg.SelectedRows[0].Cells[0].Value = true;
+                }
+            }
         }
     }
 }
