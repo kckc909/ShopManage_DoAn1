@@ -5,41 +5,41 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8b290ac2f4aa485c89b4ecd3000cd755" Name="Diagram1">
-        <EntityTypeShape EntityType="ShopDatabaseModel.sysdiagram" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblApDungVoucher" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblChiTietHDB" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblChiTietHDN" Width="1.5" PointX="13.5" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblDonVi" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblHoaDonBan" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblHoaDonNhap" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblKhachHang" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblKhuyenMai" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblLoaiHang" Width="1.5" PointX="6" PointY="23.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblMatHang" Width="1.5" PointX="8.25" PointY="22" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblNCC" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblNhanVien" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblQuyen" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblSoHuuVoucher" Width="1.5" PointX="8.5" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblTaiKhoanMatKhau" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDatabaseModel.tblVoucher" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblApDung__MaHDB__475C8B58" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblApDungVo__MaV__4850AF91" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblChiTie__MaHDB__2CA8951C" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblChiTiet__MaKM__2E90DD8E" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblChiTiet__MaMH__2D9CB955" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblChiTie__MaHDN__3631FF56" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblChiTiet__MaMH__3726238F" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblVouche__DonVi__3EC74557" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblHoaDonB__MaKH__28D80438" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblHoaDonB__MaNV__27E3DFFF" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblHoaDon__MaNCC__32616E72" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblHoaDonN__MaNV__316D4A39" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblSoHuuVo__MaKH__44801EAD" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblMatHang__MaKM__2042BE37" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblMatHan__MaLoa__1F4E99FE" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblNhanVi__CapQu__25077354" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblTaiKhoa__MaNV__3AF6B473" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDatabaseModel.FK__tblSoHuuVou__MaV__438BFA74" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.sysdiagram" Width="1.5" PointX="0.75" PointY="10.5" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblApDungVoucher" Width="1.5" PointX="10.5" PointY="3.75" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblChiTietHDB" Width="1.5" PointX="13.5" PointY="6.375" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblChiTietHDN" Width="1.5" PointX="10.5" PointY="6.625" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblDonVi" Width="1.5" PointX="3.75" PointY="21" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblHoaDonBan" Width="1.5" PointX="8.25" PointY="6.375" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblHoaDonNhap" Width="1.5" PointX="5.25" PointY="6.375" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblKhachHang" Width="1.5" PointX="6" PointY="16.75" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblKhuyenMai" Width="1.5" PointX="6" PointY="3" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblLoaiHang" Width="1.5" PointX="6" PointY="10.375" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblMatHang" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblNCC" Width="1.5" PointX="3" PointY="2.625" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblNhanVien" Width="1.5" PointX="3" PointY="6" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblQuyen" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblSoHuuVoucher" Width="1.5" PointX="8.25" PointY="20.375" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblTaiKhoanMatKhau" Width="1.5" PointX="5.25" PointY="13.625" />
+        <EntityTypeShape EntityType="ShopDatabaseModel.tblVoucher" Width="1.5" PointX="6" PointY="20.25" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblApDung__MaHDB__2C3E80C8" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblApDung__MaSHV__2D32A501" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblChiTie__MaHDB__118A8A8C" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblChiTiet__MaKM__1372D2FE" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblChiTiet__MaMH__127EAEC5" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblChiTie__MaHDN__1B13F4C6" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblChiTiet__MaMH__1C0818FF" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblVouche__DonVi__23A93AC7" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblHoaDonB__MaKH__0DB9F9A8" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblHoaDonB__MaNV__0CC5D56F" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblHoaDon__MaNCC__174363E2" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblHoaDonN__MaNV__164F3FA9" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblSoHuuVo__MaKH__2962141D" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblMatHang__MaKM__0524B3A7" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblMatHan__MaLoa__04308F6E" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblNhanVi__CapQu__09E968C4" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblTaiKhoa__MaNV__1FD8A9E3" />
+        <AssociationConnector Association="ShopDatabaseModel.FK__tblSoHuuVou__MaV__286DEFE4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

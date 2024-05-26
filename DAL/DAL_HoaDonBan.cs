@@ -41,7 +41,6 @@ namespace DAL
                 {
                     saveFailed = true;
 
-                    // Update the values of the entity that failed to save from the store
                     ex.Entries.Single().Reload();
                 }
 
@@ -49,7 +48,8 @@ namespace DAL
         }
         public void Change_Status_Off(tblHoaDonBan HDB)
         {
-            db.tblHoaDonBans.Find(HDB.MaHDB).TinhTrang = 1;
+            var hd = db.tblHoaDonBans.Find(HDB.MaHDB);
+            hd.TinhTrang = 1;
             db.SaveChanges();
         }
         public void Delete(tblHoaDonBan HDB)

@@ -15,17 +15,12 @@ namespace DAL
             db.tblSoHuuVouchers.Add(SoHuuVoucher);
             db.SaveChanges();
         }
-        public void Sua(tblSoHuuVoucher _Old, tblSoHuuVoucher _New)
+        public void Sua_TinhTrang(tblSoHuuVoucher SHVc)
         {
-            var SoHuuVoucher = DanhSachSoHuuVoucher().Find(x => x.MaSHVc.Equals(_Old));
+            var SoHuuVoucher = DanhSachSoHuuVoucher().Find(x => x.MaSHVc.Equals(SHVc));
             if (SoHuuVoucher != null)
             {
-                SoHuuVoucher.MaV = _New.MaSHVc;
-                SoHuuVoucher.MaKH = _New.MaKH;
-                SoHuuVoucher.NgayBatDau = _New.NgayBatDau;
-                SoHuuVoucher.NgayKetThuc = _New.NgayKetThuc;
-                SoHuuVoucher.TinhTrang = _New.TinhTrang;
-
+                SoHuuVoucher.TinhTrang = SHVc.TinhTrang;
                 db.SaveChanges();
             }
         }
@@ -35,5 +30,6 @@ namespace DAL
             db.SaveChanges();
         }
         public List<tblSoHuuVoucher> DanhSachSoHuuVoucher() => db.tblSoHuuVouchers.ToList();
+        public tblSoHuuVoucher GetById(string MaSHVc) => db.tblSoHuuVouchers.Find(MaSHVc);
     }
 }

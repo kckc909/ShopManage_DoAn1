@@ -14,6 +14,12 @@ namespace DTO
     
     public partial class tblSoHuuVoucher
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblSoHuuVoucher()
+        {
+            this.tblApDungVouchers = new HashSet<tblApDungVoucher>();
+        }
+    
         public string MaSHVc { get; set; }
         public string MaV { get; set; }
         public string MaKH { get; set; }
@@ -21,6 +27,8 @@ namespace DTO
         public Nullable<System.DateTime> NgayBatDau { get; set; }
         public Nullable<System.DateTime> NgayKetThuc { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblApDungVoucher> tblApDungVouchers { get; set; }
         public virtual tblKhachHang tblKhachHang { get; set; }
         public virtual tblVoucher tblVoucher { get; set; }
     }

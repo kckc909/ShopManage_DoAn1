@@ -14,7 +14,7 @@ namespace DAL
         {
             DS_CTHDB.ForEach(x =>
             {
-                var y = db.tblChiTietHDBs.Find(x.MaHDB,x.MaMH);
+                var y = db.tblChiTietHDBs.Find(x.MaHDB, x.MaMH);
                 if (y != null)
                 {
                     y.SoLg = x.SoLg;
@@ -28,8 +28,8 @@ namespace DAL
         }
         public void DeleteRange(List<tblChiTietHDB> DS_CTHDB)
         {
-            db.tblChiTietHDBs.AddRange(DS_CTHDB);
-            db.SaveChanges() ;
+            db.tblChiTietHDBs.RemoveRange(DS_CTHDB);
+            db.SaveChanges();
         }
         public List<tblChiTietHDB> GetById_HDB(string MaHDB)
         {

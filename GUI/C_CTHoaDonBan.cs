@@ -29,7 +29,7 @@ namespace GUI
             int thanhtien = (CTHDB.GiaBan * CTHDB.SoLg).Value;
             if (lbGiaTriKM.Visible)
             {
-                thanhtien -= thanhtien * ptg;
+                thanhtien -= thanhtien * ptg / 100;
             }
             txtThanhTien.Text = thanhtien.ToString("C");
             Raise_Event_TinhThanhTien();

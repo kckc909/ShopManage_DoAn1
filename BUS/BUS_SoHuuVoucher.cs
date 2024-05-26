@@ -51,7 +51,7 @@ namespace BUS
             foreach (var MaV in DsMaVc)
             {
                 var vc = DAL_Voucher.GetById(MaV);
-                if (! (vc.Loai.Equals(0) && DSSHVc.Any(x => x.MaV.Equals(vc.MaV))))
+                if (!(vc.Loai.Equals(0) && DSSHVc.Any(x => x.MaV.Equals(vc.MaV))))
                 {
                     tblSoHuuVoucher SHVc = new tblSoHuuVoucher()
                     {
@@ -66,17 +66,18 @@ namespace BUS
                 }
             }
         }
-        public List<tblVoucher> CoTheSuDung(List<tblSoHuuVoucher> DSSHVc, int TongTien)
+        public List<tblSoHuuVoucher> CoTheSuDung(List<tblSoHuuVoucher> DSSHVc, int TongTien)
         {
-            return DSSHVc.Where(x => x.NgayKetThuc > DateTime.Now 
-                                    && x.TinhTrang == 0 
-                                    && x.tblVoucher.GTToiThieu < TongTien).Select(x => x.tblVoucher).ToList();
-        }   
+            return DSSHVc.Where(x => x.NgayKetThuc > DateTime.Now
+                                    && x.TinhTrang == 0
+                                    && x.tblVoucher.GTToiThieu < TongTien).ToList();
+
+        }
         public void dtg_Checked(DataGridView dtg, string MaKH)
         {
             var dssh = DsSoHuuVoucher_TheoMaKH(MaKH);
-            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r => 
-            { 
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
+            {
                 if (r.Cells[1].Value != null)
                 {
                     if (dssh.Any(x => x.MaV.Equals(r.Cells[1].Value.ToString())))
@@ -90,10 +91,12 @@ namespace BUS
         {
             dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
             {
-                if (r.Cells[4].Value != null)
+                var han = r.Cells["NgayKetThuc"].Value;
+                var tt = r.Cells["TinhTrang"].Value;
+                if (han != null)
                 {
                     r.Visible = false;
-                    if (Convert.ToDateTime(r.Cells[4].Value) <= DateTime.Now)
+                    if (Convert.ToDateTime(han) >= DateTime.Now && tt != null && tt is true)
                     {
                         r.Visible = true;
                     }
@@ -104,16 +107,39 @@ namespace BUS
         {
             dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
             {
-                if (r.Cells[4].Value != null)
+                var han = r.Cells["NgayKetThuc"].Value;
+                var tt = r.Cells["TinhTrang"].Value;
+                if (han != null)
                 {
                     r.Visible = false;
-                    if (Convert.ToDateTime(r.Cells[4].Value) > DateTime.Now)
+                    if (Convert.ToDateTime(han) < DateTime.Now && tt != null && (bool)tt != true)
                     {
                         r.Visible = true;
                     }
                 }
             });
         }
-            
+        public void SHVc_Status(DataGridView dtg)
+        {
+            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
+            {
+                var isChecked = r.Cells[0].Value;
+                var MaSHVc = r.Cells["MaSHVc"].Value;
+                if (MaSHVc != null)
+                {
+                    var SHVc = DAL_SoHuuVoucher.GetById(MaSHVc.ToString());
+                    if (isChecked != null && isChecked is true)
+                    {
+                        SHVc.TinhTrang = 1;
+                        DAL_SoHuuVoucher.Sua_TinhTrang(SHVc);
+                    }
+                    else
+                    {
+                        SHVc.TinhTrang = 0;
+                        DAL_SoHuuVoucher.Sua_TinhTrang(SHVc);
+                    }
+                }
+            });
+        }
     }
 }

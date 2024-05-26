@@ -26,12 +26,12 @@ namespace DTO
         public string Mota { get; set; }
         public string LinkHinhAnh { get; set; }
         public Nullable<int> GiaBan { get; set; }
+        public Nullable<int> GiaNhap { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public string DonViTinh { get; set; }
         public Nullable<System.DateTime> HanSuDung { get; set; }
         public string MaLoai { get; set; }
         public string MaKM { get; set; }
-        public Nullable<int> GiaNhap { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblChiTietHDB> tblChiTietHDBs { get; set; }

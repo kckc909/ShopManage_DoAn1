@@ -36,7 +36,6 @@
             this.dtg = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnQuayLai = new Guna.UI2.WinForms.Guna2Button();
             this.btnTimKiem = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbo = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
@@ -80,7 +79,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtg.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtg.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtg.Location = new System.Drawing.Point(12, 169);
+            this.dtg.Location = new System.Drawing.Point(12, 149);
             this.dtg.Name = "dtg";
             this.dtg.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -93,7 +92,7 @@
             this.dtg.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg.RowHeadersVisible = false;
             this.dtg.RowTemplate.Height = 40;
-            this.dtg.Size = new System.Drawing.Size(721, 422);
+            this.dtg.Size = new System.Drawing.Size(721, 442);
             this.dtg.TabIndex = 2;
             this.dtg.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtg.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -159,33 +158,6 @@
             this.btnTimKiem.TabIndex = 20;
             this.btnTimKiem.UseTransparentBackground = true;
             // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTimKiem.AutoRoundedCorners = true;
-            this.txtTimKiem.BorderRadius = 29;
-            this.txtTimKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTimKiem.DefaultText = "";
-            this.txtTimKiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTimKiem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTimKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKiem.IconRightOffset = new System.Drawing.Point(12, 0);
-            this.txtTimKiem.IconRightSize = new System.Drawing.Size(40, 40);
-            this.txtTimKiem.Location = new System.Drawing.Point(200, 93);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.PasswordChar = '\0';
-            this.txtTimKiem.PlaceholderText = "Thông tin Voucher";
-            this.txtTimKiem.SelectedText = "";
-            this.txtTimKiem.Size = new System.Drawing.Size(533, 60);
-            this.txtTimKiem.TabIndex = 19;
-            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
-            // 
             // cbo
             // 
             this.cbo.AutoRoundedCorners = true;
@@ -200,8 +172,8 @@
             this.cbo.ItemHeight = 30;
             this.cbo.Items.AddRange(new object[] {
             "Khả dụng",
-            "Đã hết hạn"});
-            this.cbo.Location = new System.Drawing.Point(12, 107);
+            "Không khả dụng"});
+            this.cbo.Location = new System.Drawing.Point(12, 94);
             this.cbo.Name = "cbo";
             this.cbo.Size = new System.Drawing.Size(181, 36);
             this.cbo.StartIndex = 0;
@@ -264,7 +236,6 @@
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.dtg);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTimKiem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_KhachHang_QLSHVc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -282,7 +253,6 @@
         private Guna.UI2.WinForms.Guna2Button btnQuayLai;
         private Guna.UI2.WinForms.Guna2Button btnXoa;
         private Guna.UI2.WinForms.Guna2CircleButton btnTimKiem;
-        private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
         private Guna.UI2.WinForms.Guna2ComboBox cbo;
         private Guna.UI2.WinForms.Guna2Button btnThem;
     }

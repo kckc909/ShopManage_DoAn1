@@ -71,6 +71,7 @@ namespace GUI
         {
             ((Form)sender).Close();
             MessageBox.Show("Đã thêm voucher cho khách hàng!");
+            LoadDataDtgDSKH(BUS_KhachHang.DSKH());
         }
 
         void Catch_Event_Closed(object s, EventArgs e)

@@ -10,6 +10,8 @@ namespace GUI
     {
         public event EventHandler<EventArgsHoaDonBan> Event_ChonHDB;
         public event EventHandler<EventArgsHoaDonNhap> Event_ChonHDN;
+        public event EventHandler Event_Enable;
+        public event EventHandler Event_Disable;
         BUS_HoaDonBan BUS_HoaDonBan = new BUS_HoaDonBan();
         BUS_HoaDonNhap BUS_HoaDonNhap = new BUS_HoaDonNhap();
         BUS_KhachHang BUS_KhachHang = new BUS_KhachHang();
@@ -91,8 +93,10 @@ namespace GUI
             return i;
         }
 
-        void LamMoi()
+        public void LamMoi()
         {
+            BUS_HoaDonBan = new BUS_HoaDonBan();
+            BUS_HoaDonNhap = new BUS_HoaDonNhap();
             dtg_AddColumns();
             dtg_LoadData();
             dtg_RenameColumns();
@@ -135,6 +139,16 @@ namespace GUI
             e.HDN = HDN;
             e.NCC = BUS_NhaCungCap.GetById(e.HDN.MaNCC);
             Event_ChonHDN?.Invoke(this, e);
+        }
+
+        void Raise_Event_Enable()
+        {
+            Event_Enable?.Invoke(this, EventArgs.Empty);
+        }
+
+        void Raise_Event_Disable()
+        {
+            Event_Disable?.Invoke(this, EventArgs.Empty);
         }
 
         private void F_HoaDon_QLHoaDon_Load(object sender, EventArgs e)
@@ -181,7 +195,7 @@ namespace GUI
                     if (Current_HDN != null)
                     {
                         BUS_HoaDonNhap.HDN_Delete(Current_HDN);
-                        Current_HDN = null; 
+                        Current_HDN = null;
                     }
                 }
                 dtg_LoadData();
@@ -229,6 +243,14 @@ namespace GUI
             else if (cboLoaiHoaDon.SelectedIndex == 1)
             {
                 BUS_HoaDonNhap.HDN_dtg_Filter(dtg, cboTrangThai.SelectedIndex);
+            }
+            if (cboTrangThai.SelectedIndex == 0)
+            {
+                Raise_Event_Enable();
+            }
+            else
+            {
+                Raise_Event_Disable();
             }
         }
     }

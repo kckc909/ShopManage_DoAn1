@@ -40,8 +40,10 @@ namespace BUS
             return dal_HoaDonNhap.GetAll();
         }
         // CTHDN
-        public void CT_AddRange(List<tblChiTietHDN> DS_CTHDN)
+        public void CT_AddRange(List<tblChiTietHDN> DS_CTHDN, string MaHDN)
         {
+            List<tblChiTietHDN> DelLst = dal_ChiTietHDN.GetById_HDN(MaHDN)
+                .Where(x => ! DS_CTHDN.Any(y => x.MaMH.Equals(y.MaMH))).ToList();
             dal_ChiTietHDN.AddRange(DS_CTHDN);
         }
         public void CT_DeleteRange(List<tblChiTietHDN> DS_CTHDN)
@@ -83,6 +85,7 @@ namespace BUS
         }
         public int HDN_TinhTien(string MaHDN)
         {
+            dal_ChiTietHDN = new DAL_ChiTietHDN();
             var HDN = dal_HoaDonNhap.GetByID(MaHDN);
             int TongTien = 0;
 

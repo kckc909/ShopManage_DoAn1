@@ -25,7 +25,6 @@ drop table tblVoucher
 drop table tblQuyen
 drop table tblDonVi
 drop table tblNCC
-drop table tblGhiChu
 go
 
 -- Create table 
@@ -131,7 +130,7 @@ create table tblVoucher(
 	Loai int
 )
 create table tblSoHuuVoucher(
-	MaSHVc nvarchar(10) primary key,
+	MaSHVc varchar(10) primary key,
 	MaV varchar(10) references tblVoucher(MaV)on update cascade on delete cascade,
 	MaKH varchar(10) references tblKhachHang(MaKH) on update cascade on delete cascade,
 	TinhTrang int, -- 0 : Khả dụng -- 1 : Không khả dụng
@@ -140,8 +139,8 @@ create table tblSoHuuVoucher(
 )
 create table tblApDungVoucher(
 	MaHDB varchar(16) references tblHoaDonBan(MaHDB) on update cascade on delete cascade,
-	MaV varchar(10) references tblVoucher(MaV) on update cascade on delete cascade,
+	MaSHVc varchar(10) references tblSoHuuVoucher(MaSHVc),
 	GhiChu varchar(1) default(null),
-	primary key (MaHDB, MaV)
+	primary key (MaHDB, MaSHVc)
 )
 

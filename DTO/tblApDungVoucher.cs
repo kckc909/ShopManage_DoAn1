@@ -15,10 +15,10 @@ namespace DTO
     public partial class tblApDungVoucher
     {
         public string MaHDB { get; set; }
-        public string MaV { get; set; }
+        public string MaSHVc { get; set; }
         public string GhiChu { get; set; }
     
         public virtual tblHoaDonBan tblHoaDonBan { get; set; }
-        public virtual tblVoucher tblVoucher { get; set; }
+        public virtual tblSoHuuVoucher tblSoHuuVoucher { get; set; }
     }
 }

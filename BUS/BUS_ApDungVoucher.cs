@@ -18,7 +18,7 @@ namespace BUS
             var DSADVc = dal.DanhSachApDungVoucher().FindAll(x => x.MaHDB.Equals(MaHDB));
             dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
             {
-                if (DSADVc.Any(x => x.MaV.Equals(r.Cells[1])))
+                if (DSADVc.Any(x => x.MaSHVc.Equals(r.Cells["MaSHVc"].Value)))
                 {
                     r.Cells[0].Value = true;
                 }
@@ -31,36 +31,28 @@ namespace BUS
             List<tblApDungVoucher> DelList = new List<tblApDungVoucher>();
             dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
             {
-                if (r.Cells[0].Value != null && r.Cells[0].Value.Equals(true))
+                var isChecked = r.Cells[0].Value;
+                var MaSHVc = r.Cells[7].Value;
+                if (isChecked != null && isChecked.Equals(true))
                 {
-                    if (DSADVc.Any(x => x.MaV.Equals(r.Cells[1].Value)))
+                    if (! DSADVc.Any(x => x.MaSHVc.Equals(MaSHVc)))
                     {
-
-                    }
-                    else
-                    {
-                        // them
-                        tblApDungVoucher ADVc = new tblApDungVoucher();
-                        ADVc.MaV = r.Cells[1].Value.ToString();
-                        ADVc.MaHDB = MaHDB;
-                        AddList.Add(ADVc);
+                        AddList.Add(new tblApDungVoucher()
+                        {
+                            MaHDB = MaHDB,
+                            MaSHVc = MaSHVc.ToString()
+                        });
                     }
                 }
                 else
                 {
-                    tblApDungVoucher advc = DSADVc.Find(x => x.MaV.Equals(r.Cells[1].Value));
-                    if (advc != null)
+                    if (DSADVc.Any(x => x.MaSHVc.Equals(MaSHVc)))
                     {
-                        // xoa
-                        DelList.Add(advc);
-                    }
-                    else
-                    {
-                        // them
-                        tblApDungVoucher ADVc = new tblApDungVoucher();
-                        ADVc.MaV = r.Cells[1].Value.ToString();
-                        ADVc.MaHDB = MaHDB;
-                        AddList.Add(ADVc);
+                        DelList.Add(new tblApDungVoucher()
+                        {
+                            MaSHVc = MaSHVc.ToString(),
+                            MaHDB = MaHDB
+                        });
                     }
                 }
             });

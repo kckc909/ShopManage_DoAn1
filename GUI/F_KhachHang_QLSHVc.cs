@@ -39,6 +39,8 @@ namespace GUI
             dtg.Columns.Add("GiaTri", "Giá trị");
             dtg.Columns.Add("DonVi", "Đơn vị");
             dtg.Columns.Add("NgayKetThuc", "Ngày kết thúc");
+            dtg.Columns.Add("TinhTrang", "TinhTrang");
+            dtg.Columns["TinhTrang"].Visible = false;
         }
 
         void dtg_LoadData()
@@ -85,11 +87,6 @@ namespace GUI
                     }
                 }
             }
-        }
-
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
-        {
-            BUS_Voucher.Filter_TimKiem(dtg, txtTimKiem.Text);
         }
 
         private void dtg_SelectionChanged(object sender, EventArgs e)

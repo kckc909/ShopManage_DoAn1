@@ -32,8 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnTimKiem = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dtg = new Guna.UI2.WinForms.Guna2DataGridView();
             this.lbTenKH = new System.Windows.Forms.Label();
@@ -42,55 +40,6 @@
             this.btnApDung = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTimKiem.BackColor = System.Drawing.Color.Transparent;
-            this.btnTimKiem.BorderColor = System.Drawing.Color.Transparent;
-            this.btnTimKiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTimKiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTimKiem.FillColor = System.Drawing.Color.Transparent;
-            this.btnTimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnTimKiem.ForeColor = System.Drawing.Color.Transparent;
-            this.btnTimKiem.Image = global::GUI.Properties.Resources.icons8_search_50;
-            this.btnTimKiem.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnTimKiem.Location = new System.Drawing.Point(640, 107);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.PressedColor = System.Drawing.Color.Transparent;
-            this.btnTimKiem.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnTimKiem.Size = new System.Drawing.Size(40, 40);
-            this.btnTimKiem.TabIndex = 17;
-            this.btnTimKiem.UseTransparentBackground = true;
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTimKiem.AutoRoundedCorners = true;
-            this.txtTimKiem.BorderRadius = 29;
-            this.txtTimKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTimKiem.DefaultText = "";
-            this.txtTimKiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTimKiem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTimKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.txtTimKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKiem.IconRight = global::GUI.Properties.Resources.icons8_search_50;
-            this.txtTimKiem.IconRightOffset = new System.Drawing.Point(12, 0);
-            this.txtTimKiem.IconRightSize = new System.Drawing.Size(40, 40);
-            this.txtTimKiem.Location = new System.Drawing.Point(308, 97);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.PasswordChar = '\0';
-            this.txtTimKiem.PlaceholderText = "Mã, tên voucher";
-            this.txtTimKiem.SelectedText = "";
-            this.txtTimKiem.Size = new System.Drawing.Size(389, 60);
-            this.txtTimKiem.TabIndex = 16;
             // 
             // label2
             // 
@@ -229,7 +178,7 @@
             this.btnApDung.ForeColor = System.Drawing.Color.White;
             this.btnApDung.Image = global::GUI.Properties.Resources.icons8_save_50;
             this.btnApDung.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnApDung.Location = new System.Drawing.Point(308, 545);
+            this.btnApDung.Location = new System.Drawing.Point(278, 545);
             this.btnApDung.Name = "btnApDung";
             this.btnApDung.Size = new System.Drawing.Size(157, 57);
             this.btnApDung.TabIndex = 32;
@@ -247,12 +196,9 @@
             this.Controls.Add(this.lbTenKH);
             this.Controls.Add(this.dtg);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnTimKiem);
-            this.Controls.Add(this.txtTimKiem);
             this.Name = "F_HoaDon_TT_Voucher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_HoaDon_TT_Voucher";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.F_HoaDon_TT_Voucher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();
             this.ResumeLayout(false);
@@ -261,8 +207,6 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2CircleButton btnTimKiem;
-        private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2DataGridView dtg;
         private System.Windows.Forms.Label lbTenKH;

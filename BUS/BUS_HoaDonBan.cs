@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -43,13 +44,12 @@ namespace BUS
             return dal_HoaDonBan.GetAll();
         }
         // CTHDB
-        public void CT_AddRange(List<tblChiTietHDB> DS_CTHDB)
+        public void CT_AddRange(List<tblChiTietHDB> DS_CTHDB, string MaHDB)
         {
+            List<tblChiTietHDB> DelLst = CT_GetByID_HDB(MaHDB)
+                .Where(ct => ! DS_CTHDB.Any(x => x.MaMH.Equals(ct.MaMH))).ToList();
+            dal_ChiTietHDB.DeleteRange(DelLst);
             dal_ChiTietHDB.AddRange(DS_CTHDB);
-        }
-        public void CT_DeleteRange(List<tblChiTietHDB> DS_CTHDB)
-        {
-            dal_ChiTietHDB.DeleteRange(DS_CTHDB);
         }
         public List<tblChiTietHDB> CT_GetByID_HDB(string MaHDB)
         {
@@ -85,6 +85,7 @@ namespace BUS
         }
         public int[] HDB_TinhTien(string MaHDB)
         {
+            dal_HoaDonBan = new DAL_HoaDonBan();
             tblHoaDonBan HDB = dal_HoaDonBan.GetByID(MaHDB);
             int TongTien = 0;
 
@@ -96,13 +97,13 @@ namespace BUS
             int TongGiam = 0;
             foreach (tblApDungVoucher vc in HDB.tblApDungVouchers)
             {
-                if (vc.tblVoucher.DonVi.Trim().Equals("%"))
+                if (vc.tblSoHuuVoucher.tblVoucher.DonVi.Trim().Equals("%"))
                 {
-                    TongGiam += (TongTien * vc.tblVoucher.GiaTri / 100).Value;
+                    TongGiam += (TongTien * vc.tblSoHuuVoucher.tblVoucher.GiaTri / 100).Value;
                 }
                 else
                 {
-                    TongGiam += vc.tblVoucher.GiaTri.Value;
+                    TongGiam += vc.tblSoHuuVoucher.tblVoucher.GiaTri.Value;
                 }
             }
             return new int[] { TongTien, TongGiam, TongTien - TongGiam };

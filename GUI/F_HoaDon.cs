@@ -28,6 +28,7 @@ namespace GUI
         BUS_HoaDonNhap BUS_HoaDonNhap = new BUS_HoaDonNhap();
         BUS_SoHuuVoucher BUS_SoHuuVoucher = new BUS_SoHuuVoucher();
 
+        bool allow = true;
         bool isHDB = true;
         tblNhanVien NV = null;
         tblHoaDonBan HDB = null;
@@ -56,6 +57,8 @@ namespace GUI
             F_MatHang.Event_ChonMatHang += Catch_Event_ChonMatHang;
             F_KhachHang.Event_ChonKhachHang += Catch_Event_ChonKhachHang;
             F_NCC.Event_ChonNCC += Catch_Event_ChonNCC;
+            F_HD.Event_Enable += Catch_Event_Enable;
+            F_HD.Event_Disable += Catch_Event_Disable;
         }
         // Other
         void Save()
@@ -83,6 +86,17 @@ namespace GUI
             txtTenKH_TenNCC.Text = NCC.TenNCC;
             txtSDT.Text = NCC.SDT;
         }
+        void TinhTien()
+        {
+            if (isHDB)
+            {
+
+            }
+            else
+            {
+            }
+        }
+
         // HDB
         void HDB_Modify()
         {
@@ -115,6 +129,7 @@ namespace GUI
                 {
                     var c = new C_CTHoaDonBan(x);
                     pnDSMH.Controls.Add(c);
+                    c.Event_ThayDoiSoLuong += Catch_Event_CTHDB_ThayDoiSoLuong;
                     c.Show();
                 });
             }
@@ -153,10 +168,12 @@ namespace GUI
         }
         void HDB_Save(tblHoaDonBan tblHoaDonBan)
         {
+            if (!allow) return;
             if (tblHoaDonBan != null)
             {
+                BUS_HoaDonBan = new BUS_HoaDonBan();
                 BUS_HoaDonBan.HDB_Change(tblHoaDonBan);
-                BUS_HoaDonBan.CT_AddRange(pnDSMH.Controls.Cast<C_CTHoaDonBan>().Select(x => x.CTHDB).ToList());
+                BUS_HoaDonBan.CT_AddRange(pnDSMH.Controls.Cast<C_CTHoaDonBan>().Select(x => x.CTHDB).ToList(), tblHoaDonBan.MaHDB);
             }
         }
         // HDN
@@ -194,11 +211,12 @@ namespace GUI
                 {
                     ct = new C_CTHoaDonNhap(new tblChiTietHDN()
                     {
-                        MaHDN = HDB.MaHDB,
+                        MaHDN = HDN.MaHDN,
                         MaMH = MatHang.MaMH,
                         GiaNhap = MatHang.GiaBan,
                         SoLg = 1
                     });
+                    ct.Event_ThayDoiSoLuong += Catch_Event_CTHDN_ThayDoiSoLuong;
                     pnDSMH.Controls.Add(ct);
                     ct.Show();
                 }
@@ -212,7 +230,10 @@ namespace GUI
                 List<tblChiTietHDN> DS_CTHDN = BUS_HoaDonNhap.CT_GetByID_HDN(HDN.MaHDN);
                 DS_CTHDN.ForEach(x =>
                 {
-                    pnDSMH.Controls.Add(new C_CTHoaDonNhap(x));
+                    var CTHDN = new C_CTHoaDonNhap(x);
+                    pnDSMH.Controls.Add(CTHDN);
+                    CTHDN.Event_ThayDoiSoLuong += Catch_Event_CTHDN_ThayDoiSoLuong;
+                    CTHDN.Show();
                 });
             }
         }
@@ -222,22 +243,31 @@ namespace GUI
         }
         void HDN_Save(tblHoaDonNhap tblHoaDonNhap)
         {
+            if (!allow) return;
             if (tblHoaDonNhap != null)
             {
+                BUS_HoaDonNhap = new BUS_HoaDonNhap();
                 BUS_HoaDonNhap.HDN_Change(tblHoaDonNhap);
-                BUS_HoaDonNhap.CT_AddRange(pnDSMH.Controls.Cast<C_CTHoaDonNhap>().Select(x => x.CTHDN).ToList());
+                BUS_HoaDonNhap.CT_AddRange(pnDSMH.Controls.Cast<C_CTHoaDonNhap>().Select(x => x.CTHDN).ToList(), tblHoaDonNhap.MaHDN);
             }
         }
         // Catch Event
-        void Catch_Event_CTHDB_ThayDoiSoLuong()
+        void Catch_Event_CTHDB_ThayDoiSoLuong(object sender, EventArgsChiTietHDB e)
         {
+            HDB_Save(HDB);
+            HDB_TinhTien();
+        }
 
+        void Catch_Event_CTHDN_ThayDoiSoLuong(object sender, EventArgsChiTietHDN e)
+        {
+            HDN_Save(HDN);
+            HDN_TinhTien();
         }
 
         void Catch_Event_ChonHDB(object sender, EventArgsHoaDonBan e)
         {
-            isHDB = true;
             Save();
+            isHDB = true;
             HDB = e.HDB;
             NV = BUS_NhanVien.NhanVienTheoMa(HDB.MaNV);
             KH = e.KH;
@@ -249,8 +279,8 @@ namespace GUI
 
         void Catch_Event_ChonHDN(object sender, EventArgsHoaDonNhap e)
         {
-            isHDB = false;
             Save();
+            isHDB = false;
             HDN = e.HDN;
             NV = HDN.tblNhanVien;
             NCC = e.NCC;
@@ -262,6 +292,7 @@ namespace GUI
 
         void Catch_Event_ChonMatHang(object sender, EventArgsMatHang e)
         {
+            if (!allow) return;
             if (isHDB)
             {
                 HDB_pn_AddMatHang(e.MatHang);
@@ -274,6 +305,7 @@ namespace GUI
 
         void Catch_Event_ChonKhachHang(object sender, EventArgsKhachHang e)
         {
+            if (!allow) return;
             if (HDB != null && isHDB)
             {
                 KH = e.KhachHang;
@@ -284,6 +316,7 @@ namespace GUI
 
         void Catch_Event_ChonNCC(object sender, EventArgsNCC e)
         {
+            if (!allow) return;
             if (HDN != null && !isHDB)
             {
                 NCC = e.NCC;
@@ -294,10 +327,36 @@ namespace GUI
 
         void Catch_Event_VoucherChanged(object sender, EventArgs e)
         {
+            if (!allow) return;
             if (HDB != null)
             {
                 HDB_TinhTien();
+                ((Form)sender).Close();
             }
+        }
+
+        void Catch_Event_TinhThanhTien(object sender, EventArgs e)
+        {
+            if (isHDB)
+            {
+                HDB_TinhTien();
+            }
+            else
+            {
+                HDN_TinhTien();
+            }
+        }
+
+        void Catch_Event_Enable(object sender, EventArgs e)
+        {
+            allow = true;
+            pnDSMH.Enabled = true;
+        }
+
+        void Catch_Event_Disable(object sender, EventArgs e)
+        {
+            allow = false;
+            pnDSMH.Enabled = false;
         }
 
         private void F_HoaDon_SizeChanged(object sender, EventArgs e)
@@ -338,6 +397,7 @@ namespace GUI
             {
                 BUS_HoaDonNhap.HDN_Change_Status_Off(HDN);
             }
+            F_HD.LamMoi();
         }
     }
 }

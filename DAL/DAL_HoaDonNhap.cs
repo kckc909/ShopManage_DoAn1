@@ -32,7 +32,8 @@ namespace DAL
         }
         public void Change_Status_Off(tblHoaDonNhap HDN)
         {
-            db.tblHoaDonNhaps.Find(HDN.MaNCC).TinhTrang = 1 ;
+            var hd = db.tblHoaDonNhaps.Find(HDN.MaHDN);
+            hd.TinhTrang = 1;
             db.SaveChanges();
         }
         public void Delete(tblHoaDonNhap HDN)
