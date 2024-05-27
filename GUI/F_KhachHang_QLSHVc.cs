@@ -50,7 +50,7 @@ namespace GUI
             foreach (var SHVc in DSSHVc)
             {
                 var Vc = BUS_Voucher.LayTheoMa(SHVc.MaV);
-                dtg.Rows.Add(SHVc.MaSHVc, Vc.MaV, Vc.GiaTri, Vc.DonVi, SHVc.NgayKetThuc);
+                dtg.Rows.Add(SHVc.MaSHVc, Vc.MaV, Vc.GiaTri, Vc.DonVi, SHVc.NgayKetThuc, SHVc.TinhTrang);
             }
         }
 

@@ -176,7 +176,6 @@
             this.cbo.Location = new System.Drawing.Point(12, 94);
             this.cbo.Name = "cbo";
             this.cbo.Size = new System.Drawing.Size(181, 36);
-            this.cbo.StartIndex = 0;
             this.cbo.TabIndex = 21;
             this.cbo.SelectedIndexChanged += new System.EventHandler(this.cbo_SelectedIndexChanged);
             // 

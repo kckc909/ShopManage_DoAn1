@@ -73,30 +73,16 @@ namespace BUS
                                     && x.tblVoucher.GTToiThieu < TongTien).ToList();
 
         }
-        public void dtg_Checked(DataGridView dtg, string MaKH)
-        {
-            var dssh = DsSoHuuVoucher_TheoMaKH(MaKH);
-            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
-            {
-                if (r.Cells[1].Value != null)
-                {
-                    if (dssh.Any(x => x.MaV.Equals(r.Cells[1].Value.ToString())))
-                    {
-                        r.Cells[0].Value = true;
-                    }
-                }
-            });
-        }
         public void dtg_Filter_KhaDung(DataGridView dtg)
         {
             dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
             {
                 var han = r.Cells["NgayKetThuc"].Value;
-                var tt = r.Cells["TinhTrang"].Value;
+                var tt = r.Cells[5].Value;
                 if (han != null)
                 {
                     r.Visible = false;
-                    if (Convert.ToDateTime(han) >= DateTime.Now && tt != null && tt is true)
+                    if (Convert.ToDateTime(han) >= DateTime.Now && tt != null && (int)tt == 0)
                     {
                         r.Visible = true;
                     }
@@ -112,7 +98,7 @@ namespace BUS
                 if (han != null)
                 {
                     r.Visible = false;
-                    if (Convert.ToDateTime(han) < DateTime.Now && tt != null && (bool)tt != true)
+                    if (Convert.ToDateTime(han) < DateTime.Now && tt != null && (int)tt == 1)
                     {
                         r.Visible = true;
                     }
