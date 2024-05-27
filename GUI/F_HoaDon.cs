@@ -392,10 +392,12 @@ namespace GUI
             if (isHDB)
             {
                 BUS_HoaDonBan.HDB_Change_Status_Off(HDB);
+                // giảm số lượng trong db
             }
             else
             {
                 BUS_HoaDonNhap.HDN_Change_Status_Off(HDN);
+                // tăng số lượng mặt hàng
             }
             F_HD.LamMoi();
         }

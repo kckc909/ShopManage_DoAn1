@@ -91,6 +91,14 @@ namespace GUI
                 vc.MoTa = txtMoTa.Text;
                 vc.DonVi = cboDonVi.SelectedValue.ToString();
                 vc.GiaTri = Convert.ToInt32(txtGiaTri.Text);
+                if (vc.DonVi.Trim().Equals("%"))
+                {
+                    if (vc.GiaTri > 100)
+                    {
+                        MessageBox.Show("Phần trăm giảm quá lớn!");
+                        return ;
+                    }
+                }
                 int temp;
                 if (int.TryParse(txtGTToiThieu.Text, out temp))
                 {
@@ -164,6 +172,8 @@ namespace GUI
             dtg.Columns.Add("MaV", "Mã voucher");
             dtg.Columns.Add("TenV", "Tên voucher");
             dtg.Columns.Add("GiaTri", "Mức giảm");
+            dtg.Columns.Add("GTToiThieu", "Tối thiểu");
+            dtg.Columns.Add("GTToiDa", "Hạn mức");
         }
         void Load_Data_DSVoucher(List<tblVoucher> DSVoucher)
         {
@@ -171,6 +181,8 @@ namespace GUI
             dtg.Columns["MaV"].DataPropertyName = "MaV";
             dtg.Columns["TenV"].DataPropertyName = "TenV";
             dtg.Columns["GiaTri"].DataPropertyName = "GiaTri";
+            dtg.Columns["GTToiThieu"].DataPropertyName = "GTToiThieu";
+            dtg.Columns["GTToiDa"].DataPropertyName = "GTToiDa";
         }
         void Load_Data_DonVi()
         {
