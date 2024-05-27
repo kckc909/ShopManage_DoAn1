@@ -29,6 +29,9 @@ namespace GUI
             dtg.AutoGenerateColumns = false;
             Add_Col_DSNV();
             Load_Row_DSNV(BUS_NhanVien.DSNV());
+            cboCapQuyen.DataSource = BUS_NhanVien.GetAll_Quyen();
+            cboCapQuyen.ValueMember = "CapQuyen";
+            cboCapQuyen.DisplayMember = "Ten";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -237,6 +240,11 @@ namespace GUI
             Load_Row_DSNV(BUS_NhanVien.DSNV());
             dtg.Rows[0].Selected = true;
         }
+        
+        void Catch_NVTK_Close(object sender, EventArgs e)
+        {
+            ((Form)sender).Close();
+        }
 
         void Catch_ThemThanhCong(object sender, EventArgs e)
         {
@@ -257,6 +265,7 @@ namespace GUI
         private void btnTaiKhoanNhanVien_Click(object sender, EventArgs e)
         {
             F_NhanVien_TaiKhoan f = new F_NhanVien_TaiKhoan(Current);
+            f.FormClosed += Catch_NVTK_Close;
             f.ShowDialog();
         }
     }

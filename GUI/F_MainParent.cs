@@ -206,7 +206,7 @@ namespace GUI
         private void btnNguoiDung_Click(object sender, EventArgs e)
         {
             F_MainParent_User F = new F_MainParent_User(NguoiDung);
-            F.Location = new Point(btnNguoiDung.PointToScreen(Point.Empty).X + btnNguoiDung.Width, btnNguoiDung.PointToScreen(Point.Empty).Y);
+            F.Location = new Point(btnNguoiDung.PointToScreen(Point.Empty).X + btnNguoiDung.Width, btnNguoiDung.PointToScreen(Point.Empty).Y - F.Height);
             F.Show();
         }
     }

@@ -24,6 +24,7 @@ namespace GUI
         void Catch_FormDMKClose(object sender, EventArgs e)
         {
             isUsing = false;
+            ((Form)sender).Close();
         }
 
         private void F_MainParent_User_Load(object sender, EventArgs e)

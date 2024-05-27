@@ -51,8 +51,7 @@ namespace GUI
                         if (MessageBox.Show("Bạn có muốn thay đổi thông tin tài khoản ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             BUS_TaiKhoan.Sua(TK.TaiKhoan, txtTenTaiKhoan.Text, txtMatKhau.Text);
-                            FormClose? .Invoke(this, e);
-                            Close();
+                            FormClose?.Invoke(this, e);
                         }
                     }
                     else

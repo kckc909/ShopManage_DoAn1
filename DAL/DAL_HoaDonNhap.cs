@@ -20,7 +20,7 @@ namespace DAL
             var tblHoaDonNhap = db.tblHoaDonNhaps.Find(HDN.MaHDN);
             if (tblHoaDonNhap is null)
             {
-                Add(tblHoaDonNhap);
+                Add(HDN);
                 return;
             }
             db.tblHoaDonNhaps.Attach(tblHoaDonNhap);

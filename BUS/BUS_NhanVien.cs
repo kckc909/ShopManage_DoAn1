@@ -12,9 +12,11 @@ namespace BUS
     public class BUS_NhanVien
     {
         DAL_NhanVien DAL = new DAL_NhanVien();
+        DAL_Quyen DAL_Quyen = new DAL_Quyen(); 
         public void Them(tblNhanVien nv) => DAL.Them(nv);
         public void Sua(tblNhanVien _old, tblNhanVien _new) => DAL.Sua(_old, _new);
         public void Xoa(tblNhanVien nv) => DAL.Xoa(nv);
+        public List<tblQuyen> GetAll_Quyen() => DAL_Quyen.GetAll();
         public List<tblNhanVien> DSNV() => DAL.DanhSachNhanVien();
         public List<tblNhanVien> DSNV(string str) => DSNV().Where(x =>
                 x.MaNV.Contains(str) ||
@@ -37,6 +39,10 @@ namespace BUS
         public string DuongDanHinhAnh(string TenHinhAnh) => Path.Combine(MyDefault.Path_Avatar, TenHinhAnh);
         public string TaoTenHinhAnh(string Extention)
         {
+            if (!Directory.Exists(MyDefault.Path_Avatar))
+            {
+                Directory.CreateDirectory(MyDefault.Path_Avatar);
+            }
             List<string> files = Directory.GetFiles(MyDefault.Path_Avatar).ToList();
             int i = files.Count;
             while (files.Exists(x => Equals(Path.GetFileNameWithoutExtension(x), $"Avatar{i}")))

@@ -35,7 +35,7 @@ namespace BUS
                 var MaSHVc = r.Cells[7].Value;
                 if (isChecked != null && isChecked.Equals(true))
                 {
-                    if (! DSADVc.Any(x => x.MaSHVc.Equals(MaSHVc)))
+                    if (! DSADVc.Any(x => x.MaSHVc.Equals(MaSHVc)) && MaSHVc != null)
                     {
                         AddList.Add(new tblApDungVoucher()
                         {
@@ -46,7 +46,7 @@ namespace BUS
                 }
                 else
                 {
-                    if (DSADVc.Any(x => x.MaSHVc.Equals(MaSHVc)))
+                    if (DSADVc.Any(x => x.MaSHVc.Equals(MaSHVc)) && MaSHVc != null)
                     {
                         DelList.Add(new tblApDungVoucher()
                         {

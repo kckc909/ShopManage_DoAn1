@@ -65,7 +65,7 @@ namespace GUI
             cbLoaiHang.DataSource = BUS_LoaiHang.DanhSach();
             cbLoaiHang.ValueMember = "MaLoai";
             cbLoaiHang.DisplayMember = "TenLoai";
-            cbLoaiHang.SelectedValue = MyDefault.MaLoai;
+            cbLoaiHang.SelectedIndex = 0;
         }
 
         bool ThongTinMatHang()
@@ -87,14 +87,14 @@ namespace GUI
                 return false;
             }
             _MatHang.DonViTinh = txtDonVi.Text;
-
-            if (Equals(txtGiaBan.Text.Trim(), ""))
+            int _tmp;
+            if (int.TryParse(txtSolg.Text, out _tmp))
             {
-                _MatHang.GiaBan = 0;
+                _MatHang.GiaBan = _tmp;
             }
             else
             {
-                _MatHang.GiaBan = Convert.ToInt32(txtGiaBan.Text);
+                _MatHang.GiaBan = 0;
             }
 
             if (Equals(txtSolg.Text.Trim(), ""))
@@ -136,7 +136,6 @@ namespace GUI
         {
             ReloadSauKhiThemMatHang.Invoke(this, EventArgs.Empty);
         }
-
     }
 }
 

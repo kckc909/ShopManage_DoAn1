@@ -189,6 +189,7 @@
             this.Controls.Add(this.txtTenTaiKhoan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "F_NhanVien_TaiKhoan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_NhanVien_TaiKhoan";
             this.Load += new System.EventHandler(this.F_NhanVien_TaiKhoan_Load);
             this.ResumeLayout(false);
