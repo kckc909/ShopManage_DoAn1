@@ -68,6 +68,26 @@ namespace GUI
             F_HD.Event_Disable += Catch_Event_Disable;
         }
         // Other
+
+        void FormRefresh()
+        {
+            BUS_MatHang = new BUS_MatHang();
+            BUS_NhaCungCap = new BUS_NhaCungCap();
+            BUS_KhachHang = new BUS_KhachHang();    
+
+            txtMaHD.Clear();
+            txtMa_TenNv.Clear();
+            txtSDT.Clear();
+            txtTenKH_TenNCC.Clear();
+            txtThanhTien.Text = "0";
+            txtTongGiamGia.Text = "0";
+            txtTongTien.Text = "0";
+            pnDSMH.Controls.Clear();
+            dtpNgayHoanTat.Value = DateTime.Now;
+            HDN = null;
+            HDB = null;
+        }
+
         void Save()
         {
             if (isHDB)
@@ -97,10 +117,11 @@ namespace GUI
         {
             if (isHDB)
             {
-
+                BUS_HoaDonBan.HDB_TinhTien(HDB.MaHDB);
             }
             else
             {
+                BUS_HoaDonNhap.HDN_TinhTien(HDN.MaHDN);
             }
         }
 
@@ -162,6 +183,7 @@ namespace GUI
                     });
                     pnDSMH.Controls.Add(ct);
                     ct.Show();
+                    TinhTien();
                 }
             }
         }
@@ -226,6 +248,7 @@ namespace GUI
                     ct.Event_ThayDoiSoLuong += Catch_Event_CTHDN_ThayDoiSoLuong;
                     pnDSMH.Controls.Add(ct);
                     ct.Show();
+                    TinhTien();
                 }
             }
         }
@@ -261,13 +284,11 @@ namespace GUI
         // Catch Event
         void Catch_Event_CTHDB_ThayDoiSoLuong(object sender, EventArgsChiTietHDB e)
         {
-            HDB_Save(HDB);
             HDB_TinhTien();
         }
 
         void Catch_Event_CTHDN_ThayDoiSoLuong(object sender, EventArgsChiTietHDN e)
         {
-            HDN_Save(HDN);
             HDN_TinhTien();
         }
 
@@ -342,18 +363,6 @@ namespace GUI
             }
         }
 
-        void Catch_Event_TinhThanhTien(object sender, EventArgs e)
-        {
-            if (isHDB)
-            {
-                HDB_TinhTien();
-            }
-            else
-            {
-                HDN_TinhTien();
-            }
-        }
-
         void Catch_Event_Enable(object sender, EventArgs e)
         {
             allow = true;
@@ -396,12 +405,16 @@ namespace GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Bạn có muốn thanh toán hóa đơn này?","",MessageBoxButtons.YesNo) != DialogResult.Yes)
+            {
+                return;
+            }
             if (isHDB)
             {
                 BUS_HoaDonBan.HDB_Change_Status_Off(HDB);
                 BUS_HoaDonBan.MH_ThayDoiSoLuong(BUS_HoaDonBan.CT_GetByID_HDB(HDB.MaHDB));
                 // Refresh
-
+                FormRefresh();
             }
             else
             {

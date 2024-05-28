@@ -12,7 +12,7 @@ namespace BUS
     public class BUS_NhanVien
     {
         DAL_NhanVien DAL = new DAL_NhanVien();
-        DAL_Quyen DAL_Quyen = new DAL_Quyen(); 
+        DAL_Quyen DAL_Quyen = new DAL_Quyen();
         public void Them(tblNhanVien nv) => DAL.Them(nv);
         public void Sua(tblNhanVien _old, tblNhanVien _new) => DAL.Sua(_old, _new);
         public void Xoa(tblNhanVien nv) => DAL.Xoa(nv);
@@ -37,8 +37,9 @@ namespace BUS
             return $"NV{i}";
         }
         public string DuongDanHinhAnh(string TenHinhAnh) => Path.Combine(MyDefault.Path_Avatar, TenHinhAnh);
-        public string TaoTenHinhAnh(string Extention)
+        public string TaoTenHinhAnh(string FileName)
         {
+            string Extension = Path.GetExtension(FileName);
             if (!Directory.Exists(MyDefault.Path_Avatar))
             {
                 Directory.CreateDirectory(MyDefault.Path_Avatar);
@@ -49,19 +50,12 @@ namespace BUS
             {
                 i++;
             }
-            return $"Avatar{i}" + Extention;
+            return $"Avatar{i}" + Extension;
         }
         public void CopyHinhAnh(string Source, string FileName)
         {
-            try
-            {
-                string Destination = Path.Combine(MyDefault.Path_Avatar, FileName);
-                File.Copy(Source, Destination);
-            }
-            catch
-            {
-
-            }
+            string Destination = Path.Combine(MyDefault.Path_Avatar, Path.GetFileName(FileName));
+            File.Copy(Source, Destination);
         }
         public tblNhanVien NhanVienTheoEmail(string Email)
         {

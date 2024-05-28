@@ -1,9 +1,11 @@
-﻿using DTO;
+﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ namespace GUI
 {
     public partial class F_MainParent_User : Form
     {
+        BUS_NhanVien BUS_NhanVien = new BUS_NhanVien();
         private bool isUsing = false;
         tblNhanVien User;
         public F_MainParent_User(tblNhanVien user)
@@ -31,6 +34,10 @@ namespace GUI
         {
             lbMaNV.Text = User.MaNV;
             lbTenNV.Text = User.TenNV;
+            if (File.Exists(BUS_NhanVien.DuongDanHinhAnh(User.Avatar)))
+            {
+                pic.Image = Image.FromFile(BUS_NhanVien.DuongDanHinhAnh(User.Avatar));
+            }
         }
 
         private void btnDoiMK_Click(object sender, EventArgs e)

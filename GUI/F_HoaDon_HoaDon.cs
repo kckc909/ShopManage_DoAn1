@@ -102,8 +102,6 @@ namespace GUI
             dtg_RenameColumns();
         }
 
-        //void 
-
         void Catch_TaoHoaDonBan(object sender, EventArgsHoaDonBan e)
         {
 
@@ -163,7 +161,7 @@ namespace GUI
             F_HoaDon_HoaDon_TaoHoaDon f = new F_HoaDon_HoaDon_TaoHoaDon();
             f.Event_TaoHDB += Catch_TaoHoaDonBan;
             f.Event_TaoHDN += Catch_TaoHoaDonNhap;
-            f.Show();
+            f.ShowDialog();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -221,11 +219,6 @@ namespace GUI
                     }
                 }
             }
-        }
-
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            LamMoi();
         }
 
         private void cboLoaiHoaDon_SelectedIndexChanged(object sender, EventArgs e)

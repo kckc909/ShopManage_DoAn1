@@ -118,6 +118,12 @@
     <Compile Include="C_Voucher.Designer.cs">
       <DependentUpon>C_Voucher.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_DangNhap_QuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_DangNhap_QuenMatKhau.Designer.cs">
+      <DependentUpon>F_DangNhap_QuenMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_HoaDon_HoaDon_TaoHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,6 +361,9 @@
     <EmbeddedResource Include="F_DangNhap.resx">
       <DependentUpon>F_DangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_DangNhap_QuenMatKhau.resx">
+      <DependentUpon>F_DangNhap_QuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_HoaDon.resx">
       <DependentUpon>F_HoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -456,7 +465,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
-    <None Include="GUI_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

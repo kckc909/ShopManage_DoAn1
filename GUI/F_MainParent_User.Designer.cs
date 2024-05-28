@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnDoiMK = new Guna.UI2.WinForms.Guna2Button();
             this.lbMaNV = new System.Windows.Forms.Label();
             this.lbTenNV = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2CirclePictureBox1
+            // pic
             // 
-            this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.guna2CirclePictureBox1.TabIndex = 0;
-            this.guna2CirclePictureBox1.TabStop = false;
+            this.pic.ImageRotate = 0F;
+            this.pic.Location = new System.Drawing.Point(0, 0);
+            this.pic.Name = "pic";
+            this.pic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pic.Size = new System.Drawing.Size(100, 100);
+            this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic.TabIndex = 0;
+            this.pic.TabStop = false;
             // 
             // btnDoiMK
             // 
@@ -94,21 +95,21 @@
             this.Controls.Add(this.lbTenNV);
             this.Controls.Add(this.lbMaNV);
             this.Controls.Add(this.btnDoiMK);
-            this.Controls.Add(this.guna2CirclePictureBox1);
+            this.Controls.Add(this.pic);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_MainParent_User";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "F_MainParent_User";
             this.Deactivate += new System.EventHandler(this.F_MainParent_User_Deactivate);
             this.Load += new System.EventHandler(this.F_MainParent_User_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pic;
         private Guna.UI2.WinForms.Guna2Button btnDoiMK;
         private System.Windows.Forms.Label lbMaNV;
         private System.Windows.Forms.Label lbTenNV;

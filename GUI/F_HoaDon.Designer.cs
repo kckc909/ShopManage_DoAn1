@@ -456,7 +456,7 @@
             this.dtpNgayHoanTat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpNgayHoanTat.Checked = true;
-            this.dtpNgayHoanTat.FillColor = System.Drawing.Color.Transparent;
+            this.dtpNgayHoanTat.FillColor = System.Drawing.Color.White;
             this.dtpNgayHoanTat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dtpNgayHoanTat.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtpNgayHoanTat.Location = new System.Drawing.Point(121, 83);

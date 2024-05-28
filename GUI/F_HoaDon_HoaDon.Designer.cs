@@ -39,7 +39,6 @@
             this.txttimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
             this.dtg = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnLamMoi = new Guna.UI2.WinForms.Guna2Button();
             this.cboLoaiHoaDon = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cboTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -227,27 +226,6 @@
             this.dtg.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_CellClick);
             // 
-            // btnLamMoi
-            // 
-            this.btnLamMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLamMoi.BorderRadius = 30;
-            this.btnLamMoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLamMoi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLamMoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLamMoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLamMoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnLamMoi.ForeColor = System.Drawing.Color.White;
-            this.btnLamMoi.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnLamMoi.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnLamMoi.Location = new System.Drawing.Point(26, 598);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(96, 58);
-            this.btnLamMoi.TabIndex = 10;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
-            // 
             // cboLoaiHoaDon
             // 
             this.cboLoaiHoaDon.BackColor = System.Drawing.Color.Transparent;
@@ -319,7 +297,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboTrangThai);
             this.Controls.Add(this.cboLoaiHoaDon);
-            this.Controls.Add(this.btnLamMoi);
             this.Controls.Add(this.dtg);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.guna2Panel1);
@@ -342,7 +319,6 @@
         private Guna.UI2.WinForms.Guna2CircleButton btnTimKiem;
         private Guna.UI2.WinForms.Guna2TextBox txttimKiem;
         private Guna.UI2.WinForms.Guna2DataGridView dtg;
-        private Guna.UI2.WinForms.Guna2Button btnLamMoi;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ComboBox cboTrangThai;
         private Guna.UI2.WinForms.Guna2ComboBox cboLoaiHoaDon;

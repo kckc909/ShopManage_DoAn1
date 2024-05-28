@@ -188,6 +188,10 @@ namespace GUI
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            BUS_MatHang = new BUS_MatHang();
+            BUS_KhuyenMai = new BUS_KhuyenMai();
+            BUS_LoaiHang = new BUS_LoaiHang();
+
             cbLoaiHang.Controls.Clear();
             cbKhuyenMai.Controls.Clear();
             Current = null;

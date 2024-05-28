@@ -198,7 +198,8 @@ namespace GUI
 
         private void F_MainParent_FormClosed(object sender, FormClosedEventArgs e)
         {
-            F_DangKyDangNhap.Instance().Close();
+            F_DangKyDangNhap.Instance().Show();
+            instance = new F_MainParent();
         }
 
         private void btnNguoiDung_Click(object sender, EventArgs e)

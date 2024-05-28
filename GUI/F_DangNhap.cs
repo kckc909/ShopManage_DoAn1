@@ -15,6 +15,11 @@ namespace GUI
 {
     public partial class F_DangNhap : Form
     {
+        public event EventHandler DangNhapThanhCong;
+
+        BUS_NhanVien BUS_NhanVien = new BUS_NhanVien();
+        BUS_TaiKhoan BUS_TaiKhoan = new BUS_TaiKhoan();
+
         public F_DangNhap()
         {
             InitializeComponent();
@@ -24,11 +29,6 @@ namespace GUI
         {
             txtTenTaiKhoan.Focus();
         }
-
-        public event EventHandler DangNhapThanhCong;
-
-        BUS_NhanVien BUS_NhanVien = new BUS_NhanVien();
-        BUS_TaiKhoan BUS_TaiKhoan = new BUS_TaiKhoan();
 
         private void cbHienThiMatKhau_CheckedChanged(object sender, EventArgs e)
         {
@@ -68,6 +68,12 @@ namespace GUI
         {
             DangNhapThanhCong?.Invoke(this, EventArgs.Empty);
             return BUS_NhanVien.NhanVienTheoMa(BUS_TaiKhoan.TheoTenTaiKhoan(txtTenTaiKhoan.Text).MaNV);
+        }
+
+        private void lbQMK_Click(object sender, EventArgs e)
+        {
+            F_DangNhap_QuenMatKhau F = new F_DangNhap_QuenMatKhau();
+            F.ShowDialog();
         }
     }
 }

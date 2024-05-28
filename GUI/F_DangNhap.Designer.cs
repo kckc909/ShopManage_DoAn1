@@ -153,6 +153,7 @@
             this.lbQMK.Size = new System.Drawing.Size(80, 13);
             this.lbQMK.TabIndex = 2;
             this.lbQMK.Text = "Quên mật khẩu";
+            this.lbQMK.Click += new System.EventHandler(this.lbQMK_Click);
             // 
             // F_DangNhap
             // 
