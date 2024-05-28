@@ -17,6 +17,7 @@ namespace BUS
         DAL_ChiTietHDB dal_ChiTietHDB = new DAL_ChiTietHDB();
         DAL_Voucher dal_Voucher = new DAL_Voucher();
         DAL_ApDungVoucher dal_ApDungVoucher = new DAL_ApDungVoucher();
+        DAL_MatHang dal_MatHang = new DAL_MatHang();
 
         // HDB
         public void HDB_Add(tblHoaDonBan HDB)
@@ -47,7 +48,7 @@ namespace BUS
         public void CT_AddRange(List<tblChiTietHDB> DS_CTHDB, string MaHDB)
         {
             List<tblChiTietHDB> DelLst = CT_GetByID_HDB(MaHDB)
-                .Where(ct => ! DS_CTHDB.Any(x => x.MaMH.Equals(ct.MaMH))).ToList();
+                .Where(ct => !DS_CTHDB.Any(x => x.MaMH.Equals(ct.MaMH))).ToList();
             dal_ChiTietHDB.DeleteRange(DelLst);
             dal_ChiTietHDB.AddRange(DS_CTHDB);
         }
@@ -107,6 +108,15 @@ namespace BUS
                 }
             }
             return new int[] { TongTien, TongGiam, TongTien - TongGiam };
+        }
+        public void MH_ThayDoiSoLuong(List<tblChiTietHDB> DS_CTHDB)
+        {
+            List<tblMatHang> DSMH = new List<tblMatHang>();
+            DS_CTHDB.ForEach(tblChiTietHDB =>
+            {
+                DSMH.Add(new tblMatHang() { MaMH = tblChiTietHDB.MaMH, SoLuong = tblChiTietHDB.SoLg});
+            });
+            dal_MatHang.Sua_DSMH_GiamSoLuong(DSMH);
         }
     }
 }

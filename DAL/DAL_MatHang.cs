@@ -16,7 +16,24 @@ namespace DAL
             db.tblMatHangs.Add(MatHang);
             db.SaveChanges();
         }
-        
+
+        public void Sua_DSMH_GiamSoLuong(List<tblMatHang> DSMH)
+        {
+            DSMH.ForEach(MH =>
+            {
+                db.tblMatHangs.Find(MH.MaMH).SoLuong -= MH.SoLuong;
+            });
+            db.SaveChanges();
+        }
+        public void Sua_DSMH_TangSoLuong(List<tblMatHang> DSMH)
+        {
+            DSMH.ForEach(MH =>
+            {
+                db.tblMatHangs.Find(MH.MaMH).SoLuong += MH.SoLuong;
+            });
+            db.SaveChanges();
+        }
+
         public void Sua(tblMatHang OldMatHang, tblMatHang NewMatHang)
         {
             tblMatHang MatHang = db.tblMatHangs.ToList().Find(x => Equals(x.MaMH, OldMatHang.MaMH));
@@ -33,16 +50,16 @@ namespace DAL
 
             db.SaveChanges();
         }
-        
+
         public void Xoa(tblMatHang MatHang)
         {
             db.tblMatHangs.Remove(db.tblMatHangs.Find(MatHang.MaMH));
             db.SaveChanges();
         }
-        
+
         public List<tblMatHang> DanhSachMatHang() => db.tblMatHangs.ToList();
 
-        public void TaoHinhAnh(string SourceImagePath,string ImageName)
+        public void TaoHinhAnh(string SourceImagePath, string ImageName)
         {
             File.Copy(SourceImagePath, ImageName, true);
         }

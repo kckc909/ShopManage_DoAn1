@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Entity.Core.Mapping;
 using System.Diagnostics.SymbolStore;
 using System.Drawing;
 using System.Linq;
@@ -50,7 +49,6 @@ namespace GUI
         static public tblNhanVien NguoiDung = null;
 
         F_TrangChu _TrangChu = new F_TrangChu() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
-        F_HoaDon _HoaDon = new F_HoaDon() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
         F_MatHang _MatHang = new F_MatHang() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
         F_KhachHang _KhachHang = new F_KhachHang() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
         F_NhaCungCap _NhaCungCap = new F_NhaCungCap() { TopLevel = false, Dock = DockStyle.Fill, FormBorderStyle = FormBorderStyle.None };
@@ -85,7 +83,7 @@ namespace GUI
         private void AddQuyenNhanVien()
         {
             pnMain.Controls.Add(_TrangChu);
-            pnMain.Controls.Add(_HoaDon);
+            pnMain.Controls.Add(F_HoaDon.Instance);
             pnMain.Controls.Add(_MatHang);
             pnMain.Controls.Add(_KhachHang);
             pnMain.Controls.Add(_NhaCungCap);
@@ -110,8 +108,8 @@ namespace GUI
         private void btnHoadon_Click(object sender, EventArgs e)
         {
             MoFormChucNang(btnHoadon);
-            _HoaDon.Show();
-            _HoaDon.BringToFront();
+            F_HoaDon.Instance.Show();
+            F_HoaDon.Instance.BringToFront();
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
@@ -189,9 +187,9 @@ namespace GUI
         private void MoFormChucNang(Guna2GradientButton Button)
         {
             BtnCurrent.FillColor2 = _Color1;
-            foreach (var OpeningForm in pnMain.Controls)
+            foreach (Form OpeningForm in pnMain.Controls)
             {
-                ((Form)OpeningForm).Hide();
+                OpeningForm.Hide();
             }
 
             BtnCurrent = Button;

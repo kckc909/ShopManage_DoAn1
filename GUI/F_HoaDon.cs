@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,9 @@ namespace GUI
 {
     public partial class F_HoaDon : Form
     {
+        private static F_HoaDon _Instance;
+        public static F_HoaDon Instance = _Instance ?? (_Instance = new F_HoaDon());
+
         F_HoaDon_HoaDon F_HD = new F_HoaDon_HoaDon();
         F_HoaDon_MatHang F_MatHang = new F_HoaDon_MatHang();
         F_HoaDon_KhachHang F_KhachHang = new F_HoaDon_KhachHang();
@@ -37,9 +41,12 @@ namespace GUI
         tblHoaDonNhap HDN = null;
         tblNCC NCC = null;
 
-        public F_HoaDon()
+        private F_HoaDon()
         {
             InitializeComponent();
+            TopLevel = false;
+            Dock = DockStyle.Fill;
+            FormBorderStyle = FormBorderStyle.None;
 
             // pnNoiDung
             tpHoaDonBan.Controls.Add(F_HD);
@@ -392,12 +399,16 @@ namespace GUI
             if (isHDB)
             {
                 BUS_HoaDonBan.HDB_Change_Status_Off(HDB);
-                // giảm số lượng trong db
+                BUS_HoaDonBan.MH_ThayDoiSoLuong(BUS_HoaDonBan.CT_GetByID_HDB(HDB.MaHDB));
+                // Refresh
+
             }
             else
             {
                 BUS_HoaDonNhap.HDN_Change_Status_Off(HDN);
-                // tăng số lượng mặt hàng
+                BUS_HoaDonNhap.MH_ThayDoiSoLuong(BUS_HoaDonNhap.CT_GetByID_HDN(HDN.MaHDN));
+                // Refresh
+
             }
             F_HD.LamMoi();
         }

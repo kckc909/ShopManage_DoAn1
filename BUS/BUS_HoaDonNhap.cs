@@ -14,6 +14,7 @@ namespace BUS
     {
         DAL_HoaDonNhap dal_HoaDonNhap = new DAL_HoaDonNhap();
         DAL_ChiTietHDN dal_ChiTietHDN = new DAL_ChiTietHDN();
+        DAL_MatHang dal_MatHang = new DAL_MatHang();
         // HDN
         public void HDN_Add(tblHoaDonNhap HDN)
         {
@@ -43,7 +44,7 @@ namespace BUS
         public void CT_AddRange(List<tblChiTietHDN> DS_CTHDN, string MaHDN)
         {
             List<tblChiTietHDN> DelLst = dal_ChiTietHDN.GetById_HDN(MaHDN)
-                .Where(x => ! DS_CTHDN.Any(y => x.MaMH.Equals(y.MaMH))).ToList();
+                .Where(x => !DS_CTHDN.Any(y => x.MaMH.Equals(y.MaMH))).ToList();
             dal_ChiTietHDN.AddRange(DS_CTHDN);
         }
         public void CT_DeleteRange(List<tblChiTietHDN> DS_CTHDN)
@@ -95,6 +96,15 @@ namespace BUS
             }
 
             return TongTien;
+        }
+        public void MH_ThayDoiSoLuong(List<tblChiTietHDN> DS_CTHDN)
+        {
+            List<tblMatHang> DSMH = new List<tblMatHang>();
+            DS_CTHDN.ForEach(x =>
+            {
+                DSMH.Add(new tblMatHang() { MaMH = x.MaMH, SoLuong = x.SoLg});
+            });
+                dal_MatHang.Sua_DSMH_TangSoLuong(DSMH);
         }
     }
 }

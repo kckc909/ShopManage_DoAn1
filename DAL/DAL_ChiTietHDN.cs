@@ -28,7 +28,7 @@ namespace DAL
         }
         public void DeleteRange(List<tblChiTietHDN> DS_CTHDN)
         {
-            db.tblChiTietHDNs.RemoveRange(DS_CTHDN);    
+            db.tblChiTietHDNs.RemoveRange(DS_CTHDN);
             db.SaveChanges();
         }
         public List<tblChiTietHDN> GetById_HDN(string MaHDN)
