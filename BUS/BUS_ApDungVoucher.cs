@@ -56,8 +56,8 @@ namespace BUS
                     }
                 }
             });
-            dal.AddRange(AddList);
             dal.DeleteRange(DelList);
+            dal.AddRange(AddList);
             return AddList;
         }
     }

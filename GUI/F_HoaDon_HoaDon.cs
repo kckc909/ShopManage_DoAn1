@@ -169,7 +169,7 @@ namespace GUI
         {
             if (cboLoaiHoaDon.SelectedIndex == 0)
             {
-                BUS_HoaDonBan.HDB_dtg_Search(dtg, txttimKiem.Text);
+                BUS_HoaDonBan.HDB_dtg_Search(dtg, cboTrangThai.SelectedIndex,txttimKiem.Text);
             }
             else if (cboLoaiHoaDon.SelectedIndex == 1)
             {

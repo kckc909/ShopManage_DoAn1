@@ -69,26 +69,22 @@ namespace BUS
                       where hd.TinhTrang == TinhTrang
                       select new { hd.MaHDB, hd.MaKH, kh.TenKH, kh.SDT };
             dtg_DSHD.DataSource = lst.ToList();
-            //dtg_DSHD.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
-            //{
-            //    r.Visible = false;
-            //    if (r.Cells["TT"].Value.Equals(TinhTrang))
-            //    {
-            //        r.Visible = true;
-            //    }
-            //});
         }
-        public void HDB_dtg_Search(DataGridView dtg, string ss)
+        public void HDB_dtg_Search(DataGridView dtg, int TinhTrang,string ss)
         {
-            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
-            {
-                r.Visible = false;
-                var cells = r.Cells.Cast<DataGridViewCell>().ToList();
-                if (cells.Any(x => x != null && x.Value.ToString().Contains(ss)))
-                {
-                    r.Visible = true;
-                }
-            });
+            var lst = from hd in HDB_GetAll()
+                      join kh in dal_KhachHang.GetAll()
+                      on hd.MaKH equals kh.MaKH
+                      where (hd.TinhTrang == TinhTrang 
+                      && (hd.MaHDB.Contains(ss)
+                            || hd.MaKH.Contains(ss)
+                            || hd.MaNV.Contains(ss)
+                            || kh.TenKH.Contains(ss)
+                            || kh.SDT.Contains(ss)
+                            )
+                        )
+                      select new { hd.MaHDB, hd.MaKH, kh.TenKH, kh.SDT };
+            dtg.DataSource = lst.ToList();
         }
         public int[] HDB_TinhTien(string MaHDB)
         {

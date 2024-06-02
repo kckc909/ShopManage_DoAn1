@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pnNoiDung = new Guna.UI2.WinForms.Guna2Panel();
             this.TabControl = new Guna.UI2.WinForms.Guna2TabControl();
             this.tpHoaDonBan = new System.Windows.Forms.TabPage();
@@ -36,7 +35,6 @@
             this.tpKhachHang = new System.Windows.Forms.TabPage();
             this.tpNCC = new System.Windows.Forms.TabPage();
             this.lbQLHD = new System.Windows.Forms.Label();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.pnRight = new Guna.UI2.WinForms.Guna2Panel();
             this.pnContentRight = new Guna.UI2.WinForms.Guna2Panel();
             this.pnDSMH = new Guna.UI2.WinForms.Guna2Panel();
@@ -164,13 +162,6 @@
             this.lbQLHD.TabIndex = 2;
             this.lbQLHD.Text = "QUẢN LÝ HÓA ĐƠN";
             this.lbQLHD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.BorderRadius = 20;
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // pnRight
             // 
@@ -605,7 +596,6 @@
         private System.Windows.Forms.TabPage tpHoaDonBan;
         private System.Windows.Forms.TabPage tpMatHang;
         private System.Windows.Forms.TabPage tpKhachHang;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.TabPage tpNCC;
         private Guna.UI2.WinForms.Guna2Panel pnRight;
         private Guna.UI2.WinForms.Guna2Panel pnContentRight;

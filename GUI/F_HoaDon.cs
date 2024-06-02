@@ -16,9 +16,6 @@ namespace GUI
 {
     public partial class F_HoaDon : Form
     {
-        private static F_HoaDon _Instance;
-        public static F_HoaDon Instance = _Instance ?? (_Instance = new F_HoaDon());
-
         F_HoaDon_HoaDon F_HD = new F_HoaDon_HoaDon();
         F_HoaDon_MatHang F_MatHang = new F_HoaDon_MatHang();
         F_HoaDon_KhachHang F_KhachHang = new F_HoaDon_KhachHang();
@@ -41,7 +38,7 @@ namespace GUI
         tblHoaDonNhap HDN = null;
         tblNCC NCC = null;
 
-        private F_HoaDon()
+        public F_HoaDon()
         {
             InitializeComponent();
             TopLevel = false;
@@ -158,6 +155,7 @@ namespace GUI
                     var c = new C_CTHoaDonBan(x);
                     pnDSMH.Controls.Add(c);
                     c.Event_ThayDoiSoLuong += Catch_Event_CTHDB_ThayDoiSoLuong;
+                    c.FormClosed += Catch_Event_CTHDB_ThayDoiSoLuong;
                     c.Show();
                 });
             }
@@ -182,8 +180,11 @@ namespace GUI
                         SoLg = 1
                     });
                     pnDSMH.Controls.Add(ct);
+                    ct.Event_ThayDoiSoLuong += Catch_Event_CTHDB_ThayDoiSoLuong;
+                    ct.FormClosed += Catch_Event_CTHDB_ThayDoiSoLuong;
                     ct.Show();
-                    TinhTien();
+                    HDB_Save(HDB);
+                    HDB_TinhTien();
                 }
             }
         }
@@ -246,9 +247,11 @@ namespace GUI
                         SoLg = 1
                     });
                     ct.Event_ThayDoiSoLuong += Catch_Event_CTHDN_ThayDoiSoLuong;
+                    ct.FormClosed += Catch_Event_CTHDN_ThayDoiSoLuong;
                     pnDSMH.Controls.Add(ct);
                     ct.Show();
-                    TinhTien();
+                    HDN_Save(HDN);
+                    HDN_TinhTien();
                 }
             }
         }
@@ -263,6 +266,7 @@ namespace GUI
                     var CTHDN = new C_CTHoaDonNhap(x);
                     pnDSMH.Controls.Add(CTHDN);
                     CTHDN.Event_ThayDoiSoLuong += Catch_Event_CTHDN_ThayDoiSoLuong;
+                    CTHDN.FormClosed += Catch_Event_CTHDN_ThayDoiSoLuong;
                     CTHDN.Show();
                 });
             }
@@ -282,12 +286,12 @@ namespace GUI
             }
         }
         // Catch Event
-        void Catch_Event_CTHDB_ThayDoiSoLuong(object sender, EventArgsChiTietHDB e)
+        void Catch_Event_CTHDB_ThayDoiSoLuong(object sender, EventArgs e)
         {
             HDB_TinhTien();
         }
 
-        void Catch_Event_CTHDN_ThayDoiSoLuong(object sender, EventArgsChiTietHDN e)
+        void Catch_Event_CTHDN_ThayDoiSoLuong(object sender, EventArgs e)
         {
             HDN_TinhTien();
         }
@@ -421,7 +425,7 @@ namespace GUI
                 BUS_HoaDonNhap.HDN_Change_Status_Off(HDN);
                 BUS_HoaDonNhap.MH_ThayDoiSoLuong(BUS_HoaDonNhap.CT_GetByID_HDN(HDN.MaHDN));
                 // Refresh
-
+                FormRefresh();
             }
             F_HD.LamMoi();
         }

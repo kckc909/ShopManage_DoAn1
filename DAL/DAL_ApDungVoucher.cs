@@ -23,7 +23,12 @@ namespace DAL
         }
         public void DeleteRange(List<tblApDungVoucher> DSADVc)
         {
-            db.tblApDungVouchers.RemoveRange(DSADVc);
+            DSADVc.ToList().ForEach(advc =>
+            {
+                var a = db.tblApDungVouchers.Find(advc.MaHDB, advc.MaSHVc);
+                if (a != null)
+                    db.tblApDungVouchers.Remove(a);
+            });
             db.SaveChanges();
         }
     }

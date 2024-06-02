@@ -60,6 +60,8 @@
             // 
             // txtGiaBan
             // 
+            this.txtGiaBan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGiaBan.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtGiaBan.DefaultText = "100.000.000";
             this.txtGiaBan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -72,6 +74,7 @@
             this.txtGiaBan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGiaBan.Location = new System.Drawing.Point(135, 60);
             this.txtGiaBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGiaBan.MaximumSize = new System.Drawing.Size(150, 40);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.PasswordChar = '\0';
             this.txtGiaBan.PlaceholderText = "";
@@ -84,6 +87,7 @@
             // 
             // txtThanhTien
             // 
+            this.txtThanhTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtThanhTien.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtThanhTien.DefaultText = "100.000.000";
             this.txtThanhTien.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -96,6 +100,7 @@
             this.txtThanhTien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtThanhTien.Location = new System.Drawing.Point(265, 60);
             this.txtThanhTien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtThanhTien.MaximumSize = new System.Drawing.Size(150, 40);
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.PasswordChar = '\0';
             this.txtThanhTien.PlaceholderText = "";
@@ -120,6 +125,7 @@
             // 
             // lbTenMH
             // 
+            this.lbTenMH.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbTenMH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbTenMH.Location = new System.Drawing.Point(0, 0);
             this.lbTenMH.Name = "lbTenMH";
