@@ -17,7 +17,7 @@ namespace DAL
         }
         public void Sua_TinhTrang(tblSoHuuVoucher SHVc)
         {
-            var SoHuuVoucher = DanhSachSoHuuVoucher().Find(x => x.MaSHVc.Equals(SHVc));
+            var SoHuuVoucher = GetAll().Find(x => x.MaSHVc.Equals(SHVc));
             if (SoHuuVoucher != null)
             {
                 SoHuuVoucher.TinhTrang = SHVc.TinhTrang;
@@ -29,7 +29,7 @@ namespace DAL
             db.tblSoHuuVouchers.Remove(shvc);
             db.SaveChanges();
         }
-        public List<tblSoHuuVoucher> DanhSachSoHuuVoucher() => db.tblSoHuuVouchers.ToList();
+        public List<tblSoHuuVoucher> GetAll() => db.tblSoHuuVouchers.ToList();
         public tblSoHuuVoucher GetById(string MaSHVc) => db.tblSoHuuVouchers.Find(MaSHVc);
     }
 }

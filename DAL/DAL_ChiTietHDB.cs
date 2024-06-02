@@ -35,5 +35,10 @@ namespace DAL
         {
             return db.tblChiTietHDBs.ToList().FindAll(x => x.MaHDB.Equals(MaHDB));
         }
+        public List<tblChiTietHDB> GetAll()
+        {
+            return db.tblChiTietHDBs.ToList(); 
+        }
+
     }
 }

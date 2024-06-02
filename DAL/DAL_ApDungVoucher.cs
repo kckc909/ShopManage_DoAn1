@@ -31,5 +31,6 @@ namespace DAL
             });
             db.SaveChanges();
         }
+        public List<tblApDungVoucher> GetAll() => db.tblApDungVouchers.ToList();
     }
 }

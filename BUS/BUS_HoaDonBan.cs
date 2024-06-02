@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace BUS
 {
@@ -70,12 +71,12 @@ namespace BUS
                       select new { hd.MaHDB, hd.MaKH, kh.TenKH, kh.SDT };
             dtg_DSHD.DataSource = lst.ToList();
         }
-        public void HDB_dtg_Search(DataGridView dtg, int TinhTrang,string ss)
+        public void HDB_dtg_Search(DataGridView dtg, int TinhTrang, string ss)
         {
             var lst = from hd in HDB_GetAll()
                       join kh in dal_KhachHang.GetAll()
                       on hd.MaKH equals kh.MaKH
-                      where (hd.TinhTrang == TinhTrang 
+                      where (hd.TinhTrang == TinhTrang
                       && (hd.MaHDB.Contains(ss)
                             || hd.MaKH.Contains(ss)
                             || hd.MaNV.Contains(ss)
@@ -102,7 +103,12 @@ namespace BUS
             {
                 if (vc.tblSoHuuVoucher.tblVoucher.DonVi.Trim().Equals("%"))
                 {
-                    TongGiam += (TongTien * vc.tblSoHuuVoucher.tblVoucher.GiaTri / 100).Value;
+                    int MucGiam = (TongTien * vc.tblSoHuuVoucher.tblVoucher.GiaTri / 100).Value;
+                    if (MucGiam > vc.tblSoHuuVoucher.tblVoucher.GTToiDa)
+                    {
+                        MucGiam = vc.tblSoHuuVoucher.tblVoucher.GTToiDa.Value;
+                    }
+                    TongGiam += MucGiam;
                 }
                 else
                 {
@@ -116,7 +122,7 @@ namespace BUS
             List<tblMatHang> DSMH = new List<tblMatHang>();
             DS_CTHDB.ForEach(tblChiTietHDB =>
             {
-                DSMH.Add(new tblMatHang() { MaMH = tblChiTietHDB.MaMH, SoLuong = tblChiTietHDB.SoLg});
+                DSMH.Add(new tblMatHang() { MaMH = tblChiTietHDB.MaMH, SoLuong = tblChiTietHDB.SoLg });
             });
             dal_MatHang.Sua_DSMH_GiamSoLuong(DSMH);
         }

@@ -35,5 +35,6 @@ namespace DAL
         {
             return db.tblChiTietHDNs.ToList().FindAll(x => x.MaHDN.Equals(MaHDN));
         }
+        public List<tblChiTietHDN> GetAll() => db.tblChiTietHDNs.ToList();
     }
 }

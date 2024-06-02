@@ -13,13 +13,8 @@ namespace GUI
 {
     public partial class F_BaoCaoThongKe : Form
     {
-        BUS_HoaDonBan BUS_HoaDonBan = new BUS_HoaDonBan();
-        BUS_HoaDonNhap BUS_HoaDonNhap = new BUS_HoaDonNhap();
-        BUS_NhanVien BUS_NhanVien = new BUS_NhanVien();
+        BUS_BaoCaoThongKe BUS_BaoCaoThongKe = new BUS_BaoCaoThongKe();
 
-        private List<string> columnNames = new List<string>();
-        private List<double> values_ChiPhi = new List<double>(); // hóa đơn nhập
-        private List<double> values_DoanhThu = new List<double>(); // hóa đơn bán
         public F_BaoCaoThongKe()
         {
             InitializeComponent();
@@ -32,32 +27,14 @@ namespace GUI
 
         private void Cal_DoanhThu(string FormatString)
         {
-            columnNames.Clear();
-            values_ChiPhi.Clear();
-            values_DoanhThu.Clear();
+            List<string> columnNames = new List<string>();
+            List<double> values_ChiPhi = new List<double>(); // hóa đơn nhập
+            List<double> values_DoanhThu = new List<double>(); // hóa đơn bán
 
-            DateTime StartTime = dateStart.Value;
-            DateTime EndTime = dateEnd.Value;
-
-            while (StartTime <= EndTime)
-            {
-                double chi_phi = 0, doanh_thu = 0;
-                var LstHDN = BUS_HoaDonNhap.HDN_GetAll().FindAll(x => x.NgayNhap.Value.ToString(FormatString).Equals(StartTime.ToString(FormatString)));
-                LstHDN.ForEach(hd =>
-                {
-                    chi_phi += BUS_HoaDonNhap.CT_GetByID_HDN(hd.MaHDN).Sum(x => x.SoLg * x.GiaNhap).Value;
-                });
-                var ListHDB = BUS_HoaDonBan.HDB_GetAll().FindAll(x => x.NgayBan.Value.ToString(FormatString).Equals(StartTime.ToString(FormatString)));
-                ListHDB.ForEach(hd =>
-                {
-                    doanh_thu += BUS_HoaDonBan.HDB_TinhTien(hd.MaHDB)[2];
-                });
-                values_ChiPhi.Add(chi_phi);
-                values_DoanhThu.Add(doanh_thu);
-                columnNames.Add(StartTime.ToString(FormatString));
-                StartTime = StartTime.AddDays(1);
-            }
-
+            List<(double, double, string)> lst = BUS_BaoCaoThongKe.RevenueByDay(dtpStart.Value, dtpEnd.Value, FormatString);
+            columnNames = lst.Select(x => x.Item3).ToList();
+            values_ChiPhi = lst.Select(x => x.Item1).ToList();
+            values_DoanhThu = lst.Select(x => x.Item2).ToList();
             chart_DoanhThu.Series["Series_ChiPhi"].Points.DataBindXY(columnNames, values_ChiPhi);
             chart_DoanhThu.Series["Series_DoanhThu"].Points.DataBindXY(columnNames, values_DoanhThu);
         }

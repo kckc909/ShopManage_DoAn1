@@ -31,7 +31,7 @@ namespace BUS
                 DAL_SoHuuVoucher.Xoa(shvc);
             }
         }
-        public List<tblSoHuuVoucher> DsSoHuuVoucher() => DAL_SoHuuVoucher.DanhSachSoHuuVoucher();
+        public List<tblSoHuuVoucher> DsSoHuuVoucher() => DAL_SoHuuVoucher.GetAll();
         public string MaTuDong()
         {
             int i = DsSoHuuVoucher().Count;

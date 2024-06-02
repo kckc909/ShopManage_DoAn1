@@ -11,7 +11,7 @@ namespace DAL
     public class DAL_Voucher
     {
         ShopDatabaseEntities db = new ShopDatabaseEntities();
-        public void Them(tblVoucher Voucher)
+        public void Add(tblVoucher Voucher)
         {
             if (Voucher != null)
             {
@@ -19,7 +19,7 @@ namespace DAL
                 db.SaveChanges();
             }
         }
-        public void Sua(tblVoucher OldVoucher, tblVoucher NewVoucher)
+        public void Update(tblVoucher OldVoucher, tblVoucher NewVoucher)
         {
             if (NewVoucher is null)
             {
@@ -27,7 +27,7 @@ namespace DAL
             }
             if (OldVoucher is null)
             {
-                Them(NewVoucher);
+                Add(NewVoucher);
             }
             else
             {
@@ -41,7 +41,7 @@ namespace DAL
             }
             db.SaveChanges();
         }
-        public void Xoa(tblVoucher Voucher)
+        public void Delete(tblVoucher Voucher)
         {
             if (Voucher != null)
             {
@@ -49,7 +49,7 @@ namespace DAL
                 db.SaveChanges();
             }
         }
-        public List<tblVoucher> DanhSachVoucher() => db.tblVouchers.ToList();
+        public List<tblVoucher> GetAll() => db.tblVouchers.ToList();
         public tblVoucher GetById (string MaV)
         {
             return db.tblVouchers.Find(MaV);
