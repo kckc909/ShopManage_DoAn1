@@ -50,7 +50,7 @@ namespace GUI
             dtg.AutoGenerateColumns = false;
             dtg_AddColumns();
             dtg_Modify();
-            LoadDanhSachMatHang(BUS_MatHang.DanhSachMatHang());
+            LoadDanhSachMatHang();
             LoadDanhSachLoaiHang();
             LoadDanhSachKhuyenMai();
         }
@@ -79,22 +79,20 @@ namespace GUI
             dtg.Columns.Add("DonViTinh", "Đơn vị");
             dtg.Columns.Add("GiaBan", "Giá bán");
             dtg.Columns.Add("GiaNhap", "Giá nhập");
-            dtg.Columns.Add("MaLoai", "Mã loại");
         }
 
         void dtg_Modify()
         {
             dtg.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dtg.Columns["MaLoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dtg.Columns["DonViTinh"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dtg.Columns["SoLg"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dtg.Columns["GiaBan"].DefaultCellStyle.Format = "C";
             dtg.Columns["GiaNhap"].DefaultCellStyle.Format = "C";
         }
 
-        void LoadDanhSachMatHang(List<tblMatHang> DSMH)
+        void LoadDanhSachMatHang()
         {
-            dtg.DataSource = DSMH;
+            BUS_MatHang.dtg_Filter(dtg, "");
             dtg.Columns["MaMH"].DataPropertyName = "MaMH";
             dtg.Columns["TenMH"].DataPropertyName = "TenMH";
             dtg.Columns["MoTa"].DataPropertyName = "MoTa";
@@ -102,7 +100,6 @@ namespace GUI
             dtg.Columns["DonViTinh"].DataPropertyName = "DonViTinh";
             dtg.Columns["GiaBan"].DataPropertyName = "GiaBan";
             dtg.Columns["GiaNhap"].DataPropertyName = "GiaNhap";
-            dtg.Columns["MaLoai"].DataPropertyName = "MaLoai";
         }
 
         void LoadThongTinMatHang(tblMatHang MatHang)
@@ -196,7 +193,7 @@ namespace GUI
             cbKhuyenMai.Controls.Clear();
             Current = null;
 
-            LoadDanhSachMatHang(BUS_MatHang.DanhSachMatHang());
+            LoadDanhSachMatHang();
             LoadDanhSachLoaiHang();
             LoadDanhSachKhuyenMai();
 

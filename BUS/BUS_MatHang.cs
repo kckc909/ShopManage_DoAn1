@@ -14,10 +14,12 @@ namespace BUS
     public class BUS_MatHang
     {
         DAL_MatHang DAL_MatHang = new DAL_MatHang();
+        DAL_LoaiHang DAL_LoaiHang = new DAL_LoaiHang();
+        DAL_KhuyenMai DAL_KhuyenMai = new DAL_KhuyenMai();
 
         public List<tblMatHang> DanhSachMatHang()
         {
-            return DAL_MatHang.DanhSachMatHang();
+            return DAL_MatHang.GetAll();
         }
 
         public bool Xoa(string MaMH)
@@ -25,7 +27,7 @@ namespace BUS
             var MatHang = DanhSachMatHang().Find(x => Equals(x.MaMH.Trim(), MaMH.Trim()));
             if (MatHang != null)
             {
-                DAL_MatHang.Xoa(MatHang);
+                DAL_MatHang.Delete(MatHang);
                 return true;
             }
             return false;
@@ -35,7 +37,7 @@ namespace BUS
         {
             if (!DanhSachMatHang().Exists(x => Equals(x.MaMH.Trim(), matHang.MaMH)))
             {
-                DAL_MatHang.Them(matHang);
+                DAL_MatHang.Add(matHang);
                 return true;
             }
             return false;
@@ -45,7 +47,7 @@ namespace BUS
         {
             if (DanhSachMatHang().Exists(x => Equals(x.MaMH, _old.MaMH)))
             {
-                DAL_MatHang.Sua(_old, _new);
+                DAL_MatHang.Update(_old, _new);
                 return true;
             }
             return false;
@@ -67,7 +69,7 @@ namespace BUS
 
         public void TaoDuongDanHinhanh(string SourceImage, string ImageName)
         {
-            DAL_MatHang.TaoHinhAnh(SourceImage, ImageName);
+            DAL_MatHang.CopyToImgSource(SourceImage, ImageName);
         }
 
         public string XuLyTenHinh(string SourceImage, string ImageName)
@@ -92,7 +94,7 @@ namespace BUS
         private bool KiemTraMaTrung(string MaMH)
         {
             // Nếu trùng thì true
-            if (DanhSachMatHang().Exists(x => Equals(x.MaMH.Trim(), MaMH.Trim())))
+            if (DanhSachMatHang().Any(x => Equals(x.MaMH.Trim(), MaMH.Trim())))
             {
                 return true;
             }
@@ -101,14 +103,17 @@ namespace BUS
 
         public void dtg_Filter(DataGridView dtg, string str)
         {
-            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
-            {
-                r.Visible = false;
-                if (r.Cells.Cast<DataGridViewCell>().ToList().Any(c => c.Value != null && c.Value.ToString().Contains(str)))
-                {
-                    r.Visible = true;
-                }
-            });
+            var Lst = from mh in DAL_MatHang.GetAll()
+                      join lh in DAL_LoaiHang.DanhSach()
+                      on mh.MaLoai equals lh.MaLoai
+                      join km in DAL_KhuyenMai.DanhSachKhuyenMai()
+                      on mh.MaKM equals km.MaKM
+                      where (mh.MaMH.Contains(str)
+                      || mh.TenMH.Contains(str)
+                      || mh.Mota.Contains(str)
+                        )
+                      select new { mh.MaMH, mh.TenMH, mh.Mota, mh.SoLuong, mh.DonViTinh, mh.GiaBan, mh.GiaNhap};
+            dtg.DataSource = Lst.ToList();
         }
 
         public tblMatHang LayTheoMa(string MaMH) => DanhSachMatHang().Find(x => x.MaMH.Trim().Equals(MaMH.Trim()));

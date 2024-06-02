@@ -11,7 +11,7 @@ namespace DAL
     public class DAL_MatHang
     {
         ShopDatabaseEntities db = new ShopDatabaseEntities();
-        public void Them(tblMatHang MatHang)
+        public void Add(tblMatHang MatHang)
         {
             db.tblMatHangs.Add(MatHang);
             db.SaveChanges();
@@ -34,7 +34,7 @@ namespace DAL
             db.SaveChanges();
         }
 
-        public void Sua(tblMatHang OldMatHang, tblMatHang NewMatHang)
+        public void Update(tblMatHang OldMatHang, tblMatHang NewMatHang)
         {
             tblMatHang MatHang = db.tblMatHangs.ToList().Find(x => Equals(x.MaMH, OldMatHang.MaMH));
 
@@ -51,15 +51,15 @@ namespace DAL
             db.SaveChanges();
         }
 
-        public void Xoa(tblMatHang MatHang)
+        public void Delete(tblMatHang MatHang)
         {
             db.tblMatHangs.Remove(db.tblMatHangs.Find(MatHang.MaMH));
             db.SaveChanges();
         }
 
-        public List<tblMatHang> DanhSachMatHang() => db.tblMatHangs.ToList();
+        public List<tblMatHang> GetAll() => db.tblMatHangs.ToList();
 
-        public void TaoHinhAnh(string SourceImagePath, string ImageName)
+        public void CopyToImgSource(string SourceImagePath, string ImageName)
         {
             File.Copy(SourceImagePath, ImageName, true);
         }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.pnContentRight = new Guna.UI2.WinForms.Guna2Panel();
             this.label14 = new System.Windows.Forms.Label();
@@ -208,11 +208,11 @@
             this.dateHanSuDung.ForeColor = System.Drawing.Color.Black;
             this.dateHanSuDung.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dateHanSuDung.HoverState.BorderColor = System.Drawing.Color.Silver;
-            this.dateHanSuDung.Location = new System.Drawing.Point(130, 859);
+            this.dateHanSuDung.Location = new System.Drawing.Point(122, 859);
             this.dateHanSuDung.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateHanSuDung.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dateHanSuDung.Name = "dateHanSuDung";
-            this.dateHanSuDung.Size = new System.Drawing.Size(183, 36);
+            this.dateHanSuDung.Size = new System.Drawing.Size(194, 36);
             this.dateHanSuDung.TabIndex = 43;
             this.dateHanSuDung.Value = new System.DateTime(2024, 5, 3, 22, 7, 15, 574);
             // 
@@ -230,9 +230,9 @@
             this.cbKhuyenMai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbKhuyenMai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbKhuyenMai.ItemHeight = 30;
-            this.cbKhuyenMai.Location = new System.Drawing.Point(130, 917);
+            this.cbKhuyenMai.Location = new System.Drawing.Point(122, 917);
             this.cbKhuyenMai.Name = "cbKhuyenMai";
-            this.cbKhuyenMai.Size = new System.Drawing.Size(246, 36);
+            this.cbKhuyenMai.Size = new System.Drawing.Size(254, 36);
             this.cbKhuyenMai.TabIndex = 42;
             // 
             // cbLoaiHang
@@ -249,9 +249,9 @@
             this.cbLoaiHang.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbLoaiHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbLoaiHang.ItemHeight = 30;
-            this.cbLoaiHang.Location = new System.Drawing.Point(130, 352);
+            this.cbLoaiHang.Location = new System.Drawing.Point(122, 352);
             this.cbLoaiHang.Name = "cbLoaiHang";
-            this.cbLoaiHang.Size = new System.Drawing.Size(246, 36);
+            this.cbLoaiHang.Size = new System.Drawing.Size(254, 36);
             this.cbLoaiHang.TabIndex = 41;
             // 
             // label11
@@ -279,13 +279,13 @@
             this.txtDonVi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDonVi.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.txtDonVi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtDonVi.Location = new System.Drawing.Point(130, 801);
+            this.txtDonVi.Location = new System.Drawing.Point(122, 801);
             this.txtDonVi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDonVi.Name = "txtDonVi";
             this.txtDonVi.PasswordChar = '\0';
             this.txtDonVi.PlaceholderText = "";
             this.txtDonVi.SelectedText = "";
-            this.txtDonVi.Size = new System.Drawing.Size(246, 36);
+            this.txtDonVi.Size = new System.Drawing.Size(254, 36);
             this.txtDonVi.TabIndex = 39;
             // 
             // label10
@@ -393,13 +393,13 @@
             this.txtGiaNhap.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGiaNhap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtGiaNhap.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGiaNhap.Location = new System.Drawing.Point(130, 690);
+            this.txtGiaNhap.Location = new System.Drawing.Point(122, 690);
             this.txtGiaNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.PasswordChar = '\0';
             this.txtGiaNhap.PlaceholderText = "";
             this.txtGiaNhap.SelectedText = "";
-            this.txtGiaNhap.Size = new System.Drawing.Size(183, 36);
+            this.txtGiaNhap.Size = new System.Drawing.Size(191, 36);
             this.txtGiaNhap.TabIndex = 30;
             this.txtGiaNhap.TextChanged += new System.EventHandler(this.txtGiaNhap_TextChanged);
             this.txtGiaNhap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaBan_KeyPress);
@@ -419,13 +419,13 @@
             this.txtGiaBan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGiaBan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtGiaBan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGiaBan.Location = new System.Drawing.Point(130, 637);
+            this.txtGiaBan.Location = new System.Drawing.Point(122, 637);
             this.txtGiaBan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.PasswordChar = '\0';
             this.txtGiaBan.PlaceholderText = "";
             this.txtGiaBan.SelectedText = "";
-            this.txtGiaBan.Size = new System.Drawing.Size(183, 36);
+            this.txtGiaBan.Size = new System.Drawing.Size(191, 36);
             this.txtGiaBan.TabIndex = 30;
             this.txtGiaBan.TextChanged += new System.EventHandler(this.txtGiaBan_TextChanged);
             this.txtGiaBan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaBan_KeyPress);
@@ -445,14 +445,15 @@
             this.txtSolg.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSolg.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtSolg.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSolg.Location = new System.Drawing.Point(130, 743);
+            this.txtSolg.Location = new System.Drawing.Point(122, 743);
             this.txtSolg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSolg.Name = "txtSolg";
             this.txtSolg.PasswordChar = '\0';
             this.txtSolg.PlaceholderText = "";
             this.txtSolg.SelectedText = "";
-            this.txtSolg.Size = new System.Drawing.Size(246, 36);
+            this.txtSolg.Size = new System.Drawing.Size(254, 36);
             this.txtSolg.TabIndex = 29;
+            this.txtSolg.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaBan_KeyPress);
             // 
             // txtMoTa
             // 
@@ -468,14 +469,14 @@
             this.txtMoTa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMoTa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtMoTa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMoTa.Location = new System.Drawing.Point(130, 521);
+            this.txtMoTa.Location = new System.Drawing.Point(122, 521);
             this.txtMoTa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.PasswordChar = '\0';
             this.txtMoTa.PlaceholderText = "";
             this.txtMoTa.SelectedText = "";
-            this.txtMoTa.Size = new System.Drawing.Size(246, 96);
+            this.txtMoTa.Size = new System.Drawing.Size(254, 96);
             this.txtMoTa.TabIndex = 28;
             // 
             // txtTenMH
@@ -493,13 +494,13 @@
             this.txtTenMH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenMH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtTenMH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenMH.Location = new System.Drawing.Point(130, 468);
+            this.txtTenMH.Location = new System.Drawing.Point(122, 468);
             this.txtTenMH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTenMH.Name = "txtTenMH";
             this.txtTenMH.PasswordChar = '\0';
             this.txtTenMH.PlaceholderText = "";
             this.txtTenMH.SelectedText = "";
-            this.txtTenMH.Size = new System.Drawing.Size(246, 36);
+            this.txtTenMH.Size = new System.Drawing.Size(254, 36);
             this.txtTenMH.TabIndex = 27;
             // 
             // txtMaMH
@@ -517,14 +518,14 @@
             this.txtMaMH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaMH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtMaMH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaMH.Location = new System.Drawing.Point(130, 410);
+            this.txtMaMH.Location = new System.Drawing.Point(122, 410);
             this.txtMaMH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMaMH.Name = "txtMaMH";
             this.txtMaMH.PasswordChar = '\0';
             this.txtMaMH.PlaceholderText = "";
             this.txtMaMH.ReadOnly = true;
             this.txtMaMH.SelectedText = "";
-            this.txtMaMH.Size = new System.Drawing.Size(246, 36);
+            this.txtMaMH.Size = new System.Drawing.Size(254, 36);
             this.txtMaMH.TabIndex = 26;
             // 
             // btnDatLai
@@ -602,33 +603,34 @@
             // 
             // dtg
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dtg.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtg.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtg.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtg.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtg.Location = new System.Drawing.Point(12, 170);
             this.dtg.Name = "dtg";
             this.dtg.ReadOnly = true;
             this.dtg.RowHeadersVisible = false;
+            this.dtg.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtg.RowTemplate.Height = 40;
             this.dtg.Size = new System.Drawing.Size(612, 436);
             this.dtg.TabIndex = 22;

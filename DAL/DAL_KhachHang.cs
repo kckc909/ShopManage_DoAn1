@@ -11,7 +11,7 @@ namespace DAL
     public class DAL_KhachHang
     {
         ShopDatabaseEntities db = new ShopDatabaseEntities();
-        public void Them(tblKhachHang KhachHang)
+        public void Add(tblKhachHang KhachHang)
         {
             if (!db.tblKhachHangs.Any(x => x.MaKH.Equals(KhachHang.MaKH)))
             {
@@ -19,7 +19,7 @@ namespace DAL
                 db.SaveChanges();
             }
         }
-        public void Sua(tblKhachHang OldKhachHang, tblKhachHang NewKhachHang)
+        public void Update(tblKhachHang OldKhachHang, tblKhachHang NewKhachHang)
         {
             if (NewKhachHang != null)
             {
@@ -29,7 +29,7 @@ namespace DAL
                 db.SaveChanges();
             }
         }
-        public void Xoa(tblKhachHang KhachHang)
+        public void Delete(tblKhachHang KhachHang)
         {
             if (KhachHang != null)
             {
@@ -37,13 +37,13 @@ namespace DAL
                 db.SaveChanges();
             }
         }
-        public List<tblKhachHang> DanhSachKhachHang()
+        public List<tblKhachHang> GetAll()
         {
             var result = db.tblKhachHangs.ToList();
             if (result.Count == 0)
             {
                 result.Add(MyDefault.KH);
-                Them(MyDefault.KH);
+                Add(MyDefault.KH);
             }
             return result;  
         }
