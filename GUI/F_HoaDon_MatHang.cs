@@ -83,7 +83,7 @@ namespace GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            BUS_MatHang.dtg_Filter(dtg, txtTimKiem.Text);
+            BUS_MatHang.dtg_Search(dtg, txtTimKiem.Text);
         }
 
         private void F_HoaDon_MatHang_Load(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace GUI
                 var c = dtg.SelectedRows[0].Cells["MaMH"].Value;
                 if (c != null)
                 {
-                    Raise_ChonMatHang(BUS_MatHang.LayTheoMa(c.ToString()));
+                    Raise_ChonMatHang(BUS_MatHang.GetByID(c.ToString()));
                 }
             }
         }

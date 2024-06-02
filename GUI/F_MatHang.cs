@@ -92,7 +92,7 @@ namespace GUI
 
         void LoadDanhSachMatHang()
         {
-            BUS_MatHang.dtg_Filter(dtg, "");
+            BUS_MatHang.dtg_Search(dtg, "");
             dtg.Columns["MaMH"].DataPropertyName = "MaMH";
             dtg.Columns["TenMH"].DataPropertyName = "TenMH";
             dtg.Columns["MoTa"].DataPropertyName = "MoTa";
@@ -180,7 +180,7 @@ namespace GUI
 
         void XoaMatHang(string MaMH)
         {
-            BUS_MatHang.Xoa(MaMH);
+            BUS_MatHang.Delete(MaMH);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -240,11 +240,11 @@ namespace GUI
             {
                 string ImageName = BUS_MatHang.XuLyTenHinh(FileDialog_PickImage.FileName, txtMaMH.Text);
                 BUS_MatHang.TaoDuongDanHinhanh(FileDialog_PickImage.FileName, ImageName);
-                Clone.LinkHinhAnh = BUS_MatHang.LayTenTuDuongDang(ImageName);
+                Clone.LinkHinhAnh = BUS_MatHang.LayTenTuDuongDan(ImageName);
                 ImageChange = false;
             }
 
-            if (!BUS_MatHang.Sua(Current, Clone))
+            if (!BUS_MatHang.Update(Current, Clone))
             {
                 MessageBox.Show("Cập nhật không thành công!");
             }
@@ -285,7 +285,7 @@ namespace GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            BUS_MatHang.dtg_Filter(dtg, txtTimKiem.Text);
+            BUS_MatHang.dtg_Search(dtg, txtTimKiem.Text);
         }
 
         private void dtg_SelectionChanged(object sender, EventArgs e)
@@ -295,7 +295,7 @@ namespace GUI
                 var cell = dtg.SelectedRows[0].Cells[0].Value;
                 if (cell != null)
                 {
-                    LoadThongTinMatHang(BUS_MatHang.LayTheoMa(cell.ToString()));
+                    LoadThongTinMatHang(BUS_MatHang.GetByID(cell.ToString()));
                 }
             }
         }

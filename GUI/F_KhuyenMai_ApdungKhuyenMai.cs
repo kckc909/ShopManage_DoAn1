@@ -127,18 +127,18 @@ namespace GUI
                 // nếu là mã km này thì thay đổi thành km mặc định
                 if (r.Cells["MaMH"].Value != null)
                 {
-                    mh = BUS_MatHang.LayTheoMa(r.Cells["MaMH"].Value.ToString());
+                    mh = BUS_MatHang.GetByID(r.Cells["MaMH"].Value.ToString());
                     if (r.Cells["Check"].Value is true)
                     {
                         mh.MaKM = KhuyenMai.MaKM;
-                        BUS_MatHang.Sua(mh, mh);
+                        BUS_MatHang.Update(mh, mh);
                     }
                     else
                     {
                         if (mh.MaKM == KhuyenMai.MaKM)
                         {
                             mh.MaKM = MyDefault.MaKM;
-                            BUS_MatHang.Sua(mh, mh);
+                            BUS_MatHang.Update(mh, mh);
                         }
                     }
                 }

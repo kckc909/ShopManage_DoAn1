@@ -58,7 +58,7 @@ namespace GUI
 
         private void C_CTHoaDon_Load(object sender, EventArgs e)
         {
-            lbTenMH.Text = BUS_MatHang.LayTheoMa(CTHDB.MaMH).TenMH;
+            lbTenMH.Text = BUS_MatHang.GetByID(CTHDB.MaMH).TenMH;
             txtSolg.Text = CTHDB.SoLg.ToString();
             txtGiaBan.Text = CTHDB.GiaBan.Value.ToString("C");
             ptg = BUS_KhuyenMai.PhamTramGiam(CTHDB.MaKM);

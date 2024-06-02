@@ -70,7 +70,7 @@ namespace GUI
 
         bool ThongTinMatHang()
         {
-            _MatHang.MaMH = BUS_MatHang.MaMatHangTuDong();
+            _MatHang.MaMH = BUS_MatHang.AutomaticID();
 
             if (Equals(txtTenMH.Text.Trim(), ""))
             {
@@ -117,7 +117,7 @@ namespace GUI
             {
                 string ImageName = BUS_MatHang.XuLyTenHinh(FileDialog_PickImage.FileName, _MatHang.MaMH);
                 BUS_MatHang.TaoDuongDanHinhanh(FileDialog_PickImage.FileName, ImageName);
-                _MatHang.LinkHinhAnh = BUS_MatHang.LayTenTuDuongDang(ImageName);
+                _MatHang.LinkHinhAnh = BUS_MatHang.LayTenTuDuongDan(ImageName);
                 ImageChange = false;
             }
 
@@ -129,7 +129,7 @@ namespace GUI
 
         void Them()
         {
-            BUS_MatHang.Them(_MatHang);
+            BUS_MatHang.Add(_MatHang);
             Raise_ReloadSauKhiThemMatHang();
         }
         void Raise_ReloadSauKhiThemMatHang()

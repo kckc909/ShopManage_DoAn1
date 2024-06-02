@@ -50,7 +50,7 @@ namespace GUI
 
         private void C_CTHoaDon_Load(object sender, EventArgs e)
         {
-            lbTenMH.Text = BUS_MatHang.LayTheoMa(CTHDN.MaMH).TenMH;
+            lbTenMH.Text = BUS_MatHang.GetByID(CTHDN.MaMH).TenMH;
             txtSolg.Text = CTHDN.SoLg.ToString();
             txtGiaNhap.Text = CTHDN.GiaNhap.ToString();
             txtThanhTien.Text = (CTHDN.GiaNhap * CTHDN.SoLg).ToString();

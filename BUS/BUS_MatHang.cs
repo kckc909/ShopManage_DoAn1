@@ -22,7 +22,7 @@ namespace BUS
             return DAL_MatHang.GetAll();
         }
 
-        public bool Xoa(string MaMH)
+        public bool Delete(string MaMH)
         {
             var MatHang = DanhSachMatHang().Find(x => Equals(x.MaMH.Trim(), MaMH.Trim()));
             if (MatHang != null)
@@ -33,7 +33,7 @@ namespace BUS
             return false;
         }
 
-        public bool Them(tblMatHang matHang)
+        public bool Add(tblMatHang matHang)
         {
             if (!DanhSachMatHang().Exists(x => Equals(x.MaMH.Trim(), matHang.MaMH)))
             {
@@ -43,7 +43,7 @@ namespace BUS
             return false;
         }
 
-        public bool Sua(tblMatHang _old, tblMatHang _new)
+        public bool Update(tblMatHang _old, tblMatHang _new)
         {
             if (DanhSachMatHang().Exists(x => Equals(x.MaMH, _old.MaMH)))
             {
@@ -78,20 +78,20 @@ namespace BUS
             return Path.Combine(MyDefault.Path_AnhMatHang, ImageName);
         }
 
-        public string LayTenTuDuongDang(string path)
+        public string LayTenTuDuongDan(string path)
         {
             string[] p = path.Split('\\');
             return p[p.Length - 1];
         }
 
-        public string MaMatHangTuDong()
+        public string AutomaticID()
         {
             int i = DanhSachMatHang().Count + 1;
-            while (KiemTraMaTrung($"MH{i}")) i++;
+            while (CheckExists($"MH{i}")) i++;
             return $"MH{i}";
         }
 
-        private bool KiemTraMaTrung(string MaMH)
+        private bool CheckExists(string MaMH)
         {
             // Nếu trùng thì true
             if (DanhSachMatHang().Any(x => Equals(x.MaMH.Trim(), MaMH.Trim())))
@@ -101,7 +101,7 @@ namespace BUS
             return false;
         }
 
-        public void dtg_Filter(DataGridView dtg, string str)
+        public void dtg_Search(DataGridView dtg, string str)
         {
             var Lst = from mh in DAL_MatHang.GetAll()
                       join lh in DAL_LoaiHang.DanhSach()
@@ -116,6 +116,6 @@ namespace BUS
             dtg.DataSource = Lst.ToList();
         }
 
-        public tblMatHang LayTheoMa(string MaMH) => DanhSachMatHang().Find(x => x.MaMH.Trim().Equals(MaMH.Trim()));
+        public tblMatHang GetByID(string MaMH) => DanhSachMatHang().Find(x => x.MaMH.Trim().Equals(MaMH.Trim()));
     }
 }
