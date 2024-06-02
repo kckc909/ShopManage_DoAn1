@@ -13,10 +13,10 @@ namespace BUS
     {
         DAL_NhaCungCap DAL_NhaCungCap = new DAL_NhaCungCap();
 
-        public void Them(tblNCC NCC) => DAL_NhaCungCap.Them(NCC);
-        public void Sua(tblNCC _old, tblNCC _new) => DAL_NhaCungCap.Sua(_old, _new);
-        public void Xoa(tblNCC ncc) => DAL_NhaCungCap.Xoa(ncc);
-        public List<tblNCC> DanhSachNCC() => DAL_NhaCungCap.DanhSachNCC();
+        public void Them(tblNCC NCC) => DAL_NhaCungCap.Add(NCC);
+        public void Sua(tblNCC _old, tblNCC _new) => DAL_NhaCungCap.Update(_old, _new);
+        public void Xoa(tblNCC ncc) => DAL_NhaCungCap.Delete(ncc);
+        public List<tblNCC> DanhSachNCC() => DAL_NhaCungCap.GetAll();
         public string MaTuDong ()
         {
             int i = DanhSachNCC().Count;

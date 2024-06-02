@@ -28,7 +28,6 @@ namespace GUI
         {
             dtg.AutoGenerateColumns = false;
             dtg.Columns["MaMH"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dtg.Columns["MaLoai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dtg.Columns["DonViTinh"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dtg.Columns["SoLg"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dtg.Columns["GiaBan"].DefaultCellStyle.Format = "C";
@@ -43,7 +42,6 @@ namespace GUI
             dtg.Columns.Add("SoLg", "Số lượng tồn");
             dtg.Columns.Add("DonViTinh", "Đơn vị");
             dtg.Columns.Add("GiaBan", "Giá bán");
-            dtg.Columns.Add("MaLoai", "Mã loại");
         }
 
         void dtg_LoadData()
@@ -55,7 +53,6 @@ namespace GUI
             dtg.Columns["SoLg"].DataPropertyName = "SoLuong";
             dtg.Columns["DonViTinh"].DataPropertyName = "DonViTinh";
             dtg.Columns["GiaBan"].DataPropertyName = "GiaBan";
-            dtg.Columns["MaLoai"].DataPropertyName = "MaLoai";
         }
 
         void Catch_ReloadSauKhiThemMatHang(object sender, EventArgs e)

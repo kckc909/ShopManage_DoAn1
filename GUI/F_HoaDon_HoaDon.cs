@@ -58,22 +58,23 @@ namespace GUI
 
         void dtg_LoadData()
         {
-            dtg.Rows.Clear();
             if (cboLoaiHoaDon.SelectedIndex == 0)
             {
-                BUS_HoaDonBan.HDB_GetAll().ForEach(h =>
-                {
-                    dtg_AddRow_HDB(h);
-                });
                 BUS_HoaDonBan.HDB_dtg_Filter(dtg, cboTrangThai.SelectedIndex);
+                dtg.Columns[0].DataPropertyName = "MaHDB";
+                dtg.Columns[1].DataPropertyName = "MaKH";
+                dtg.Columns[2].DataPropertyName = "TenKH";
+                dtg.Columns[3].DataPropertyName = "SDT";
+                dtg.Columns[4].DataPropertyName = "TinhTrang";
             }
             else if (cboLoaiHoaDon.SelectedIndex == 1)
             {
-                BUS_HoaDonNhap.HDN_GetAll().ForEach(h =>
-                {
-                    dtg_AddRow_HDN(h);
-                });
                 BUS_HoaDonNhap.HDN_dtg_Filter(dtg, cboTrangThai.SelectedIndex);
+                dtg.Columns[0].DataPropertyName = "MaHDN";
+                dtg.Columns[1].DataPropertyName = "MaNCC";
+                dtg.Columns[2].DataPropertyName = "TenNCC";
+                dtg.Columns[3].DataPropertyName = "SDT";
+                dtg.Columns[4].DataPropertyName = "TinhTrang";
             }
         }
 

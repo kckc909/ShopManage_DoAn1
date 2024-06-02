@@ -18,7 +18,7 @@ namespace BUS
         DAL_Voucher dal_Voucher = new DAL_Voucher();
         DAL_ApDungVoucher dal_ApDungVoucher = new DAL_ApDungVoucher();
         DAL_MatHang dal_MatHang = new DAL_MatHang();
-
+        DAL_KhachHang dal_KhachHang = new DAL_KhachHang();
         // HDB
         public void HDB_Add(tblHoaDonBan HDB)
         {
@@ -61,16 +61,22 @@ namespace BUS
         {
             return DateTime.Now.ToString("ddMMyyyyHHmmssff");
         }
-        public void HDB_dtg_Filter(DataGridView dtg, int TinhTrang)
+        public void HDB_dtg_Filter(DataGridView dtg_DSHD, int TinhTrang)
         {
-            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
-            {
-                r.Visible = false;
-                if (r.Cells["TT"].Value.Equals(TinhTrang))
-                {
-                    r.Visible = true;
-                }
-            });
+            var lst = from hd in HDB_GetAll()
+                      join kh in dal_KhachHang.GetAll()
+                      on hd.MaKH equals kh.MaKH
+                      where hd.TinhTrang == TinhTrang
+                      select new { hd.MaHDB, hd.MaKH, kh.TenKH, kh.SDT };
+            dtg_DSHD.DataSource = lst.ToList();
+            //dtg_DSHD.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
+            //{
+            //    r.Visible = false;
+            //    if (r.Cells["TT"].Value.Equals(TinhTrang))
+            //    {
+            //        r.Visible = true;
+            //    }
+            //});
         }
         public void HDB_dtg_Search(DataGridView dtg, string ss)
         {

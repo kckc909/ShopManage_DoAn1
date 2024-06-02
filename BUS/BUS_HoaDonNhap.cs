@@ -15,6 +15,7 @@ namespace BUS
         DAL_HoaDonNhap dal_HoaDonNhap = new DAL_HoaDonNhap();
         DAL_ChiTietHDN dal_ChiTietHDN = new DAL_ChiTietHDN();
         DAL_MatHang dal_MatHang = new DAL_MatHang();
+        DAL_NhaCungCap dal_NCC = new DAL_NhaCungCap();
         // HDN
         public void HDN_Add(tblHoaDonNhap HDN)
         {
@@ -60,16 +61,14 @@ namespace BUS
         {
             return DateTime.Now.ToString("ddMMyyyyHHmmssff");
         }
-        public void HDN_dtg_Filter(DataGridView dtg, int TinhTrang)
+        public void HDN_dtg_Filter(DataGridView dtg_DSHD, int TinhTrang)
         {
-            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
-            {
-                r.Visible = false;
-                if (r.Cells["TT"].Value.Equals(TinhTrang))
-                {
-                    r.Visible = true;
-                }
-            });
+            var lst = from hd in HDN_GetAll()
+                      join ncc in dal_NCC.GetAll()
+                      on hd.MaNCC equals ncc.MaNCC
+                      where hd.TinhTrang == TinhTrang
+                      select new { hd.MaHDN, hd.MaNCC, ncc.TenNCC, ncc.SDT };
+            dtg_DSHD.DataSource = lst.ToList();
         }
         public void HDN_dtg_Search(DataGridView dtg, string ss)
         {

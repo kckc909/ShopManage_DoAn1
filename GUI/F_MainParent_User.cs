@@ -44,7 +44,7 @@ namespace GUI
         {
             isUsing = true;
             F_NhanVien_TaiKhoan F = new F_NhanVien_TaiKhoan(User);
-            F.FormClose += Catch_FormDMKClose;
+            F.FormClosed += Catch_FormDMKClose;
             F.ShowDialog();
         }
 

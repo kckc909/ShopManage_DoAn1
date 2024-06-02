@@ -10,12 +10,12 @@ namespace DAL
     public class DAL_NhaCungCap
     {
         ShopDatabaseEntities db = new ShopDatabaseEntities();
-        public void Them(tblNCC NCC)
+        public void Add(tblNCC NCC)
         {
             db.tblNCCs.Add(NCC);
             db.SaveChanges();
         }
-        public void Sua(tblNCC OldNCC, tblNCC NewNCC)
+        public void Update(tblNCC OldNCC, tblNCC NewNCC)
         {
             tblNCC NCC = db.tblNCCs.ToList().Find(x => Equals(x.MaNCC, OldNCC.MaNCC));
 
@@ -26,17 +26,17 @@ namespace DAL
 
             db.SaveChanges();
         }
-        public void Xoa(tblNCC NCC)
+        public void Delete(tblNCC NCC)
         {
             db.tblNCCs.Remove(NCC);
             db.SaveChanges();
         }
-        public List<tblNCC> DanhSachNCC()
+        public List<tblNCC> GetAll()
         {
             var result = db.tblNCCs.ToList();
             if (result.Count == 0)
             {
-                Them(MyDefault.NCC);
+                Add(MyDefault.NCC);
                 result.Add(MyDefault.NCC);
             }
             return result;
