@@ -18,6 +18,7 @@ namespace GUI
         public F_BaoCaoThongKe()
         {
             InitializeComponent();
+            chart_DoanhThu.ChartAreas[0].AxisY.LabelStyle.Format = "{0:N0}";
         }
         private void Cal_DoanhSoNV()
         {
@@ -39,9 +40,22 @@ namespace GUI
             chart_DoanhThu.Series["Series_DoanhThu"].Points.DataBindXY(columnNames, values_DoanhThu);
         }
 
-        private void F_BaoCaoThongKe_Load(object sender, EventArgs e)
+        private void Cal_DoanhSo()
         {
+            var lst = BUS_BaoCaoThongKe.TopDoanhSoNhanVien(dtpStart.Value, dtpEnd.Value);
+            chart_DoanhSoNV.Series[0].Points.DataBindXY(lst.Select(x => x.TenNV).ToList(), lst.Select(x => x.DoanhSo).ToList());
+        }
 
+        private void Cal_TopMatHangBanChay()
+        {
+            dtgMH.Columns.Clear();
+            dtgMH.Columns.Add("MaMH", "Mã mặt hàng");
+            dtgMH.Columns.Add("TenMH", "Tên mặt hàng");
+            dtgMH.Columns.Add("SoLuongBan", "Số lượng bán được");
+            BUS_BaoCaoThongKe.Top10MaTHangBanChay(dtpStart.Value, dtpEnd.Value).ForEach(x =>
+            {
+                dtgMH.Rows.Add(x.MaMH, x.TenMH, x.TongLuongBan);
+            });
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -50,12 +64,18 @@ namespace GUI
             {
                 case 0:
                     Cal_DoanhThu("dd/MM/yyyy");
+                    Cal_DoanhSo();
+                    Cal_TopMatHangBanChay();
                     break;
                 case 1:
                     Cal_DoanhThu("MM/yyyy");
+                    Cal_DoanhSo();
+                    Cal_TopMatHangBanChay();
                     break;
                 case 2:
                     Cal_DoanhThu("yyyy");
+                    Cal_DoanhSo();
+                    Cal_TopMatHangBanChay();
                     break;
             }
         }
@@ -69,6 +89,24 @@ namespace GUI
             else
             {
                 chart_DoanhSoNV.Size = chart_DoanhSoNV.MinimumSize;
+            }
+        }
+
+        private void dtpStart_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpEnd.Value < dtpStart.Value)
+            {
+                MessageBox.Show("Thời gian đầu không thể lớn hơn thời gian cuối!");
+                dtpStart.Value = dtpEnd.Value;
+            }
+        }
+
+        private void dtpEnd_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpEnd.Value < dtpStart.Value)
+            {
+                MessageBox.Show("Thời gian đầu không thể lớn hơn thời gian cuối!");
+                dtpEnd.Value = dtpStart.Value;
             }
         }
     }

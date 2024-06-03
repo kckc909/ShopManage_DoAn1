@@ -10,7 +10,7 @@ namespace DAL
     public class DAL_NhanVien
     {
         ShopDatabaseEntities db = new ShopDatabaseEntities();
-        public void Them(tblNhanVien NhanVien)
+        public void Add(tblNhanVien NhanVien)
         {
             if (NhanVien is null || db.tblNhanViens.ToList().Exists(x => Equals(x.MaNV, NhanVien.MaNV)))
             {
@@ -19,7 +19,7 @@ namespace DAL
             db.tblNhanViens.Add(NhanVien);
             db.SaveChanges();
         }
-        public void Sua(tblNhanVien OldNhanVien, tblNhanVien NewNhanVien)
+        public void Update(tblNhanVien OldNhanVien, tblNhanVien NewNhanVien)
         {
             tblNhanVien NhanVien = db.tblNhanViens.ToList().Find(x => Equals(x.MaNV, OldNhanVien.MaNV));
             if (NhanVien is null)
@@ -36,7 +36,7 @@ namespace DAL
             NhanVien.CapQuyen = NewNhanVien.CapQuyen;
             db.SaveChanges();
         }
-        public void Xoa(tblNhanVien NhanVien)
+        public void Delete(tblNhanVien NhanVien)
         {
             if (NhanVien is null || 
                 !db.tblNhanViens.ToList().Any(x => Equals(x.MaNV, NhanVien.MaNV)))
@@ -46,6 +46,6 @@ namespace DAL
             db.tblNhanViens.Remove(NhanVien);
             db.SaveChanges();
         }
-        public List<tblNhanVien> DanhSachNhanVien() => db.tblNhanViens.ToList();
+        public List<tblNhanVien> GetAll() => db.tblNhanViens.ToList();
     }
 }

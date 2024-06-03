@@ -1,6 +1,7 @@
 ﻿using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -21,21 +22,47 @@ namespace BUS
         DAL_SoHuuVoucher dal_SHVc = new DAL_SoHuuVoucher();
         DAL_Voucher DAL_Voucher = new DAL_Voucher();
 
-        public List<(string TenMH, int TongLuongBan)> MatHang()
+        public List<(string TenNV, int DoanhSo)> TopDoanhSoNhanVien(DateTime StartTime, DateTime EndTime)
+        {
+            var doanhSoByNV = dal_HDB.GetAll()
+                .Where(HDB => HDB.NgayBan >= StartTime && HDB.NgayBan <= EndTime)
+                .GroupBy(hdb => hdb.MaNV)
+                .Select(g => new
+                {
+                    MaNV = g.Key,
+                    DoanhSo = g.Sum(hdb => dal_CTHDB.GetAll().Where(ct => ct.MaHDB == hdb.MaHDB).Sum(ct => ct.SoLg * ct.GiaBan) ?? 0)
+                })
+                .OrderByDescending(x => x.DoanhSo)
+                .ToList();
+
+            var topNVs = doanhSoByNV.Select(nvDS =>
+            {
+                var tenNV = dal_NV.GetAll().FirstOrDefault(nv => nv.MaNV == nvDS.MaNV)?.TenNV ?? "Không xác định";
+                return (tenNV, nvDS.DoanhSo);
+            })
+            .ToList();
+
+            return topNVs;
+        }
+
+        public List<(string MaMH, string TenMH, int TongLuongBan)> Top10MaTHangBanChay(DateTime StartTime, DateTime EndTime)
         {
             // top 10 mặt hàng có số lượng bán cao nhất
-            var lst = (from mh in dal_MH.GetAll()
-                       join cthd in dal_CTHDB.GetAll() on mh.MaMH equals cthd.MaMH
-                       group cthd by mh.MaMH into g
-                       orderby g.Sum(ct => ct.SoLg) descending
-                       select new
-                       {
-                           TenMH = (from m in dal_MH.GetAll()
-                                    where m.MaMH == g.Key
-                                    select m.TenMH).FirstOrDefault(),
-                           TongLuongBan = g.Sum(ct => ct.SoLg)
-                       })
-                       .Take(10).Select(x => (x.TenMH, x.TongLuongBan));
+            var lst = dal_HDB.GetAll()
+                    .Where(HDB => HDB.NgayBan.Value >= StartTime && HDB.NgayBan <= EndTime)
+                    .GroupJoin(dal_CTHDB.GetAll(), hdb => hdb.MaHDB, cthdb => cthdb.MaHDB, (hdb, cthdb) => new { HDB = hdb, CTHDBs = cthdb })
+                    .Select(x => x.CTHDBs)
+                    .SelectMany(ct => dal_MH.GetAll().Where(mh => ct.Select(x => x.MaMH).Contains(mh.MaMH)), (ct, mh) => new { MatHang = mh, CTHDB = ct })
+                    .GroupBy(g => g.MatHang)
+                    .Select(g => new
+                    {
+                        g.Key.MaMH,
+                        g.Key.TenMH,
+                        SoLuongBan = g.SelectMany(x => x.CTHDB).Sum(x => x.SoLg)
+                    })
+                    .OrderByDescending(x => x.SoLuongBan)
+                    .Select(x => (x.MaMH, x.TenMH, x.SoLuongBan))
+                    .ToList();
             return lst.ToList();
         }
 
@@ -75,12 +102,13 @@ namespace BUS
                 .Sum(x => x.cthdn.Sum(y => y.SoLg * y.GiaNhap)).Value;
             return TongNhap;
         }
-
         private int GetDailyRevenue(DateTime date, string TimeFormat)
         {
             var lst = dal_HDB.GetAll()
                         .Where(HDB => HDB.NgayBan.Value.ToString(TimeFormat).Equals(date.ToString(TimeFormat)))
                         .GroupJoin(dal_CTHDB.GetAll(), hdb => hdb.MaHDB, cthdb => cthdb.MaHDB, (hdb, cthdb) => new { HDB = hdb, CTHDBs = cthdb })
+            .Sum(x => x.CTHDBs.Sum(y => y.SoLg * y.GiaBan));
+            return lst.Value;
             //.SelectMany(x => x.CTHDBs.DefaultIfEmpty(), (x, cthdb) => new
             //{
             //    x.HDB,
@@ -145,8 +173,6 @@ namespace BUS
             //    ThanhTien += TongTien;
             //}
             //return ThanhTien;
-            .Sum(x => x.CTHDBs.Sum(y => y.SoLg * y.GiaBan));
-            return lst.Value;
         }
     }
 }

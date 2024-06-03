@@ -13,11 +13,11 @@ namespace BUS
     {
         DAL_NhanVien DAL = new DAL_NhanVien();
         DAL_Quyen DAL_Quyen = new DAL_Quyen();
-        public void Them(tblNhanVien nv) => DAL.Them(nv);
-        public void Sua(tblNhanVien _old, tblNhanVien _new) => DAL.Sua(_old, _new);
-        public void Xoa(tblNhanVien nv) => DAL.Xoa(nv);
+        public void Them(tblNhanVien nv) => DAL.Add(nv);
+        public void Sua(tblNhanVien _old, tblNhanVien _new) => DAL.Update(_old, _new);
+        public void Xoa(tblNhanVien nv) => DAL.Delete(nv);
         public List<tblQuyen> GetAll_Quyen() => DAL_Quyen.GetAll();
-        public List<tblNhanVien> DSNV() => DAL.DanhSachNhanVien();
+        public List<tblNhanVien> DSNV() => DAL.GetAll();
         public List<tblNhanVien> DSNV(string str) => DSNV().Where(x =>
                 x.MaNV.Contains(str) ||
                 x.TenNV.Contains(str) ||
