@@ -32,7 +32,7 @@ namespace GUI
             List<double> values_ChiPhi = new List<double>(); // hóa đơn nhập
             List<double> values_DoanhThu = new List<double>(); // hóa đơn bán
 
-            List<(double, double, string)> lst = BUS_BaoCaoThongKe.RevenueByDay(dtpStart.Value, dtpEnd.Value, FormatString);
+            List<(double, double, string)> lst = BUS_BaoCaoThongKe.RevenueByTime(dtpStart.Value, dtpEnd.Value, FormatString);
             columnNames = lst.Select(x => x.Item3).ToList();
             values_ChiPhi = lst.Select(x => x.Item1).ToList();
             values_DoanhThu = lst.Select(x => x.Item2).ToList();

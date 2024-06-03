@@ -73,6 +73,7 @@ namespace GUI
                 AddQuyenNhanVien();
                 AnButtonTheoQuyen();
             }
+            btnTrangChu_Click(this, EventArgs.Empty);
         }
 
         private void AnButtonTheoQuyen()

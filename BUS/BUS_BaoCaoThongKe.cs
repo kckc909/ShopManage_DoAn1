@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -44,7 +45,6 @@ namespace BUS
 
             return topNVs;
         }
-
         public List<(string MaMH, string TenMH, int TongLuongBan)> Top10MaTHangBanChay(DateTime StartTime, DateTime EndTime)
         {
             // top 10 mặt hàng có số lượng bán cao nhất
@@ -65,8 +65,7 @@ namespace BUS
                     .ToList();
             return lst.ToList();
         }
-
-        public List<(double ChiPhi, double DoanhThu, string NgayString)> RevenueByDay(DateTime StartTime, DateTime EndTime, string TimeFormat)
+        public List<(double ChiPhi, double DoanhThu, string NgayString)> RevenueByTime(DateTime StartTime, DateTime EndTime, string TimeFormat)
         {
             List<(double ChiPhi, double DoanhThu, string NgayString)> result = new List<(double, double, string)>();
             IEnumerable<DateTime> dates = null;
@@ -88,13 +87,26 @@ namespace BUS
 
             foreach (var date in dates)
             {
-                double chiPhi = GetDailyExpense(date, TimeFormat);
-                double doanhThu = GetDailyRevenue(date, TimeFormat);
+                double chiPhi = GetTimeExpense(date, TimeFormat);
+                double doanhThu = GetTimeRevenue(date, TimeFormat);
                 result.Add((chiPhi, doanhThu, date.ToString(TimeFormat)));
             }
             return result;
         }
-        private int GetDailyExpense(DateTime date, string TimeFormat)
+        public List<(int Ngay,double DoanhThu)> RevenueAllDayOfMonth(DateTime month)
+        {
+            List<(int Ngay, double DoanhThu)> result = new List<(int, double)>();
+            List<DateTime> dates = GetDaysInMonth(month.Year, month.Month);
+            int i = 1;
+            foreach (var date in dates)
+            {
+                double DoanhThu = GetTimeRevenue(date, "ddMMyyyy");
+                result.Add((i, DoanhThu));
+                i++;
+            }
+            return result;
+        }
+        public int GetTimeExpense(DateTime date, string TimeFormat)
         {
             var TongNhap = dal_HDN.GetAll()
                 .Where(HDN => HDN.NgayNhap.Value.ToString(TimeFormat).Equals(date.ToString(TimeFormat)))
@@ -102,7 +114,7 @@ namespace BUS
                 .Sum(x => x.cthdn.Sum(y => y.SoLg * y.GiaNhap)).Value;
             return TongNhap;
         }
-        private int GetDailyRevenue(DateTime date, string TimeFormat)
+        public int GetTimeRevenue(DateTime date, string TimeFormat)
         {
             var lst = dal_HDB.GetAll()
                         .Where(HDB => HDB.NgayBan.Value.ToString(TimeFormat).Equals(date.ToString(TimeFormat)))
@@ -173,6 +185,30 @@ namespace BUS
             //    ThanhTien += TongTien;
             //}
             //return ThanhTien;
+        }
+        public List<int> DoanhSoNhanVienTheoThang(string MaNV, DateTime Month)
+        {
+            return dal_HDB.GetAll().Where(x => x.MaNV.Equals(MaNV) && x.NgayBan.Value.Month == Month.Month && x.NgayBan.Value.Year == Month.Year)
+                .Select(y => y.tblChiTietHDBs.Sum(z => z.SoLg * z.GiaBan).Value).ToList();
+        }
+        public List<(string MaMH, string TenMH, int SoLuong, string date)> MatHangCanNhap()
+        {
+            return dal_MH.GetAll().Where(x => x.SoLuong < 10 || x.HanSuDung.Value <= DateTime.Now.AddDays(10))
+                .Select(y => (y.MaMH, y.TenMH, y.SoLuong.Value, y.HanSuDung.Value.ToString("d"))).ToList();
+        }
+        public static List<DateTime> GetDaysInMonth(int year, int month)
+        {
+            List<DateTime> days = new List<DateTime>();
+
+            DateTime firstDay = new DateTime(year, month, 1);
+            DateTime lastDay = firstDay.AddMonths(1).AddDays(-1);
+
+            for (DateTime day = firstDay; day <= lastDay; day = day.AddDays(1))
+            {
+                days.Add(day);
+            }
+
+            return days;
         }
     }
 }

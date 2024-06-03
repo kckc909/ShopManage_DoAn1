@@ -29,14 +29,7 @@ namespace BUS
         public tblNCC GetById(string MaNCC) => DanhSachNCC().Find(x => Equals(x.MaNCC, MaNCC));
         public void dtg_Filter(DataGridView dtg, string str)
         {
-            dtg.Rows.Cast<DataGridViewRow>().ToList().ForEach(r =>
-            {
-                r.Visible = false;
-                if (r.Cells.Cast<DataGridViewCell>().ToList().Any(c => c.Value != null && c.Value.ToString().Contains(str)))
-                {
-                    r.Visible = true;
-                }
-            });
+            dtg.DataSource = DAL_NhaCungCap.GetAll();
         }
     }
 }
