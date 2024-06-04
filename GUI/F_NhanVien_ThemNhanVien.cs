@@ -97,7 +97,7 @@ namespace GUI
                 NhanVien.Avatar = BUS_NhanVien.TaoTenHinhAnh(Path.GetExtension(ofd.FileName));
                 BUS_NhanVien.CopyHinhAnh(ofd.FileName, NhanVien.Avatar);
             }
-            BUS_NhanVien.Them(NhanVien);
+            BUS_NhanVien.Add(NhanVien);
 
             ThemThanhCong.Invoke(this, new EventArgs());
         }

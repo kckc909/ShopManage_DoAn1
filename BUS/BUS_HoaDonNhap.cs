@@ -46,6 +46,7 @@ namespace BUS
         {
             List<tblChiTietHDN> DelLst = dal_ChiTietHDN.GetById_HDN(MaHDN)
                 .Where(x => !DS_CTHDN.Any(y => x.MaMH.Equals(y.MaMH))).ToList();
+            dal_ChiTietHDN.DeleteRange(DelLst);
             dal_ChiTietHDN.AddRange(DS_CTHDN);
         }
         public void CT_DeleteRange(List<tblChiTietHDN> DS_CTHDN)

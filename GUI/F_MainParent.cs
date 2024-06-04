@@ -80,6 +80,7 @@ namespace GUI
         {
             btnBCTK.Hide();
             btnNhanVien.Hide();
+            btnTKMK.Hide();
         }
 
         private void AddQuyenNhanVien()

@@ -31,7 +31,7 @@ namespace GUI
         void DoanhsoNVThang()
         {
             var lst = BUS_BaoCaoThongKe.DoanhSoNhanVienTheoThang(F_MainParent.NguoiDung.MaNV, DateTime.Now);
-            chart_DoanhSoNVThangNay.Series[0].Points.DataBindY(lst);
+            chart_DoanhSoNVThangNay.Series[0].Points.DataBindXY(lst.Select(x => x.Ngay).ToList(), lst.Select(y => y.DoanhSo).ToList());
         }
 
         void DSMatHangCanNhap()
@@ -41,11 +41,15 @@ namespace GUI
             dgvDSMHCanNhap.Columns[1].DataPropertyName = "TenMH";
             dgvDSMHCanNhap.Columns[2].DataPropertyName = "SoLuong";
             dgvDSMHCanNhap.Columns[3].DataPropertyName = "date";
+            dgvDSMHCanNhap.Columns[0].HeaderText = "Mã mặt hàng";
+            dgvDSMHCanNhap.Columns[1].HeaderText = "Tên mặt hàng";
+            dgvDSMHCanNhap.Columns[2].HeaderText = "Số lượng";
+            dgvDSMHCanNhap.Columns[3].HeaderText = "Ngày hết hạn";
         }
 
         void ThongTinNhanVien()
         {
-            var NV = BUS_NhanVien.NhanVienTheoMa(F_MainParent.NguoiDung.MaNV);
+            var NV = BUS_NhanVien.GetById(F_MainParent.NguoiDung.MaNV);
             txtMaNV.Text = NV.MaNV.ToString();
             txtTenNV.Text = NV.TenNV.ToString();
             txtSDT.Text = NV.SDT.ToString();
@@ -69,6 +73,8 @@ namespace GUI
 
         private void F_TrangChu_Load(object sender, EventArgs e)
         {
+            lbDoanhSoThang.Text += DateTime.Now.Day;
+            lbDoanhThuThang.Text += DateTime.Now.Day;
             Cal();
         }
 
@@ -83,7 +89,22 @@ namespace GUI
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
+            BUS_BaoCaoThongKe = new BUS_BaoCaoThongKe();
             Cal();
+        }
+
+        private void btnDoiAvatar_Click(object sender, EventArgs e)
+        {
+            var nv = F_MainParent.NguoiDung;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                picAvatar.Image = Image.FromFile(openFileDialog.FileName);
+            }
+            string picName = BUS_NhanVien.TaoTenHinhAnh(openFileDialog.FileName);
+            BUS_NhanVien.CopyHinhAnh(openFileDialog.FileName, picName);
+            nv.Avatar = picName;
+            BUS_NhanVien.Update(nv, nv);
         }
     }
 }

@@ -76,7 +76,7 @@
             this.txtMatKhau.Location = new System.Drawing.Point(112, 154);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.PasswordChar = '\0';
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.PlaceholderText = "";
             this.txtMatKhau.SelectedText = "";
             this.txtMatKhau.Size = new System.Drawing.Size(237, 36);

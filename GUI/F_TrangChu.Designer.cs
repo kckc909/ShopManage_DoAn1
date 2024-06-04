@@ -39,11 +39,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.pnLeft_Top = new Guna.UI2.WinForms.Guna2Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.chart_DoanhSoNVThangNay = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lbDoanhSoThang = new System.Windows.Forms.Label();
             this.pnLeft_Bottom = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.chart_DoanhThuThang = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lbDoanhThuThang = new System.Windows.Forms.Label();
             this.pnRight = new Guna.UI2.WinForms.Guna2Panel();
             this.pnRight_Bottom = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvDSMHCanNhap = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -58,6 +58,7 @@
             this.txtTenNV = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaNV = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnDoiAvatar = new Guna.UI2.WinForms.Guna2Button();
             this.pnLeft.SuspendLayout();
             this.pnLeft_Top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_DoanhSoNVThangNay)).BeginInit();
@@ -83,24 +84,12 @@
             // pnLeft_Top
             // 
             this.pnLeft_Top.Controls.Add(this.chart_DoanhSoNVThangNay);
-            this.pnLeft_Top.Controls.Add(this.label2);
+            this.pnLeft_Top.Controls.Add(this.lbDoanhSoThang);
             this.pnLeft_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnLeft_Top.Location = new System.Drawing.Point(0, 0);
             this.pnLeft_Top.Name = "pnLeft_Top";
             this.pnLeft_Top.Size = new System.Drawing.Size(510, 330);
             this.pnLeft_Top.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(510, 71);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Doanh số nhân viên tháng này";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chart_DoanhSoNVThangNay
             // 
@@ -113,33 +102,33 @@
             this.chart_DoanhSoNVThangNay.Name = "chart_DoanhSoNVThangNay";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Doanh số";
             this.chart_DoanhSoNVThangNay.Series.Add(series1);
             this.chart_DoanhSoNVThangNay.Size = new System.Drawing.Size(510, 259);
             this.chart_DoanhSoNVThangNay.TabIndex = 5;
             this.chart_DoanhSoNVThangNay.Text = "chart2";
             // 
+            // lbDoanhSoThang
+            // 
+            this.lbDoanhSoThang.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbDoanhSoThang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDoanhSoThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbDoanhSoThang.Location = new System.Drawing.Point(0, 0);
+            this.lbDoanhSoThang.Name = "lbDoanhSoThang";
+            this.lbDoanhSoThang.Size = new System.Drawing.Size(510, 71);
+            this.lbDoanhSoThang.TabIndex = 7;
+            this.lbDoanhSoThang.Text = "Doanh số nhân viên tháng ";
+            this.lbDoanhSoThang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnLeft_Bottom
             // 
             this.pnLeft_Bottom.Controls.Add(this.chart_DoanhThuThang);
-            this.pnLeft_Bottom.Controls.Add(this.label1);
+            this.pnLeft_Bottom.Controls.Add(this.lbDoanhThuThang);
             this.pnLeft_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnLeft_Bottom.Location = new System.Drawing.Point(0, 336);
             this.pnLeft_Bottom.Name = "pnLeft_Bottom";
             this.pnLeft_Bottom.Size = new System.Drawing.Size(510, 354);
             this.pnLeft_Bottom.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(510, 71);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Doanh thu tháng ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chart_DoanhThuThang
             // 
@@ -152,11 +141,23 @@
             this.chart_DoanhThuThang.Name = "chart_DoanhThuThang";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
+            series2.Name = "Doanh thu";
             this.chart_DoanhThuThang.Series.Add(series2);
             this.chart_DoanhThuThang.Size = new System.Drawing.Size(510, 283);
             this.chart_DoanhThuThang.TabIndex = 5;
             this.chart_DoanhThuThang.Text = "chart2";
+            // 
+            // lbDoanhThuThang
+            // 
+            this.lbDoanhThuThang.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbDoanhThuThang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbDoanhThuThang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbDoanhThuThang.Location = new System.Drawing.Point(0, 0);
+            this.lbDoanhThuThang.Name = "lbDoanhThuThang";
+            this.lbDoanhThuThang.Size = new System.Drawing.Size(510, 71);
+            this.lbDoanhThuThang.TabIndex = 6;
+            this.lbDoanhThuThang.Text = "Doanh thu tháng ";
+            this.lbDoanhThuThang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnRight
             // 
@@ -247,6 +248,7 @@
             // 
             // pnRight_Top
             // 
+            this.pnRight_Top.Controls.Add(this.btnDoiAvatar);
             this.pnRight_Top.Controls.Add(this.btnLamMoi);
             this.pnRight_Top.Controls.Add(this.picAvatar);
             this.pnRight_Top.Controls.Add(this.label8);
@@ -265,7 +267,7 @@
             // btnLamMoi
             // 
             this.btnLamMoi.AutoRoundedCorners = true;
-            this.btnLamMoi.BorderRadius = 21;
+            this.btnLamMoi.BorderRadius = 17;
             this.btnLamMoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnLamMoi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLamMoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -273,9 +275,9 @@
             this.btnLamMoi.FillColor = System.Drawing.Color.Gray;
             this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnLamMoi.ForeColor = System.Drawing.Color.White;
-            this.btnLamMoi.Location = new System.Drawing.Point(24, 255);
+            this.btnLamMoi.Location = new System.Drawing.Point(281, 283);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(180, 45);
+            this.btnLamMoi.Size = new System.Drawing.Size(180, 37);
             this.btnLamMoi.TabIndex = 43;
             this.btnLamMoi.Text = "Làm mới";
             // 
@@ -398,6 +400,24 @@
             this.label4.Text = "Thông tin nhân viên";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnDoiAvatar
+            // 
+            this.btnDoiAvatar.AutoRoundedCorners = true;
+            this.btnDoiAvatar.BorderRadius = 15;
+            this.btnDoiAvatar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDoiAvatar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDoiAvatar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDoiAvatar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDoiAvatar.FillColor = System.Drawing.Color.Gray;
+            this.btnDoiAvatar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnDoiAvatar.ForeColor = System.Drawing.Color.White;
+            this.btnDoiAvatar.Location = new System.Drawing.Point(12, 243);
+            this.btnDoiAvatar.Name = "btnDoiAvatar";
+            this.btnDoiAvatar.Size = new System.Drawing.Size(180, 33);
+            this.btnDoiAvatar.TabIndex = 43;
+            this.btnDoiAvatar.Text = "Đổi Avatar";
+            this.btnDoiAvatar.Click += new System.EventHandler(this.btnDoiAvatar_Click);
+            // 
             // F_TrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,10 +448,10 @@
         #endregion
         private Guna.UI2.WinForms.Guna2Panel pnLeft;
         private Guna.UI2.WinForms.Guna2Panel pnLeft_Top;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbDoanhSoThang;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_DoanhSoNVThangNay;
         private Guna.UI2.WinForms.Guna2Panel pnLeft_Bottom;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbDoanhThuThang;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_DoanhThuThang;
         private Guna.UI2.WinForms.Guna2Panel pnRight;
         private Guna.UI2.WinForms.Guna2Panel pnRight_Bottom;
@@ -447,5 +467,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtTenNV;
         private Guna.UI2.WinForms.Guna2TextBox txtMaNV;
         private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2Button btnDoiAvatar;
     }
 }

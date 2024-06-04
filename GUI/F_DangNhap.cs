@@ -67,7 +67,7 @@ namespace GUI
         tblNhanVien BatSuKien_DangNhapThanhCong()
         {
             DangNhapThanhCong?.Invoke(this, EventArgs.Empty);
-            return BUS_NhanVien.NhanVienTheoMa(BUS_TaiKhoan.TheoTenTaiKhoan(txtTenTaiKhoan.Text).MaNV);
+            return BUS_NhanVien.GetById(BUS_TaiKhoan.TheoTenTaiKhoan(txtTenTaiKhoan.Text).MaNV);
         }
 
         private void lbQMK_Click(object sender, EventArgs e)

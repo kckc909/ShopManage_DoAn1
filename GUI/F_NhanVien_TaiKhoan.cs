@@ -17,10 +17,12 @@ namespace GUI
         public event EventHandler FormClose;
         BUS_TaiKhoan BUS_TaiKhoan = new BUS_TaiKhoan();
         tblTaiKhoanMatKhau TK;
+        tblNhanVien NV;
         public F_NhanVien_TaiKhoan(tblNhanVien NV)
         {
             InitializeComponent();
             TK = BUS_TaiKhoan.TheoMaNhanVien(NV.MaNV);
+            this.NV = NV;
         }
 
         private void cbHienThiMatKhau_CheckedChanged(object sender, EventArgs e)
@@ -46,13 +48,22 @@ namespace GUI
             {
                 if (!txtMatKhau.Text.Trim().Equals(""))
                 {
-                    if (BUS_TaiKhoan.Check_TenTaiKhoanMoi(TK.TaiKhoan, txtTenTaiKhoan.Text))
+                    if (!BUS_TaiKhoan.Check_TrungTenTaiKhoan(txtTenTaiKhoan.Text))
                     {
-                        if (MessageBox.Show("Bạn có muốn thay đổi thông tin tài khoản ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (TK == null)
+                        {
+                            BUS_TaiKhoan.Them(new tblTaiKhoanMatKhau()
+                            {
+                                MaNV = NV.MaNV,
+                                TaiKhoan = txtTenTaiKhoan.Text,
+                                MatKhau = txtMatKhau.Text,
+                            });
+                        }
+                        else if (MessageBox.Show("Bạn có muốn thay đổi thông tin tài khoản ?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             BUS_TaiKhoan.Sua(TK.TaiKhoan, txtTenTaiKhoan.Text, txtMatKhau.Text);
-                            FormClose?.Invoke(this, e);
                         }
+                        FormClose?.Invoke(this, e);
                     }
                     else
                     {

@@ -186,10 +186,10 @@ namespace BUS
             //}
             //return ThanhTien;
         }
-        public List<int> DoanhSoNhanVienTheoThang(string MaNV, DateTime Month)
-        {
+        public List<(string Ngay, int DoanhSo)> DoanhSoNhanVienTheoThang(string MaNV, DateTime Month)
+        {   
             return dal_HDB.GetAll().Where(x => x.MaNV.Equals(MaNV) && x.NgayBan.Value.Month == Month.Month && x.NgayBan.Value.Year == Month.Year)
-                .Select(y => y.tblChiTietHDBs.Sum(z => z.SoLg * z.GiaBan).Value).ToList();
+                .Select(y => (y.NgayBan.Value.ToString("dd"), y.tblChiTietHDBs.Sum(z => z.SoLg * z.GiaBan).Value)).ToList();
         }
         public List<(string MaMH, string TenMH, int SoLuong, string date)> MatHangCanNhap()
         {

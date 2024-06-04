@@ -137,7 +137,7 @@ namespace GUI
             if (HDB != null)
             {
                 txtMaHD.Text = HDB.MaHDB;
-                NV = BUS_NhanVien.NhanVienTheoMa(HDB.MaNV);
+                NV = BUS_NhanVien.GetById(HDB.MaNV);
                 NV_LoadData();
                 KH = BUS_KhachHang.LayTheoMa(HDB.MaKH);
                 KH_LoadData();
@@ -221,7 +221,7 @@ namespace GUI
             if (HDN != null)
             {
                 txtMaHD.Text = HDN.MaHDN;
-                NV = BUS_NhanVien.NhanVienTheoMa(HDN.MaNV);
+                NV = BUS_NhanVien.GetById(HDN.MaNV);
                 NV_LoadData();
                 NCC = BUS_NhaCungCap.GetById(HDN.MaNCC);
                 NCC_LoadData();
@@ -273,6 +273,7 @@ namespace GUI
         }
         void HDN_TinhTien()
         {
+            HDN_Save(HDN);
             txtThanhTien.Text = BUS_HoaDonNhap.HDN_TinhTien(HDN.MaHDN).ToString();
         }
         void HDN_Save(tblHoaDonNhap tblHoaDonNhap)
@@ -301,7 +302,7 @@ namespace GUI
             Save();
             isHDB = true;
             HDB = e.HDB;
-            NV = BUS_NhanVien.NhanVienTheoMa(HDB.MaNV);
+            NV = BUS_NhanVien.GetById(HDB.MaNV);
             KH = e.KH;
             HDB_Modify();
             HDB_LoadData();

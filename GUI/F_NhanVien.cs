@@ -28,7 +28,7 @@ namespace GUI
         {
             dtg.AutoGenerateColumns = false;
             Add_Col_DSNV();
-            Load_Row_DSNV(BUS_NhanVien.DSNV());
+            Load_Row_DSNV(BUS_NhanVien.GetAll());
             cboCapQuyen.DataSource = BUS_NhanVien.GetAll_Quyen();
             cboCapQuyen.ValueMember = "CapQuyen";
             cboCapQuyen.DisplayMember = "Ten";
@@ -43,7 +43,7 @@ namespace GUI
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            Load_Row_DSNV(BUS_NhanVien.DSNV(txtTimKiem.Text));
+            Load_Row_DSNV(BUS_NhanVien.GetAll(txtTimKiem.Text));
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -59,8 +59,8 @@ namespace GUI
                 {
                     if (MessageBox.Show("Bạn có muốn xóa nhân viên này không!", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        BUS_NhanVien.Xoa(Current);
-                        Load_Row_DSNV(BUS_NhanVien.DSNV());
+                        BUS_NhanVien.Delete(Current);
+                        Load_Row_DSNV(BUS_NhanVien.GetAll());
                     }
                 }
                 else
@@ -108,7 +108,7 @@ namespace GUI
                     nv.Avatar = picName;
                     ImageChange = false;
                 }
-                BUS_NhanVien.Sua(Current, nv);
+                BUS_NhanVien.Update(Current, nv);
             }
         }
 
@@ -133,7 +133,7 @@ namespace GUI
                 DataGridViewCell cell = dtg.SelectedRows[0].Cells[0];
                 if (cell.Value != null)
                 {
-                    Current = BUS_NhanVien.NhanVienTheoMa(cell.Value.ToString());
+                    Current = BUS_NhanVien.GetById(cell.Value.ToString());
                     Load_Info_NV();
                 }
             }
@@ -237,7 +237,7 @@ namespace GUI
             rbtnNam.Checked = false;
             dtpNgaySinh.Value = DateTime.Today;
             Add_Col_DSNV();
-            Load_Row_DSNV(BUS_NhanVien.DSNV());
+            Load_Row_DSNV(BUS_NhanVien.GetAll());
             dtg.Rows[0].Selected = true;
         }
         
@@ -250,7 +250,7 @@ namespace GUI
         {
             ((Form)sender).Close();
             MessageBox.Show("Thêm nhân viên thành công!");
-            Load_Row_DSNV(BUS_NhanVien.DSNV());
+            Load_Row_DSNV(BUS_NhanVien.GetAll());
         }
 
         private void F_NhanVien_SizeChanged(object sender, EventArgs e)

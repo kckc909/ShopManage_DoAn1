@@ -10,12 +10,12 @@ namespace DAL
     public class DAL_TaiKhoanMatKhau
     {
         ShopDatabaseEntities db = new ShopDatabaseEntities();
-        public void Them(tblTaiKhoanMatKhau TaiKhoan)
+        public void Add(tblTaiKhoanMatKhau TaiKhoan)
         {
             db.tblTaiKhoanMatKhaus.Add(TaiKhoan);
             db.SaveChanges();
         }
-        public void Sua(tblTaiKhoanMatKhau OldTaiKhoanMatKhau, tblTaiKhoanMatKhau NewTaiKhoanMatKhau)
+        public void Update(tblTaiKhoanMatKhau OldTaiKhoanMatKhau, tblTaiKhoanMatKhau NewTaiKhoanMatKhau)
         {
             tblTaiKhoanMatKhau TaiKhoan = db.tblTaiKhoanMatKhaus.ToList().Find(x => Equals(x.TaiKhoan, OldTaiKhoanMatKhau.TaiKhoan));
 
@@ -24,7 +24,7 @@ namespace DAL
 
             db.SaveChanges();
         }
-        public void Sua(string TenTK, string TenTKMoi ,string MKMoi)
+        public void Update(string TenTK, string TenTKMoi ,string MKMoi)
         {
             tblTaiKhoanMatKhau tk = db.tblTaiKhoanMatKhaus.Find(TenTK);
             if (tk != null)
@@ -34,14 +34,14 @@ namespace DAL
                 db.SaveChanges();
             }
         }
-        public void Xoa(string TenTaiKhoan)
+        public void Delete(string TenTaiKhoan)
         {
-            var del_TKMK = DanhSachTaiKhoanMatKhau().Find(x => x.TaiKhoan == TenTaiKhoan);
+            var del_TKMK = GetAll().Find(x => x.TaiKhoan == TenTaiKhoan);
             if (del_TKMK is null) { return; }
             db.tblTaiKhoanMatKhaus.Remove(del_TKMK);
             db.SaveChanges();
         }
-        public List<tblTaiKhoanMatKhau> DanhSachTaiKhoanMatKhau()
+        public List<tblTaiKhoanMatKhau> GetAll()
         {
             List<tblTaiKhoanMatKhau> result = db.tblTaiKhoanMatKhaus.ToList();
             if (result.Count == 0)

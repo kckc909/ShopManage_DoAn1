@@ -48,6 +48,7 @@
             this.btnXacNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnXacNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnXacNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXacNhan.FillColor = System.Drawing.Color.Gray;
             this.btnXacNhan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnXacNhan.ForeColor = System.Drawing.Color.White;
             this.btnXacNhan.Location = new System.Drawing.Point(105, 318);
@@ -214,6 +215,7 @@
             this.Controls.Add(this.txtTenTaiKhoan);
             this.Controls.Add(this.btnXacNhan);
             this.Name = "F_DangNhap_QuenMatKhau";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_DangNhap_QuenMatKhau";
             this.ResumeLayout(false);
             this.PerformLayout();

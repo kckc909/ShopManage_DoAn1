@@ -9,7 +9,6 @@ namespace GUI
     public partial class C_CTHoaDonNhap : Form
     {
         public event EventHandler<EventArgsChiTietHDN> Event_ThayDoiSoLuong;
-        public event EventHandler Event_TinhThanhTien;
         BUS_MatHang BUS_MatHang = new BUS_MatHang();
         public tblChiTietHDN CTHDN;
         public C_CTHoaDonNhap(tblChiTietHDN CTHDN)
@@ -24,12 +23,6 @@ namespace GUI
         {
             int thanhtien = (CTHDN.GiaNhap * CTHDN.SoLg).Value;
             txtThanhTien.Text = thanhtien.ToString("C");
-            Raise_Event_TinhThanhTien();
-        }
-
-        void Raise_Event_TinhThanhTien()
-        {
-            Event_TinhThanhTien?.Invoke(this, EventArgs.Empty);
         }
 
         void Raise_Event_ThayDoiSoLuong()
@@ -62,7 +55,10 @@ namespace GUI
             if (CTHDN.SoLg <= 0)
             {
                 if (IsDisposed == false)
+                {
                     Close();
+                }    
+                Raise_Event_ThayDoiSoLuong();
             }
             else
             {
